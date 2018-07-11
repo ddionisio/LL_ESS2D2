@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "maxChars": {
+      "welcome": "50",
+      "tots": "10"
+    }
+  },
+  "en": {
+    "welcome": "Welcome!",
+    "test": "",
+    "tots": "Tots"
+  }
+}
