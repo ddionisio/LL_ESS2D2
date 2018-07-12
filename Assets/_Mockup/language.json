@@ -1,13 +1,11 @@
 {
   "_meta": {
     "maxChars": {
-      "welcome": "50",
-      "tots": "10"
+      "welcome": "50"
     }
   },
   "en": {
     "welcome": "Welcome!",
-    "test": "",
-    "tots": "Tots"
+    "title": "Project Sunflower"
   }
 }

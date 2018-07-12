@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224142648734329030}
   - component: {fileID: 223322233266316892}
   - component: {fileID: 114394265487853262}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224610331266027552}
   - component: {fileID: 223330083125044756}
-  m_Layer: 0
+  - component: {fileID: 114402636648338120}
+  m_Layer: 5
   m_Name: Modals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +56,7 @@ GameObject:
   - component: {fileID: 223645546130239610}
   - component: {fileID: 114569067776889458}
   - component: {fileID: 114613337822027190}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224031903770007308}
   - component: {fileID: 223524768074476208}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,6 +131,22 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114402636648338120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823478509481772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 3
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &114443538372004750
 MonoBehaviour:
   m_ObjectHideFlags: 1

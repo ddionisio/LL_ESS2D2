@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224815861699544648}
   - component: {fileID: 223020412164291516}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224590462220598088}
   - component: {fileID: 223952151582510004}
-  m_Layer: 0
+  - component: {fileID: 114045441122627488}
+  m_Layer: 5
   m_Name: Modals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ GameObject:
   - component: {fileID: 224049415691610132}
   - component: {fileID: 223376029961333854}
   - component: {fileID: 114262534666841144}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +89,7 @@ GameObject:
   - component: {fileID: 223387824288696086}
   - component: {fileID: 114856100232861472}
   - component: {fileID: 114069918717915086}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +110,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114045441122627488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461549523644290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 3
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &114069918717915086
 MonoBehaviour:
   m_ObjectHideFlags: 1
