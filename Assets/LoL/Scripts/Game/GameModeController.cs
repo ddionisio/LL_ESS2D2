@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameModeController : MonoBehaviour {
+public abstract class GameModeController<T> : M8.SingletonBehaviour<T> where T : MonoBehaviour {
     [Header("Mode Info")]
     public GameMode mode;
     public GameModeSignal signalModeChanged;
 
-    protected virtual void Awake() {
+    protected override void OnInstanceInit() {
+        base.OnInstanceInit();
+
         if(signalModeChanged)
             signalModeChanged.Invoke(mode);
     }

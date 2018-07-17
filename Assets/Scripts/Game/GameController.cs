@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : GameModeController {
+public class GameController : GameModeController<GameController> {
+    [Header("Data")]
+    public CardDeck cardDeck;
+
+    protected override void OnInstanceInit() {
+        base.OnInstanceInit();
 
 
-    protected override void Awake() {
-        base.Awake();
     }
 }
