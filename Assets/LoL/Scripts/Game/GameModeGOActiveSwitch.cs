@@ -28,17 +28,12 @@ public class GameModeGOActiveSwitch : MonoBehaviour {
     private int mCurState = -1;
 
     void OnDestroy() {
-        if(M8.SceneManager.isInstantiated)
-            M8.SceneManager.instance.sceneChangeCallback -= OnSceneStateChange;
-
         signalGameStateChanged.callback -= OnGameModeChanged;
     }
 
     void Awake() {
         for(int i = 0; i < states.Length; i++)
             states[i].Hide();
-
-        M8.SceneManager.instance.sceneChangeCallback += OnSceneStateChange;
 
         signalGameStateChanged.callback += OnGameModeChanged;
     }
@@ -63,13 +58,5 @@ public class GameModeGOActiveSwitch : MonoBehaviour {
             if(mCurState != -1)
                 states[mCurState].Show();
         }
-    }
-
-    void OnSceneStateChange(string nextScene) {
-        //hide current
-        if(mCurState != -1)
-            states[mCurState].Hide();
-
-        mCurState = -1;
     }
 }
