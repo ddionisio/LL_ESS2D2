@@ -20,13 +20,7 @@ public class WeatherCycle : MonoBehaviour {
 
     [Header("Data")]
     public CycleData[] cycles;
-
-    [Header("Signals")]
-    public M8.Signal signalCycleBegin;
-    public M8.Signal signalCycleEnd;
-    public M8.Signal signalWeatherBegin;
-    public M8.Signal signalWeatherEnd;
-
+        
     public int curCycleIndex { get; private set; }
     public int curWeatherIndex { get; private set; }
 
@@ -49,6 +43,11 @@ public class WeatherCycle : MonoBehaviour {
     }
 
     public bool isCycleRunning { get { return mCycleRout != null; } }
+
+    public event System.Action cycleBeginCallback;
+    public event System.Action cycleEndCallback;
+    public event System.Action weatherBeginCallback;
+    public event System.Action weatherEndCallback;
 
     private float mTotalDuration;
     private float mStartTimeCycle;
@@ -87,26 +86,26 @@ public class WeatherCycle : MonoBehaviour {
 
         var curCycle = cycles[curCycleIndex];
 
-        if(signalCycleBegin)
-            signalCycleBegin.Invoke();
+        if(cycleBeginCallback != null)
+            cycleBeginCallback();
 
         var weatherWait = new WaitForSeconds(curCycle.weatherDuration);
 
         for(curWeatherIndex = 0; curWeatherIndex < curCycle.weathers.Length; curWeatherIndex++) {
             mStartTimeWeather = Time.time;
 
-            if(signalWeatherBegin)
-                signalWeatherBegin.Invoke();
+            if(weatherBeginCallback != null)
+                weatherBeginCallback();
 
             yield return weatherWait;
 
-            if(signalWeatherEnd)
-                signalWeatherEnd.Invoke();
+            if(weatherEndCallback != null)
+                weatherEndCallback();
         }
 
         mCycleRout = null;
 
-        if(signalCycleEnd)
-            signalCycleEnd.Invoke();
+        if(cycleEndCallback != null)
+            cycleEndCallback();
     }
 }

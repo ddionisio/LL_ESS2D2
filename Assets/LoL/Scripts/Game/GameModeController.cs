@@ -8,9 +8,13 @@ public abstract class GameModeController<T> : M8.SingletonBehaviour<T> where T :
     public GameModeSignal signalModeChanged;
 
     protected override void OnInstanceInit() {
-        base.OnInstanceInit();
-
         if(signalModeChanged)
             signalModeChanged.Invoke(mode);
+    }
+
+    protected override void OnInstanceDeinit() {
+        //invalidate mode
+        if(signalModeChanged)
+            signalModeChanged.Invoke(null);
     }
 }

@@ -3,7 +3,16 @@ guid: fa6bd518a19419e4dadd88e97ed9b2f8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - activator: {instanceID: 0}
+  - signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09,
+      type: 2}
+  - signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
+  - signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
+  - stateSpawning: {fileID: 11400000, guid: ae3e4a796b3509d4fa00487f4a15aa1f, type: 2}
+  - stateSpawned: {fileID: 11400000, guid: d94f3801e65f48f47a6d5f69d2112da2, type: 2}
+  - stateNormal: {fileID: 11400000, guid: 28644c1d89eb6b147be7a7a89f138018, type: 2}
+  - stateDespawning: {fileID: 11400000, guid: 980718fa9ad27b843ae6ee9356af7de4, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
