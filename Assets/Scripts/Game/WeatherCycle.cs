@@ -45,6 +45,7 @@ public class WeatherCycle : MonoBehaviour {
     public bool isCycleRunning { get { return mCycleRout != null; } }
 
     public event System.Action cycleBeginCallback;
+    public event System.Action cycleNextCallback;
     public event System.Action cycleEndCallback;
     public event System.Action weatherBeginCallback;
     public event System.Action weatherEndCallback;
@@ -71,6 +72,10 @@ public class WeatherCycle : MonoBehaviour {
             return false;
 
         curCycleIndex++;
+
+        if(cycleNextCallback != null)
+            cycleNextCallback();
+
         return true;
     }
 

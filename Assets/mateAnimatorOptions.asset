@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -19,7 +19,7 @@ MonoBehaviour:
   disableTimelineActions: 0
   disableTimelineActionsTooltip: 0
   showFramesForCollapsedTracks: 1
-  resetTakeOnClose: 1
+  resetTakeOnClose: 0
   gizmo_size: 0.05
   framesPerPage: 60
   maxPage: 2

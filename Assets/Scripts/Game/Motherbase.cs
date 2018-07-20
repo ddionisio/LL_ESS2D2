@@ -129,9 +129,11 @@ public class Motherbase : MonoBehaviour {
         var flowerSpawnLeftXs = new float[flowerCapacity];
         var flowerSpawnRightXs = new float[flowerCapacity];
 
+        var worldPos = transform.position;
+
         for(int i = 0; i < flowerCapacity; i++) {
-            flowerSpawnLeftXs[i] = spawnAreaLeft.xMin + (flowerRegionExtLeft * (i + 1));
-            flowerSpawnRightXs[i] = spawnAreaRight.xMin + (flowerRegionExtRight * (i + 1));
+            flowerSpawnLeftXs[i] = worldPos.x + spawnAreaLeft.xMin + (flowerRegionExtLeft * (i + 1));
+            flowerSpawnRightXs[i] = worldPos.x + spawnAreaRight.xMin + (flowerRegionExtRight * (i + 1));
         }
 
         M8.ArrayUtil.Shuffle(flowerSpawnLeftXs);
@@ -140,11 +142,14 @@ public class Motherbase : MonoBehaviour {
         mSpawnPointLeft = new Vector2[flowerCapacity];
         mSpawnPointRight = new Vector2[flowerCapacity];
 
+        var worldSpawnAreaLeft = new Rect(spawnAreaLeft.min + (Vector2)worldPos, spawnAreaLeft.size);
+        var worldSpawnAreaRight = new Rect(spawnAreaRight.min + (Vector2)worldPos, spawnAreaRight.size);
+
         for(int i = 0; i < flowerCapacity; i++) {
-            var leftGroundPt = LevelGroundPosition.FromPointInBounds(spawnAreaLeft, new Vector2(flowerSpawnLeftXs[i], spawnAreaLeft.yMax), spawnGroundLayerMask);
+            var leftGroundPt = LevelGroundPosition.FromPointInBounds(worldSpawnAreaLeft, new Vector2(flowerSpawnLeftXs[i], worldSpawnAreaLeft.yMax), spawnGroundLayerMask);
             mSpawnPointLeft[i] = leftGroundPt.position;
 
-            var rightGroundPt = LevelGroundPosition.FromPointInBounds(spawnAreaRight, new Vector2(flowerSpawnRightXs[i], spawnAreaRight.yMax), spawnGroundLayerMask);
+            var rightGroundPt = LevelGroundPosition.FromPointInBounds(worldSpawnAreaRight, new Vector2(flowerSpawnRightXs[i], worldSpawnAreaRight.yMax), spawnGroundLayerMask);
             mSpawnPointRight[i] = rightGroundPt.position;
         }
     }
@@ -168,7 +173,11 @@ public class Motherbase : MonoBehaviour {
     IEnumerator DoEnter() {
         mState = State.Entering;
 
-        yield return null;
+        if(animator && !string.IsNullOrEmpty(takeEnter)) {
+            animator.Play(takeEnter);
+            while(animator.isPlaying)
+                yield return null;
+        }
 
         mState = State.None;
         mRout = null;
@@ -220,5 +229,16 @@ public class Motherbase : MonoBehaviour {
     void OnFlowerRelease(M8.EntityBase ent) {
         ent.releaseCallback -= OnFlowerRelease;
         mFlowers.Remove((UnitAllyFlower)ent);
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = new Color(0.75f, 0.75f, 0f, 0.8f);
+
+        var worldPos = transform.position;
+
+        Gizmos.DrawSphere((Vector3)spawnStart + worldPos, 0.35f);
+
+        Gizmos.DrawWireCube((Vector3)spawnAreaLeft.center + worldPos, spawnAreaLeft.size);
+        Gizmos.DrawWireCube((Vector3)spawnAreaRight.center + worldPos, spawnAreaRight.size);
     }
 }

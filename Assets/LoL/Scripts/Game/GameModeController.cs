@@ -8,6 +8,10 @@ public abstract class GameModeController<T> : M8.SingletonBehaviour<T> where T :
     public GameModeSignal signalModeChanged;
 
     protected override void OnInstanceInit() {
+        //ensure UIRoot exists
+        if(!UIRoot.isInstantiated)
+            UIRoot.Reinstantiate();
+
         if(signalModeChanged)
             signalModeChanged.Invoke(mode);
     }
