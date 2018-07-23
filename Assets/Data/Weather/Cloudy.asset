@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6b292407ca563e4f82ca273dadc5066, type: 3}
-  m_Name: Mostly Sunny
+  m_Name: Cloudy
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  titleRef: 
-  detailRef: 
+  titleRef: weatherCloudy
+  detailRef: weatherCloudyDesc

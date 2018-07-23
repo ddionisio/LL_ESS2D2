@@ -11,7 +11,6 @@ public class GameController : GameModeController<GameController> {
     [Header("Level Info")]
     public GameBounds2D levelBounds;
     public LayerMask levelGroundLayerMask;
-    public float levelCycleStartDelay = 1f;
 
     /// <summary>
     /// Called before starting current cycle
@@ -49,7 +48,7 @@ public class GameController : GameModeController<GameController> {
         if(prepareCycleCallback != null)
             prepareCycleCallback();
 
-        yield return new WaitForSeconds(levelCycleStartDelay);
+        yield return new WaitForSeconds(GameData.instance.levelCycleStartDelay);
 
         weatherCycle.StartCurCycle();
     }

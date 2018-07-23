@@ -1,16 +1,84 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeatherWindWidget : MonoBehaviour {
+    [Header("Display")]
+    public Text infoLabel;
+    public Transform pointerRoot;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [Header("Data")]
+    public float changeDelay = 0.3f;
+
+    private bool mIsCyclePlaying;
+    private Vector2 mCurPointerVel;
+
+    private float mCurSpeed;
+    private float mCurSpeedValVel;
+
+    void OnDestroy() {
+        if(GameController.isInstantiated) {
+            GameController.instance.prepareCycleCallback -= OnPrepareCycle;
+
+            var weatherCycle = GameController.instance.weatherCycle;
+            if(weatherCycle) {
+                weatherCycle.cycleBeginCallback -= OnCycleBegin;
+                weatherCycle.cycleEndCallback -= OnCycleEnd;
+                weatherCycle.weatherBeginCallback -= OnCycleWeatherBegin;
+            }
+        }
+    }
+
+    void Awake() {
+        GameController.instance.prepareCycleCallback += OnPrepareCycle;
+
+        var weatherCycle = GameController.instance.weatherCycle;
+        weatherCycle.cycleBeginCallback += OnCycleBegin;
+        weatherCycle.cycleEndCallback += OnCycleEnd;
+        weatherCycle.weatherBeginCallback += OnCycleWeatherBegin;
+    }
+
+    void Update() {
+        if(mIsCyclePlaying) {
+            var curWeather = GameController.instance.weatherCycle.curWeather;
+
+            Vector2 curDir = pointerRoot.up;
+            Vector2 toDir = curWeather.windDir;
+            if(curDir != toDir) {
+                pointerRoot.up = Vector2.SmoothDamp(curDir, toDir, ref mCurPointerVel, changeDelay);
+            }
+
+            float speed = curWeather.windSpeed;
+            if(mCurSpeed != speed) {
+                mCurSpeed = Mathf.SmoothDamp(mCurSpeed, speed, ref mCurSpeedValVel, changeDelay);
+                ApplyCurrentSpeedDisplay();
+            }
+        }
+    }
+
+    private void ApplyCurrentSpeedDisplay() {
+        int val = Mathf.RoundToInt(mCurSpeed);
+        infoLabel.text = val.ToString() + "\nmph";
+    }
+
+    void OnPrepareCycle() {
+        pointerRoot.up = Vector2.up;
+
+        mCurSpeed = 0f;
+        ApplyCurrentSpeedDisplay();
+    }
+
+    void OnCycleBegin() {
+        mIsCyclePlaying = true;
+    }
+
+    void OnCycleEnd() {
+        mIsCyclePlaying = false;
+    }
+
+    void OnCycleWeatherBegin() {
+        mCurPointerVel = Vector2.zero;
+        mCurSpeedValVel = 0f;
+    }
 }

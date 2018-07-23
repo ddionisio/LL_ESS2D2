@@ -24,12 +24,15 @@ public class WeatherCycle : MonoBehaviour {
     public int curCycleIndex { get; private set; }
     public int curWeatherIndex { get; private set; }
 
+    public CycleData curCycleData { get { return cycles[curCycleIndex]; } }
+    public WeatherData curWeather { get { return cycles[curCycleIndex].weathers[curWeatherIndex]; } }
+
     /// <summary>
     /// Current progress of cycle [0, 1]
     /// </summary>
     public float curCycleProgress {
         get {
-            return Mathf.Clamp01((Time.time - mStartTimeCycle) / cycles[curCycleIndex].weatherDuration);
+            return Mathf.Clamp01((Time.time - mStartTimeCycle) / cycles[curCycleIndex].duration);
         }
     }
 
@@ -38,7 +41,7 @@ public class WeatherCycle : MonoBehaviour {
     /// </summary>
     public float curWeatherProgress {
         get {
-            return Mathf.Clamp01((Time.time - mStartTimeWeather) / cycles[curCycleIndex].duration);
+            return Mathf.Clamp01((Time.time - mStartTimeWeather) / cycles[curCycleIndex].weatherDuration);
         }
     }
 

@@ -6,6 +6,18 @@
   },
   "en": {
     "welcome": "Welcome!",
-    "title": "Project Sunflower"
+    "title": "Project Sunflower",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "weatherSunny": "Sunny",
+    "weatherSunnyDesc": "It's always sunny.",
+    "weatherPartlySunny": "Partly Sunny",
+    "weatherPartlySunnyDesc": "Sunny'ish.",
+    "weatherMostlyCloudy": "Mostly Cloudy",
+    "weatherMostlyCloudyDesc": "Clouds, clouds everywhere.",
+    "weatherCloudy": "Cloudy",
+    "weatherCloudyDesc": "Just clouds.",
+    "weatherClear": "Clear",
+    "weatherClearDesc": "No clouds allowed."
   }
 }
