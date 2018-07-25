@@ -5,8 +5,12 @@ using UnityEngine;
 public class WeatherCycle : MonoBehaviour {
     [System.Serializable]
     public class CycleData {
+        [Header("Weather Info")]
         public WeatherData[] weathers;
         public float duration;
+
+        [Header("Growth")]
+        public float flowerGrowthMod; //global flower growth based on current cycle
 
         public float weatherDuration {
             get {

@@ -27,7 +27,19 @@ public class UnitAllyFlower : Unit {
     private Coroutine mGrowRout;
     private float mGrowthRate; //growth/second
     private float mGrowth;
-    private Dictionary<int, float> mGrowthMods = new Dictionary<int, float>();
+    private Dictionary<string, float> mGrowthMods = new Dictionary<string, float>();
+
+    public void ApplyGrowthMod(string id, float mod) {
+        if(mGrowthMods.ContainsKey(id))
+            mGrowthMods[id] = mod;
+        else
+            mGrowthMods.Add(id, mod);
+    }
+
+    public void RemoveGrowthMod(string id) {
+        if(mGrowthMods.ContainsKey(id))
+            mGrowthMods.Remove(id);
+    }
 
     protected override void StateChanged() {
         base.StateChanged();
@@ -95,9 +107,15 @@ public class UnitAllyFlower : Unit {
     private float GetGrowthRate() {
         float rate = mGrowthRate;
 
+        //apply global rate from cycle and weather
+        var curCycle = GameController.instance.weatherCycle.curCycleData;
+        var curWeather = GameController.instance.weatherCycle.curWeather;
+
+        rate += (mGrowthRate * curCycle.flowerGrowthMod) + (mGrowthRate * curWeather.flowerGrowthMod);
+
         foreach(var pair in mGrowthMods)
             rate += mGrowthRate*pair.Value;
-
+                
         if(rate < 0f)
             rate = 0f;
 

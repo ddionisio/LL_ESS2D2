@@ -14,6 +14,9 @@ public class WeatherData {
     public int humidityPercent;
     public int precipitationPercent;
 
+    [Header("Growth")]
+    public float flowerGrowthMod; //global flower growth based on current weather
+
     public Vector2 windDir {
         get {
             if(!mIsWindInfoSet)

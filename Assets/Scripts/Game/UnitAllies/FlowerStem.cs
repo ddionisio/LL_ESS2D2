@@ -36,7 +36,7 @@ public class FlowerStem : MonoBehaviour {
             if(stemScale.y != 0f) leavesScale.y /= stemScale.y;
             if(stemScale.z != 0f) leavesScale.z /= stemScale.z;
 
-            leavesGO.transform.localScale = stemScale;
+            leavesGO.transform.localScale = leavesScale;
         }
     }
 

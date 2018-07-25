@@ -191,6 +191,7 @@ MonoBehaviour:
       windSpeed: 4
       humidityPercent: 40
       precipitationPercent: 10
+      flowerGrowthMod: 0
     - type: {fileID: 11400000, guid: 170ce778c4cacf044b7f2a56aeadf375, type: 2}
       uvLevel: 8
       temperature: 73
@@ -198,6 +199,7 @@ MonoBehaviour:
       windSpeed: 5
       humidityPercent: 55
       precipitationPercent: 14
+      flowerGrowthMod: 0
     - type: {fileID: 11400000, guid: c8b220e78bbaaef499b56cfa1b591c40, type: 2}
       uvLevel: 8
       temperature: 70
@@ -205,6 +207,7 @@ MonoBehaviour:
       windSpeed: 6
       humidityPercent: 50
       precipitationPercent: 34
+      flowerGrowthMod: 0
     - type: {fileID: 11400000, guid: d81baa804cf6f1c489e888cf8fbc800a, type: 2}
       uvLevel: 8
       temperature: 68
@@ -212,7 +215,9 @@ MonoBehaviour:
       windSpeed: 7
       humidityPercent: 48
       precipitationPercent: 43
+      flowerGrowthMod: 0
     duration: 60
+    flowerGrowthMod: -0.3
 --- !u!4 &1090176074
 Transform:
   m_ObjectHideFlags: 0
@@ -740,13 +745,13 @@ MonoBehaviour:
   spawnStart: {x: 0, y: 1.59}
   spawnAreaLeft:
     serializedVersion: 2
-    x: -6
+    x: -5.52
     y: -0.35
     width: 4.5
     height: 3
   spawnAreaRight:
     serializedVersion: 2
-    x: 1.04
+    x: 0.97
     y: -0.35
     width: 4.5
     height: 3
