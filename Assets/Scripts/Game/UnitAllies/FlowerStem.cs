@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FlowerStem : MonoBehaviour {
-    public float leafOfsY;
+    public GameObject leavesGO;
+
+    public float maxGrowth = 1.0f;
     public float topOfsY;
 
     public float growth {
@@ -15,29 +17,35 @@ public class FlowerStem : MonoBehaviour {
         }
     }
 
-    public Vector2 leafWorldPosition {
+    public Vector2 topWorldPosition {
         get {
-            var localPos = transform.localPosition;
-            localPos.y += leafOfsY;
-            var pos = transform.localToWorldMatrix.MultiplyPoint3x4(localPos);
+            var pos = transform.localToWorldMatrix.MultiplyPoint3x4(new Vector3(0f, topOfsY, 0f));
             return pos;
         }
     }
 
-    public Vector2 topWorldPosition {
-        get {
-            var localPos = transform.localPosition;
-            localPos.y += topOfsY;
-            var pos = transform.localToWorldMatrix.MultiplyPoint3x4(localPos);
-            return pos;
+    public void ShowLeaves() {
+        if(!leavesGO.activeSelf) {
+            leavesGO.SetActive(true);
+
+            //invert leaves scale
+            var stemScale = transform.localScale;
+            var leavesScale = Vector3.one;
+
+            if(stemScale.x != 0f) leavesScale.x /= stemScale.x;
+            if(stemScale.y != 0f) leavesScale.y /= stemScale.y;
+            if(stemScale.z != 0f) leavesScale.z /= stemScale.z;
+
+            leavesGO.transform.localScale = stemScale;
         }
+    }
+
+    void Awake() {
+        leavesGO.SetActive(false);
     }
 
     void OnDrawGizmos() {
         const float radius = 0.1f;
-
-        Gizmos.color = new Color(0.0f, 1.0f, 0.0f, 0.4f);
-        Gizmos.DrawSphere(leafWorldPosition, radius);
 
         Gizmos.color = new Color(0.75f, 0.75f, 0f, 0.4f);
         Gizmos.DrawSphere(topWorldPosition, radius);
