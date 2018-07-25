@@ -7,6 +7,8 @@
   "en": {
     "welcome": "Welcome!",
     "title": "Project Sunflower",
+    "cycle": "CYCLE {0}",
+    "cycleStart": "BEGIN",
     "humidity": "Humidity",
     "wind": "Wind",
     "weatherSunny": "Sunny",

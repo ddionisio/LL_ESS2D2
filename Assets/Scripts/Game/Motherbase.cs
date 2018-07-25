@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Motherbase : MonoBehaviour {
     public const string poolGroupRef = "flowerUnitPool";
-    public const int flowerPoolCapacityMultiplier = 3;
+    public const int flowerCapacity = 12;
 
     public enum State {
         None,
@@ -20,8 +20,7 @@ public class Motherbase : MonoBehaviour {
 
     [Header("Flower Info")]
     public GameObject flowerPrefab;
-    public int flowerSpawnCount = 4;
-
+    
     [Header("Spawn Info")]
     public float spawnUnitHeightOffsetMin = 2.0f;
     public float spawnUnitHeightOffsetMax = 3.0f;
@@ -65,29 +64,27 @@ public class Motherbase : MonoBehaviour {
         mRout = StartCoroutine(DoEnter());
     }
 
-    public void SpawnFlowers() {
-        for(int i = 0; i < flowerSpawnCount; i++) {
-            //grab point
-            Vector2 spawnDest;
+    public void SpawnFlower() {
+        //grab point
+        Vector2 spawnDest;
 
-            if(mIsFlowerSpawnLeft) {
-                spawnDest = mSpawnPointLeft[mFlowerSpawnLeftCounter];
-                mFlowerSpawnLeftCounter = (mFlowerSpawnLeftCounter + 1) % mSpawnPointLeft.Length;
-            }
-            else {
-                spawnDest = mSpawnPointRight[mFlowerSpawnRightCounter];
-                mFlowerSpawnRightCounter = (mFlowerSpawnRightCounter + 1) % mSpawnPointRight.Length;
-            }
-
-            mIsFlowerSpawnLeft = !mIsFlowerSpawnLeft;
-
-            //spawn flower
-            var flower = mFlowerPool.Spawn<UnitAllyFlower>(flowerPrefab.name, "", null, null);
-            flower.releaseCallback += OnFlowerRelease;
-            mFlowers.Add(flower);
-
-            AddSpawn(flower, spawnStart, spawnDest);
+        if(mIsFlowerSpawnLeft) {
+            spawnDest = mSpawnPointLeft[mFlowerSpawnLeftCounter];
+            mFlowerSpawnLeftCounter = (mFlowerSpawnLeftCounter + 1) % mSpawnPointLeft.Length;
         }
+        else {
+            spawnDest = mSpawnPointRight[mFlowerSpawnRightCounter];
+            mFlowerSpawnRightCounter = (mFlowerSpawnRightCounter + 1) % mSpawnPointRight.Length;
+        }
+
+        mIsFlowerSpawnLeft = !mIsFlowerSpawnLeft;
+
+        //spawn flower
+        var flower = mFlowerPool.Spawn<UnitAllyFlower>(flowerPrefab.name, "", null, null);
+        flower.releaseCallback += OnFlowerRelease;
+        mFlowers.Add(flower);
+
+        AddSpawn(flower, spawnStart + (Vector2)transform.position, spawnDest);
     }
 
     /// <summary>
@@ -110,12 +107,10 @@ public class Motherbase : MonoBehaviour {
             mSpawnPointRightCounter = (mSpawnPointRightCounter + 1) % mSpawnPointRight.Length;
         }
 
-        AddSpawn(unit, spawnStart, spawnDest);
+        AddSpawn(unit, spawnStart + (Vector2)transform.position, spawnDest);
     }
 
     void Awake() {
-        int flowerCapacity = flowerSpawnCount * flowerPoolCapacityMultiplier;
-
         //initialize pool
         mFlowerPool = M8.PoolController.CreatePool(poolGroupRef);
         mFlowerPool.AddType(flowerPrefab, flowerCapacity, flowerCapacity);
@@ -123,15 +118,17 @@ public class Motherbase : MonoBehaviour {
         mFlowers = new M8.CacheList<UnitAllyFlower>(flowerCapacity);
 
         //Generate flower spawn points
-        float flowerRegionExtLeft = (spawnAreaLeft.width / flowerCapacity) * 0.5f;
-        float flowerRegionExtRight = (spawnAreaRight.width / flowerCapacity) * 0.5f;
+        int flowerRegionDivisible = flowerCapacity / 2;
 
-        var flowerSpawnLeftXs = new float[flowerCapacity];
-        var flowerSpawnRightXs = new float[flowerCapacity];
+        float flowerRegionExtLeft = (spawnAreaLeft.width / flowerRegionDivisible) * 0.5f;
+        float flowerRegionExtRight = (spawnAreaRight.width / flowerRegionDivisible) * 0.5f;
+
+        var flowerSpawnLeftXs = new float[flowerRegionDivisible];
+        var flowerSpawnRightXs = new float[flowerRegionDivisible];
 
         var worldPos = transform.position;
 
-        for(int i = 0; i < flowerCapacity; i++) {
+        for(int i = 0; i < flowerRegionDivisible; i++) {
             flowerSpawnLeftXs[i] = worldPos.x + spawnAreaLeft.xMin + (flowerRegionExtLeft * (i + 1));
             flowerSpawnRightXs[i] = worldPos.x + spawnAreaRight.xMin + (flowerRegionExtRight * (i + 1));
         }
@@ -139,13 +136,13 @@ public class Motherbase : MonoBehaviour {
         M8.ArrayUtil.Shuffle(flowerSpawnLeftXs);
         M8.ArrayUtil.Shuffle(flowerSpawnRightXs);
 
-        mSpawnPointLeft = new Vector2[flowerCapacity];
-        mSpawnPointRight = new Vector2[flowerCapacity];
+        mSpawnPointLeft = new Vector2[flowerRegionDivisible];
+        mSpawnPointRight = new Vector2[flowerRegionDivisible];
 
         var worldSpawnAreaLeft = new Rect(spawnAreaLeft.min + (Vector2)worldPos, spawnAreaLeft.size);
         var worldSpawnAreaRight = new Rect(spawnAreaRight.min + (Vector2)worldPos, spawnAreaRight.size);
 
-        for(int i = 0; i < flowerCapacity; i++) {
+        for(int i = 0; i < flowerRegionDivisible; i++) {
             var leftGroundPt = LevelGroundPosition.FromPointInBounds(worldSpawnAreaLeft, new Vector2(flowerSpawnLeftXs[i], worldSpawnAreaLeft.yMax), spawnGroundLayerMask);
             mSpawnPointLeft[i] = leftGroundPt.position;
 
@@ -223,14 +220,14 @@ public class Motherbase : MonoBehaviour {
             unitTrans.position = M8.MathUtil.Bezier(start, midPoint, end, t);            
         }
 
-        unit.state = unit.stateSpawned;
+        unit.state = unit.stateNormal;
     }
 
     void OnFlowerRelease(M8.EntityBase ent) {
         ent.releaseCallback -= OnFlowerRelease;
         mFlowers.Remove((UnitAllyFlower)ent);
     }
-
+    
     void OnDrawGizmos() {
         Gizmos.color = new Color(0.75f, 0.75f, 0f, 0.8f);
 

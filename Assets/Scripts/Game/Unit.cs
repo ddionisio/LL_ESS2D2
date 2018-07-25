@@ -5,7 +5,6 @@ using UnityEngine;
 public class Unit : M8.EntityBase {
     [Header("States")]
     public M8.EntityState stateSpawning;
-    public M8.EntityState stateSpawned;
     public M8.EntityState stateNormal;
     public M8.EntityState stateDespawning;
 
@@ -13,11 +12,6 @@ public class Unit : M8.EntityBase {
     public GameObject displayRootGO;
     public GameObject spawnRootGO;
     
-    [Header("Spawn")]
-    public M8.Animator.Animate spawnAnimator;
-    public string spawnTakeStart;
-    public string spawnTakeEnd;
-
     protected Coroutine mRout;
 
     public virtual void SetDisplayActive(bool active) {
@@ -39,12 +33,12 @@ public class Unit : M8.EntityBase {
         if(state == stateSpawning) {
             if(spawnRootGO)
                 spawnRootGO.SetActive(true);
-
-            if(spawnAnimator && !string.IsNullOrEmpty(spawnTakeStart))
-                spawnAnimator.Play(spawnTakeStart);
         }
-        else if(state == stateSpawned) {
-            mRout = StartCoroutine(DoSpawnFinish());
+        else if(state == stateNormal) {
+            if(spawnRootGO)
+                spawnRootGO.SetActive(false);
+
+            SetDisplayActive(true);
         }
     }
 
@@ -83,18 +77,5 @@ public class Unit : M8.EntityBase {
         base.Start();
 
         //initialize variables from other sources (for communicating with managers, etc.)
-    }
-
-    IEnumerator DoSpawnFinish() {
-        if(spawnAnimator && !string.IsNullOrEmpty(spawnTakeEnd)) {
-            spawnAnimator.Play(spawnTakeEnd);
-            while(spawnAnimator.isPlaying)
-                yield return null;
-        }
-
-        if(spawnRootGO)
-            spawnRootGO.SetActive(false);
-
-        state = stateNormal;
     }
 }
