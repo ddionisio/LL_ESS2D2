@@ -21,13 +21,58 @@ public class UnitAllyFlower : Unit {
     public GameObject stemTemplate;
     public int stemMaxCount = 3;
 
+    public float growth { get { return mGrowth; } }
+
     private FlowerStem[] mStems;
     private int mCurStemIndex;
 
     private Coroutine mGrowRout;
     private float mGrowthRate; //growth/second
     private float mGrowth;
+    private float mGrowthMax;
     private Dictionary<string, float> mGrowthMods = new Dictionary<string, float>();
+
+    public void ApplyGrowth(float growthDelta) {
+        var curStem = mStems[mCurStemIndex];
+                
+        float stemGrowth = mGrowth % growthStemValue;
+
+        mGrowth = Mathf.Clamp(mGrowth + growthDelta, 0f, mGrowthMax);
+
+        stemGrowth += growthDelta;
+
+        float stemVal = Mathf.Clamp(stemGrowth / growthStemValue, 0f, curStem.maxGrowth);
+
+        curStem.growth = stemVal;
+
+        if(stemGrowth >= growthStemValue) {
+            stemGrowth = stemGrowth - growthStemValue;
+
+            if(mCurStemIndex < mStems.Length - 1) {
+                curStem.ShowLeaves();
+
+                mCurStemIndex++;
+                                
+                curStem = mStems[mCurStemIndex];
+                curStem.gameObject.SetActive(true);
+            }
+        }
+        else if(stemGrowth < 0f) {
+            curStem.HideLeaves();
+            curStem.gameObject.SetActive(false);
+
+            if(mCurStemIndex > 0) {
+                mCurStemIndex--;
+
+                curStem = mStems[mCurStemIndex];
+                curStem.HideLeaves();
+
+                curStem.growth = Mathf.Clamp((growthStemValue - stemGrowth) / growthStemValue, 0f, curStem.maxGrowth);
+            }
+        }
+
+        budGO.transform.position = curStem.topWorldPosition;
+    }
 
     public void ApplyGrowthMod(string id, float mod) {
         if(mGrowthMods.ContainsKey(id))
@@ -41,12 +86,18 @@ public class UnitAllyFlower : Unit {
             mGrowthMods.Remove(id);
     }
 
+    public float GetGrowthRate(float mod) {
+        return mGrowthRate * mod;
+    }
+
     protected override void StateChanged() {
         base.StateChanged();
 
-        StopGrowRoutine();
+        if(prevState == UnitStates.instance.normal) {
+            StopGrowRoutine();
+        }
 
-        if(state == stateNormal) {
+        if(state == UnitStates.instance.normal) {
             //start growth
             mGrowRout = StartCoroutine(DoGrow());
         }
@@ -56,8 +107,8 @@ public class UnitAllyFlower : Unit {
         base.OnSpawned(parms);
 
         //determine growth rate
-        float growthScale = (growthStemValue * stemMaxCount) / growthCycleStemCount;
-        mGrowthRate = growthScale / GameController.instance.weatherCycle.curCycleData.duration;
+        float growthMaxCycle = growthStemValue * growthCycleStemCount;
+        mGrowthRate = growthMaxCycle / GameController.instance.weatherCycle.curCycleData.duration;
 
         GameController.instance.weatherCycle.cycleEndCallback += OnCycleEnd;
     }
@@ -71,11 +122,19 @@ public class UnitAllyFlower : Unit {
         mGrowthMods.Clear();
 
         mGrowth = 0f;
+
+        for(int i = 0; i < stemMaxCount; i++) {
+            mStems[i].growth = 0f;
+            mStems[i].HideLeaves();
+            mStems[i].gameObject.SetActive(false);
+        }
     }
 
     protected override void Awake() {
         base.Awake();
-                
+
+        mGrowthMax = growthStemValue * stemMaxCount;
+
         //initialize stems
         mStems = new FlowerStem[stemMaxCount];
 
@@ -89,6 +148,8 @@ public class UnitAllyFlower : Unit {
             newGO.SetActive(false);
 
             stemY += mStems[i].topOfsY;
+
+            mStems[i].growth = 0f;
         }
 
         stemTemplate.SetActive(false);
@@ -129,54 +190,28 @@ public class UnitAllyFlower : Unit {
 
         blossomGO.SetActive(true);
         blossomGO.transform.position = mStems[mCurStemIndex].topWorldPosition;
+
+        float blossomT = Mathf.Clamp01(mGrowth / mGrowthMax);
+        float blossomScale = Mathf.Lerp(flowerMinScale, flowerMaxScale, blossomT);
+
+        blossomGO.transform.localScale = new Vector3(blossomScale, blossomScale, 1.0f);
     }
 
     IEnumerator DoGrow() {
         mCurStemIndex = 0;
 
-        float maxGrowth = growthStemValue * stemMaxCount;
-        float stemGrowth = 0f;
-
         budGO.SetActive(true);
 
-        var budT = budGO.transform;
+        var curStem = mStems[mCurStemIndex];
+        curStem.gameObject.SetActive(true);
 
-        FlowerStem curStem = null;
-
-        while(mGrowth < maxGrowth) {
-            if(!curStem) {
-                curStem = mStems[mCurStemIndex];
-                curStem.gameObject.SetActive(true);
-
-                curStem.growth = 0f;
-            }
-
-            budT.position = curStem.topWorldPosition;
-
+        while(mGrowth < mGrowthMax) {
             yield return null;
 
             float growthRate = GetGrowthRate();
-
             float growthDelta = growthRate * Time.deltaTime;
 
-            mGrowth += growthDelta;
-
-            stemGrowth += growthDelta;
-
-            float stemVal = Mathf.Clamp(stemGrowth / growthStemValue, 0f, curStem.maxGrowth);
-
-            curStem.growth = stemVal;
-
-            if(stemGrowth >= growthStemValue) {
-                stemGrowth = stemGrowth - growthStemValue;
-
-                if(mCurStemIndex < mStems.Length - 1)
-                    mCurStemIndex++;
-
-                curStem.ShowLeaves();
-
-                curStem = null;
-            }
+            ApplyGrowth(growthDelta);
         }
 
         mGrowRout = null;
@@ -185,7 +220,7 @@ public class UnitAllyFlower : Unit {
     void OnCycleEnd() {
         GameController.instance.weatherCycle.cycleEndCallback -= OnCycleEnd;
                 
-        if(state != stateNormal) //only blossom if we are in a normal state
+        if(state != UnitStates.instance.normal) //only blossom if we are in a normal state
             return;
 
         if(mGrowRout != null) {

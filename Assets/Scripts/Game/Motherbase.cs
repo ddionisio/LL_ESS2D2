@@ -55,6 +55,21 @@ public class Motherbase : MonoBehaviour {
     private int mFlowerSpawnLeftCounter;
     private int mFlowerSpawnRightCounter;
 
+    public UnitAllyFlower GetNearestFlower(float x) {
+        UnitAllyFlower flower = null;
+        float nearestDist = float.MaxValue;
+
+        for(int i = 0; i < mFlowers.Count; i++) {
+            float dist = Mathf.Abs(mFlowers[i].position.x - x);
+            if(dist < nearestDist) {
+                flower = mFlowers[i];
+                nearestDist = dist;
+            }
+        }
+
+        return flower;
+    }
+
     public void Enter() {
         if(mState == State.Entering)
             return;
@@ -200,7 +215,7 @@ public class Motherbase : MonoBehaviour {
     }
 
     IEnumerator DoUnitSpawn(Unit unit, Vector2 start, Vector2 end) {
-        unit.state = unit.stateSpawning;
+        unit.state = UnitStates.instance.spawning;
 
         var unitTrans = unit.transform;
 
@@ -220,7 +235,7 @@ public class Motherbase : MonoBehaviour {
             unitTrans.position = M8.MathUtil.Bezier(start, midPoint, end, t);            
         }
 
-        unit.state = unit.stateNormal;
+        unit.state = UnitStates.instance.normal;
     }
 
     void OnFlowerRelease(M8.EntityBase ent) {

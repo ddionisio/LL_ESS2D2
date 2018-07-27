@@ -23,7 +23,7 @@ public class FlowerStem : MonoBehaviour {
             return pos;
         }
     }
-
+        
     public void ShowLeaves() {
         if(!leavesGO.activeSelf) {
             leavesGO.SetActive(true);
@@ -38,6 +38,10 @@ public class FlowerStem : MonoBehaviour {
 
             leavesGO.transform.localScale = leavesScale;
         }
+    }
+
+    public void HideLeaves() {
+        leavesGO.SetActive(false);
     }
 
     void Awake() {

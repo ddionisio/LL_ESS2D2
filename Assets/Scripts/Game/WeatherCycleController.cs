@@ -2,41 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeatherCycle : MonoBehaviour {
-    [System.Serializable]
-    public class CycleData {
-        [Header("Weather Info")]
-        public WeatherData[] weathers;
-        public float duration;
-
-        [Header("Growth")]
-        public float flowerGrowthMod; //global flower growth based on current cycle
-
-        public float weatherDuration {
-            get {
-                if(weathers.Length <= 0)
-                    return 0f;
-
-                return duration / weathers.Length;
-            }
-        }
-    }
-
-    [Header("Data")]
-    public CycleData[] cycles;
+public class WeatherCycleController : MonoBehaviour {
+    
+    public WeatherCycleData data;
         
     public int curCycleIndex { get; private set; }
     public int curWeatherIndex { get; private set; }
 
-    public CycleData curCycleData { get { return cycles[curCycleIndex]; } }
-    public WeatherData curWeather { get { return cycles[curCycleIndex].weathers[curWeatherIndex]; } }
+    public WeatherCycleData.CycleData curCycleData { get { return data.cycles[curCycleIndex]; } }
+    public WeatherData curWeather { get { return data.cycles[curCycleIndex].weathers[curWeatherIndex]; } }
 
     /// <summary>
     /// Current progress of cycle [0, 1]
     /// </summary>
     public float curCycleProgress {
         get {
-            return Mathf.Clamp01((Time.time - mStartTimeCycle) / cycles[curCycleIndex].duration);
+            return Mathf.Clamp01((Time.time - mStartTimeCycle) / data.cycles[curCycleIndex].duration);
         }
     }
 
@@ -45,7 +26,7 @@ public class WeatherCycle : MonoBehaviour {
     /// </summary>
     public float curWeatherProgress {
         get {
-            return Mathf.Clamp01((Time.time - mStartTimeWeather) / cycles[curCycleIndex].weatherDuration);
+            return Mathf.Clamp01((Time.time - mStartTimeWeather) / data.cycles[curCycleIndex].weatherDuration);
         }
     }
 
@@ -75,7 +56,7 @@ public class WeatherCycle : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public bool NextCycle() {
-        if(curCycleIndex >= cycles.Length - 1)
+        if(curCycleIndex >= data.cycles.Length - 1)
             return false;
 
         curCycleIndex++;
@@ -96,7 +77,7 @@ public class WeatherCycle : MonoBehaviour {
     IEnumerator DoCurCycle() {
         mStartTimeCycle = Time.time;
 
-        var curCycle = cycles[curCycleIndex];
+        var curCycle = data.cycles[curCycleIndex];
 
         if(cycleBeginCallback != null)
             cycleBeginCallback();

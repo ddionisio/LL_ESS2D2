@@ -113,6 +113,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &127539741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 127539743}
+  - component: {fileID: 127539742}
+  m_Layer: 0
+  m_Name: cycleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &127539742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127539741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430f82b3000c5cb4dbf1cd96d3e716a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycles:
+  - spawns:
+    - label: testMole1
+      color: {r: 0.8396226, g: 0.37624598, b: 0.37624598, a: 1}
+      prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      delay: 4
+      position: {x: 12.46, y: -1.48}
+      dirAngle: -90
+  editCycleIndex: 0
+--- !u!4 &127539743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127539741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &139195633
 Prefab:
   m_ObjectHideFlags: 0
@@ -182,42 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bc590d582040a428fd7e5b9d28ae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cycles:
-  - weathers:
-    - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
-      uvLevel: 8
-      temperature: 80
-      windAngle: -80
-      windSpeed: 4
-      humidityPercent: 40
-      precipitationPercent: 10
-      flowerGrowthMod: 0
-    - type: {fileID: 11400000, guid: 170ce778c4cacf044b7f2a56aeadf375, type: 2}
-      uvLevel: 8
-      temperature: 73
-      windAngle: -72
-      windSpeed: 5
-      humidityPercent: 55
-      precipitationPercent: 14
-      flowerGrowthMod: 0
-    - type: {fileID: 11400000, guid: c8b220e78bbaaef499b56cfa1b591c40, type: 2}
-      uvLevel: 8
-      temperature: 70
-      windAngle: -90
-      windSpeed: 6
-      humidityPercent: 50
-      precipitationPercent: 34
-      flowerGrowthMod: 0
-    - type: {fileID: 11400000, guid: d81baa804cf6f1c489e888cf8fbc800a, type: 2}
-      uvLevel: 8
-      temperature: 68
-      windAngle: -86
-      windSpeed: 7
-      humidityPercent: 48
-      precipitationPercent: 43
-      flowerGrowthMod: 0
-    duration: 60
-    flowerGrowthMod: -0.3
+  data: {fileID: 11400000, guid: aa610a142a7940045916d818c19e5334, type: 2}
 --- !u!4 &1090176074
 Transform:
   m_ObjectHideFlags: 0
@@ -384,7 +398,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4486883140041604, guid: 8c119d73dabef6d4da8e16eec4bd28d2, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1765010702723550, guid: 8c119d73dabef6d4da8e16eec4bd28d2, type: 2}
       propertyPath: m_IsActive
@@ -879,5 +893,55 @@ Transform:
   m_Children:
   - {fileID: 1464418963}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1939717853
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146470624580722, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451686913754902, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 2}
+  m_IsPrefabAsset: 0

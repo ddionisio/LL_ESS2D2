@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameController : GameModeController<GameController> {
     [Header("Controls")]
-    public CardDeck cardDeck;
-    public WeatherCycle weatherCycle;
+    public CardDeckController cardDeck;
+    public WeatherCycleController weatherCycle;
     public Motherbase motherbase;
 
     [Header("Level Info")]

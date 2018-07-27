@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardDeck : MonoBehaviour {
+public class CardDeckController : MonoBehaviour {
     public const string poolGroupRef = "cardUnitPool";
 
     public enum CardState {

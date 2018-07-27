@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 45a78f21a0112d9429ea1bedaedd7b8f
+guid: 5f787fcfcc613e248a2926884d535253
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -11,10 +11,6 @@ MonoImporter:
   - signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
   - displayRootGO: {instanceID: 0}
   - spawnRootGO: {instanceID: 0}
-  - stemRoot: {instanceID: 0}
-  - budGO: {instanceID: 0}
-  - blossomGO: {instanceID: 0}
-  - stemTemplate: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -3,16 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : M8.EntityBase {
-    [Header("States")]
-    public M8.EntityState stateSpawning;
-    public M8.EntityState stateNormal;
-    public M8.EntityState stateDespawning;
-
     [Header("Display")]
     public GameObject displayRootGO;
     public GameObject spawnRootGO;
+
+    public Rigidbody2D body { get; private set; }
+
+    public Vector2 position {
+        get {
+            return body && body.simulated ? body.position : (Vector2)transform.position;
+        }
+
+        set {
+            if(body && body.simulated)
+                body.position = value;
+            else
+                transform.position = value;
+        }
+    }
     
     protected Coroutine mRout;
+
+    public bool GetGroundPoint(LayerMask groundLayerMask, out UnitPoint point) {
+        return UnitPoint.GetGroundPoint(position, groundLayerMask, out point);
+    }
+
+    public void ApplyUnitPoint(UnitPoint point) {
+        if(body && body.simulated) {
+            body.position = point.position;
+
+            float dirSign = Mathf.Sign(point.up.x);
+
+            body.rotation = dirSign * Vector2.Angle(Vector2.up, point.up);
+        }
+        else {
+            transform.position = point.position;
+            transform.up = point.up;
+        }
+    }
 
     public virtual void SetDisplayActive(bool active) {
         if(displayRootGO)
@@ -30,11 +58,11 @@ public class Unit : M8.EntityBase {
         StopRoutine();
 
         //spawn states are set via Motherbase or EnemyController
-        if(state == stateSpawning) {
+        if(state == UnitStates.instance.spawning) {
             if(spawnRootGO)
                 spawnRootGO.SetActive(true);
         }
-        else if(state == stateNormal) {
+        else if(state == UnitStates.instance.normal) {
             if(spawnRootGO)
                 spawnRootGO.SetActive(false);
 
@@ -48,12 +76,17 @@ public class Unit : M8.EntityBase {
 
         if(spawnRootGO)
             spawnRootGO.SetActive(false);
+
+        if(body) {
+            body.rotation = 0f;
+            body.simulated = false;
+        }
     }
 
     protected override void OnSpawned(M8.GenericParams parms) {
-        //populate data/state for ai, player control, etc.
-
-        //start ai, player control, etc
+        //set position if available
+        if(parms != null && parms.ContainsKey(UnitSpawnParams.position))
+            position = parms.GetValue<Vector2>(UnitSpawnParams.position);
     }
 
     protected override void OnDestroy() {
@@ -64,6 +97,10 @@ public class Unit : M8.EntityBase {
 
     protected override void Awake() {
         base.Awake();
+
+        body = GetComponent<Rigidbody2D>();
+        if(body)
+            body.simulated = false;
 
         //initialize data/variables
         SetDisplayActive(false);
