@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4277895853060788}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: gameDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4603127788834708}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: spawnDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,9 +53,9 @@ GameObject:
   - component: {fileID: 50556928323825064}
   - component: {fileID: 58919794298550408}
   - component: {fileID: 114218628625328864}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: mole
-  m_TagString: Untagged
+  m_TagString: ObstacleGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -46,7 +46,7 @@ public class WeatherCycleWidget : MonoBehaviour {
 
     private bool mIsCyclePlaying;
 
-    void OnDestroy() {
+    void OnDisable() {
         if(GameController.isInstantiated) {
             GameController.instance.prepareCycleCallback -= OnPrepareCycle;
 
@@ -60,10 +60,7 @@ public class WeatherCycleWidget : MonoBehaviour {
         }
     }
 
-    void Awake() {
-        for(int i = 0; i < weatherSlots.Length; i++)
-            weatherSlots[i].Init();
-        
+    void OnEnable() {
         GameController.instance.prepareCycleCallback += OnPrepareCycle;
 
         var weatherCycle = GameController.instance.weatherCycle;
@@ -71,6 +68,11 @@ public class WeatherCycleWidget : MonoBehaviour {
         weatherCycle.cycleEndCallback += OnCycleEnd;
         weatherCycle.weatherBeginCallback += OnCycleWeatherBegin;
         weatherCycle.weatherEndCallback += OnCycleWeatherEnd;
+    }
+
+    void Awake() {
+        for(int i = 0; i < weatherSlots.Length; i++)
+            weatherSlots[i].Init();
     }
 
     void Update() {

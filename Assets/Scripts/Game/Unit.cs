@@ -9,6 +9,10 @@ public class Unit : M8.EntityBase {
 
     public Rigidbody2D body { get; private set; }
 
+    public bool isMarked { get { return mMarkCounter > 0; } }
+
+    public virtual Unit target { get { return null; }  }
+
     public Vector2 position {
         get {
             return body && body.simulated ? body.position : (Vector2)transform.position;
@@ -23,6 +27,18 @@ public class Unit : M8.EntityBase {
     }
     
     protected Coroutine mRout;
+
+    private int mMarkCounter;
+
+    /// <summary>
+    /// Increase/decrease mark counter, make sure to called with marked=false at some point
+    /// </summary>
+    public void SetMark(bool marked) {
+        if(marked)
+            mMarkCounter++;
+        else
+            mMarkCounter--;
+    }
 
     public bool GetGroundPoint(LayerMask groundLayerMask, out UnitPoint point) {
         return UnitPoint.GetGroundPoint(position, groundLayerMask, out point);
@@ -81,6 +97,8 @@ public class Unit : M8.EntityBase {
             body.rotation = 0f;
             body.simulated = false;
         }
+
+        mMarkCounter = 0;
     }
 
     protected override void OnSpawned(M8.GenericParams parms) {

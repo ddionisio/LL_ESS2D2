@@ -12,12 +12,12 @@ public class WeatherCycleStartWidget : MonoBehaviour {
     public M8.Animator.Animate animator;
     public string takeCycleStart;
 
-    void OnDestroy() {
+    void OnDisable() {
         if(GameController.isInstantiated)
             GameController.instance.prepareCycleCallback -= OnCyclePrepare;
     }
 
-    void Awake() {
+    void OnEnable() {
         //ensure display is 'hidden'
         if(animator && !string.IsNullOrEmpty(takeCycleStart))
             animator.ResetTake(takeCycleStart);

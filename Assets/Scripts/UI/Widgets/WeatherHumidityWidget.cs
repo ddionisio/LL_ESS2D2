@@ -14,7 +14,7 @@ public class WeatherHumidityWidget : MonoBehaviour {
     private bool mIsCyclePlaying;
     private float mFillVel;
 
-    void OnDestroy() {
+    void OnDisable() {
         if(GameController.isInstantiated) {
             GameController.instance.prepareCycleCallback -= OnPrepareCycle;
 
@@ -27,7 +27,7 @@ public class WeatherHumidityWidget : MonoBehaviour {
         }
     }
 
-    void Awake() {
+    void OnEnable() {
         GameController.instance.prepareCycleCallback += OnPrepareCycle;
 
         var weatherCycle = GameController.instance.weatherCycle;

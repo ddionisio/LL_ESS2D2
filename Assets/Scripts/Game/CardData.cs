@@ -12,6 +12,11 @@ public class CardData : ScriptableObject {
     public Sprite icon; //show when dragging to world
     public Sprite image; //for card/description
 
+    [Header("Target Info")]
+    public string targetReticleName;
+    public string[] targetTagFilters;
+    public LayerMask targetLayerMask;
+
     [M8.Localize]
     public string titleRef;
     [M8.Localize]

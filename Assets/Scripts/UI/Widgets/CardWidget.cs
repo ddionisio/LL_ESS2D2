@@ -24,9 +24,11 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     private Graphic mBaseGraphic;
 
+    private float mDeployBorderY;
+
     private bool mIsDragging;
 
-    public void Init(CardDeckController.CardItem cardItem) {
+    public void Init(CardDeckController.CardItem cardItem, float deployBorderY) {
         Deinit(); //fail-safe
 
         mCardItem = cardItem;
@@ -43,7 +45,9 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
         cardCountLabel.text = mCardItem.curCount.ToString();
 
-        ApplyCurrentFill();
+        OnCardUpdateState();
+
+        mDeployBorderY = deployBorderY;
 
         mCardItem.stateChangeCallback += OnCardUpdateState;
         mCardItem.countUpdateCallback += OnCardUpdateCount;
@@ -95,8 +99,7 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         else if(mCardItem.curState == CardState.Disabled) {
             ApplyCardActive(false);
 
-            cardFill.gameObject.SetActive(true);
-            cardFill.fillAmount = 1.0f;
+            cardFill.gameObject.SetActive(false);
         }
     }
 
@@ -140,17 +143,34 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         }
     }
 
+    private void StartDragging() {
+        if(!mIsDragging) {
+            mIsDragging = true;
+
+            cardDrag.gameObject.SetActive(true);
+
+            cardDrag.Init(mCardItem.card);
+            cardDrag.SetShow(true);
+        }
+    }
+
     private void StopDragging() {
         if(mIsDragging) {
             mIsDragging = false;
 
-            cardDrag.gameObject.SetActive(false);            
+            cardDrag.gameObject.SetActive(false);
         }
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {
+        if(mCardItem.curState != CardState.Active)
+            return;
+
         //apply info to cardDrag, activate
-        mIsDragging = true;
+        StartDragging();
+
+        //update position
+        cardDrag.transform.position = eventData.position;
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData) {
@@ -158,9 +178,34 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             return;
 
         //update position, show reticle when above border
+        var curPos = eventData.position;
+
+        if(curPos.y < mDeployBorderY) {
+            cardDrag.SetShow(true);
+
+            //reticle hide
+
+            cardDrag.transform.position = curPos;
+        }
+        else {
+            cardDrag.SetShow(false);
+
+            //reticle show
+
+            //reticle position
+        }
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData) {
+        if(mIsDragging) {
+            var curPos = eventData.position;
+
+            //check if deployable, then deploy
+            if(curPos.y > mDeployBorderY) {
+
+            }
+        }
+
         StopDragging();
     }
 }

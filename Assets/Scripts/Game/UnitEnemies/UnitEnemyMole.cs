@@ -15,6 +15,8 @@ public class UnitEnemyMole : Unit {
     public string takeGrab;
     public string takeLeave;
 
+    public override Unit target { get { return mFlowerTarget; } }
+
     private UnitAllyFlower mFlowerTarget;
 
     private Vector2 mCurMoveDir;

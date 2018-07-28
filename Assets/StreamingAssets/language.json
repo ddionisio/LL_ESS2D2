@@ -20,6 +20,8 @@
     "weatherCloudy": "Cloudy",
     "weatherCloudyDesc": "Just clouds.",
     "weatherClear": "Clear",
-    "weatherClearDesc": "No clouds allowed."
+    "weatherClearDesc": "No clouds allowed.",
+    "unitAllyMallet": "Mallet Guy",
+    "unitAllyMalletDesc": "He has a mallet."
   }
 }

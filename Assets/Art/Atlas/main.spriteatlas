@@ -31,6 +31,7 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: f26a3b21dd514724894aae9a64b64a74, type: 3}
     - {fileID: 102900000, guid: ecda9944367b8a946bb3afe734689c25, type: 3}
+    - {fileID: 102900000, guid: dde9830d06527474482c8c7cf7c93d05, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -39,6 +40,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9d8fbf46f402b0146b8769ec84c39665, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
   - {fileID: 21300000, guid: c52d5648fbba71642814e3808a69151c, type: 3}
+  - {fileID: 21300000, guid: 844605f805d618f4caad901324485ed3, type: 3}
   - {fileID: 21300006, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300000, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300008, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
@@ -49,7 +51,9 @@ SpriteAtlas:
   - {fileID: 21300002, guid: 1936bac986127cb4bad904bfad92c266, type: 3}
   - {fileID: 21300000, guid: 7168da6aea1c4154bbc52d54856e6639, type: 3}
   - {fileID: 21300000, guid: 3d08dbdaf9c06f2439eccbb55350e795, type: 3}
+  - {fileID: 21300000, guid: 3e373dcba9d42384b901f8003cea65dc, type: 3}
   - {fileID: 21300000, guid: c9248bdc58960c24fbfbfb7a7a523e14, type: 3}
+  - {fileID: 21300000, guid: 3d2d295dca89a164386dea4bfa0936a0, type: 3}
   - {fileID: 21300000, guid: c5a54a7e88b59e547a8905c1ad93d892, type: 3}
   - {fileID: 21300000, guid: ca1617ce466bced4986045f4e834640a, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -58,6 +62,7 @@ SpriteAtlas:
   - weatherCycleDataArrow
   - circle16x16
   - quarterCircle
+  - cardImagePlaceholder
   - blank4x4_bottomLeft
   - blank4x4_bottom
   - blank4x4_border
@@ -68,7 +73,9 @@ SpriteAtlas:
   - shade_bottom
   - gradient8x8
   - weatherCycleBase
+  - cardBase
   - weatherCycleDataBase
+  - cardIconPlaceholder
   - edge_shade
   - weatherCycleArrow
   m_Tag: main

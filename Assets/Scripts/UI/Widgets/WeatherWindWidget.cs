@@ -17,7 +17,7 @@ public class WeatherWindWidget : MonoBehaviour {
     private float mCurSpeed;
     private float mCurSpeedValVel;
 
-    void OnDestroy() {
+    void OnDisable() {
         if(GameController.isInstantiated) {
             GameController.instance.prepareCycleCallback -= OnPrepareCycle;
 
@@ -30,7 +30,7 @@ public class WeatherWindWidget : MonoBehaviour {
         }
     }
 
-    void Awake() {
+    void OnEnable() {
         GameController.instance.prepareCycleCallback += OnPrepareCycle;
 
         var weatherCycle = GameController.instance.weatherCycle;

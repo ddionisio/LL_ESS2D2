@@ -6,7 +6,10 @@ public class GameController : GameModeController<GameController> {
     [Header("Controls")]
     public CardDeckController cardDeck;
     public WeatherCycleController weatherCycle;
+
     public Motherbase motherbase;
+
+    public CardDeployReticle[] cardDeployReticles;
 
     [Header("Level Info")]
     public GameBounds2D levelBounds;
@@ -36,9 +39,8 @@ public class GameController : GameModeController<GameController> {
 
     }
 
-    IEnumerator Start() {
-        while(M8.SceneManager.instance.isLoading)
-            yield return null;
+    protected override IEnumerator Start() {
+        yield return base.Start();
 
         motherbase.Enter();
         while(motherbase.state == Motherbase.State.Entering)
