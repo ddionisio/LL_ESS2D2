@@ -5,20 +5,12 @@ using UnityEngine;
 public class CardDeckController : MonoBehaviour {
     public const string poolGroupRef = "cardUnitPool";
 
-    public enum CardState {
-        Active,
-        Disabled,
-        Hidden
-    }
-
-    [System.Serializable]
+    public CardDeckData deckData;
+    
     public class CardItem {
-        public CardData card;
+        public CardData card { get; private set; }
 
-        public CardState startState;
-        public int startCount;
-        public int maxCount;
-
+        public event System.Action stateChangeCallback;
         public event System.Action countUpdateCallback;
 
         public CardState curState {
@@ -33,6 +25,9 @@ public class CardDeckController : MonoBehaviour {
             set {
                 if(mCurState != value) {
                     mCurState = value;
+
+                    if(stateChangeCallback != null)
+                        stateChangeCallback();
                 }
             }
         }
@@ -40,10 +35,12 @@ public class CardDeckController : MonoBehaviour {
         public int curCount {
             get { return mCurCount; }
             set {
-                int newVal = Mathf.Clamp(value, 0, maxCount);
+                int newVal = value >= 0 ? value : 0;
 
                 if(mCurCount != newVal) {
                     mCurCount = newVal;
+
+                    mCurCooldown = 0f; //visual purpose
 
                     if(countUpdateCallback != null)
                         countUpdateCallback();
@@ -60,23 +57,34 @@ public class CardDeckController : MonoBehaviour {
             }
         }
 
+        public CardItem(M8.PoolController unitPool, CardDeckData.Item cardInfo) {
+            card = cardInfo.card;
+            mCurState = cardInfo.startState;
+            mCurCount = cardInfo.startCount;
+            mCurCooldown = card.cooldownDuration;
+            mPendingCount = 0;
+
+            mPool = unitPool;
+
+            mPool.AddType(card.unitPrefab, mCurCount, mCurCount);
+        }
+
         public Unit SpawnUnit(M8.GenericParams parms) {
             return mPool.Spawn<Unit>(card.unitPrefab.name, "", null, parms);
         }
 
-        public void Init(M8.PoolController unitPool) {
-            mCurState = startState;
-            mCurCount = startCount;
-            mCurCooldown = card.cooldownDuration;
-
-            mPool = unitPool;
-
-            mPool.AddType(card.unitPrefab, maxCount, maxCount);
+        public void IncrementPendingCount() {
+            mPendingCount++;
+            mCurCooldown = 0f;
         }
-
+                
         public void Update(float deltaTime) {
-            if(mCurCooldown < card.cooldownDuration) {
+            if(mPendingCount > 0) {
                 mCurCooldown = Mathf.Clamp(mCurCooldown + deltaTime, 0f, card.cooldownDuration);
+                if(mCurCooldown == card.cooldownDuration) {
+                    mPendingCount--;
+                    curCount++;
+                }
             }
         }
 
@@ -84,12 +92,24 @@ public class CardDeckController : MonoBehaviour {
         private int mCurCount;
         private float mCurCooldown;
 
+        private int mPendingCount;
+
         private M8.PoolController mPool;
     }
 
-    public CardItem[] cards;
+    public CardItem[] cards { get; private set; }
 
     private M8.PoolController mUnitPool;
+
+    public CardItem GetCardItem(Unit unit) {
+        for(int i = 0; i < cards.Length; i++) {
+            string templateName = unit.spawnType;
+            if(cards[i].card.unitPrefab.name == templateName)
+                return cards[i];
+        }
+
+        return null;
+    }
 
     void OnDestroy() {
         if(mUnitPool)
@@ -99,8 +119,10 @@ public class CardDeckController : MonoBehaviour {
     void Awake() {
         mUnitPool = M8.PoolController.CreatePool(poolGroupRef);
 
+        cards = new CardItem[deckData.cards.Length];
+
         for(int i = 0; i < cards.Length; i++) {
-            cards[i].Init(mUnitPool);
+            cards[i] = new CardItem(mUnitPool, deckData.cards[i]);
         }
     }
 

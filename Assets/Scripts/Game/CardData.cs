@@ -9,10 +9,14 @@ public class CardData : ScriptableObject {
     public float cooldownDuration;
 
     [Header("Display")]
-    public Sprite image;
+    public Sprite icon; //show when dragging to world
+    public Sprite image; //for card/description
 
     [M8.Localize]
-    public string nameRef;
+    public string titleRef;
     [M8.Localize]
     public string descriptionRef;
+
+    public string title { get { return M8.Localize.Get(titleRef); } }
+    public string description { get { return M8.Localize.Get(descriptionRef); } }
 }

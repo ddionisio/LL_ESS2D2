@@ -16,9 +16,9 @@ TagManager:
   - Touch
   - Solid
   - Flower
+  - FlowerTrigger
   - Obstacle
   - ObstacleTrigger
-  - 
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Frontground
     uniqueID: 2487484283
+    locked: 0
+  - name: Interface
+    uniqueID: 2199506255
     locked: 0
