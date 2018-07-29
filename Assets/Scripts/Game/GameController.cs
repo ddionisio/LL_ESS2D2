@@ -29,14 +29,23 @@ public class GameController : GameModeController<GameController> {
     /// </summary>
     public event System.Action endCallback;
     
-    public LevelGroundPosition GetGroundPosition(Vector2 pos) {
-        return LevelGroundPosition.FromPointInBounds(levelBounds.rect, pos, levelGroundLayerMask);
+    public CardDeployReticle GetCardDeployReticle(string reticleName) {
+        for(int i = 0; i < cardDeployReticles.Length; i++) {
+            if(cardDeployReticles[i].name == reticleName)
+                return cardDeployReticles[i];
+        }
+
+        return null;
     }
 
     protected override void OnInstanceInit() {
         base.OnInstanceInit();
 
-
+        //hide deploy reticles
+        for(int i = 0; i < cardDeployReticles.Length; i++) {
+            if(cardDeployReticles[i])
+                cardDeployReticles[i].gameObject.SetActive(false);
+        }
     }
 
     protected override IEnumerator Start() {

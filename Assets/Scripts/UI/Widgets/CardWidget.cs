@@ -26,6 +26,7 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     private float mDeployBorderY;
 
+    private CardDeployReticle mDeployReticle;
     private bool mIsDragging;
 
     public void Init(CardDeckController.CardItem cardItem, float deployBorderY) {
@@ -152,6 +153,12 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             cardDrag.Init(mCardItem.card);
             cardDrag.SetShow(true);
         }
+
+        if(!mDeployReticle) {
+            mDeployReticle = GameController.instance.GetCardDeployReticle(mCardItem.card.targetReticleName);
+            if(mDeployReticle)
+                mDeployReticle.Init(mCardItem.card);
+        }
     }
 
     private void StopDragging() {
@@ -159,6 +166,11 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             mIsDragging = false;
 
             cardDrag.gameObject.SetActive(false);
+        }
+
+        if(mDeployReticle) {
+            mDeployReticle.Hide();
+            mDeployReticle = null;
         }
     }
 
@@ -184,6 +196,7 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             cardDrag.SetShow(true);
 
             //reticle hide
+            if(mDeployReticle) mDeployReticle.Hide();
 
             cardDrag.transform.position = curPos;
         }
@@ -191,8 +204,10 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             cardDrag.SetShow(false);
 
             //reticle show
-
-            //reticle position
+            if(mDeployReticle) {
+                mDeployReticle.Show();
+                mDeployReticle.UpdatePosition(curPos);
+            }
         }
     }
 

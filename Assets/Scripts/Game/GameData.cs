@@ -25,6 +25,7 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
 
     [Header("Global Level Settings")]
     public float levelCycleStartDelay = 1.0f;
+    public LayerMask groundLayerMask;
 
     public bool isGameStarted { get; private set; } //true: we got through start normally, false: debug
     public int curLevelIndex { get; private set; }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UnitEnemyMole : Unit {
     [Header("Data")]
-    public LayerMask groundLayerMask;
     public float moveSpeed;
     public float growthEatMod;
 
@@ -155,7 +154,7 @@ public class UnitEnemyMole : Unit {
 
     private void UpdatePosition(Vector2 toPos) {
         UnitPoint point;
-        if(UnitPoint.GetGroundPoint(toPos, groundLayerMask, out point)) {
+        if(UnitPoint.GetGroundPoint(toPos, out point)) {
             ApplyUnitPoint(point);
 
             mCurMoveDir = M8.MathUtil.Rotate(Vector2.up, mDirSign * M8.MathUtil.HalfPI);

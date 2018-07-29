@@ -40,8 +40,8 @@ public class Unit : M8.EntityBase {
             mMarkCounter--;
     }
 
-    public bool GetGroundPoint(LayerMask groundLayerMask, out UnitPoint point) {
-        return UnitPoint.GetGroundPoint(position, groundLayerMask, out point);
+    public bool GetGroundPoint(out UnitPoint point) {
+        return UnitPoint.GetGroundPoint(position, out point);
     }
 
     public void ApplyUnitPoint(UnitPoint point) {

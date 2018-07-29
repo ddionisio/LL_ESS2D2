@@ -11,23 +11,20 @@ public class CardDeckWidget : MonoBehaviour {
     private CardWidget[] mCards;
 
     private float mDeployBorderY;
+    private int mCurCardCount;
 
     void OnEnable() {
         var cardDeck = GameController.instance.cardDeck;
 
-        int deckCardCount = cardDeck.cards.Length;
+        mCurCardCount = cardDeck.cards.Length;
 
-        for(int i = 0; i < deckCardCount; i++) {
+        for(int i = 0; i < mCurCardCount; i++) {
             if(cardDeck.cards[i].curState != CardState.Hidden)
                 cardDeck.cards[i].curState = CardState.Disabled; //enable when cycle begins
 
             mCards[i].gameObject.SetActive(true);
 
             mCards[i].Init(cardDeck.cards[i], mDeployBorderY);
-        }
-
-        for(int i = deckCardCount; i < mCards.Length; i++) {
-            mCards[i].gameObject.SetActive(false);
         }
 
         cardDrag.gameObject.SetActive(false);
@@ -37,6 +34,13 @@ public class CardDeckWidget : MonoBehaviour {
     }
 
     void OnDisable() {
+        for(int i = 0; i < mCurCardCount; i++) {
+            mCards[i].Deinit();
+            mCards[i].gameObject.SetActive(false);
+        }
+
+        mCurCardCount = 0;
+
         if(GameController.isInstantiated && GameController.instance.weatherCycle) {
             GameController.instance.weatherCycle.cycleBeginCallback -= OnCycleBegin;
             GameController.instance.weatherCycle.cycleEndCallback -= OnCycleEnd;
@@ -52,6 +56,8 @@ public class CardDeckWidget : MonoBehaviour {
             newGO.transform.SetParent(cardGroupRoot);
 
             mCards[i] = newGO.GetComponent<CardWidget>();
+
+            newGO.SetActive(false);
         }
 
         cardTemplate.SetActive(false);

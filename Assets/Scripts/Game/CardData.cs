@@ -8,14 +8,12 @@ public class CardData : ScriptableObject {
     public GameObject unitPrefab;
     public float cooldownDuration;
 
+    [Header("Target Info")]
+    public string targetReticleName;
+
     [Header("Display")]
     public Sprite icon; //show when dragging to world
     public Sprite image; //for card/description
-
-    [Header("Target Info")]
-    public string targetReticleName;
-    public string[] targetTagFilters;
-    public LayerMask targetLayerMask;
 
     [M8.Localize]
     public string titleRef;

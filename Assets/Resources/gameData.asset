@@ -25,3 +25,6 @@ MonoBehaviour:
     path: 
   levels: []
   levelCycleStartDelay: 1.5
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 513
