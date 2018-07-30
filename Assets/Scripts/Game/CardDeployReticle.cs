@@ -11,7 +11,7 @@ public abstract class CardDeployReticle : MonoBehaviour {
     /// </summary>
     public Vector2 targetPosition { get { return mTargetPos; } }
 
-    protected Vector2 mTargetPos;
+    protected Vector2 mTargetPos; //set this during DoUpdatePosition
 
     public virtual void Init(CardData card) {
         if(iconSprite) iconSprite.sprite = card.icon;

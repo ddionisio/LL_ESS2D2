@@ -6,16 +6,17 @@ using UnityEngine;
 public class UnitStates : M8.SingletonScriptableObject<UnitStates> {
     [Header("General")]
     public M8.EntityState spawning;
-    public M8.EntityState normal;
+    public M8.EntityState idle;
+    public M8.EntityState move;
+    public M8.EntityState act;
     public M8.EntityState despawning;
-    public M8.EntityState hold; //for flowers
+
+    [Header("Flower")]
+    public M8.EntityState grow;
+    public M8.EntityState hold;
 
     [Header("Enemy")]
     public M8.EntityState dying;
     public M8.EntityState dead;
     public M8.EntityState flyOff;
-
-    [Header("Flower Grab")]
-    public M8.EntityState grab;
-    public M8.EntityState leave;
 }

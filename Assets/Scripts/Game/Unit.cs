@@ -7,6 +7,8 @@ public class Unit : M8.EntityBase {
     public GameObject displayRootGO;
     public GameObject spawnRootGO;
 
+    public M8.Animator.Animate animator;
+
     public Rigidbody2D body { get; private set; }
 
     public bool isMarked { get { return mMarkCounter > 0; } }

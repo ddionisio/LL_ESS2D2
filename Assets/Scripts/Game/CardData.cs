@@ -10,6 +10,8 @@ public class CardData : ScriptableObject {
 
     [Header("Target Info")]
     public string targetReticleName;
+    public GameObject targetDisplayPrefab;
+    public string[] targetTagFilters;
 
     [Header("Display")]
     public Sprite icon; //show when dragging to world
@@ -22,4 +24,16 @@ public class CardData : ScriptableObject {
 
     public string title { get { return M8.Localize.Get(titleRef); } }
     public string description { get { return M8.Localize.Get(descriptionRef); } }
+
+    public bool IsTargetValid(GameObject go) {
+        if(targetTagFilters == null || targetTagFilters.Length == 0)
+            return true;
+
+        for(int i = 0; i < targetTagFilters.Length; i++) {
+            if(go.CompareTag(targetTagFilters[i]))
+                return true;
+        }
+
+        return false;
+    }
 }

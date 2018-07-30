@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardDeployReticleGround : CardDeployReticle {
-    [Header("Ground Display")]
-    public Transform groundTargetRoot;
+    [Header("Ground Display")]    
     public Transform pointerRoot;
+    public SpriteRenderer groundTargetSprite;
     public SpriteRenderer groundToPointerSprite; //line display between ground and pointer, ensure anchor is bottom
 
     private Vector2 mIconOfsDefault;
@@ -22,9 +22,13 @@ public class CardDeployReticleGround : CardDeployReticle {
     protected override void DoUpdatePosition(Vector2 pos) {
         //set ground position
         UnitPoint groundPt;
-        UnitPoint.GetGroundPoint(pos, out groundPt);
 
-        groundTargetRoot.position = groundPt.position;
+        if(UnitPoint.GetGroundPoint(pos, out groundPt))
+            mTargetPos = groundPt.position;
+        else
+            mTargetPos = pos;
+
+        groundTargetSprite.transform.position = groundPt.position;
 
         //set pointer position
         pointerRoot.position = pos;
@@ -40,15 +44,24 @@ public class CardDeployReticleGround : CardDeployReticle {
         }
 
         //set line display
-        float groundToPointerScaleY = groundPt.position.y - pos.y;
-        if(groundToPointerScaleY != 0f) {
+        float groundToPointerScaleY = pos.y - groundPt.position.y;
+        if(groundToPointerScaleY > 0f) {
             groundToPointerSprite.gameObject.SetActive(true);
 
             var t = groundToPointerSprite.transform;
-            t.position = pos;
+
+            float groundTargetHeightUnit = groundTargetSprite.sprite.rect.height / groundTargetSprite.sprite.pixelsPerUnit;
+            float ofsY = groundTargetHeightUnit - (groundTargetHeightUnit * groundTargetSprite.sprite.pivot.y);
+
+            ofsY *= groundTargetSprite.transform.localScale.y;
+
+            var groundToPointerStart = groundTargetSprite.transform.position;
+            groundToPointerStart.y += ofsY;
+
+            t.position = groundToPointerStart;
 
             var s = t.localScale;
-            s.y = groundToPointerScaleY * mGroundToPointerUnitHeightRatio;
+            s.y = (groundToPointerScaleY - ofsY) * mGroundToPointerUnitHeightRatio;
 
             t.localScale = s;
         }

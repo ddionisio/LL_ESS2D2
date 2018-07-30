@@ -15,10 +15,6 @@ public class CardDeckController : MonoBehaviour {
 
         public CardState curState {
             get {
-                //if current count is 0, disabled
-                if(mCurCount <= 0)
-                    return CardState.Disabled;
-
                 return mCurState;
             }
 
@@ -69,7 +65,18 @@ public class CardDeckController : MonoBehaviour {
             mPool.AddType(card.unitPrefab, mCurCount, mCurCount);
         }
 
-        public Unit SpawnUnit(M8.GenericParams parms) {
+        public Unit SpawnUnit(Vector2 targetPos) {
+            if(curCount <= 0) {
+                Debug.LogWarning("Trying to spawn unit: " + card.unitPrefab.name + " but there is no count.");
+                return null;
+            }
+
+            curCount--;
+
+            var parms = new M8.GenericParams();
+            parms[UnitSpawnParams.target] = targetPos;
+            parms[UnitSpawnParams.card] = this;
+
             return mPool.Spawn<Unit>(card.unitPrefab.name, "", null, parms);
         }
 

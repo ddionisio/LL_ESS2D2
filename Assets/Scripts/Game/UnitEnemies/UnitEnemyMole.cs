@@ -7,8 +7,7 @@ public class UnitEnemyMole : Unit {
     public float moveSpeed;
     public float growthEatMod;
 
-    [Header("Animation")]
-    public M8.Animator.Animate animator;
+    [Header("Animation Takes")]
     public string takeSpawn;
     public string takeMove;
     public string takeGrab;
