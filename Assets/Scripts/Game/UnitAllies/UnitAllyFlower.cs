@@ -14,6 +14,7 @@ public class UnitAllyFlower : Unit {
 
     [Header("Display")]
     public Transform stemRoot;
+    public Transform topRoot; //root for bud and blossom
     public GameObject budGO;
     public GameObject blossomGO;
 
@@ -71,7 +72,7 @@ public class UnitAllyFlower : Unit {
             }
         }
 
-        budGO.transform.position = curStem.topWorldPosition;
+        topRoot.position = curStem.topWorldPosition;
     }
 
     public void ApplyGrowthMod(string id, float mod) {
@@ -90,14 +91,18 @@ public class UnitAllyFlower : Unit {
         return mGrowthRate * mod;
     }
 
+    public override void MotherbaseSpawnFinish() {
+        state = UnitStates.instance.grow;
+    }
+
     protected override void StateChanged() {
         base.StateChanged();
 
-        if(prevState == UnitStates.instance.normal) {
+        if(prevState == UnitStates.instance.grow) {
             StopGrowRoutine();
         }
 
-        if(state == UnitStates.instance.normal) {
+        if(state == UnitStates.instance.grow) {
             //start growth
             mGrowRout = StartCoroutine(DoGrow());
         }
@@ -220,7 +225,7 @@ public class UnitAllyFlower : Unit {
     void OnCycleEnd() {
         GameController.instance.weatherCycle.cycleEndCallback -= OnCycleEnd;
                 
-        if(state != UnitStates.instance.normal) //only blossom if we are in a normal state
+        if(state != UnitStates.instance.grow) //only blossom if we are in a grow state
             return;
 
         if(mGrowRout != null) {

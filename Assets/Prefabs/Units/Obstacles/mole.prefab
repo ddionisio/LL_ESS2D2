@@ -50,6 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4146470624580722}
   - component: {fileID: 114400166421981570}
+  - component: {fileID: 114393383944097718}
   - component: {fileID: 50556928323825064}
   - component: {fileID: 58919794298550408}
   - component: {fileID: 114218628625328864}
@@ -580,6 +581,23 @@ MonoBehaviour:
       index: 3
       keyIndices: 0700000008000000
     _takeTrackCounts: 01000000010000000400000001000000
+--- !u!114 &114393383944097718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332949188636542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5267118a1d5ba5248af4426cedbdc8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  releaseAfterDespawn: 1
+  displayRoot: {fileID: 4277895853060788}
+  animator: {fileID: 114218628625328864}
+  takeIdle: 
+  takeMove: moving
+  takeDespawn: leave
 --- !u!114 &114400166421981570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -598,16 +616,12 @@ MonoBehaviour:
   signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
   displayRootGO: {fileID: 1012070727789698}
   spawnRootGO: {fileID: 1196492616378962}
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 513
   moveSpeed: 1
   growthEatMod: 3
   animator: {fileID: 114218628625328864}
   takeSpawn: spawn
-  takeMove: moving
   takeGrab: grabbing
-  takeLeave: leave
+  takeDead: leave
 --- !u!114 &114891988217052144
 MonoBehaviour:
   m_ObjectHideFlags: 1

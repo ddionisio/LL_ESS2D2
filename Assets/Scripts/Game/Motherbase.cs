@@ -26,8 +26,9 @@ public class Motherbase : MonoBehaviour {
     public float spawnUnitHeightOffsetMax = 3.0f;
     public float spawnUnitDelay = 0.35f;
     public Vector2 spawnStart;
-    public Rect spawnAreaLeft;
-    public Rect spawnAreaRight;
+    public Rect spawnAreaLeft; //for flowers
+    public Rect spawnAreaRight; //for flowers
+    public Rect spawnAreaCenter; //for units
     public LayerMask spawnGroundLayerMask;
 
     [Header("Animation")]
@@ -109,18 +110,15 @@ public class Motherbase : MonoBehaviour {
     /// <param name="point"></param>
     public void SpawnQueueUnit(Unit unit, Vector2 point) {
         //grab ground position
-        Vector2 spawnDest;
+        var worldPos = transform.position;
+        float minX = spawnAreaCenter.xMin + worldPos.x;
+        float maxX = spawnAreaCenter.xMax + worldPos.x;
 
-        bool isLeft = point.x < transform.position.x;
+        Vector2 spawnDest = new Vector2(Mathf.Clamp(point.x, minX, maxX), point.y);
 
-        if(isLeft) {
-            spawnDest = mSpawnPointLeft[mSpawnPointLeftCounter];
-            mSpawnPointLeftCounter = (mSpawnPointLeftCounter + 1) % mSpawnPointLeft.Length;
-        }
-        else {
-            spawnDest = mSpawnPointRight[mSpawnPointRightCounter];
-            mSpawnPointRightCounter = (mSpawnPointRightCounter + 1) % mSpawnPointRight.Length;
-        }
+        UnitPoint groundPoint;
+        if(UnitPoint.GetGroundPoint(spawnDest, out groundPoint))
+            spawnDest = groundPoint.position;
 
         AddSpawn(unit, spawnStart + (Vector2)transform.position, spawnDest);
     }
@@ -235,7 +233,7 @@ public class Motherbase : MonoBehaviour {
             unitTrans.position = M8.MathUtil.Bezier(start, midPoint, end, t);            
         }
 
-        unit.state = UnitStates.instance.normal;
+        unit.MotherbaseSpawnFinish();
     }
 
     void OnFlowerRelease(M8.EntityBase ent) {
@@ -244,13 +242,16 @@ public class Motherbase : MonoBehaviour {
     }
     
     void OnDrawGizmos() {
-        Gizmos.color = new Color(0.75f, 0.75f, 0f, 0.8f);
-
         var worldPos = transform.position;
 
+        Gizmos.color = new Color(0.75f, 0.75f, 0f, 0.8f);
         Gizmos.DrawSphere((Vector3)spawnStart + worldPos, 0.35f);
 
+        Gizmos.color = new Color(0.75f, 0.75f, 0f, 0.8f);
         Gizmos.DrawWireCube((Vector3)spawnAreaLeft.center + worldPos, spawnAreaLeft.size);
         Gizmos.DrawWireCube((Vector3)spawnAreaRight.center + worldPos, spawnAreaRight.size);
+
+        Gizmos.color = new Color(1.00f, 0.75f, 0f, 1f);
+        Gizmos.DrawWireCube((Vector3)spawnAreaCenter.center + worldPos, spawnAreaCenter.size);
     }
 }

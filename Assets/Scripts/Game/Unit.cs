@@ -7,13 +7,21 @@ public class Unit : M8.EntityBase {
     public GameObject displayRootGO;
     public GameObject spawnRootGO;
 
-    public M8.Animator.Animate animator;
-
     public Rigidbody2D body { get; private set; }
 
     public bool isMarked { get { return mMarkCounter > 0; } }
 
-    public virtual Unit target { get { return null; }  }
+    public Vector2 curDir {
+        get { return mCurDir; }
+        protected set {
+            if(mCurDir != value) {
+                mCurDir = value;
+
+                if(dirChangedCallback != null)
+                    dirChangedCallback();
+            }
+        }
+    }
 
     public Vector2 position {
         get {
@@ -27,10 +35,45 @@ public class Unit : M8.EntityBase {
                 transform.position = value;
         }
     }
+
+    public Vector2 up {
+        get {
+            return body && body.simulated ? M8.MathUtil.RotateAngle(Vector2.up, body.rotation) : (Vector2)transform.up;
+        }
+
+        set {
+            if(body && body.simulated) {
+                float dirSign = Mathf.Sign(value.x);
+                body.rotation = dirSign * Vector2.Angle(Vector2.up, value);
+            }
+            else
+                transform.up = value;
+        }
+    }
+
+    public bool isDespawnOnCycleEnd {
+        get { return mIsDespawnOnCycleEnd; }
+        set {
+            if(mIsDespawnOnCycleEnd != value) {
+                mIsDespawnOnCycleEnd = value;
+                if(mIsDespawnOnCycleEnd) {
+                    GameController.instance.weatherCycle.cycleEndCallback += OnWeatherCycleEnd;
+                }
+                else {
+                    if(GameController.isInstantiated && GameController.instance.weatherCycle)
+                        GameController.instance.weatherCycle.cycleEndCallback -= OnWeatherCycleEnd;
+                }
+            }
+        }
+    }
+
+    public event System.Action dirChangedCallback;
     
     protected Coroutine mRout;
 
     private int mMarkCounter;
+    private Vector2 mCurDir;
+    private bool mIsDespawnOnCycleEnd;
 
     /// <summary>
     /// Increase/decrease mark counter, make sure to called with marked=false at some point
@@ -42,27 +85,28 @@ public class Unit : M8.EntityBase {
             mMarkCounter--;
     }
 
-    public bool GetGroundPoint(out UnitPoint point) {
-        return UnitPoint.GetGroundPoint(position, out point);
-    }
-
     public void ApplyUnitPoint(UnitPoint point) {
-        if(body && body.simulated) {
-            body.position = point.position;
-
-            float dirSign = Mathf.Sign(point.up.x);
-
-            body.rotation = dirSign * Vector2.Angle(Vector2.up, point.up);
-        }
-        else {
-            transform.position = point.position;
-            transform.up = point.up;
-        }
+        position = point.position;
+        up = point.up;
     }
 
     public virtual void SetDisplayActive(bool active) {
         if(displayRootGO)
             displayRootGO.SetActive(active);
+    }
+
+    /// <summary>
+    /// Called during Motherbase after spawn has completed for this unit
+    /// </summary>
+    public virtual void MotherbaseSpawnFinish() {
+
+    }
+
+    /// <summary>
+    /// Struck by another entity
+    /// </summary>
+    public virtual void Hit(Unit striker) {
+
     }
 
     protected void StopRoutine() {
@@ -80,7 +124,7 @@ public class Unit : M8.EntityBase {
             if(spawnRootGO)
                 spawnRootGO.SetActive(true);
         }
-        else if(state == UnitStates.instance.normal) {
+        else if(prevState == UnitStates.instance.spawning) {
             if(spawnRootGO)
                 spawnRootGO.SetActive(false);
 
@@ -101,6 +145,8 @@ public class Unit : M8.EntityBase {
         }
 
         mMarkCounter = 0;
+
+        isDespawnOnCycleEnd = false;
     }
 
     protected override void OnSpawned(M8.GenericParams parms) {
@@ -134,5 +180,10 @@ public class Unit : M8.EntityBase {
         base.Start();
 
         //initialize variables from other sources (for communicating with managers, etc.)
+    }
+
+    void OnWeatherCycleEnd() {
+        isDespawnOnCycleEnd = false;
+        state = UnitStates.instance.despawning;
     }
 }

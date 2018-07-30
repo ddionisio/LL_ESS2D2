@@ -6,17 +6,17 @@ using UnityEngine;
 /// Units that are spawned via card
 /// </summary>
 public class UnitCard : Unit {
-    [Header("Data")]
+    [Header("UnitCard Data")]
     public float despawnDelay = 2.0f;
-
-    [Header("Animator Card Takes")]
-    public string takeDespawn;
-
+    public bool releaseOnDespawn;
+    
     public Vector2 targetPosition { get; protected set; }
 
     protected CardDeckController.CardItem mCardItem;
 
     private CardDeployTargetDisplay mTargetDisplay;
+
+    private float mDespawnCurTime;
 
     protected void AddTargetDisplay() {
         if(!mTargetDisplay) {
@@ -37,10 +37,12 @@ public class UnitCard : Unit {
         base.StateChanged();
 
         if(state == UnitStates.instance.despawning) {
-            if(animator != null && !string.IsNullOrEmpty(takeDespawn))
-                mRout = StartCoroutine(DoDespawning());
-            else
+            if(releaseOnDespawn)
                 Release(); //no despawn animation, release right away
+        }
+        else if(state == UnitStates.instance.idle) {
+            //set despawnTimer
+            mDespawnCurTime = 0f;
         }
     }
 
@@ -50,6 +52,8 @@ public class UnitCard : Unit {
         if(parms != null) {
             mCardItem = parms.GetValue<CardDeckController.CardItem>(UnitSpawnParams.card);
             targetPosition = parms.GetValue<Vector2>(UnitSpawnParams.target);
+
+            AddTargetDisplay();
         }
     }
 
@@ -65,17 +69,10 @@ public class UnitCard : Unit {
     }
 
     protected virtual void Update() {
-        
-    }
-
-    IEnumerator DoDespawning() {
-        animator.Play(takeDespawn);
-
-        while(animator.isPlaying)
-            yield return null;
-
-        mRout = null;
-
-        Release();
+        if(state == UnitStates.instance.idle) {
+            mDespawnCurTime += Time.deltaTime;
+            if(mDespawnCurTime >= despawnDelay)
+                state = UnitStates.instance.despawning;
+        }
     }
 }

@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Name: unitStates
   m_EditorClassIdentifier: 
   spawning: {fileID: 11400000, guid: ae3e4a796b3509d4fa00487f4a15aa1f, type: 2}
-  normal: {fileID: 11400000, guid: 28644c1d89eb6b147be7a7a89f138018, type: 2}
+  idle: {fileID: 11400000, guid: 044b93e4e051ffb4c9a57eee08f1cd6e, type: 2}
+  move: {fileID: 11400000, guid: 64447a8e994cfd84188c2b04d118a834, type: 2}
+  act: {fileID: 11400000, guid: 8861a14ee6848aa49b78c694d76f12e1, type: 2}
   despawning: {fileID: 11400000, guid: 980718fa9ad27b843ae6ee9356af7de4, type: 2}
-  hold: {fileID: 11400000, guid: 32d660cfb285a134c80d0256a3882f79, type: 2}
+  grow: {fileID: 11400000, guid: 95c8da1f2f0e71e44acd34ab60160e1f, type: 2}
   dying: {fileID: 11400000, guid: bf36a50fdcb55a34b970fb0fdafc6829, type: 2}
   dead: {fileID: 11400000, guid: cf51b6144f6285a48b38c5ba8e2e2728, type: 2}
-  flyOff: {fileID: 11400000, guid: 3cad0ed35c0765343af2b870551d1d2e, type: 2}
-  grab: {fileID: 11400000, guid: 4ddb2f222a8ae45429879e9ff69fef3f, type: 2}
-  leave: {fileID: 11400000, guid: 8b824a4a9f8a0854ca9ee12cd0125c94, type: 2}

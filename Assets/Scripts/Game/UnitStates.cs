@@ -13,10 +13,7 @@ public class UnitStates : M8.SingletonScriptableObject<UnitStates> {
 
     [Header("Flower")]
     public M8.EntityState grow;
-    public M8.EntityState hold;
 
     [Header("Enemy")]
-    public M8.EntityState dying;
     public M8.EntityState dead;
-    public M8.EntityState flyOff;
 }
