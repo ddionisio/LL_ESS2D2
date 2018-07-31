@@ -8,6 +8,7 @@ TagManager:
   - ObstacleGround
   - ObstacleAir
   - Ally
+  - Weed
   layers:
   - Default
   - TransparentFX

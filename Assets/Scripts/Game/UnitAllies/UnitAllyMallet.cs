@@ -37,9 +37,6 @@ public class UnitAllyMallet : UnitCard {
         if(prevState == UnitStates.instance.act) {
             ClearTarget();
         }
-        else if(prevState == UnitStates.instance.move) {
-            RemoveTargetDisplay();
-        }
 
         bool bodySimulate = false;
 
@@ -54,6 +51,8 @@ public class UnitAllyMallet : UnitCard {
             curDir = new Vector2(Mathf.Sign(dpos.x), 0f);
         }
         else if(state == UnitStates.instance.act) {
+            RemoveTargetDisplay();
+
             isDespawnOnCycleEnd = false;
             mRout = StartCoroutine(DoStrike());
         }

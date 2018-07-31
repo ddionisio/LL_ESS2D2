@@ -8,7 +8,6 @@ using UnityEngine;
 public class UnitCard : Unit {
     [Header("UnitCard Data")]
     public float despawnDelay = 2.0f;
-    public bool releaseOnDespawn;
     
     public Vector2 targetPosition { get; protected set; }
 
@@ -36,11 +35,9 @@ public class UnitCard : Unit {
     protected override void StateChanged() {
         base.StateChanged();
 
-        if(state == UnitStates.instance.despawning) {
-            if(releaseOnDespawn)
-                Release(); //no despawn animation, release right away
-        }
-        else if(state == UnitStates.instance.idle) {
+        if(state == UnitStates.instance.idle) {
+            RemoveTargetDisplay();
+
             //set despawnTimer
             mDespawnCurTime = 0f;
         }

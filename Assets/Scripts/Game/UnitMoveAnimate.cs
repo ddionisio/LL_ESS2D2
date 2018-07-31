@@ -6,9 +6,6 @@ using UnityEngine;
 /// General unit move animation
 /// </summary>
 public class UnitMoveAnimate : MonoBehaviour {
-    [Header("Data")]
-    public bool releaseAfterDespawn = true; //release unit at end of despawn animation?
-
     [Header("Display")]
     public Transform displayRoot; //use to change 'facing' based on dir x
 
@@ -16,24 +13,18 @@ public class UnitMoveAnimate : MonoBehaviour {
     public M8.Animator.Animate animator;
     public string takeIdle;
     public string takeMove;
-    public string takeDespawn;
     
-    private Unit mUnit;
-
     void Awake() {
-        mUnit = GetComponent<Unit>();
+        var unit = GetComponent<Unit>();
 
-        mUnit.dirChangedCallback += OnDirChanged;
-        mUnit.spawnCallback += OnEntSpawned;
-        mUnit.setStateCallback += OnEntStateChanged;
-
-        if(animator)
-            animator.takeCompleteCallback += OnAnimatorTakeComplete;
+        unit.dirChangedCallback += OnUnitDirChanged;
+        unit.spawnCallback += OnEntSpawned;
+        unit.setStateCallback += OnEntStateChanged;
     }
 
-    void OnDirChanged() {
+    void OnUnitDirChanged(Vector2 dir) {
         if(displayRoot) {
-            float dirXSign = Mathf.Sign(mUnit.curDir.x);
+            float dirXSign = Mathf.Sign(dir.x);
 
             var s = displayRoot.localScale;
             s.x = dirXSign * Mathf.Abs(s.x);
@@ -43,8 +34,10 @@ public class UnitMoveAnimate : MonoBehaviour {
     }
 
     void OnEntSpawned(M8.EntityBase ent) {
+        var unit = (Unit)ent;
+
         //update dir
-        OnDirChanged();
+        OnUnitDirChanged(unit.curDir);
     }
 
     void OnEntStateChanged(M8.EntityBase ent) {
@@ -58,17 +51,6 @@ public class UnitMoveAnimate : MonoBehaviour {
         else if(ent.state == UnitStates.instance.move) {
             if(!string.IsNullOrEmpty(takeMove))
                 animator.Play(takeMove);
-        }
-        else if(ent.state == UnitStates.instance.despawning) {
-            if(!string.IsNullOrEmpty(takeDespawn))
-                animator.Play(takeDespawn);
-        }
-    }
-
-    void OnAnimatorTakeComplete(M8.Animator.Animate anim, M8.Animator.Take take) {
-        if(take.name == takeDespawn) {
-            if(releaseAfterDespawn)
-                mUnit.Release();
         }
     }
 }

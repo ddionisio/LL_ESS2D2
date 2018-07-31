@@ -114,14 +114,14 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
             cardFill.gameObject.SetActive(false);
 
-            cardIconFill.fillAmount = 1.0f - mCardItem.cooldownScale;
+            cardIconFill.fillAmount = mCardItem.cooldownScale;
         }
         else {
             ApplyCardActive(false);
 
             if(mCardItem.cooldownScale > 0f) {
                 cardFill.gameObject.SetActive(true);
-                cardFill.fillAmount = mCardItem.cooldownScale;
+                cardFill.fillAmount = 1.0f - mCardItem.cooldownScale;
             }
             else
                 cardFill.gameObject.SetActive(false);
@@ -175,7 +175,7 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {
-        if(mCardItem.curState != CardState.Active)
+        if(mCardItem.curState != CardState.Active || mCardItem.curCount <= 0)
             return;
 
         //apply info to cardDrag, activate

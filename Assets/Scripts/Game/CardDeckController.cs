@@ -57,7 +57,7 @@ public class CardDeckController : MonoBehaviour {
             card = cardInfo.card;
             mCurState = cardInfo.startState;
             mCurCount = cardInfo.startCount;
-            mCurCooldown = card.cooldownDuration;
+            mCurCooldown = 0f;
             mPendingCount = 0;
 
             mPool = unitPool;
@@ -76,13 +76,15 @@ public class CardDeckController : MonoBehaviour {
             var parms = new M8.GenericParams();
             parms[UnitSpawnParams.target] = targetPos;
             parms[UnitSpawnParams.card] = this;
+            parms[UnitSpawnParams.despawnOnCycleEnd] = true;
 
             return mPool.Spawn<Unit>(card.unitPrefab.name, "", null, parms);
         }
 
         public void IncrementPendingCount() {
             mPendingCount++;
-            mCurCooldown = 0f;
+            if(mPendingCount == 1)
+                mCurCooldown = 0f;
         }
                 
         public void Update(float deltaTime) {

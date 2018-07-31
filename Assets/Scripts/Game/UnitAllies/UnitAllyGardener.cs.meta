@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c1f82e11c2e56f445b86e7e3622c8374
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - activator: {instanceID: 0}
+  - signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09,
+      type: 2}
+  - signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
+  - signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
+  - displayRootGO: {instanceID: 0}
+  - spawnRootGO: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -18,7 +18,7 @@ public class Unit : M8.EntityBase {
                 mCurDir = value;
 
                 if(dirChangedCallback != null)
-                    dirChangedCallback();
+                    dirChangedCallback(mCurDir);
             }
         }
     }
@@ -67,7 +67,7 @@ public class Unit : M8.EntityBase {
         }
     }
 
-    public event System.Action dirChangedCallback;
+    public event System.Action<Vector2> dirChangedCallback;
     
     protected Coroutine mRout;
 
@@ -151,8 +151,12 @@ public class Unit : M8.EntityBase {
 
     protected override void OnSpawned(M8.GenericParams parms) {
         //set position if available
-        if(parms != null && parms.ContainsKey(UnitSpawnParams.position))
-            position = parms.GetValue<Vector2>(UnitSpawnParams.position);
+        if(parms != null) {
+            if(parms.ContainsKey(UnitSpawnParams.position))
+                position = parms.GetValue<Vector2>(UnitSpawnParams.position);
+
+            isDespawnOnCycleEnd = parms.GetValue<bool>(UnitSpawnParams.despawnOnCycleEnd);
+        }
     }
 
     protected override void OnDestroy() {

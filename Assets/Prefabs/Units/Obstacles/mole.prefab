@@ -50,6 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4146470624580722}
   - component: {fileID: 114400166421981570}
+  - component: {fileID: 114953003660116496}
   - component: {fileID: 114393383944097718}
   - component: {fileID: 50556928323825064}
   - component: {fileID: 58919794298550408}
@@ -597,7 +598,6 @@ MonoBehaviour:
   animator: {fileID: 114218628625328864}
   takeIdle: 
   takeMove: moving
-  takeDespawn: leave
 --- !u!114 &114400166421981570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -638,6 +638,19 @@ MonoBehaviour:
   local: 1
   updateType: 0
   resetOnDisable: 0
+--- !u!114 &114953003660116496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332949188636542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 114218628625328864}
+  takeDespawn: leave
 --- !u!212 &212202146026499582
 SpriteRenderer:
   m_ObjectHideFlags: 1

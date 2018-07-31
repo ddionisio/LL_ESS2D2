@@ -32,8 +32,12 @@ public class UnitEnemyMole : Unit {
                 animator.ResetTake(takeGrab);
 
             //revert flower growing (most likely while grabbing flower)
-            if(mFlowerTarget && !mFlowerTarget.isReleased && mFlowerTarget.state == UnitStates.instance.idle)
+            if(mFlowerTarget && !mFlowerTarget.isReleased && mFlowerTarget.state == UnitStates.instance.idle) {
                 mFlowerTarget.state = UnitStates.instance.grow;
+                mFlowerTarget.SetMark(false);
+
+                mFlowerTarget = null;
+            }
         }
 
         if(state == UnitStates.instance.spawning)
@@ -68,12 +72,14 @@ public class UnitEnemyMole : Unit {
         base.OnSpawned(parms);
         
         //grab nearest flower to seek
-        mFlowerTarget = GameController.instance.motherbase.GetNearestFlower(position.x);
+        mFlowerTarget = GameController.instance.motherbase.GetNearestFlower(position.x, true);
         if(!mFlowerTarget) {
             Debug.LogWarning("No flower target, releasing this unit.");
             Release();
             return;
         }
+
+        mFlowerTarget.SetMark(true);
 
         //determine move dir based on flower target
         mDirSign = Mathf.Sign(mFlowerTarget.position.x - position.x);

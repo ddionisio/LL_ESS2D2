@@ -22,6 +22,7 @@ public class UnitAllyFlower : Unit {
     public GameObject stemTemplate;
     public int stemMaxCount = 3;
 
+    public bool isBlossomed { get { return blossomGO.activeSelf; } }
     public float growth { get { return mGrowth; } }
 
     private FlowerStem[] mStems;
@@ -73,6 +74,9 @@ public class UnitAllyFlower : Unit {
         }
 
         topRoot.position = curStem.topWorldPosition;
+
+        if(isBlossomed)
+            ApplyBlossomValue();
     }
 
     public void ApplyGrowthMod(string id, float mod) {
@@ -192,10 +196,12 @@ public class UnitAllyFlower : Unit {
         mStems[mCurStemIndex].ShowLeaves(); //show if it hasn't already
 
         budGO.SetActive(false);
-
         blossomGO.SetActive(true);
-        blossomGO.transform.position = mStems[mCurStemIndex].topWorldPosition;
 
+        ApplyBlossomValue();
+    }
+
+    private void ApplyBlossomValue() {
         float blossomT = Mathf.Clamp01(mGrowth / mGrowthMax);
         float blossomScale = Mathf.Lerp(flowerMinScale, flowerMaxScale, blossomT);
 

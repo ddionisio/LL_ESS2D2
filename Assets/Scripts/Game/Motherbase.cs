@@ -43,6 +43,7 @@ public class Motherbase : MonoBehaviour {
 
     private M8.PoolController mFlowerPool;
     private M8.CacheList<UnitAllyFlower> mFlowers; //active flowers
+    private M8.CacheList<UnitAllyFlower> mFlowerQuery; //used for grabbing flowers based on filter
 
     private Queue<SpawnInfo> mUnitsToSpawn = new Queue<SpawnInfo>();
 
@@ -56,19 +57,43 @@ public class Motherbase : MonoBehaviour {
     private int mFlowerSpawnLeftCounter;
     private int mFlowerSpawnRightCounter;
 
-    public UnitAllyFlower GetNearestFlower(float x) {
+    public UnitAllyFlower GetNearestFlower(float x, bool checkMarked) {
         UnitAllyFlower flower = null;
         float nearestDist = float.MaxValue;
 
         for(int i = 0; i < mFlowers.Count; i++) {
-            float dist = Mathf.Abs(mFlowers[i].position.x - x);
+            var _flower = mFlowers[i];
+
+            if(checkMarked && _flower.isMarked)
+                continue;
+
+            float dist = Mathf.Abs(_flower.position.x - x);
             if(dist < nearestDist) {
-                flower = mFlowers[i];
+                flower = _flower;
                 nearestDist = dist;
             }
         }
 
         return flower;
+    }
+
+    /// <summary>
+    /// note: cachelist is shared
+    /// </summary>
+    public M8.CacheList<UnitAllyFlower> GetFlowersBudding(bool unmarkExclusive) {
+        mFlowerQuery.Clear();
+
+        for(int i = 0; i < mFlowers.Count; i++) {
+            var flower = mFlowers[i];
+            if(unmarkExclusive && flower.isMarked)
+                continue;
+            if(flower.isBlossomed)
+                continue;
+
+            mFlowerQuery.Add(flower);
+        }
+
+        return mFlowerQuery;
     }
 
     public void Enter() {
@@ -129,6 +154,7 @@ public class Motherbase : MonoBehaviour {
         mFlowerPool.AddType(flowerPrefab, flowerCapacity, flowerCapacity);
 
         mFlowers = new M8.CacheList<UnitAllyFlower>(flowerCapacity);
+        mFlowerQuery = new M8.CacheList<UnitAllyFlower>(flowerCapacity);
 
         //Generate flower spawn points
         int flowerRegionDivisible = flowerCapacity / 2;

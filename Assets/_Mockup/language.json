@@ -22,6 +22,8 @@
     "weatherClear": "Clear",
     "weatherClearDesc": "No clouds allowed.",
     "unitAllyMallet": "Mallet Guy",
-    "unitAllyMalletDesc": "He has a mallet."
+    "unitAllyMalletDesc": "He has a mallet.",
+    "unitAllyGardener": "Gardener",
+    "unitAllyGardenerDesc": "He gardens stuff."
   }
 }

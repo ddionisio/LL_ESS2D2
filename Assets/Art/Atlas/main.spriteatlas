@@ -38,6 +38,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: df51293152686bd4db8f7f6fdb96ba51, type: 3}
   - {fileID: 21300002, guid: bf8c0222be72dfd48a68e5cf2a7ed5c1, type: 3}
   - {fileID: 21300000, guid: bf8c0222be72dfd48a68e5cf2a7ed5c1, type: 3}
+  - {fileID: 21300000, guid: 318b89c2e6dec3d4ba089635616d0e0b, type: 3}
+  - {fileID: 21300000, guid: c680f3a47d2593c4cb666c69db529ae1, type: 3}
   - {fileID: 21300000, guid: 9d8fbf46f402b0146b8769ec84c39665, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
   - {fileID: 21300000, guid: c52d5648fbba71642814e3808a69151c, type: 3}
@@ -62,6 +64,8 @@ SpriteAtlas:
   - flag
   - shadeWhite_bottomLeft
   - shadeWhite
+  - cardIconPlaceholder2
+  - cardImagePlaceholder2
   - weatherCycleDataArrow
   - circle16x16
   - quarterCircle
