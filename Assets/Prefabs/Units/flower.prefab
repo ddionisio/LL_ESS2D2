@@ -517,6 +517,7 @@ MonoBehaviour:
   spawnRootGO: {fileID: 1593311159208508}
   growthCycleStemCount: 1.5
   growthStemValue: 100
+  growthCollider: {fileID: 61562089282291802}
   flowerMinScale: 0.25
   flowerMaxScale: 1.5
   stemRoot: {fileID: 4948108612192340}

@@ -56,13 +56,36 @@ public class Motherbase : MonoBehaviour {
     private bool mIsFlowerSpawnLeft;
     private int mFlowerSpawnLeftCounter;
     private int mFlowerSpawnRightCounter;
-
+        
     public UnitAllyFlower GetNearestFlower(float x, bool checkMarked) {
         UnitAllyFlower flower = null;
         float nearestDist = float.MaxValue;
 
         for(int i = 0; i < mFlowers.Count; i++) {
             var _flower = mFlowers[i];
+
+            if(checkMarked && _flower.isMarked)
+                continue;
+
+            float dist = Mathf.Abs(_flower.position.x - x);
+            if(dist < nearestDist) {
+                flower = _flower;
+                nearestDist = dist;
+            }
+        }
+
+        return flower;
+    }
+
+    public UnitAllyFlower GetNearestFlowerBloomed(float x, bool checkMarked) {
+        UnitAllyFlower flower = null;
+        float nearestDist = float.MaxValue;
+
+        for(int i = 0; i < mFlowers.Count; i++) {
+            var _flower = mFlowers[i];
+
+            if(!_flower.isBlossomed)
+                continue;
 
             if(checkMarked && _flower.isMarked)
                 continue;
@@ -88,6 +111,22 @@ public class Motherbase : MonoBehaviour {
             if(unmarkExclusive && flower.isMarked)
                 continue;
             if(flower.isBlossomed)
+                continue;
+
+            mFlowerQuery.Add(flower);
+        }
+
+        return mFlowerQuery;
+    }
+
+    public M8.CacheList<UnitAllyFlower> GetFlowersExcept(UnitAllyFlower excludeFlower, bool unmarkExclusive) {
+        mFlowerQuery.Clear();
+
+        for(int i = 0; i < mFlowers.Count; i++) {
+            var flower = mFlowers[i];
+            if(unmarkExclusive && flower.isMarked)
+                continue;
+            if(flower == excludeFlower)
                 continue;
 
             mFlowerQuery.Add(flower);

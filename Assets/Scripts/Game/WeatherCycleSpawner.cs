@@ -8,7 +8,10 @@ public class WeatherCycleSpawner : MonoBehaviour {
     public enum SpawnType {
         Location,
         FlowerBudding, //spawn under budding flower, sets unitTarget in params
-        FlowerBuddingUnmarked //spawn under unmarked budding flower, sets unitTarget in params (will not spawn if all flowers are marked)
+        FlowerBuddingUnmarked, //spawn under unmarked budding flower, sets unitTarget in params (will not spawn if all flowers are marked)
+
+        TargetFlowerUnmarked, //target nearest flower unmarked relative to position, if no target found, skip spawn
+        TargetFlowerBloomedUnmarked, //target nearest bloomed flower unmarked relative to position, if no target found, skip spawn
     }
 
     [System.Serializable]
@@ -53,6 +56,28 @@ public class WeatherCycleSpawner : MonoBehaviour {
                         var flower = flowersQuery[Random.Range(0, flowersQuery.Count)];
                         parms[UnitSpawnParams.position] = flower.position;
                         parms[UnitSpawnParams.dir] = flower.up;
+                        parms[UnitSpawnParams.unitTarget] = flower;
+                    }
+                    break;
+
+                case SpawnType.TargetFlowerUnmarked: {
+                        var flower = GameController.instance.motherbase.GetNearestFlower(position.x, true);
+                        if(!flower)
+                            return;
+
+                        parms[UnitSpawnParams.position] = position;
+                        parms[UnitSpawnParams.dir] = dir;
+                        parms[UnitSpawnParams.unitTarget] = flower;
+                    }
+                    break;
+
+                case SpawnType.TargetFlowerBloomedUnmarked: {
+                        var flower = GameController.instance.motherbase.GetNearestFlowerBloomed(position.x, true);
+                        if(!flower)
+                            return;
+
+                        parms[UnitSpawnParams.position] = position;
+                        parms[UnitSpawnParams.dir] = dir;
                         parms[UnitSpawnParams.unitTarget] = flower;
                     }
                     break;

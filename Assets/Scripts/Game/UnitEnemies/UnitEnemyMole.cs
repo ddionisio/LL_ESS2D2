@@ -70,9 +70,9 @@ public class UnitEnemyMole : Unit {
 
     protected override void OnSpawned(M8.GenericParams parms) {
         base.OnSpawned(parms);
-        
+
         //grab nearest flower to seek
-        mFlowerTarget = GameController.instance.motherbase.GetNearestFlower(position.x, true);
+        mFlowerTarget = parms.GetValue<UnitAllyFlower>(UnitSpawnParams.unitTarget);
         if(!mFlowerTarget) {
             Debug.LogWarning("No flower target, releasing this unit.");
             Release();
@@ -127,7 +127,7 @@ public class UnitEnemyMole : Unit {
     IEnumerator DoGrabFlower() {
         //eat up the flower's growth until it is 0
         //mGrowthEatRate
-        while(mFlowerTarget.growth > 0f) {
+        while(!mFlowerTarget.isReleased && mFlowerTarget.growth > 0f) {
             mFlowerTarget.ApplyGrowth(-mGrowthEatRate * Time.deltaTime);
             yield return null;
         }

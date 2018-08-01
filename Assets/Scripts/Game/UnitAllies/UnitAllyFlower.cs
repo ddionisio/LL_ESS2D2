@@ -7,6 +7,7 @@ public class UnitAllyFlower : Unit {
     [Header("Growth")]
     public float growthCycleStemCount = 1; //number of stems expected to fully grow by the end of cycle with no modifications, determines rate.
     public float growthStemValue; //the value representing a full stem growth
+    public BoxCollider2D growthCollider; //match height to stem
 
     [Header("Flower")]
     public float flowerMinScale;
@@ -24,6 +25,14 @@ public class UnitAllyFlower : Unit {
 
     public bool isBlossomed { get { return blossomGO.activeSelf; } }
     public float growth { get { return mGrowth; } }
+    public float growthMax { get { return mGrowthMax; } }
+
+    public Vector2 topPosition {
+        get {
+            var curStem = mStems[mCurStemIndex];
+            return curStem.topWorldPosition;
+        }
+    }
 
     private FlowerStem[] mStems;
     private int mCurStemIndex;
@@ -73,7 +82,24 @@ public class UnitAllyFlower : Unit {
             }
         }
 
-        topRoot.position = curStem.topWorldPosition;
+        var topPos = curStem.topWorldPosition;
+
+        topRoot.position = topPos;
+
+        if(growthCollider) {
+            float deltaHeight = topPos.y - position.y;
+
+            //assume pivot is bottom
+            var ofs = growthCollider.offset;
+            ofs.y = deltaHeight * 0.5f;
+
+            growthCollider.offset = ofs;
+
+            var size = growthCollider.size;
+            size.y = deltaHeight;
+
+            growthCollider.size = size;
+        }
 
         if(isBlossomed)
             ApplyBlossomValue();
