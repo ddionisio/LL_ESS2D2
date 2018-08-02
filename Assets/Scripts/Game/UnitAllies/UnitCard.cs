@@ -35,9 +35,14 @@ public class UnitCard : Unit {
     protected override void StateChanged() {
         base.StateChanged();
 
-        if(state == UnitStates.instance.idle) {
+        if(prevState == UnitStates.instance.move) {
             RemoveTargetDisplay();
+        }
 
+        if(state == UnitStates.instance.move) {
+            AddTargetDisplay();
+        }
+        else if(state == UnitStates.instance.idle) {
             //set despawnTimer
             mDespawnCurTime = 0f;
         }
@@ -49,8 +54,6 @@ public class UnitCard : Unit {
         if(parms != null) {
             mCardItem = parms.GetValue<CardDeckController.CardItem>(UnitSpawnParams.card);
             targetPosition = parms.GetValue<Vector2>(UnitSpawnParams.target);
-
-            AddTargetDisplay();
         }
     }
 

@@ -24,6 +24,8 @@
     "unitAllyMallet": "Mallet Guy",
     "unitAllyMalletDesc": "He has a mallet.",
     "unitAllyGardener": "Gardener",
-    "unitAllyGardenerDesc": "He gardens stuff."
+    "unitAllyGardenerDesc": "He gardens stuff.",
+    "unitAllySpearman": "Spear Guy",
+    "unitAllySpearmanDesc": "He spears in air."
   }
 }

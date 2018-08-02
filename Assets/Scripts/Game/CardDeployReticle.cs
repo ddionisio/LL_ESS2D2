@@ -11,6 +11,8 @@ public abstract class CardDeployReticle : MonoBehaviour {
     /// </summary>
     public Vector2 targetPosition { get { return mTargetPos; } }
 
+    public virtual bool canDeploy { get { return true; } }
+
     protected Vector2 mTargetPos; //set this during DoUpdatePosition
 
     public virtual void Init(CardData card) {

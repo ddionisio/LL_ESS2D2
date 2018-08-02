@@ -18,6 +18,7 @@ public class UnitEnemyFlying : Unit {
     public string takeAct;
     public string takeMoveIn;
     public string takeLeave;
+    public string takeDeath;
 
     private UnitAllyFlower mFlowerTarget;
 
@@ -37,7 +38,11 @@ public class UnitEnemyFlying : Unit {
         if(state == UnitStates.instance.move) {
             mMoveTarget = new Vector2(mFlowerTarget.position.x, mStartPosition.y);
 
-            float dist = Mathf.Abs(mMoveTarget.x - mStartPosition.x); //(mMoveTarget - mStartPosition).magnitude;
+            var dX = mMoveTarget.x - mStartPosition.x;
+
+            curDir = new Vector2(Mathf.Sign(dX), 0f);
+
+            float dist = Mathf.Abs(dX); //(mMoveTarget - mStartPosition).magnitude;
             mCurMoveDelay = dist / moveSpeed;
 
             mCurMoveHeight = Random.Range(moveHeightRangeMin, moveHeightRangeMax);
@@ -54,8 +59,15 @@ public class UnitEnemyFlying : Unit {
         else if(state == UnitStates.instance.despawning) {
             mRout = StartCoroutine(DoLeave());
         }
+        else if(state == UnitStates.instance.dead) {
+            if(!string.IsNullOrEmpty(takeDeath))
+                StartCoroutine(DoDeath());
+            else
+                Release();
+        }
 
-        body.simulated = bodySimulate;
+        if(body)
+            body.simulated = bodySimulate;
     }
 
     protected override void OnDespawned() {
@@ -209,6 +221,14 @@ public class UnitEnemyFlying : Unit {
 
             position = Vector2.Lerp(startPos, leavePos, t);
         }
+
+        Release();
+    }
+
+    IEnumerator DoDeath() {
+        animator.Play(takeDeath);
+        while(animator.isPlaying)
+            yield return null;
 
         Release();
     }

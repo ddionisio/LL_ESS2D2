@@ -141,6 +141,11 @@ public class UnitAllyFlower : Unit {
     protected override void OnSpawned(GenericParams parms) {
         base.OnSpawned(parms);
 
+        budGO.SetActive(false);
+        blossomGO.SetActive(false);
+
+        topRoot.localPosition = Vector3.zero;
+
         //determine growth rate
         float growthMaxCycle = growthStemValue * growthCycleStemCount;
         mGrowthRate = growthMaxCycle / GameController.instance.weatherCycle.curCycleData.duration;

@@ -216,7 +216,7 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             var curPos = eventData.position;
 
             //check if deployable, then deploy
-            if(curPos.y > mDeployBorderY) {
+            if(curPos.y > mDeployBorderY && (mDeployReticle == null || mDeployReticle.canDeploy)) {
                 Vector2 targetPoint;
 
                 if(mDeployReticle)
@@ -226,7 +226,7 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                     var gameCam = M8.Camera2D.main;
                     targetPoint = gameCam.unityCamera.ScreenToWorldPoint(curPos);
                 }
-                                
+
                 var unit = mCardItem.SpawnUnit(targetPoint);
 
                 //spawn via motherbase
