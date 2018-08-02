@@ -52,8 +52,9 @@ GameObject:
   - component: {fileID: 114140895494885450}
   - component: {fileID: 114148888877008570}
   - component: {fileID: 114462178045684146}
+  - component: {fileID: 58947345700544012}
   - component: {fileID: 114496998897468536}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spearman
   m_TagString: Ally
   m_Icon: {fileID: 0}
@@ -161,6 +162,21 @@ Transform:
   m_Father: {fileID: 4606808032093446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58947345700544012
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1729833318283786}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!114 &114140895494885450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,9 +193,10 @@ MonoBehaviour:
   signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09, type: 2}
   signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
   signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
+  flags: 0
   displayRootGO: {fileID: 1642718970897854}
   spawnRootGO: {fileID: 1407069962032626}
-  despawnDelay: 2
+  despawnDelay: 4
   moveSpeed: 2
   moveAttackSpeed: 4
   moveAttackDistance: 0.5

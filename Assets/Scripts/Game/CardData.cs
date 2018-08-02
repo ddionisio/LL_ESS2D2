@@ -11,6 +11,7 @@ public class CardData : ScriptableObject {
     [Header("Target Info")]
     public string targetReticleName;
     public GameObject targetDisplayPrefab;
+    [M8.TagSelector]
     public string[] targetTagFilters;
 
     [Header("Display")]

@@ -133,6 +133,8 @@ public class UnitAllyFlower : Unit {
         }
 
         if(state == UnitStates.instance.grow) {
+            isPhysicsActive = true;
+
             //start growth
             mGrowRout = StartCoroutine(DoGrow());
         }

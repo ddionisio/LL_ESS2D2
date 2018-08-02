@@ -51,6 +51,8 @@ public class UnitAllyFlyingAttacker : UnitCard {
             mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.act) {
+            isPhysicsActive = false;
+
             mRout = StartCoroutine(DoAttack());
         }
     }

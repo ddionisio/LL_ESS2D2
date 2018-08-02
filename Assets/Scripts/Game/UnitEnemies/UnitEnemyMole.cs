@@ -18,15 +18,9 @@ public class UnitEnemyMole : Unit {
     private float mDirSign;
     private float mGrowthEatRate;
 
-    public override void Hit(Unit striker) {
-        state = UnitStates.instance.dead;
-    }
-
     protected override void StateChanged() {
         base.StateChanged();
-
-        bool bodySimulate = false;
-
+        
         if(prevState == UnitStates.instance.act) {
             if(animator && !string.IsNullOrEmpty(takeGrab))
                 animator.ResetTake(takeGrab);
@@ -41,12 +35,12 @@ public class UnitEnemyMole : Unit {
         }
 
         if(state == UnitStates.instance.spawning)
-            mRout = StartCoroutine(DoSpawn());
-        else if(state == UnitStates.instance.idle) {
-            bodySimulate = true;
+            mRout = StartCoroutine(DoAnimatorToState(animator, takeSpawn, UnitStates.instance.move));
+        else if(state == UnitStates.instance.idle) { //for enemies, this means being struck by ally
+            isPhysicsActive = false;
         }
         else if(state == UnitStates.instance.move) {
-            bodySimulate = true;
+            isPhysicsActive = true;
         }
         else if(state == UnitStates.instance.act) {
             if(animator && !string.IsNullOrEmpty(takeGrab))
@@ -58,14 +52,11 @@ public class UnitEnemyMole : Unit {
 
             mRout = StartCoroutine(DoGrabFlower());
 
-            bodySimulate = true; //allow allies to see this mole while grabbing
+            isPhysicsActive = true; //allow allies to see this mole while grabbing
         }
         else if(state == UnitStates.instance.dead) {
-            isDespawnOnCycleEnd = false;
-            mRout = StartCoroutine(DoDeath());
+            mRout = StartCoroutine(DoAnimatorToRelease(animator, takeDead));
         }
-
-        body.simulated = bodySimulate;
     }
 
     protected override void OnSpawned(M8.GenericParams parms) {
@@ -111,19 +102,7 @@ public class UnitEnemyMole : Unit {
             UpdatePosition(nextPos);
         }
     }
-
-    IEnumerator DoSpawn() {
-        if(animator && !string.IsNullOrEmpty(takeSpawn)) {
-            animator.Play(takeSpawn);
-            while(animator.isPlaying)
-                yield return null;
-        }
-
-        mRout = null;
-
-        state = UnitStates.instance.move;
-    }
-
+    
     IEnumerator DoGrabFlower() {
         //eat up the flower's growth until it is 0
         //mGrowthEatRate
@@ -141,18 +120,6 @@ public class UnitEnemyMole : Unit {
         }
 
         state = UnitStates.instance.despawning;
-    }
-
-    IEnumerator DoDeath() {
-        if(animator && !string.IsNullOrEmpty(takeDead)) {
-            animator.Play(takeDead);
-            while(animator.isPlaying)
-                yield return null;
-        }
-
-        mRout = null;
-
-        Release();
     }
     
     private void UpdatePosition(Vector2 toPos) {

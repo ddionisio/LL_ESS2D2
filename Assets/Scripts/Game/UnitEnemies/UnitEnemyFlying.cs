@@ -32,9 +32,10 @@ public class UnitEnemyFlying : Unit {
 
     protected override void StateChanged() {
         base.StateChanged();
-
-        bool bodySimulate = false;
-
+        
+        if(state == UnitStates.instance.idle) { //for enemies, this means being struck by ally
+            isPhysicsActive = false;
+        }
         if(state == UnitStates.instance.move) {
             mMoveTarget = new Vector2(mFlowerTarget.position.x, mStartPosition.y);
 
@@ -49,25 +50,19 @@ public class UnitEnemyFlying : Unit {
 
             mCurMoveTime = 0f;
 
-            bodySimulate = true;
+            isPhysicsActive = true;
         }
         else if(state == UnitStates.instance.act) {
             mRout = StartCoroutine(DoAct());
 
-            bodySimulate = true;
+            isPhysicsActive = true;
         }
         else if(state == UnitStates.instance.despawning) {
             mRout = StartCoroutine(DoLeave());
         }
         else if(state == UnitStates.instance.dead) {
-            if(!string.IsNullOrEmpty(takeDeath))
-                StartCoroutine(DoDeath());
-            else
-                Release();
+            mRout = StartCoroutine(DoAnimatorToRelease(animator, takeDeath));
         }
-
-        if(body)
-            body.simulated = bodySimulate;
     }
 
     protected override void OnDespawned() {
@@ -221,14 +216,6 @@ public class UnitEnemyFlying : Unit {
 
             position = Vector2.Lerp(startPos, leavePos, t);
         }
-
-        Release();
-    }
-
-    IEnumerator DoDeath() {
-        animator.Play(takeDeath);
-        while(animator.isPlaying)
-            yield return null;
 
         Release();
     }

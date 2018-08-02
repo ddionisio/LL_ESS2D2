@@ -5,6 +5,9 @@ using UnityEngine;
 public class UnitAllyMallet : UnitCard {
     [Header("Data")]
     public float moveSpeed;
+    public LayerMask attackCheckLayerMask;
+    public float attackCheckRadius;
+    public float attackCheckDelay = 0.333f;
 
     [Header("Animation")]
     public M8.Animator.Animate animator;
@@ -12,15 +15,8 @@ public class UnitAllyMallet : UnitCard {
 
     private Unit mTarget;
 
-    /// <summary>
-    /// Call through animation during attack
-    /// </summary>
-    public void StrikeTarget() {
-        if(mTarget && !mTarget.isReleased) {            
-            mTarget.Hit(this);
-        }
-    }
-
+    private Collider2D[] mAttackCheckColls = new Collider2D[4];
+    
     public override void MotherbaseSpawnFinish() {
         state = UnitStates.instance.move;
     }
@@ -38,51 +34,22 @@ public class UnitAllyMallet : UnitCard {
             ClearTarget();
         }
 
-        bool bodySimulate = false;
-
         if(state == UnitStates.instance.idle) {
-            bodySimulate = true;
+            mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.move) {
-            bodySimulate = true;
-
             //determine dir
             var dpos = targetPosition - position;
             curDir = new Vector2(Mathf.Sign(dpos.x), 0f);
+
+            mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.act) {
+            isPhysicsActive = false;
+
             RemoveTargetDisplay();
-
-            isDespawnOnCycleEnd = false;
+            
             mRout = StartCoroutine(DoStrike());
-        }
-
-        body.simulated = bodySimulate;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        //can't interact if not moving or idle
-        if(!(state == UnitStates.instance.idle || state == UnitStates.instance.move))
-            return;
-
-        //check if viable target
-        var go = collision.gameObject;
-        if(mCardItem.card.IsTargetValid(go)) {
-            var unit = go.GetComponent<Unit>();
-            if(unit) {
-                //make sure it's not marked
-                if(!unit.isMarked) {
-                    mTarget = unit;
-                    mTarget.state = UnitStates.instance.idle; //let it stand, ready to receive pounding
-                    mTarget.SetMark(true);
-
-                    //ensure we are facing it
-                    var dposX = mTarget.position.x - position.x;
-                    curDir = new Vector2(Mathf.Sign(dposX), 0f);
-
-                    state = UnitStates.instance.act; //strike
-                }
-            }
         }
     }
 
@@ -103,6 +70,47 @@ public class UnitAllyMallet : UnitCard {
         }
     }
 
+    IEnumerator DoAttackCheck() {
+        while(true) {
+            yield return new WaitForSeconds(attackCheckDelay);
+
+            Collider2D nearestColl = null;
+            float nearestCollDistSqr = float.MaxValue;
+
+            var checkPos = position;
+
+            int collCount = Physics2D.OverlapCircleNonAlloc(checkPos, attackCheckRadius, mAttackCheckColls, attackCheckLayerMask);
+            for(int i = 0; i < collCount; i++) {
+                var coll = mAttackCheckColls[i];
+                if(!mCardItem.card.IsTargetValid(coll.gameObject))
+                    continue;
+
+                float distSqr = ((Vector2)coll.transform.position - checkPos).sqrMagnitude;
+                if(distSqr < nearestCollDistSqr) {
+                    nearestColl = coll;
+                    nearestCollDistSqr = distSqr;
+                }
+            }
+
+            if(nearestColl) {
+                var unit = nearestColl.GetComponent<Unit>();
+                if(unit && !unit.isMarked) {
+                    mTarget = unit;
+                    mTarget.state = UnitStates.instance.idle; //let it stand, ready to receive pounding
+                    mTarget.SetMark(true);
+
+                    //ensure we are facing it
+                    var dposX = mTarget.position.x - position.x;
+                    curDir = new Vector2(Mathf.Sign(dposX), 0f);
+
+                    mRout = null;
+                    state = UnitStates.instance.act; //strike
+                    break;
+                }
+            }
+        }
+    }
+
     IEnumerator DoStrike() {
         if(animator && !string.IsNullOrEmpty(takeStrike)) {
             animator.Play(takeStrike);
@@ -110,7 +118,10 @@ public class UnitAllyMallet : UnitCard {
                 yield return null;
         }
 
-        Release();
+        mTarget.state = UnitStates.instance.dead;
+        mTarget = null;
+
+        state = prevState;
     }
 
     private void ClearTarget() {
@@ -129,5 +140,10 @@ public class UnitAllyMallet : UnitCard {
 
             curDir = M8.MathUtil.Rotate(Vector2.up, dirSign * M8.MathUtil.HalfPI);
         }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(position, attackCheckRadius);
     }
 }

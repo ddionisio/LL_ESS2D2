@@ -39,7 +39,10 @@ public class UnitEnemyWeed : Unit {
         if(mCurGrowth != newGrowth) {
             mCurGrowth = newGrowth;
             if(mCurGrowth > 0f) {
-                animator.Goto(mCurGrowth * mTakeGrowTotalTime);
+                if(animator.currentPlayingTakeIndex != -1)
+                    animator.Goto(mCurGrowth * mTakeGrowTotalTime);
+                else
+                    animator.Goto(takeGrow, mCurGrowth * mTakeGrowTotalTime);
             }
             else //die
                 state = UnitStates.instance.despawning;
@@ -56,12 +59,12 @@ public class UnitEnemyWeed : Unit {
         }
 
         if(state == UnitStates.instance.spawning) {
-            mRout = StartCoroutine(DoSpawn());
+            mRout = StartCoroutine(DoAnimatorToState(animator, takeEnter, UnitStates.instance.act));
         }
         else if(state == UnitStates.instance.act) {
-            animator.Goto(takeGrow, mCurGrowth * mTakeGrowTotalTime);
-
             ApplyFlowerGrowth(true);
+
+            isPhysicsActive = true;
         }
     }
 
@@ -97,19 +100,7 @@ public class UnitEnemyWeed : Unit {
             ApplyGrowth(growthDelta);
         }
     }
-
-    IEnumerator DoSpawn() {
-        if(!string.IsNullOrEmpty(takeEnter)) {
-            animator.Play(takeEnter);
-            while(animator.isPlaying)
-                yield return null;
-        }
-
-        mRout = null;
-
-        state = UnitStates.instance.act;
-    }
-
+    
     private void ApplyFlowerGrowth(bool isGrow) {
         if(mIsFlowerGrowth != isGrow) {
             mIsFlowerGrowth = isGrow;

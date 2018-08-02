@@ -12,6 +12,8 @@ public class WeatherCycleSpawner : MonoBehaviour {
 
         TargetFlowerUnmarked, //target nearest flower unmarked relative to position, if no target found, skip spawn
         TargetFlowerBloomedUnmarked, //target nearest bloomed flower unmarked relative to position, if no target found, skip spawn
+
+        FlowerRandom, //any active flower, also sets it as unitTarget
     }
 
     [System.Serializable]
@@ -77,6 +79,17 @@ public class WeatherCycleSpawner : MonoBehaviour {
                             return;
 
                         parms[UnitSpawnParams.position] = position;
+                        parms[UnitSpawnParams.dir] = dir;
+                        parms[UnitSpawnParams.unitTarget] = flower;
+                    }
+                    break;
+
+                case SpawnType.FlowerRandom: {
+                        var flower = GameController.instance.motherbase.GetRandomFlower(false);
+                        if(!flower)
+                            return;
+
+                        parms[UnitSpawnParams.position] = flower.position;
                         parms[UnitSpawnParams.dir] = dir;
                         parms[UnitSpawnParams.unitTarget] = flower;
                     }
@@ -208,6 +221,7 @@ public class WeatherCycleSpawner : MonoBehaviour {
                 //display arrow for certain spawn types
                 switch(spawn.type) {
                     case SpawnType.Location:
+                    case SpawnType.FlowerRandom:
                         Gizmos.color = arrowColor;
                         M8.Gizmo.ArrowLine2D(spawn.position, end);
                         break;

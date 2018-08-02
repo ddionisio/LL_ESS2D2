@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : M8.EntityBase {
+    [System.Flags]
+    public enum Flags {
+        None = 0x0,
+        PoisonImmune = 0x1
+    }
+
+    [Header("Data")]
+    [M8.EnumMask]
+    public Flags flags;
+
     [Header("Display")]
     public GameObject displayRootGO;
     public GameObject spawnRootGO;
 
     public Rigidbody2D body { get; private set; }
+    public Collider2D coll { get; private set; }
 
     public bool isMarked { get { return mMarkCounter > 0; } }
 
@@ -67,6 +78,16 @@ public class Unit : M8.EntityBase {
         }
     }
 
+    public bool isPhysicsActive {
+        get { return mIsPhysicsActive; }
+        set {
+            if(mIsPhysicsActive != value) {
+                mIsPhysicsActive = value;
+                ApplyPhysicsActive();
+            }
+        }
+    }
+
     public event System.Action<Vector2> dirChangedCallback;
     
     protected Coroutine mRout;
@@ -74,6 +95,7 @@ public class Unit : M8.EntityBase {
     private int mMarkCounter;
     private Vector2 mCurDir;
     private bool mIsDespawnOnCycleEnd;
+    private bool mIsPhysicsActive;
 
     /// <summary>
     /// Increase/decrease mark counter, make sure to called with marked=false at some point
@@ -102,13 +124,6 @@ public class Unit : M8.EntityBase {
 
     }
 
-    /// <summary>
-    /// Struck by another entity
-    /// </summary>
-    public virtual void Hit(Unit striker) {
-
-    }
-
     protected void StopRoutine() {
         if(mRout != null) {
             StopCoroutine(mRout);
@@ -119,16 +134,26 @@ public class Unit : M8.EntityBase {
     protected override void StateChanged() {
         StopRoutine();
 
-        //spawn states are set via Motherbase or EnemyController
-        if(state == UnitStates.instance.spawning) {
-            if(spawnRootGO)
-                spawnRootGO.SetActive(true);
-        }
-        else if(prevState == UnitStates.instance.spawning) {
+        if(prevState == UnitStates.instance.spawning) {
             if(spawnRootGO)
                 spawnRootGO.SetActive(false);
 
             SetDisplayActive(true);
+        }
+
+        //spawn states are set via Motherbase or EnemyController
+        if(state == UnitStates.instance.spawning) {
+            if(spawnRootGO)
+                spawnRootGO.SetActive(true);
+
+            isPhysicsActive = false;
+        }
+        else if(state == UnitStates.instance.despawning) {
+            isPhysicsActive = false;
+        }
+        else if(state == UnitStates.instance.dead) {
+            isPhysicsActive = false;
+            isDespawnOnCycleEnd = false;
         }
     }
 
@@ -139,10 +164,7 @@ public class Unit : M8.EntityBase {
         if(spawnRootGO)
             spawnRootGO.SetActive(false);
 
-        if(body) {
-            body.rotation = 0f;
-            body.simulated = false;
-        }
+        isPhysicsActive = false;
 
         mMarkCounter = 0;
 
@@ -169,8 +191,10 @@ public class Unit : M8.EntityBase {
         base.Awake();
 
         body = GetComponent<Rigidbody2D>();
-        if(body)
-            body.simulated = false;
+        coll = GetComponent<Collider2D>();
+
+        mIsPhysicsActive = false;
+        ApplyPhysicsActive();
 
         //initialize data/variables
         SetDisplayActive(false);
@@ -184,6 +208,40 @@ public class Unit : M8.EntityBase {
         base.Start();
 
         //initialize variables from other sources (for communicating with managers, etc.)
+    }
+
+    protected IEnumerator DoAnimatorToState(M8.Animator.Animate animator, string take, M8.EntityState toState) {
+        if(!string.IsNullOrEmpty(take)) {
+            animator.Play(take);
+            while(animator.isPlaying)
+                yield return null;
+        }
+
+        mRout = null;
+        state = toState;
+    }
+
+    protected IEnumerator DoAnimatorToRelease(M8.Animator.Animate animator, string take) {
+        if(!string.IsNullOrEmpty(take)) {
+            animator.Play(take);
+            while(animator.isPlaying)
+                yield return null;
+        }
+
+        mRout = null;
+        Release();
+    }
+
+    private void ApplyPhysicsActive() {
+        if(body) {
+            body.simulated = mIsPhysicsActive;
+
+            if(!mIsPhysicsActive) { //reset some values
+                body.rotation = 0f;
+            }
+        }
+        else if(coll)
+            coll.enabled = mIsPhysicsActive;
     }
 
     void OnWeatherCycleEnd() {

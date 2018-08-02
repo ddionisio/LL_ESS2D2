@@ -56,7 +56,26 @@ public class Motherbase : MonoBehaviour {
     private bool mIsFlowerSpawnLeft;
     private int mFlowerSpawnLeftCounter;
     private int mFlowerSpawnRightCounter;
-        
+
+    public UnitAllyFlower GetRandomFlower(bool checkMarked) {
+        if(checkMarked) {
+            mFlowerQuery.Clear();
+
+            for(int i = 0; i < mFlowers.Count; i++) {
+                var flower = mFlowers[i];
+                if(checkMarked && flower.isMarked)
+                    continue;
+
+                mFlowerQuery.Add(flower);
+            }
+
+            return mFlowerQuery[Random.Range(0, mFlowerQuery.Count)];
+        }
+        else {
+            return mFlowers[Random.Range(0, mFlowers.Count)];
+        }
+    }
+
     public UnitAllyFlower GetNearestFlower(float x, bool checkMarked) {
         UnitAllyFlower flower = null;
         float nearestDist = float.MaxValue;

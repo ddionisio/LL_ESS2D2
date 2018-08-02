@@ -41,10 +41,14 @@ public class UnitCard : Unit {
 
         if(state == UnitStates.instance.move) {
             AddTargetDisplay();
+
+            isPhysicsActive = true;
         }
         else if(state == UnitStates.instance.idle) {
             //set despawnTimer
             mDespawnCurTime = 0f;
+
+            isPhysicsActive = true;
         }
     }
 

@@ -100,7 +100,7 @@ public class UnitAllyGardener : UnitCard {
     }
 
     void OnDrawGizmos() {
-        Gizmos.color = new Color(0.25f, 1f, 0.25f);
+        Gizmos.color = new Color(0.5f, 1f, 0.0f);
         Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
 }
