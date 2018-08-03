@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4486883140041604}
   - component: {fileID: 114659430398048370}
+  - component: {fileID: 114089590921229132}
   - component: {fileID: 61562089282291802}
   m_Layer: 10
   m_Name: flower
@@ -481,6 +482,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114089590921229132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765010702723550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyBlowOff: 1
+  blowOffEndOfs: 2
+  blowOffDelay: 1
+  blowOffHeight: 3
+  animator: {fileID: 0}
+  takeDespawn: 
+  takeBlowOff: 
 --- !u!114 &114119782264628470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,9 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateOnStart: 0
   activator: {fileID: 0}
-  signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09, type: 2}
-  signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
-  signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
+  flags: 0
   displayRootGO: {fileID: 1016651766877464}
   spawnRootGO: {fileID: 1593311159208508}
   growthCycleStemCount: 1.5

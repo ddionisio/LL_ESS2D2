@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : M8.EntityBase {
+    public enum DespawnCycleType {
+        None,
+        Cycle,
+        Weather
+    }
+
     [System.Flags]
     public enum Flags {
         None = 0x0,
         PoisonImmune = 0x1,
         PhysicalImmune = 0x2,
-        WindImmune = 0x4
+        ElementImmune = 0x4
     }
 
     [Header("Data")]
@@ -26,7 +32,7 @@ public class Unit : M8.EntityBase {
 
     public Vector2 curDir {
         get { return mCurDir; }
-        protected set {
+        set {
             if(mCurDir != value) {
                 mCurDir = value;
 
@@ -64,18 +70,35 @@ public class Unit : M8.EntityBase {
         }
     }
 
-    public bool isDespawnOnCycleEnd {
+    public DespawnCycleType isDespawnOnCycleEnd {
         get { return mIsDespawnOnCycleEnd; }
         set {
             if(mIsDespawnOnCycleEnd != value) {
+                if(GameController.isInstantiated && GameController.instance.weatherCycle) {
+                    //prev
+                    switch(mIsDespawnOnCycleEnd) {
+                        case DespawnCycleType.Cycle:
+                            GameController.instance.weatherCycle.cycleEndCallback -= OnWeatherCycleEnd;
+                            break;
+                        case DespawnCycleType.Weather:
+                            GameController.instance.weatherCycle.weatherEndCallback -= OnWeatherCycleEnd;
+                            break;
+
+                    }
+
+                    //new
+                    switch(value) {
+                        case DespawnCycleType.Cycle:
+                            GameController.instance.weatherCycle.cycleEndCallback += OnWeatherCycleEnd;
+                            break;
+                        case DespawnCycleType.Weather:
+                            GameController.instance.weatherCycle.weatherEndCallback += OnWeatherCycleEnd;
+                            break;
+
+                    }
+                }
+
                 mIsDespawnOnCycleEnd = value;
-                if(mIsDespawnOnCycleEnd) {
-                    GameController.instance.weatherCycle.cycleEndCallback += OnWeatherCycleEnd;
-                }
-                else {
-                    if(GameController.isInstantiated && GameController.instance.weatherCycle)
-                        GameController.instance.weatherCycle.cycleEndCallback -= OnWeatherCycleEnd;
-                }
             }
         }
     }
@@ -96,7 +119,7 @@ public class Unit : M8.EntityBase {
 
     private int mMarkCounter;
     private Vector2 mCurDir;
-    private bool mIsDespawnOnCycleEnd;
+    private DespawnCycleType mIsDespawnOnCycleEnd = DespawnCycleType.None;
     private bool mIsPhysicsActive;
 
     /// <summary>
@@ -153,9 +176,9 @@ public class Unit : M8.EntityBase {
         else if(state == UnitStates.instance.despawning) {
             isPhysicsActive = false;
         }
-        else if(state == UnitStates.instance.dead) {
+        else if(state == UnitStates.instance.dead || state == UnitStates.instance.blowOff) {
             isPhysicsActive = false;
-            isDespawnOnCycleEnd = false;
+            isDespawnOnCycleEnd = DespawnCycleType.None;
         }
     }
 
@@ -170,7 +193,7 @@ public class Unit : M8.EntityBase {
 
         mMarkCounter = 0;
 
-        isDespawnOnCycleEnd = false;
+        isDespawnOnCycleEnd = DespawnCycleType.None;
     }
 
     protected override void OnSpawned(M8.GenericParams parms) {
@@ -179,7 +202,7 @@ public class Unit : M8.EntityBase {
             if(parms.ContainsKey(UnitSpawnParams.position))
                 position = parms.GetValue<Vector2>(UnitSpawnParams.position);
 
-            isDespawnOnCycleEnd = parms.GetValue<bool>(UnitSpawnParams.despawnOnCycleEnd);
+            isDespawnOnCycleEnd = parms.GetValue<DespawnCycleType>(UnitSpawnParams.despawnCycleType);
         }
     }
 
@@ -247,7 +270,7 @@ public class Unit : M8.EntityBase {
     }
 
     void OnWeatherCycleEnd() {
-        isDespawnOnCycleEnd = false;
+        isDespawnOnCycleEnd = DespawnCycleType.None;
         state = UnitStates.instance.despawning;
     }
 }

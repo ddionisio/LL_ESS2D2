@@ -60,7 +60,7 @@ public class UnitEnemyFlying : Unit {
         else if(state == UnitStates.instance.despawning) {
             mRout = StartCoroutine(DoLeave());
         }
-        else if(state == UnitStates.instance.dead) {
+        else if(state == UnitStates.instance.dead || state == UnitStates.instance.blowOff) {
             mRout = StartCoroutine(DoAnimatorToRelease(animator, takeDeath));
         }
     }

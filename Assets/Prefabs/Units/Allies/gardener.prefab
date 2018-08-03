@@ -190,9 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateOnStart: 0
   activator: {fileID: 0}
-  signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09, type: 2}
-  signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
-  signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
+  flags: 0
   displayRootGO: {fileID: 1469002662818138}
   spawnRootGO: {fileID: 1568183789612444}
   despawnDelay: 4
@@ -230,8 +228,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyBlowOff: 1
+  blowOffEndOfs: 2
+  blowOffDelay: 1
+  blowOffHeight: 3
   animator: {fileID: 114969982327480428}
   takeDespawn: despawn
+  takeBlowOff: 
 --- !u!114 &114969982327480428
 MonoBehaviour:
   m_ObjectHideFlags: 1

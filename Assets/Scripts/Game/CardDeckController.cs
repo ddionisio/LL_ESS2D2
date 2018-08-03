@@ -76,7 +76,7 @@ public class CardDeckController : MonoBehaviour {
             var parms = new M8.GenericParams();
             parms[UnitSpawnParams.target] = targetPos;
             parms[UnitSpawnParams.card] = this;
-            parms[UnitSpawnParams.despawnOnCycleEnd] = true;
+            parms[UnitSpawnParams.despawnCycleType] = Unit.DespawnCycleType.Cycle;
 
             return mPool.Spawn<Unit>(card.unitPrefab.name, "", null, parms);
         }

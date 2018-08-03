@@ -42,6 +42,10 @@ public class UnitAllyCollector : UnitCard {
     protected override void StateChanged() {
         base.StateChanged();
 
+        if(prevState == UnitStates.instance.move) {
+            DetachCollect();
+        }
+
         if(state == UnitStates.instance.move) {
             if(mTargetFlowerReturn)
                 animator.Play(takeMoveReturn);
@@ -49,10 +53,6 @@ public class UnitAllyCollector : UnitCard {
                 mRout = StartCoroutine(DoCollectCheck());
                 animator.Play(takeMove);
             }
-        }
-        else if(state == UnitStates.instance.despawning) {
-            //drop collect, most likely we got killed while returning to flower
-            DetachCollect();
         }
     }
 

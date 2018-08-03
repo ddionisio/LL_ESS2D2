@@ -593,7 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5267118a1d5ba5248af4426cedbdc8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  releaseAfterDespawn: 1
   displayRoot: {fileID: 4277895853060788}
   animator: {fileID: 114218628625328864}
   takeIdle: 
@@ -611,9 +610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateOnStart: 0
   activator: {fileID: 0}
-  signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09, type: 2}
-  signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
-  signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
+  flags: 4
   displayRootGO: {fileID: 1012070727789698}
   spawnRootGO: {fileID: 1196492616378962}
   moveSpeed: 1
@@ -649,8 +646,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyBlowOff: 0
+  blowOffEndOfs: 2
+  blowOffDelay: 1
+  blowOffHeight: 3
   animator: {fileID: 114218628625328864}
   takeDespawn: leave
+  takeBlowOff: 
 --- !u!212 &212202146026499582
 SpriteRenderer:
   m_ObjectHideFlags: 1

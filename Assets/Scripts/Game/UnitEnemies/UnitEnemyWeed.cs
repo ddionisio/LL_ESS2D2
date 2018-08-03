@@ -96,6 +96,12 @@ public class UnitEnemyWeed : Unit {
 
     void Update() {
         if(state == UnitStates.instance.act) {
+            //flower gone, release ourself
+            if(!mFlowerTarget || mFlowerTarget.isReleased) {
+                ApplyGrowth(0f);
+                return;
+            }
+
             float growthDelta = mGrowthRate * Time.deltaTime;
             ApplyGrowth(growthDelta);
         }
