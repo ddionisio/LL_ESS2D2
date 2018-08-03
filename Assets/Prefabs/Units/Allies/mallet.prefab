@@ -472,7 +472,7 @@ MonoBehaviour:
   signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09, type: 2}
   signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
   signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
-  flags: -1
+  flags: 3
   displayRootGO: {fileID: 1162022660407618}
   spawnRootGO: {fileID: 1710681204389994}
   despawnDelay: 4

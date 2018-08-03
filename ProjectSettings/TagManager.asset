@@ -9,6 +9,7 @@ TagManager:
   - ObstacleAir
   - Ally
   - Weed
+  - Collect
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - ObstacleTrigger
   - Ally
   - AllyTrigger
-  - 
+  - Collect
   - 
   - 
   - 

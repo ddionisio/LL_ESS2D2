@@ -25,6 +25,7 @@ public class UnitEnemyFungus : Unit {
     public string takeSpawn;
     public string takeIdle;
     public string takeAct;
+    public string takeGas; //during gas active (loop)
     public string takeDead;
 
     private Collider2D[] mCollCache = new Collider2D[8];
@@ -112,12 +113,14 @@ public class UnitEnemyFungus : Unit {
                     yield return null;
             }
 
-            if(!string.IsNullOrEmpty(takeIdle))
-                animator.Play(takeIdle);
-
             //gas things
+            if(!string.IsNullOrEmpty(takeGas))
+                animator.Play(takeGas);
+            else if(!string.IsNullOrEmpty(takeIdle))
+                animator.Play(takeIdle);
+                        
             if(gasActiveGO) gasActiveGO.SetActive(true);
-
+                        
             for(int i = 0; i < gasCheckCount; i++) {
                 int collCount = Physics2D.OverlapBoxNonAlloc(gasAreaWorld.center, gasAreaWorld.size, mGasCheckRot, mCollCache, gasLayerMask);
                 for(int collInd = 0; collInd < collCount; collInd++) {
@@ -160,6 +163,7 @@ public class UnitEnemyFungus : Unit {
             }
 
             if(gasActiveGO) gasActiveGO.SetActive(false);
+            //
         }
     }
 

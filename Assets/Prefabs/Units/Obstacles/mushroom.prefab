@@ -435,8 +435,8 @@ MonoBehaviour:
     width: 2
     height: 1
   gasStartDelay: 2
-  gasCheckCount: 4
-  gasCheckDelay: 0.333
+  gasCheckCount: 5
+  gasCheckDelay: 0.4
   gasLayerMask:
     serializedVersion: 2
     m_Bits: 17408
@@ -449,6 +449,7 @@ MonoBehaviour:
   takeSpawn: spawn
   takeIdle: idle
   takeAct: act
+  takeGas: 
   takeDead: despawn
 --- !u!212 &212223079441817098
 SpriteRenderer:

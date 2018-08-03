@@ -6,7 +6,9 @@ public class Unit : M8.EntityBase {
     [System.Flags]
     public enum Flags {
         None = 0x0,
-        PoisonImmune = 0x1
+        PoisonImmune = 0x1,
+        PhysicalImmune = 0x2,
+        WindImmune = 0x4
     }
 
     [Header("Data")]

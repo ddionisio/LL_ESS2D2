@@ -14,7 +14,6 @@ public class UnitAllyGardener : UnitCard {
     public LayerMask checkLayerMask;
 
     private Collider2D[] mCheckColliders = new Collider2D[8];
-    private int mCheckColliderCount;
 
     public override void MotherbaseSpawnFinish() {
         state = UnitStates.instance.move;
@@ -51,9 +50,11 @@ public class UnitAllyGardener : UnitCard {
     }
 
     IEnumerator DoGardening() {
+        var wait = new WaitForSeconds(checkDelay);
+
         while(true) {
-            mCheckColliderCount = Physics2D.OverlapCircleNonAlloc(transform.position, checkRadius, mCheckColliders, checkLayerMask);
-            for(int i = 0; i < mCheckColliderCount; i++) {
+            var checkColliderCount = Physics2D.OverlapCircleNonAlloc(transform.position, checkRadius, mCheckColliders, checkLayerMask);
+            for(int i = 0; i < checkColliderCount; i++) {
                 var coll = mCheckColliders[i];
 
                 //check tag
@@ -84,7 +85,7 @@ public class UnitAllyGardener : UnitCard {
                 }
             }
 
-            yield return new WaitForSeconds(checkDelay);
+            yield return wait;
         }
     }
 

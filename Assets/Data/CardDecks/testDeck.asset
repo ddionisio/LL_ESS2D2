@@ -21,3 +21,6 @@ MonoBehaviour:
   - card: {fileID: 11400000, guid: 44cc420c6075e134b8f9d3649a26237c, type: 2}
     startState: 0
     startCount: 3
+  - card: {fileID: 11400000, guid: e7cf0412059b32e488fee669cdc67a55, type: 2}
+    startState: 0
+    startCount: 4

@@ -154,6 +154,21 @@ public class Motherbase : MonoBehaviour {
         return mFlowerQuery;
     }
 
+    public UnitAllyFlower GetFlowerLowestGrowth() {
+        UnitAllyFlower retFlower = null;
+        float lowestGrowth = float.MaxValue;
+
+        for(int i = 0; i < mFlowers.Count; i++) {
+            var flower = mFlowers[i];
+            if(flower.growth < lowestGrowth) {
+                retFlower = flower;
+                lowestGrowth = flower.growth;
+            }
+        }
+
+        return retFlower;
+    }
+
     public void Enter() {
         if(mState == State.Entering)
             return;
