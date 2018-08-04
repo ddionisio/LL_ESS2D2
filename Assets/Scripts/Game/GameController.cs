@@ -15,10 +15,6 @@ public class GameController : GameModeController<GameController> {
     public GameBounds2D levelBounds;
     public LayerMask levelGroundLayerMask;
 
-    [Header("Flower")]
-    public int flowerCycleSpawnCount = 4;
-    public float flowerCycleSpawnDelay = 0.3f;
-
     /// <summary>
     /// Called before starting current cycle
     /// </summary>
@@ -69,9 +65,9 @@ public class GameController : GameModeController<GameController> {
 
         //spawn flowers from mother base
 
-        yield return new WaitForSeconds(flowerCycleSpawnDelay);
+        yield return new WaitForSeconds(motherbase.flowerCycleSpawnDelay);
 
-        for(int i = 0; i < flowerCycleSpawnCount; i++)
+        for(int i = 0; i < motherbase.flowerCycleSpawnCount; i++)
             motherbase.SpawnFlower();
     }
 

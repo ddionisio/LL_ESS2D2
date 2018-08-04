@@ -173,10 +173,10 @@ MonoBehaviour:
   flags: 1
   displayRootGO: {fileID: 0}
   spawnRootGO: {fileID: 0}
-  hopDelay: 1.5
+  hopDelay: 1
   hopRangeMin: {x: 3, y: 4}
   hopRangeMax: {x: 5, y: 6}
-  hopWaitDelay: 1.5
+  hopWaitDelay: 1
   hopAttackArea:
     serializedVersion: 2
     x: 0

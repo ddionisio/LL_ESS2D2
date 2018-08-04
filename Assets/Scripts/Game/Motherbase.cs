@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Motherbase : MonoBehaviour {
     public const string poolGroupRef = "flowerUnitPool";
-    public const int flowerCapacity = 12;
-
+    
     public enum State {
         None,
         Entering,
@@ -20,6 +19,9 @@ public class Motherbase : MonoBehaviour {
 
     [Header("Flower Info")]
     public GameObject flowerPrefab;
+    public int flowerCapacity = 12;
+    public int flowerCycleSpawnCount = 4;
+    public float flowerCycleSpawnDelay = 0.3f;
     
     [Header("Spawn Info")]
     public float spawnUnitHeightOffsetMin = 2.0f;
@@ -28,6 +30,7 @@ public class Motherbase : MonoBehaviour {
     public Vector2 spawnStart;
     public Rect spawnAreaLeft; //for flowers
     public Rect spawnAreaRight; //for flowers
+    public float spawnAreaSectionRandScale = 0.25f; //for flowers
     public Rect spawnAreaCenter; //for units
     public LayerMask spawnGroundLayerMask;
 
@@ -232,8 +235,8 @@ public class Motherbase : MonoBehaviour {
         //Generate flower spawn points
         int flowerRegionDivisible = flowerCapacity / 2;
 
-        float flowerRegionExtLeft = (spawnAreaLeft.width / flowerRegionDivisible) * 0.5f;
-        float flowerRegionExtRight = (spawnAreaRight.width / flowerRegionDivisible) * 0.5f;
+        float flowerRegionWidthLeft = (spawnAreaLeft.width / flowerRegionDivisible);
+        float flowerRegionWidthRight = (spawnAreaRight.width / flowerRegionDivisible);
 
         var flowerSpawnLeftXs = new float[flowerRegionDivisible];
         var flowerSpawnRightXs = new float[flowerRegionDivisible];
@@ -241,8 +244,11 @@ public class Motherbase : MonoBehaviour {
         var worldPos = transform.position;
 
         for(int i = 0; i < flowerRegionDivisible; i++) {
-            flowerSpawnLeftXs[i] = worldPos.x + spawnAreaLeft.xMin + (flowerRegionExtLeft * (i + 1));
-            flowerSpawnRightXs[i] = worldPos.x + spawnAreaRight.xMin + (flowerRegionExtRight * (i + 1));
+            var leftOfs = Random.Range(-flowerRegionWidthLeft * spawnAreaSectionRandScale, flowerRegionWidthLeft * spawnAreaSectionRandScale);
+            flowerSpawnLeftXs[i] = worldPos.x + spawnAreaLeft.xMin + (flowerRegionWidthLeft * i) + flowerRegionWidthLeft*0.5f + leftOfs;
+
+            var rightOfs = Random.Range(-flowerRegionWidthRight * spawnAreaSectionRandScale, flowerRegionWidthRight * spawnAreaSectionRandScale);
+            flowerSpawnRightXs[i] = worldPos.x + spawnAreaRight.xMin + (flowerRegionWidthRight * i) + flowerRegionWidthRight*0.5f + rightOfs;
         }
 
         M8.ArrayUtil.Shuffle(flowerSpawnLeftXs);

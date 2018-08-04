@@ -21,6 +21,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
     public SpawnType type;
     public GameObject prefab;
     public float delay; //delay relative to the last spawn, or at the start
+    public bool forceDespawnOnCycleEnd; //if true, will always despawn on end of cycle (use for weather spawn items)
 
     [Header("Telemetry")]    
     public float dirAngle;
@@ -42,7 +43,9 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
     public void Spawn(M8.PoolController pool) {
         var parms = new M8.GenericParams();
 
-        if(cycleEndType != Unit.DespawnCycleType.None)
+        if(forceDespawnOnCycleEnd)
+            parms[UnitSpawnParams.despawnCycleType] = Unit.DespawnCycleType.Cycle;
+        else if(cycleEndType != Unit.DespawnCycleType.None)
             parms[UnitSpawnParams.despawnCycleType] = cycleEndType;
 
         switch(type) {

@@ -7,15 +7,15 @@ public class WeatherCycleSpawner : MonoBehaviour {
 
     [System.Serializable]
     public class CycleInfo {
-        public GameObject root;
+        public GameObject cycleRoot;
         public GameObject[] weatherRoots;
 
         public WeatherCycleSpawnerItem[] cycleSpawnItems { get; private set; }
         public WeatherCycleSpawnerItem[][] weatherSpawnItems { get; private set; }
 
         public void Init() {
-            if(root && root.activeSelf) {
-                cycleSpawnItems = root.GetComponentsInChildren<WeatherCycleSpawnerItem>(false);
+            if(cycleRoot && cycleRoot.activeSelf) {
+                cycleSpawnItems = cycleRoot.GetComponentsInChildren<WeatherCycleSpawnerItem>(false);
 
                 for(int i = 0; i < cycleSpawnItems.Length; i++)
                     cycleSpawnItems[i].cycleEndType = Unit.DespawnCycleType.Cycle;
