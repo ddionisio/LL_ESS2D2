@@ -140,7 +140,7 @@ public class UnitEnemyFungus : Unit {
                         continue;
 
                     var unit = go.GetComponent<Unit>();
-                    if(unit.isReleased)
+                    if(!unit || unit.isReleased || (unit.flags & Flags.PoisonImmune) != Flags.None)
                         continue;
 
                     if(unit is UnitAllyFlower) {
@@ -152,7 +152,7 @@ public class UnitEnemyFungus : Unit {
                         if(flowerUnit.growth <= 0f)
                             flowerUnit.Release(); //kill flower
                     }
-                    else if((unit.flags & Flags.PoisonImmune) != Flags.None) {
+                    else {
                         //despawn (TODO: death? (for visual purpose))
                         unit.state = UnitStates.instance.despawning;
                     }

@@ -10,6 +10,7 @@ TagManager:
   - Ally
   - Weed
   - Collect
+  - ObstacleJumper
   layers:
   - Default
   - TransparentFX
