@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: gameData
   m_EditorClassIdentifier: 
   introScene:
-    name: 
-    path: 
+    name: intro
+    path: Assets/Scenes/intro.unity
   endScene:
-    name: 
-    path: 
+    name: end
+    path: Assets/Scenes/end.unity
   levelSelectScene:
-    name: 
-    path: 
+    name: levelSelect
+    path: Assets/Scenes/levelSelect.unity
   postGameScene:
     name: 
     path: 

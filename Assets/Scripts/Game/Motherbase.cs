@@ -32,7 +32,6 @@ public class Motherbase : MonoBehaviour {
     public Rect spawnAreaRight; //for flowers
     public float spawnAreaSectionRandScale = 0.25f; //for flowers
     public Rect spawnAreaCenter; //for units
-    public LayerMask spawnGroundLayerMask;
 
     [Header("Animation")]
     public M8.Animator.Animate animator;
@@ -261,10 +260,12 @@ public class Motherbase : MonoBehaviour {
         var worldSpawnAreaRight = new Rect(spawnAreaRight.min + (Vector2)worldPos, spawnAreaRight.size);
 
         for(int i = 0; i < flowerRegionDivisible; i++) {
-            var leftGroundPt = LevelGroundPosition.FromPointInBounds(worldSpawnAreaLeft, new Vector2(flowerSpawnLeftXs[i], worldSpawnAreaLeft.yMax), spawnGroundLayerMask);
+            UnitPoint leftGroundPt;
+            UnitPoint.GetGroundPoint(new Vector2(flowerSpawnLeftXs[i], worldSpawnAreaLeft.yMax), out leftGroundPt);
             mSpawnPointLeft[i] = leftGroundPt.position;
 
-            var rightGroundPt = LevelGroundPosition.FromPointInBounds(worldSpawnAreaRight, new Vector2(flowerSpawnRightXs[i], worldSpawnAreaRight.yMax), spawnGroundLayerMask);
+            UnitPoint rightGroundPt;
+            UnitPoint.GetGroundPoint(new Vector2(flowerSpawnRightXs[i], worldSpawnAreaRight.yMax), out rightGroundPt);
             mSpawnPointRight[i] = rightGroundPt.position;
         }
     }

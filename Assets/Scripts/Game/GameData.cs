@@ -123,7 +123,16 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
 
                 if(levelFoundInd != -1) {
                     curLevelIndex = levelFoundInd;
-                    postGameScene.Load();
+                    if(postGameScene.isValid)
+                        postGameScene.Load();
+                    else {
+                        if(curLevelIndex < levels.Length - 1) {
+                            curLevelIndex++;                            
+                        }
+
+                        //level select will deal with ending
+                        levelSelectScene.Load();
+                    }
                 }
                 else
                     M8.SceneManager.instance.Reload(); //not found, just reload current

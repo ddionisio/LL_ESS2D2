@@ -13,7 +13,6 @@ public class GameController : GameModeController<GameController> {
 
     [Header("Level Info")]
     public GameBounds2D levelBounds;
-    public LayerMask levelGroundLayerMask;
 
     /// <summary>
     /// Called before starting current cycle

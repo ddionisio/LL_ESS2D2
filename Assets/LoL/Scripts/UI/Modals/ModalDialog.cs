@@ -92,11 +92,14 @@ public class ModalDialog : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M8
     }
 
     public void Next() {
+        var nextCB = mNextCallback;
+        mNextCallback = null;
+
         if(isCloseOnNext)
             Close();
 
-        if(mNextCallback != null)
-            mNextCallback();
+        if(nextCB != null)
+            nextCB();
 
         if(signalNext != null)
             signalNext.Invoke();
@@ -125,6 +128,8 @@ public class ModalDialog : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M8
                 SetupPortraitTextContent(parms.GetValue<Sprite>(parmPortraitSprite), parms.GetValue<string>(parmNameTextRef), parms.GetValue<string>(parmDialogTextRef));
             else
                 SetupTextContent(parms.GetValue<string>(parmNameTextRef), parms.GetValue<string>(parmDialogTextRef));
+
+            mNextCallback = parms.GetValue<System.Action>(parmNextCallback);
         }
     }
 

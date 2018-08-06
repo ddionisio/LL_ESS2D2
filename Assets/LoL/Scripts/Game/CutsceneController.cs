@@ -87,6 +87,8 @@ public class CutsceneController : MonoBehaviour {
     }
 
     IEnumerator Start() {
+        ResetAnimates();
+
         if(playOnStart) {
             while(M8.SceneManager.instance.isLoading)
                 yield return null;
@@ -104,13 +106,11 @@ public class CutsceneController : MonoBehaviour {
 
     // Use this for initialization
     IEnumerator DoPlay() {
-        //setup initial display
-        animator.ResetTake(animator.GetTakeIndex(takeStart));
-        animator.ResetTake(animator.GetTakeIndex(takeInteractEnter));
-                
-        animator.Play(takeStart);
-        while(animator.isPlaying)
-            yield return null;
+        if(animator && !string.IsNullOrEmpty(takeStart)) {
+            animator.Play(takeStart);
+            while(animator.isPlaying)
+                yield return null;
+        }
 
         //music
         if(!string.IsNullOrEmpty(playMusicPath)) {
@@ -124,6 +124,15 @@ public class CutsceneController : MonoBehaviour {
         //start up the first page
         mCurPageInd = 0;
         ShowCurrentPage();
+    }
+
+    void ResetAnimates() {
+        if(animator) {
+            if(!string.IsNullOrEmpty(takeStart))
+                animator.ResetTake(takeStart);
+            if(!string.IsNullOrEmpty(takeInteractEnter))
+                animator.ResetTake(takeInteractEnter);
+        }
     }
 
     void ShowCurrentPage() {
@@ -145,14 +154,18 @@ public class CutsceneController : MonoBehaviour {
         }
 
         if(!mIsDialogOpen) {
-            animator.Play(takeInteractEnter);
+            if(animator && !string.IsNullOrEmpty(takeInteractEnter))
+                animator.Play(takeInteractEnter);
+
             mIsInteractActive = true;
         }
     }
 
     IEnumerator DoGoNextPage() {
         if(mIsInteractActive) {
-            animator.Play(takeInteractExit);
+            if(animator && !string.IsNullOrEmpty(takeInteractExit))
+                animator.Play(takeInteractExit);
+
             mIsInteractActive = false;
         }
 
