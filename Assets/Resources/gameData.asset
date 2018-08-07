@@ -23,7 +23,11 @@ MonoBehaviour:
   postGameScene:
     name: 
     path: 
-  levels: []
+  levels:
+  - climateMatch: {fileID: 11400000, guid: 31767c67b79dc5543b4d0d3b06b7c7af, type: 2}
+    scene:
+      name: level1
+      path: Assets/Scenes/level1.unity
   levelCycleStartDelay: 1.5
   groundLayerMask:
     serializedVersion: 2

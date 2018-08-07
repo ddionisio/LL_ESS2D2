@@ -190,7 +190,6 @@ public class CutsceneController : MonoBehaviour {
             ShowCurrentPage();
         }
         else if(progressOnEnd) { //proceed
-            M8.UIModal.Manager.instance.ModalCloseAll();
             GameData.instance.Progress();
         }
     }

@@ -114,7 +114,7 @@ public class ModalDialog : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M8
         base.SetActive(aActive);
 
         //play text speech if auto
-        if(isTextSpeechAuto)
+        if(aActive && isTextSpeechAuto)
             PlayDialogSpeech();
     }
 

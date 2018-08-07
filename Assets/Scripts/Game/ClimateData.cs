@@ -9,4 +9,6 @@ public class ClimateData : ScriptableObject {
     public string titleTextRef;
     [M8.Localize]
     public string descTextRef;
+
+    public ClimateZoneData zone;
 }

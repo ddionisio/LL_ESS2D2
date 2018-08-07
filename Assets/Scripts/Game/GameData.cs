@@ -11,6 +11,7 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
 
     [System.Serializable]
     public class LevelData {
+        public ClimateData climateMatch;
         public M8.SceneAssetPath scene;
     }
 
@@ -29,6 +30,7 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
 
     public bool isGameStarted { get; private set; } //true: we got through start normally, false: debug
     public int curLevelIndex { get; private set; }
+    public LevelData curLevelData { get { return levels[curLevelIndex]; } }
 
     /// <summary>
     /// Called in start scene

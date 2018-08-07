@@ -3,7 +3,13 @@ guid: e96ce9363b530664d815be6950bbb6a1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - data: {instanceID: 0}
+  - activeGO: {instanceID: 0}
+  - inactiveGO: {instanceID: 0}
+  - spriteColorGroup: {instanceID: 0}
+  - signalActive: {fileID: 11400000, guid: 5bccd44853edb714ebbb81344070dd5a, type: 2}
+  - signalOnClicked: {fileID: 11400000, guid: 82a32e97756c91248b602ddb78dfc8f5, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
