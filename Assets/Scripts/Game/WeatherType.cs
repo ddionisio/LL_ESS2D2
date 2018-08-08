@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeatherType : ScriptableObject {
     [Header("Display")]
     public Sprite icon;
+    public Sprite image; //higher quality for forecast and description
 
     [M8.Localize]
     public string titleRef; //short detail, ex: Mostly Sunny, T-Storms

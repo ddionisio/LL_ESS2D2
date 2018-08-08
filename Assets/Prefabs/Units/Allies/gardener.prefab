@@ -195,7 +195,7 @@ MonoBehaviour:
   spawnRootGO: {fileID: 1568183789612444}
   despawnDelay: 4
   moveSpeed: 0.5
-  flowerGrowthMod: 1.5
+  flowerGrowthMod: 2
   weedReduceGrowthMod: 2
   checkRadius: 0.6
   checkDelay: 0.5

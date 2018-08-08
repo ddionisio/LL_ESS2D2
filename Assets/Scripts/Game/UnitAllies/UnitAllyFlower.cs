@@ -41,44 +41,57 @@ public class UnitAllyFlower : Unit {
     private float mGrowthRate; //growth/second
     private float mGrowth;
     private float mGrowthMax;
+    private float mStemGrowth;
     private Dictionary<string, float> mGrowthMods = new Dictionary<string, float>();
 
     public void ApplyGrowth(float growthDelta) {
+        if(isBlossomed && growthDelta > 0f) //don't allow growth for blossomed flower
+            return;
+
         var curStem = mStems[mCurStemIndex];
-                
-        float stemGrowth = mGrowth % growthStemValue;
 
         mGrowth = Mathf.Clamp(mGrowth + growthDelta, 0f, mGrowthMax);
 
-        stemGrowth += growthDelta;
+        mStemGrowth += growthDelta;
 
-        float stemVal = Mathf.Clamp(stemGrowth / growthStemValue, 0f, curStem.maxGrowth);
+        float stemVal = Mathf.Clamp(mStemGrowth / growthStemValue, 0f, curStem.maxGrowth);
 
         curStem.growth = stemVal;
 
-        if(stemGrowth >= growthStemValue) {
-            stemGrowth = stemGrowth - growthStemValue;
+        if(mStemGrowth >= growthStemValue) {
+            curStem.ShowLeaves();
 
             if(mCurStemIndex < mStems.Length - 1) {
-                curStem.ShowLeaves();
-
                 mCurStemIndex++;
-                                
+
                 curStem = mStems[mCurStemIndex];
                 curStem.gameObject.SetActive(true);
+
+                mStemGrowth -= growthStemValue;
+            }
+            else {
+                mStemGrowth = growthStemValue;
             }
         }
-        else if(stemGrowth < 0f) {
+        else if(mStemGrowth < 0f) {
             curStem.HideLeaves();
             curStem.gameObject.SetActive(false);
 
             if(mCurStemIndex > 0) {
+                mStemGrowth += growthStemValue;
+
                 mCurStemIndex--;
 
                 curStem = mStems[mCurStemIndex];
                 curStem.HideLeaves();
 
-                curStem.growth = Mathf.Clamp((growthStemValue - stemGrowth) / growthStemValue, 0f, curStem.maxGrowth);
+                curStem.growth = Mathf.Clamp(mStemGrowth / growthStemValue, 0f, curStem.maxGrowth);
+            }
+            else {
+                mStemGrowth = 0f;
+
+                curStem = mStems[mCurStemIndex];
+                curStem.growth = 0f;
             }
         }
 
@@ -164,6 +177,7 @@ public class UnitAllyFlower : Unit {
         mGrowthMods.Clear();
 
         mGrowth = 0f;
+        mStemGrowth = 0f;
 
         for(int i = 0; i < stemMaxCount; i++) {
             mStems[i].growth = 0f;
@@ -263,15 +277,11 @@ public class UnitAllyFlower : Unit {
 
     void OnCycleEnd() {
         GameController.instance.weatherCycle.cycleEndCallback -= OnCycleEnd;
-                
-        if(state != UnitStates.instance.grow) //only blossom if we are in a grow state
-            return;
+        
+        StopGrowRoutine();
 
-        if(mGrowRout != null) {
-            StopGrowRoutine();
-
-            //apply flower blossom
+        //apply flower blossom
+        if(!isBlossomed) //only blossom if we haven't
             Blossom();
-        }
     }
 }

@@ -28,7 +28,8 @@ MonoBehaviour:
     scene:
       name: level1
       path: Assets/Scenes/level1.unity
-  levelCycleStartDelay: 1.5
+  levelCycleStartDelay: 2
+  levelCycleEndDelay: 2
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 513

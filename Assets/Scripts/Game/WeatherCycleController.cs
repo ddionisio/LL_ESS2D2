@@ -96,6 +96,8 @@ public class WeatherCycleController : MonoBehaviour {
                 weatherEndCallback();
         }
 
+        curWeatherIndex = curCycle.weathers.Length - 1; //fail-safe when calling cycle end
+
         mCycleRout = null;
 
         if(cycleEndCallback != null)

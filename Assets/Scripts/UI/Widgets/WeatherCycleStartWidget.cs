@@ -14,7 +14,7 @@ public class WeatherCycleStartWidget : MonoBehaviour {
 
     void OnDisable() {
         if(GameController.isInstantiated)
-            GameController.instance.prepareCycleCallback -= OnCyclePrepare;
+            GameController.instance.startCycleCallback -= OnCycleStart;
     }
 
     void OnEnable() {
@@ -22,10 +22,10 @@ public class WeatherCycleStartWidget : MonoBehaviour {
         if(animator && !string.IsNullOrEmpty(takeCycleStart))
             animator.ResetTake(takeCycleStart);
 
-        GameController.instance.prepareCycleCallback += OnCyclePrepare;
+        GameController.instance.startCycleCallback += OnCycleStart;
     }
 
-    void OnCyclePrepare() {
+    void OnCycleStart() {
         int cycleNum = GameController.instance.weatherCycle.curCycleIndex + 1;
         cycleLabel.text = string.Format(M8.Localize.Get(cycleTextRef), cycleNum);
 

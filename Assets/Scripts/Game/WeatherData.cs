@@ -35,6 +35,18 @@ public class WeatherData {
         }
     }
 
+    public string temperatureText {
+        get {
+            return temperature.ToString() + "° F";
+        }
+    }
+
+    public string precipitationPercentText {
+        get {
+            return precipitationPercent.ToString() + '%';
+        }
+    }
+
     private Vector2 mWindDir;
     private Vector2 mWindVelocity;
     private bool mIsWindInfoSet;

@@ -11,18 +11,28 @@ public class GameController : GameModeController<GameController> {
 
     public CardDeployReticle[] cardDeployReticles;
 
+    [Header("Weather Forecast")]
+    public string modalWeatherForecast = "weatherForecast";
+
     [Header("Level Info")]
     public GameBounds2D levelBounds;
 
     /// <summary>
-    /// Called before starting current cycle
+    /// Called before current cycle starts (initialize info here)
     /// </summary>
     public event System.Action prepareCycleCallback;
+
+    /// <summary>
+    /// Called before cycle starts (play animation here)
+    /// </summary>
+    public event System.Action startCycleCallback;
 
     /// <summary>
     /// Called after all cycles have finished
     /// </summary>
     public event System.Action endCallback;
+
+    private M8.GenericParams mWeatherForecastParms = new M8.GenericParams();
     
     public CardDeployReticle GetCardDeployReticle(string reticleName) {
         for(int i = 0; i < cardDeployReticles.Length; i++) {
@@ -33,6 +43,13 @@ public class GameController : GameModeController<GameController> {
         return null;
     }
 
+    protected override void OnInstanceDeinit() {
+        base.OnInstanceDeinit();
+
+        if(weatherCycle)
+            weatherCycle.cycleEndCallback -= OnCycleEnd;
+    }
+
     protected override void OnInstanceInit() {
         base.OnInstanceInit();
 
@@ -41,11 +58,13 @@ public class GameController : GameModeController<GameController> {
             if(cardDeployReticles[i])
                 cardDeployReticles[i].gameObject.SetActive(false);
         }
+
+        weatherCycle.cycleEndCallback += OnCycleEnd;
     }
 
     protected override IEnumerator Start() {
         yield return base.Start();
-
+                
         motherbase.Enter();
         while(motherbase.state == Motherbase.State.Entering)
             yield return null;
@@ -55,11 +74,28 @@ public class GameController : GameModeController<GameController> {
     }
 
     IEnumerator DoNewCycle() {
+        //prep display (hud, etc.)
         if(prepareCycleCallback != null)
             prepareCycleCallback();
 
-        yield return new WaitForSeconds(GameData.instance.levelCycleStartDelay);
+        //open weather forecast
+        mWeatherForecastParms[ModalWeatherForecast.parmWeatherCycleIndex] = weatherCycle.curCycleIndex;
+        mWeatherForecastParms[ModalWeatherForecast.parmWeatherCycle] = weatherCycle.curCycleData;
 
+        var uiMgr = M8.UIModal.Manager.instance;
+
+        uiMgr.ModalOpen(modalWeatherForecast, mWeatherForecastParms);
+
+        //wait for modals closed
+        while(uiMgr.isBusy || uiMgr.activeCount > 0)
+            yield return null;
+        //
+
+        if(startCycleCallback != null)
+            startCycleCallback();
+
+        yield return new WaitForSeconds(GameData.instance.levelCycleStartDelay);
+        
         weatherCycle.StartCurCycle();
 
         //spawn flowers from mother base
@@ -70,14 +106,20 @@ public class GameController : GameModeController<GameController> {
             motherbase.SpawnFlower();
     }
 
-    void OnWeatherCycleEnd() {
+    IEnumerator DoEndCycle() {
+        yield return new WaitForSeconds(GameData.instance.levelCycleEndDelay);
+
         if(weatherCycle.NextCycle()) {
             StartCoroutine(DoNewCycle());
-            return;
         }
+        else {
+            //end
+            if(endCallback != null)
+                endCallback();
+        }
+    }
 
-        //end
-        if(endCallback != null)
-            endCallback();
+    void OnCycleEnd() {
+        StartCoroutine(DoEndCycle());
     }
 }

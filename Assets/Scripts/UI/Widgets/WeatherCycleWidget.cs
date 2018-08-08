@@ -128,7 +128,7 @@ public class WeatherCycleWidget : MonoBehaviour {
         var curWeatherInd = GameController.instance.weatherCycle.curWeatherIndex;
 
         weatherTitleLabel.text = M8.Localize.Get(curWeather.type.titleRef);
-        temperatureLabel.text = curWeather.temperature.ToString() + "° F";
+        temperatureLabel.text = curWeather.temperatureText;
 
         weatherSlots[curWeatherInd].Active();
     }
