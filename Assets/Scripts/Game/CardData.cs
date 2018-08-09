@@ -17,6 +17,7 @@ public class CardData : ScriptableObject {
     [Header("Display")]
     public Sprite icon; //show when dragging to world
     public Sprite image; //for card/description
+    public Sprite illustration; //for description
 
     [M8.Localize]
     public string titleRef;

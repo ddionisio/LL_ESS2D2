@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitEnemyMole : Unit {
     [Header("Data")]
     public float moveSpeed;
-    public float growthEatMod;
+    public float flowerEatScale;
 
     [Header("Animation")]
     public M8.Animator.Animate animator;
@@ -16,7 +16,6 @@ public class UnitEnemyMole : Unit {
     private UnitAllyFlower mFlowerTarget;
 
     private float mDirSign;
-    private float mGrowthEatRate;
 
     protected override void StateChanged() {
         base.StateChanged();
@@ -25,13 +24,10 @@ public class UnitEnemyMole : Unit {
             if(animator && !string.IsNullOrEmpty(takeGrab))
                 animator.ResetTake(takeGrab);
 
-            //revert flower growing (most likely while grabbing flower)
-            if(mFlowerTarget && !mFlowerTarget.isReleased && mFlowerTarget.state == UnitStates.instance.idle) {
-                mFlowerTarget.state = UnitStates.instance.grow;
-                mFlowerTarget.SetMark(false);
-
-                mFlowerTarget = null;
-            }
+            ClearFlower();
+        }
+        else if(prevState == UnitStates.instance.move && state != UnitStates.instance.act) {
+            ClearFlower();
         }
 
         if(state == UnitStates.instance.spawning)
@@ -45,11 +41,7 @@ public class UnitEnemyMole : Unit {
         else if(state == UnitStates.instance.act) {
             if(animator && !string.IsNullOrEmpty(takeGrab))
                 animator.Play(takeGrab);
-
-            //hold flower growth
-            if(mFlowerTarget)
-                mFlowerTarget.state = UnitStates.instance.idle;
-
+            
             mRout = StartCoroutine(DoGrabFlower());
 
             isPhysicsActive = true; //allow allies to see this mole while grabbing
@@ -74,9 +66,7 @@ public class UnitEnemyMole : Unit {
 
         //determine move dir based on flower target
         mDirSign = Mathf.Sign(mFlowerTarget.position.x - position.x);
-
-        mGrowthEatRate = mFlowerTarget.GetGrowthRate(growthEatMod);
-
+        
         //apply initial position/dir
         UpdatePosition(position);
 
@@ -85,6 +75,8 @@ public class UnitEnemyMole : Unit {
 
     protected override void OnDespawned() {
         base.OnDespawned();
+
+        ClearFlower();
     }
 
     void FixedUpdate() {
@@ -107,7 +99,11 @@ public class UnitEnemyMole : Unit {
         //eat up the flower's growth until it is 0
         //mGrowthEatRate
         while(!mFlowerTarget.isReleased && mFlowerTarget.growth > 0f) {
-            mFlowerTarget.ApplyGrowth(-mGrowthEatRate * Time.deltaTime);
+            float growthDelta = mFlowerTarget.growthMax * flowerEatScale;
+            mFlowerTarget.ApplyGrowth(-growthDelta * Time.deltaTime);
+            if(mFlowerTarget.growth <= 0f)
+                break;
+
             yield return null;
         }
 
@@ -120,6 +116,15 @@ public class UnitEnemyMole : Unit {
         }
 
         state = UnitStates.instance.despawning;
+    }
+
+    private void ClearFlower() {
+        if(mFlowerTarget) {
+            if(!mFlowerTarget.isReleased)
+                mFlowerTarget.SetMark(false);
+
+            mFlowerTarget = null;
+        }
     }
     
     private void UpdatePosition(Vector2 toPos) {

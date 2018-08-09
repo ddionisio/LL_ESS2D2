@@ -14,7 +14,7 @@ public class CardDeckData : ScriptableObject {
     public class Item {
         public CardData card;
 
-        public CardState startState;
+        public bool startHidden;
         public int startCount;
     }
 

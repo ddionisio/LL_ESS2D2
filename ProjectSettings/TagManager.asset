@@ -11,6 +11,8 @@ TagManager:
   - Weed
   - Collect
   - ObstacleJumper
+  - UIDragGuide
+  - UICardDeck
   layers:
   - Default
   - TransparentFX

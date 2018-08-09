@@ -53,9 +53,9 @@ public class CardDeckController : MonoBehaviour {
             }
         }
 
-        public CardItem(M8.PoolController unitPool, CardDeckData.Item cardInfo) {
+        public CardItem(M8.PoolController unitPool, CardDeckData.Item cardInfo, CardState startState) {
             card = cardInfo.card;
-            mCurState = cardInfo.startState;
+            mCurState = cardInfo.startHidden ? CardState.Hidden : startState;
             mCurCount = cardInfo.startCount;
             mCurCooldown = 0f;
             mPendingCount = 0;
@@ -109,6 +109,28 @@ public class CardDeckController : MonoBehaviour {
     public CardItem[] cards { get; private set; }
 
     private M8.PoolController mUnitPool;
+    private bool mIsCardsActive;
+
+    public void SetCardsActive(bool active) {
+        if(mIsCardsActive != active) {
+            mIsCardsActive = active;
+            for(int i = 0; i < cards.Length; i++) {
+                if(cards[i].curState == CardState.Hidden)
+                    continue;
+
+                cards[i].curState = mIsCardsActive ? CardState.Active : CardState.Disabled;
+            }
+        }
+    }
+
+    public void ShowCard(string cardName) {
+        for(int i = 0; i < cards.Length; i++) {
+            if(cards[i].card.name == cardName) {
+                cards[i].curState = mIsCardsActive ? CardState.Active : CardState.Disabled;
+                break;
+            }
+        }
+    }
 
     public CardItem GetCardItem(Unit unit) {
         for(int i = 0; i < cards.Length; i++) {
@@ -131,8 +153,10 @@ public class CardDeckController : MonoBehaviour {
         cards = new CardItem[deckData.cards.Length];
 
         for(int i = 0; i < cards.Length; i++) {
-            cards[i] = new CardItem(mUnitPool, deckData.cards[i]);
+            cards[i] = new CardItem(mUnitPool, deckData.cards[i], CardState.Disabled);
         }
+
+        mIsCardsActive = false;
     }
 
     void Update() {

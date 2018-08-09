@@ -20,6 +20,13 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public CardDragWidget cardDrag;
 
+    [Header("Signal")]
+    public SignalCardWidget signalCardDragStart;
+    public SignalCardWidget signalCardDragEnd;
+    public SignalCardWidgetUnit signalCardSpawned;
+
+    public CardData card { get { return mCardItem.card; } }
+
     private CardDeckController.CardItem mCardItem;
 
     private Graphic mBaseGraphic;
@@ -152,6 +159,9 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
             cardDrag.Init(mCardItem.card);
             cardDrag.SetShow(true);
+
+            if(signalCardDragStart)
+                signalCardDragStart.Invoke(this);
         }
 
         if(!mDeployReticle) {
@@ -166,6 +176,9 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             mIsDragging = false;
 
             cardDrag.gameObject.SetActive(false);
+
+            if(signalCardDragEnd)
+                signalCardDragEnd.Invoke(this);
         }
 
         if(mDeployReticle) {
@@ -231,6 +244,9 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
                 //spawn via motherbase
                 GameController.instance.motherbase.SpawnQueueUnit(unit, targetPoint);
+
+                if(signalCardSpawned)
+                    signalCardSpawned.Invoke(this, unit);
             }
         }
 

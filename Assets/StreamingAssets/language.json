@@ -57,6 +57,7 @@
     "climateTypeSubtropical": "Subtropical",
     "climateTypeSubtropicalDesc": "Subtropical",
     "locationGreatPlains": "Great Plains",
-    "locationSahara": "Sahara Desert"
+    "locationSahara": "Sahara Desert",
+    "tutorialDragInstruction": "Drag the card towards the playing field."
   }
 }

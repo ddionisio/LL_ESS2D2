@@ -40,7 +40,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
 
     public Unit.DespawnCycleType cycleEndType { get; set; }
 
-    public void Spawn(M8.PoolController pool) {
+    public Unit Spawn(M8.PoolController pool) {
         var parms = new M8.GenericParams();
 
         if(forceDespawnOnCycleEnd)
@@ -58,7 +58,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
             case SpawnType.FlowerBuddingUnmarked: {
                     var flowersQuery = GameController.instance.motherbase.GetFlowersBudding(type == SpawnType.FlowerBuddingUnmarked);
                     if(flowersQuery.Count == 0)
-                        return;
+                        return null;
 
                     var flower = flowersQuery[Random.Range(0, flowersQuery.Count)];
                     parms[UnitSpawnParams.position] = flower.position;
@@ -70,7 +70,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
             case SpawnType.TargetFlowerUnmarked: {
                     var flower = GameController.instance.motherbase.GetNearestFlower(position.x, true);
                     if(!flower)
-                        return;
+                        return null;
 
                     parms[UnitSpawnParams.position] = position;
                     parms[UnitSpawnParams.dir] = dir;
@@ -81,7 +81,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
             case SpawnType.TargetFlowerBloomedUnmarked: {
                     var flower = GameController.instance.motherbase.GetNearestFlowerBloomed(position.x, true);
                     if(!flower)
-                        return;
+                        return null;
 
                     parms[UnitSpawnParams.position] = position;
                     parms[UnitSpawnParams.dir] = dir;
@@ -92,7 +92,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
             case SpawnType.FlowerRandom: {
                     var flower = GameController.instance.motherbase.GetRandomFlower(false);
                     if(!flower)
-                        return;
+                        return null;
 
                     parms[UnitSpawnParams.position] = flower.position;
                     parms[UnitSpawnParams.dir] = dir;
@@ -101,7 +101,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
                 break;
         }
 
-        pool.Spawn(prefab.name, "", null, parms);
+        return pool.Spawn<Unit>(prefab.name, "", null, parms);
     }
 
     void OnDrawGizmos() {

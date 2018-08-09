@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - card: {fileID: 11400000, guid: 5b2e45077c109664ba35c1fae3682503, type: 2}
-    startState: 0
-    startCount: 2
+    startHidden: 1
+    startCount: 3
   - card: {fileID: 11400000, guid: 9cd46c0cfdfd2504dafeab7aa19ff68a, type: 2}
-    startState: 2
+    startHidden: 1
     startCount: 2
   - card: {fileID: 11400000, guid: 44cc420c6075e134b8f9d3649a26237c, type: 2}
-    startState: 2
+    startHidden: 1
     startCount: 2

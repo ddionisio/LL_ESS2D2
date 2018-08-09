@@ -36,6 +36,9 @@ public class WeatherCycleSpawner : MonoBehaviour {
 
     public CycleInfo[] cycles;
 
+    [Header("Signals")]
+    public SignalUnit signalUnitSpawned;
+
     private M8.PoolController mPool;
 
     private Coroutine mCycleRout;
@@ -133,7 +136,9 @@ public class WeatherCycleSpawner : MonoBehaviour {
                 
                 yield return new WaitForSeconds(spawnInfo.delay);
 
-                spawnInfo.Spawn(mPool);
+                var unit = spawnInfo.Spawn(mPool);
+                if(unit && signalUnitSpawned)
+                    signalUnitSpawned.Invoke(unit);
             }
         }
 
@@ -173,7 +178,9 @@ public class WeatherCycleSpawner : MonoBehaviour {
 
                 yield return new WaitForSeconds(spawnInfo.delay);
 
-                spawnInfo.Spawn(mPool);
+                var unit = spawnInfo.Spawn(mPool);
+                if(unit && signalUnitSpawned)
+                    signalUnitSpawned.Invoke(unit);
             }
         }
 

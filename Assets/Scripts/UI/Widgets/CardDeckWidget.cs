@@ -13,14 +13,23 @@ public class CardDeckWidget : MonoBehaviour {
     private float mDeployBorderY;
     private int mCurCardCount;
 
+    public CardWidget GetCardWidget(CardData cardMatch) {
+        for(int i = 0; i < mCurCardCount; i++) {
+            if(mCards[i].card == cardMatch) {
+                return mCards[i];
+            }
+        }
+
+        return null;
+    }
+
     void OnEnable() {
         var cardDeck = GameController.instance.cardDeck;
 
         mCurCardCount = cardDeck.cards.Length;
 
         for(int i = 0; i < mCurCardCount; i++) {
-            if(cardDeck.cards[i].curState != CardState.Hidden)
-                cardDeck.cards[i].curState = CardState.Disabled; //enable when cycle begins
+            cardDeck.SetCardsActive(false);
 
             mCards[i].gameObject.SetActive(true);
 
@@ -69,17 +78,11 @@ public class CardDeckWidget : MonoBehaviour {
 
     void OnCycleBegin() {
         var cardDeck = GameController.instance.cardDeck;
-        for(int i = 0; i < cardDeck.cards.Length; i++) {
-            if(cardDeck.cards[i].curState != CardState.Hidden)
-                cardDeck.cards[i].curState = CardState.Active;
-        }
+        cardDeck.SetCardsActive(true);
     }
 
     void OnCycleEnd() {
         var cardDeck = GameController.instance.cardDeck;
-        for(int i = 0; i < cardDeck.cards.Length; i++) {
-            if(cardDeck.cards[i].curState != CardState.Hidden)
-                cardDeck.cards[i].curState = CardState.Disabled;
-        }
+        cardDeck.SetCardsActive(false);
     }
 }

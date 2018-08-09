@@ -614,7 +614,7 @@ MonoBehaviour:
   displayRootGO: {fileID: 1012070727789698}
   spawnRootGO: {fileID: 1196492616378962}
   moveSpeed: 1
-  growthEatMod: 3
+  flowerEatScale: 0.045
   animator: {fileID: 114218628625328864}
   takeSpawn: spawn
   takeGrab: grabbing

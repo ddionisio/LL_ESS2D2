@@ -95,15 +95,15 @@ public class GameController : GameModeController<GameController> {
             startCycleCallback();
 
         yield return new WaitForSeconds(GameData.instance.levelCycleStartDelay);
-        
-        weatherCycle.StartCurCycle();
-
+                
         //spawn flowers from mother base
-
-        yield return new WaitForSeconds(motherbase.flowerCycleSpawnDelay);
-
         for(int i = 0; i < motherbase.flowerCycleSpawnCount; i++)
             motherbase.SpawnFlower();
+
+        while(motherbase.state == Motherbase.State.SpawnUnit || motherbase.CheckFlowersSpawning())
+            yield return null;
+
+        weatherCycle.StartCurCycle();
     }
 
     IEnumerator DoEndCycle() {

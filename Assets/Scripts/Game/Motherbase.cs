@@ -21,7 +21,6 @@ public class Motherbase : MonoBehaviour {
     public GameObject flowerPrefab;
     public int flowerCapacity = 12;
     public int flowerCycleSpawnCount = 4;
-    public float flowerCycleSpawnDelay = 0.3f;
     
     [Header("Spawn Info")]
     public float spawnUnitHeightOffsetMin = 2.0f;
@@ -58,6 +57,19 @@ public class Motherbase : MonoBehaviour {
     private bool mIsFlowerSpawnLeft;
     private int mFlowerSpawnLeftCounter;
     private int mFlowerSpawnRightCounter;
+
+    /// <summary>
+    /// Returns true if there are any active flowers spawning
+    /// </summary>
+    public bool CheckFlowersSpawning() {
+        for(int i = 0; i < mFlowers.Count; i++) {
+            var flower = mFlowers[i];
+            if(flower.state == UnitStates.instance.spawning)
+                return true;
+        }
+
+        return false;
+    }
 
     public UnitAllyFlower GetRandomFlower(bool checkMarked) {
         if(checkMarked) {
