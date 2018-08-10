@@ -11,6 +11,7 @@
     "mismatch": "MISMATCH",
     "cycle": "CYCLE {0}",
     "cycleStart": "BEGIN",
+    "cycleEnd": "CYCLE COMPLETE",
     "climate": "Climate",
     "climateZone": "Climate Zone",
     "humidity": "Humidity",

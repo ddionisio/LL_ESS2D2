@@ -8,7 +8,8 @@ public class Motherbase : MonoBehaviour {
     public enum State {
         None,
         Entering,
-        SpawnUnit
+        SpawnUnit,
+        Victory
     }
 
     public struct SpawnInfo {

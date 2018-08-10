@@ -472,7 +472,7 @@ MonoBehaviour:
   flags: 3
   displayRootGO: {fileID: 1162022660407618}
   spawnRootGO: {fileID: 1710681204389994}
-  despawnDelay: 4
+  despawnDelay: 3
   moveSpeed: 1
   attackCheckLayerMask:
     serializedVersion: 2
