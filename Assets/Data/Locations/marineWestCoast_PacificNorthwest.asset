@@ -8,7 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44012adb5c080e247a36fc6863edfe13, type: 3}
-  m_Name: debugControl
+  m_Script: {fileID: 11500000, guid: e89b82452bbb9d54ea514c6f84cb3cf0, type: 3}
+  m_Name: marineWestCoast_PacificNorthwest
   m_EditorClassIdentifier: 
-  levelIndex: 1
+  image: {fileID: 0}
+  titleTextRef: locationPacificNorthwest
+  climate: {fileID: 11400000, guid: 706786bf0e18724418a7142600fa3f45, type: 2}

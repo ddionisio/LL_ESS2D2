@@ -33,6 +33,12 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
     public int curLevelIndex { get; private set; }
     public LevelData curLevelData { get { return levels[curLevelIndex]; } }
 
+#if UNITY_EDITOR
+    public void OverrideLevelIndex(int index) {
+        curLevelIndex = index;
+    }
+#endif
+
     /// <summary>
     /// Called in start scene
     /// </summary>

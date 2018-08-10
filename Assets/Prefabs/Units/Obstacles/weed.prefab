@@ -343,7 +343,7 @@ MonoBehaviour:
   flags: 4
   displayRootGO: {fileID: 0}
   spawnRootGO: {fileID: 0}
-  flowerReduceGrowthMod: 0.5
+  flowerReduceGrowthMod: 0.65
   growthDelay: 4
   animator: {fileID: 114948536732672608}
   takeEnter: enter

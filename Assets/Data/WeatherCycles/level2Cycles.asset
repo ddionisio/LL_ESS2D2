@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeeb49690bcb7d489ef46baa5961f81, type: 3}
+  m_Name: level2Cycles
+  m_EditorClassIdentifier: 
+  cycles:
+  - weathers:
+    - type: {fileID: 11400000, guid: a5c29a1adaeb90246811aca972968cf7, type: 2}
+      uvLevel: 5
+      temperature: 51
+      windAngle: -67
+      windSpeed: 8
+      humidityPercent: 45
+      precipitationPercent: 43
+      flowerGrowthMod: 0.05
+    - type: {fileID: 11400000, guid: 1b1463feb174f6d4cbc8bc7c3e8a52e7, type: 2}
+      uvLevel: 4
+      temperature: 48
+      windAngle: 42
+      windSpeed: 11
+      humidityPercent: 40
+      precipitationPercent: 90
+      flowerGrowthMod: 0.15
+    - type: {fileID: 11400000, guid: a2b9f3c7a41fd6a49a7dbba5ab04f997, type: 2}
+      uvLevel: 6
+      temperature: 45
+      windAngle: 131
+      windSpeed: 13
+      humidityPercent: 55
+      precipitationPercent: 100
+      flowerGrowthMod: 0.2
+    - type: {fileID: 11400000, guid: 403c4119c0de9e040ab091dd2bf9f2f3, type: 2}
+      uvLevel: 4
+      temperature: 41
+      windAngle: 89
+      windSpeed: 7
+      humidityPercent: 50
+      precipitationPercent: 30
+      flowerGrowthMod: 0.25
+    duration: 80
+    flowerGrowthMod: 0.25
+  - weathers:
+    - type: {fileID: 11400000, guid: a5c29a1adaeb90246811aca972968cf7, type: 2}
+      uvLevel: 4
+      temperature: 38
+      windAngle: 64
+      windSpeed: 10
+      humidityPercent: 43
+      precipitationPercent: 48
+      flowerGrowthMod: 0.05
+    - type: {fileID: 11400000, guid: 1b1463feb174f6d4cbc8bc7c3e8a52e7, type: 2}
+      uvLevel: 6
+      temperature: 41
+      windAngle: -61
+      windSpeed: 9
+      humidityPercent: 38
+      precipitationPercent: 85
+      flowerGrowthMod: 0.15
+    - type: {fileID: 11400000, guid: a5c29a1adaeb90246811aca972968cf7, type: 2}
+      uvLevel: 5
+      temperature: 47
+      windAngle: -135
+      windSpeed: 11
+      humidityPercent: 41
+      precipitationPercent: 64
+      flowerGrowthMod: 0.05
+    - type: {fileID: 11400000, guid: c8b220e78bbaaef499b56cfa1b591c40, type: 2}
+      uvLevel: 6
+      temperature: 53
+      windAngle: 87
+      windSpeed: 12
+      humidityPercent: 32
+      precipitationPercent: 48
+      flowerGrowthMod: 0.1
+    duration: 80
+    flowerGrowthMod: 0.25

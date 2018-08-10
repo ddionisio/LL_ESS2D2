@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelSelectController : GameModeController<LevelSelectController> {
     [Header("Data")]
     public string modalLevelSelect = "levelSelect";
+    public GameObject[] levelGroupGOs;
 
     [Header("Signal")]
     public SignalBoolean signalActive;
@@ -21,6 +22,21 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
 
     protected override void OnInstanceInit() {
         base.OnInstanceInit();
+
+        //show group of level selects
+#if UNITY_EDITOR
+        if(!GameData.instance.isGameStarted) {
+            GameData.instance.OverrideLevelIndex(DebugControl.instance.levelIndex);
+        }
+#endif
+
+        var curIndex = GameData.instance.curLevelIndex;
+
+        for(int i = 0; i < levelGroupGOs.Length; i++) {
+            if(levelGroupGOs[i])
+                levelGroupGOs[i].SetActive(i == curIndex);
+        }
+        //
 
         if(signalLevelLocation)
             signalLevelLocation.callback += OnLevelLocationClicked;

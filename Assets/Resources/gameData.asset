@@ -28,6 +28,10 @@ MonoBehaviour:
     scene:
       name: level1
       path: Assets/Scenes/level1.unity
+  - climateMatch: {fileID: 11400000, guid: 706786bf0e18724418a7142600fa3f45, type: 2}
+    scene:
+      name: level2
+      path: Assets/Scenes/level2.unity
   levelCycleStartDelay: 2
   levelCycleEndDelay: 2
   groundLayerMask:

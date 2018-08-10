@@ -236,6 +236,13 @@ public class Motherbase : MonoBehaviour {
         AddSpawn(unit, spawnStart + (Vector2)transform.position, spawnDest);
     }
 
+    public void Victory() {
+        if(mState != State.Victory) {
+            StopCurrentRout();
+            mRout = StartCoroutine(DoVictory());
+        }
+    }
+
     void Awake() {
         //initialize pool
         mFlowerPool = M8.PoolController.CreatePool(poolGroupRef);
@@ -353,6 +360,15 @@ public class Motherbase : MonoBehaviour {
         }
 
         unit.MotherbaseSpawnFinish();
+    }
+
+    IEnumerator DoVictory() {
+        mState = State.Victory;
+
+        yield return new WaitForSeconds(2f);
+
+        mState = State.None;
+        mRout = null;
     }
 
     void OnFlowerRelease(M8.EntityBase ent) {

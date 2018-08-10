@@ -16,6 +16,7 @@ public class GameController : GameModeController<GameController> {
 
     [Header("Level Info")]
     public GameBounds2D levelBounds;
+    public string modalVictory = "victory";
 
     /// <summary>
     /// Called before current cycle starts (initialize info here)
@@ -116,6 +117,15 @@ public class GameController : GameModeController<GameController> {
             //end
             if(endCallback != null)
                 endCallback();
+
+            //allow motherbase to do its victory thing
+            motherbase.Victory();
+            while(motherbase.state == Motherbase.State.Victory)
+                yield return null;
+
+            //show victory modal, this is where we can proceed to the next level
+            M8.UIModal.Manager.instance.ModalCloseAll(); //ensure any modals are closed (fail-safe)
+            M8.UIModal.Manager.instance.ModalOpen(modalVictory);
         }
     }
 

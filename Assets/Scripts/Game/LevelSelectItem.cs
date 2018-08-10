@@ -20,12 +20,13 @@ public class LevelSelectItem : MonoBehaviour, IPointerClickHandler {
 
     private Collider2D mColl;
 
-    void OnDestroy() {
+    void OnDisable() {
         if(signalActive) signalActive.callback -= OnSignalActive;
     }
 
-    void Awake() {
-        mColl = GetComponent<Collider2D>();
+    void OnEnable() {
+        if(!mColl)
+            mColl = GetComponent<Collider2D>();
 
         if(spriteColorGroup)
             spriteColorGroup.Init();

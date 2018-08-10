@@ -12,6 +12,7 @@
     "cycle": "CYCLE {0}",
     "cycleStart": "BEGIN",
     "cycleEnd": "CYCLE COMPLETE",
+    "victory": "VICTORY",
     "climate": "Climate",
     "climateZone": "Climate Zone",
     "humidity": "Humidity",
@@ -29,6 +30,12 @@
     "weatherClearDesc": "No clouds allowed.",
     "weatherLightRain": "Light Rain",
     "weatherLightRainDesc": "Drip here and there.",
+    "weatherRain": "Rain",
+    "weatherRainDesc": "Drips.",
+    "weatherOvercast": "Overcast",
+    "weatherOvercastDesc": "No sun.",
+    "weatherFog": "Fog",
+    "weatherFogDesc": "Condensed BS",
     "unitAllyMallet": "Mallet Guy",
     "unitAllyMalletDesc": "He has a mallet.",
     "unitAllyGardener": "Gardener",
@@ -59,6 +66,7 @@
     "climateTypeSubtropicalDesc": "Subtropical",
     "locationGreatPlains": "Great Plains",
     "locationSahara": "Sahara Desert",
+    "locationPacificNorthwest": "Pacific Northwest",
     "tutorialDragInstruction": "Drag the card towards the playing field."
   }
 }
