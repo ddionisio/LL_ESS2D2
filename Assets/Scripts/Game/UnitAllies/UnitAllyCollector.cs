@@ -122,10 +122,6 @@ public class UnitAllyCollector : UnitCard {
             for(int i = 0; i < checkColliderCount; i++) {
                 var coll = mCheckColliders[i];
 
-                //check tag
-                if(!mCardItem.card.IsTargetValid(coll.gameObject))
-                    continue;
-
                 //check if collectible
                 var unitCollect = coll.GetComponent<UnitCollect>();
                 if(!unitCollect)

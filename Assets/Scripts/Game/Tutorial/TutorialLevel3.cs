@@ -9,13 +9,14 @@ public class TutorialLevel3 : MonoBehaviour {
     [M8.TagSelector]
     public string dragGuideTag;
 
-    public Transform dragToCollectorPoint;
+    public Transform dragToWindbreakerPoint;
 
     [Header("Cards")]
     public CardData cardCollector;
     public CardData cardWindbreaker;
 
     [Header("Unit Templates")]
+    public GameObject collectorPrefab;
     public GameObject windPrefab;
 
     [Header("Signal")]
@@ -23,6 +24,7 @@ public class TutorialLevel3 : MonoBehaviour {
     public SignalCardWidget signalCardDragEnd;
     public SignalCardWidgetUnit signalCardSpawned;
     public SignalUnit signalCycleSpawnerSpawned;
+    public M8.SignalEntity signalUnitSpawnerSpawned;
 
     private CardDeckWidget mCardDeck;
     private DragToGuideWidget mDragGuide;
@@ -30,6 +32,7 @@ public class TutorialLevel3 : MonoBehaviour {
     private CardWidget mCardWidgetTarget;
     //private Unit mCardUnitSpawned;
     private Unit mCycleUnitSpawned;
+    private M8.EntityBase mUnitSpawnerSpawned;
 
     private bool mIsWaitingCardTargetSpawn;
 
@@ -41,6 +44,8 @@ public class TutorialLevel3 : MonoBehaviour {
         if(signalCardSpawned) signalCardSpawned.callback -= OnCardDragSpawned;
 
         if(signalCycleSpawnerSpawned) signalCycleSpawnerSpawned.callback -= OnCycleSpawn;
+
+        if(signalUnitSpawnerSpawned) signalUnitSpawnerSpawned.callback -= OnUnitSpawnerSpawned;
 
         if(GameController.isInstantiated) {
             GameController.instance.prepareCycleCallback -= OnPrepareCycle;
@@ -54,6 +59,8 @@ public class TutorialLevel3 : MonoBehaviour {
         if(signalCardSpawned) signalCardSpawned.callback += OnCardDragSpawned;
 
         if(signalCycleSpawnerSpawned) signalCycleSpawnerSpawned.callback += OnCycleSpawn;
+
+        if(signalUnitSpawnerSpawned) signalUnitSpawnerSpawned.callback += OnUnitSpawnerSpawned;
 
         GameController.instance.prepareCycleCallback += OnPrepareCycle;
         GameController.instance.weatherCycle.weatherBeginCallback += OnWeatherBegin;
@@ -76,17 +83,13 @@ public class TutorialLevel3 : MonoBehaviour {
         mCardWidgetTarget = null;
         //mCardUnitSpawned = null;
         mCycleUnitSpawned = null;
+        mUnitSpawnerSpawned = null;
 
         mIsWaitingCardTargetSpawn = false;
 
         if(curCycleInd == 0) {
             if(curWeatherInd == 0) {
                 StartCoroutine(DoCollector());
-            }
-            else if(curWeatherInd == 1) {
-                //show the attack cards
-                GameController.instance.cardDeck.ShowCard(1);
-                GameController.instance.cardDeck.ShowCard(2);
             }
         }
     }
@@ -113,13 +116,17 @@ public class TutorialLevel3 : MonoBehaviour {
         mCycleUnitSpawned = unit;
     }
 
+    void OnUnitSpawnerSpawned(M8.EntityBase ent) {
+        mUnitSpawnerSpawned = ent;
+    }
+
     IEnumerator DoCollector() {
+        //wait for a collector to spawn
+        do {
+            yield return null;
+        } while(!mUnitSpawnerSpawned || mUnitSpawnerSpawned.spawnType != collectorPrefab.name || mUnitSpawnerSpawned.state == UnitStates.instance.spawning);
+
         yield return new WaitForSeconds(0.5f); //wait a bit
-
-        //show collector card
-        GameController.instance.cardDeck.ShowCard(cardCollector.name);
-
-        yield return new WaitForSeconds(1f); //wait for card animation
 
         //show card modal
         const string modalCardDesc = "cardDescription";
@@ -130,6 +137,7 @@ public class TutorialLevel3 : MonoBehaviour {
             yield return null;
         //
 
+        /*
         //show drag display and wait for player to deploy
         mCardWidgetTarget = mCardDeck.GetCardWidget(cardCollector);
 
@@ -153,5 +161,6 @@ public class TutorialLevel3 : MonoBehaviour {
 
         M8.UIModal.Manager.instance.ModalCloseUpTo(modalDragInstruction, true);
         mDragGuide.Hide();
+        */
     }
 }

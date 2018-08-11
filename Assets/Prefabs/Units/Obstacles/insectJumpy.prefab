@@ -187,7 +187,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   hopAttackTagFilters:
-  - Flower
   - Ally
   flowerReduceScale: 0.06
   animator: {fileID: 114768181382071498}

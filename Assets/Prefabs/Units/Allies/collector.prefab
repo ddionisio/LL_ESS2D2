@@ -224,7 +224,7 @@ MonoBehaviour:
   spawnRootGO: {fileID: 1367800902106892}
   despawnDelay: 2
   moveSpeed: 1.5
-  moveReturnSpeed: 0.5
+  moveReturnSpeed: 1
   collectCheckRadius: 0.75
   collectCheckLayerMask:
     serializedVersion: 2

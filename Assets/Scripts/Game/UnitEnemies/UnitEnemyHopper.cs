@@ -148,13 +148,15 @@ public class UnitEnemyHopper : Unit {
                     continue;
 
                 if(unit is UnitAllyFlower) {
-                    //reduce flower growth
-                    var flowerUnit = (UnitAllyFlower)unit;
+                    if(flowerReduceScale > 0f) {
+                        //reduce flower growth
+                        var flowerUnit = (UnitAllyFlower)unit;
 
-                    float growthAmt = flowerUnit.growthMax * flowerReduceScale;
-                    flowerUnit.ApplyGrowth(-growthAmt);
-                    if(flowerUnit.growth <= 0f)
-                        flowerUnit.Release(); //kill flower
+                        float growthAmt = flowerUnit.growthMax * flowerReduceScale;
+                        flowerUnit.ApplyGrowth(-growthAmt);
+                        if(flowerUnit.growth <= 0f)
+                            flowerUnit.Release(); //kill flower
+                    }
                 }
                 else //despawn (TODO: death? (for visual purpose))
                     unit.state = UnitStates.instance.despawning;

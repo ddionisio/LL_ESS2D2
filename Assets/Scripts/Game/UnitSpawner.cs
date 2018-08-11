@@ -10,7 +10,11 @@ public class UnitSpawner : MonoBehaviour {
     public int spawnMaxCount = 3;
     public int spawnPoolCapacity = 6;
     public Transform[] spawnPoints;
+    public float spawnStartDelay;
     public float spawnDelay = 2f;
+    public bool spawnFromMotherbase;
+
+    public M8.SignalEntity signalUnitSpawnerSpawned;
 
     [Header("Animation")]
     public M8.Animator.Animate animator;
@@ -60,6 +64,9 @@ public class UnitSpawner : MonoBehaviour {
     }
 
     IEnumerator DoSpawning() {
+        if(spawnStartDelay > 0f)
+            yield return new WaitForSeconds(spawnStartDelay);
+
         var wait = new WaitForSeconds(spawnDelay);
 
         while(true) {
@@ -104,9 +111,23 @@ public class UnitSpawner : MonoBehaviour {
         if(mCurSpawnPointIndex == spawnPoints.Length)
             mCurSpawnPointIndex = 0;
 
-        var ent = mPool.Spawn<M8.EntityBase>(spawnTemplate.name, "", null, spawnPt, mSpawnParms);
-        ent.releaseCallback += OnEntityRelease;
+        M8.EntityBase ent;
 
+        if(spawnFromMotherbase) {
+            var unit = mPool.Spawn<Unit>(spawnTemplate.name, "", null, mSpawnParms);
+
+            GameController.instance.motherbase.SpawnQueueUnit(unit, spawnPt);
+
+            ent = unit;
+        }
+        else {
+            ent = mPool.Spawn<M8.EntityBase>(spawnTemplate.name, "", null, spawnPt, mSpawnParms);
+        }
+
+        ent.releaseCallback += OnEntityRelease;
         mSpawns.Add(ent);
+
+        if(signalUnitSpawnerSpawned)
+            signalUnitSpawnerSpawned.Invoke(ent);
     }
 }

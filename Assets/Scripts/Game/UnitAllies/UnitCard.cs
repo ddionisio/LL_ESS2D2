@@ -56,8 +56,11 @@ public class UnitCard : Unit {
         base.OnSpawned(parms);
 
         if(parms != null) {
-            mCardItem = parms.GetValue<CardDeckController.CardItem>(UnitSpawnParams.card);
-            targetPosition = parms.GetValue<Vector2>(UnitSpawnParams.target);
+            parms.TryGetValue(UnitSpawnParams.card, out mCardItem);
+
+            Vector2 targetPt;
+            parms.TryGetValue(UnitSpawnParams.target, out targetPt);
+            targetPosition = targetPt;
         }
     }
 
