@@ -389,6 +389,11 @@ public class Motherbase : MonoBehaviour {
         while(curTime < spawnUnitDelay) {
             yield return null;
 
+            //fail-safe, unit has been released, cancel spawning
+            if(!unit || unit.isReleased) {
+                yield break;
+            }
+
             curTime += Time.deltaTime;
 
             float t = Mathf.Clamp01(curTime / spawnUnitDelay);

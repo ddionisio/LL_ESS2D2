@@ -19,66 +19,66 @@ MonoBehaviour:
       windAngle: -67
       windSpeed: 11
       humidityPercent: 15
-      precipitationPercent: 43
+      precipitationPercent: 0
       flowerGrowthMod: 0
     - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
       uvLevel: 11
-      temperature: 102
-      windAngle: -67
-      windSpeed: 11
-      humidityPercent: 15
-      precipitationPercent: 43
+      temperature: 108
+      windAngle: 78
+      windSpeed: 7
+      humidityPercent: 11
+      precipitationPercent: 0
       flowerGrowthMod: 0
     - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
       uvLevel: 11
-      temperature: 102
-      windAngle: -67
-      windSpeed: 11
-      humidityPercent: 15
-      precipitationPercent: 43
+      temperature: 98
+      windAngle: 126
+      windSpeed: 9
+      humidityPercent: 14
+      precipitationPercent: 0
       flowerGrowthMod: 0
     - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
       uvLevel: 11
-      temperature: 102
-      windAngle: -67
-      windSpeed: 11
-      humidityPercent: 15
-      precipitationPercent: 43
+      temperature: 109
+      windAngle: -108
+      windSpeed: 15
+      humidityPercent: 9
+      precipitationPercent: 0
       flowerGrowthMod: 0
     duration: 80
     flowerGrowthMod: -1
   - weathers:
-    - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
+    - type: {fileID: 11400000, guid: 9eb4727edac69fe45a4fbba76e25bb35, type: 2}
+      uvLevel: 11
+      temperature: 92
+      windAngle: -90
+      windSpeed: 17
+      humidityPercent: 3
+      precipitationPercent: 0
+      flowerGrowthMod: 0
+    - type: {fileID: 11400000, guid: e2dbb95062da7b343a599286e649ca66, type: 2}
+      uvLevel: 11
+      temperature: 90
+      windAngle: -90
+      windSpeed: 48
+      humidityPercent: 3
+      precipitationPercent: 0
+      flowerGrowthMod: 0
+    - type: {fileID: 11400000, guid: e2dbb95062da7b343a599286e649ca66, type: 2}
       uvLevel: 11
       temperature: 102
-      windAngle: -67
-      windSpeed: 11
-      humidityPercent: 15
-      precipitationPercent: 43
+      windAngle: 90
+      windSpeed: 41
+      humidityPercent: 3
+      precipitationPercent: 0
       flowerGrowthMod: 0
     - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
       uvLevel: 11
-      temperature: 102
-      windAngle: -67
-      windSpeed: 11
-      humidityPercent: 15
-      precipitationPercent: 43
-      flowerGrowthMod: 0
-    - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
-      uvLevel: 11
-      temperature: 102
-      windAngle: -67
-      windSpeed: 11
-      humidityPercent: 15
-      precipitationPercent: 43
-      flowerGrowthMod: 0
-    - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
-      uvLevel: 11
-      temperature: 102
-      windAngle: -67
-      windSpeed: 11
-      humidityPercent: 15
-      precipitationPercent: 43
+      temperature: 107
+      windAngle: 102
+      windSpeed: 16
+      humidityPercent: 5
+      precipitationPercent: 0
       flowerGrowthMod: 0
     duration: 80
     flowerGrowthMod: -1

@@ -92,6 +92,14 @@ public class TutorialLevel3 : MonoBehaviour {
                 StartCoroutine(DoCollector());
             }
         }
+        else if(curCycleInd == 1) {
+            if(curWeatherInd == 0) {
+
+            }
+            else if(curWeatherInd == 1) {
+                StartCoroutine(DoWindbreaker());
+            }
+        }
     }
 
     void OnCardDragBegin(CardWidget cardWidget) {
@@ -136,10 +144,29 @@ public class TutorialLevel3 : MonoBehaviour {
         while(M8.UIModal.Manager.instance.isBusy || M8.UIModal.Manager.instance.activeCount > 0)
             yield return null;
         //
+    }
 
-        /*
+    IEnumerator DoWindbreaker() {
+        do {
+            yield return null;
+        } while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != windPrefab.name || mCycleUnitSpawned.state == UnitStates.instance.spawning);
+
+        //show windbreaker card
+        GameController.instance.cardDeck.ShowCard(cardWindbreaker.name);
+
+        yield return new WaitForSeconds(0.3f); //wait for card animation
+
+        //show card modal
+        const string modalCardDesc = "cardDescription";
+        mCardDescParms[ModalCardDetail.parmCardRef] = cardWindbreaker;
+        M8.UIModal.Manager.instance.ModalOpen(modalCardDesc, mCardDescParms);
+
+        while(M8.UIModal.Manager.instance.isBusy || M8.UIModal.Manager.instance.activeCount > 0)
+            yield return null;
+        //
+        
         //show drag display and wait for player to deploy
-        mCardWidgetTarget = mCardDeck.GetCardWidget(cardCollector);
+        mCardWidgetTarget = mCardDeck.GetCardWidget(cardWindbreaker);
 
         mIsWaitingCardTargetSpawn = true;
 
@@ -149,7 +176,7 @@ public class TutorialLevel3 : MonoBehaviour {
         //set drag destination towards point
         var gameCam = M8.Camera2D.main.unityCamera;
 
-        Vector2 destScreenPos = gameCam.WorldToScreenPoint(dragToCollectorPoint.position);
+        Vector2 destScreenPos = gameCam.WorldToScreenPoint(dragToWindbreakerPoint.position);
         //
 
         mDragGuide.Show(true, mCardWidgetTarget.transform.position, destScreenPos);
@@ -161,6 +188,5 @@ public class TutorialLevel3 : MonoBehaviour {
 
         M8.UIModal.Manager.instance.ModalCloseUpTo(modalDragInstruction, true);
         mDragGuide.Hide();
-        */
     }
 }

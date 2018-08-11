@@ -107,7 +107,7 @@ public class TutorialLevel1 : MonoBehaviour {
         //show gardener card
         GameController.instance.cardDeck.ShowCard(cardGardener.name);
 
-        yield return new WaitForSeconds(1f); //wait for card animation
+        yield return new WaitForSeconds(0.3f); //wait for card animation
 
         //show card modal
         const string modalCardDesc = "cardDescription";
@@ -154,7 +154,7 @@ public class TutorialLevel1 : MonoBehaviour {
         //show mallet card
         GameController.instance.cardDeck.ShowCard(cardMallet.name);
 
-        yield return new WaitForSeconds(1f); //wait for card animation
+        yield return new WaitForSeconds(0.3f); //wait for card animation
 
         //show card modal
         const string modalCardDesc = "cardDescription";
@@ -177,7 +177,7 @@ public class TutorialLevel1 : MonoBehaviour {
         //show mallet card
         GameController.instance.cardDeck.ShowCard(cardSpearman.name);
 
-        yield return new WaitForSeconds(1f); //wait for card animation
+        yield return new WaitForSeconds(0.3f); //wait for card animation
 
         //show card modal
         const string modalCardDesc = "cardDescription";

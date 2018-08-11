@@ -471,8 +471,8 @@ MonoBehaviour:
   flags: -1
   displayRootGO: {fileID: 1375363535891926}
   spawnRootGO: {fileID: 1364830990913880}
-  despawnDelay: 4
-  moveSpeed: 2
+  despawnDelay: 5
+  moveSpeed: 2.5
 --- !u!212 &212522540380717094
 SpriteRenderer:
   m_ObjectHideFlags: 1
