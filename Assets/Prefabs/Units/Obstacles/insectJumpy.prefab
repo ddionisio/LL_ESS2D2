@@ -189,7 +189,7 @@ MonoBehaviour:
   hopAttackTagFilters:
   - Flower
   - Ally
-  flowerReduceScale: 0.1
+  flowerReduceScale: 0.06
   animator: {fileID: 114768181382071498}
   takeSpawn: spawn
   takeHop: hop

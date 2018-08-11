@@ -70,7 +70,7 @@ public class Unit : M8.EntityBase {
         }
     }
 
-    public DespawnCycleType isDespawnOnCycleEnd {
+    public DespawnCycleType despawnCycleType {
         get { return mIsDespawnOnCycleEnd; }
         set {
             if(mIsDespawnOnCycleEnd != value) {
@@ -178,7 +178,7 @@ public class Unit : M8.EntityBase {
         }
         else if(state == UnitStates.instance.dead || state == UnitStates.instance.blowOff) {
             isPhysicsActive = false;
-            isDespawnOnCycleEnd = DespawnCycleType.None;
+            despawnCycleType = DespawnCycleType.None;
         }
     }
 
@@ -193,7 +193,7 @@ public class Unit : M8.EntityBase {
 
         mMarkCounter = 0;
 
-        isDespawnOnCycleEnd = DespawnCycleType.None;
+        despawnCycleType = DespawnCycleType.None;
     }
 
     protected override void OnSpawned(M8.GenericParams parms) {
@@ -202,7 +202,7 @@ public class Unit : M8.EntityBase {
             if(parms.ContainsKey(UnitSpawnParams.position))
                 position = parms.GetValue<Vector2>(UnitSpawnParams.position);
 
-            isDespawnOnCycleEnd = parms.GetValue<DespawnCycleType>(UnitSpawnParams.despawnCycleType);
+            despawnCycleType = parms.GetValue<DespawnCycleType>(UnitSpawnParams.despawnCycleType);
         }
     }
 
@@ -270,7 +270,7 @@ public class Unit : M8.EntityBase {
     }
 
     void OnWeatherCycleEnd() {
-        isDespawnOnCycleEnd = DespawnCycleType.None;
+        despawnCycleType = DespawnCycleType.None;
         state = UnitStates.instance.despawning;
     }
 }

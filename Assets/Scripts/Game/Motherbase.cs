@@ -169,12 +169,15 @@ public class Motherbase : MonoBehaviour {
         return mFlowerQuery;
     }
 
-    public UnitAllyFlower GetFlowerLowestGrowth() {
+    public UnitAllyFlower GetFlowerLowestGrowth(bool isBlossomed) {
         UnitAllyFlower retFlower = null;
         float lowestGrowth = float.MaxValue;
 
         for(int i = 0; i < mFlowers.Count; i++) {
             var flower = mFlowers[i];
+            if(flower.isBlossomed != isBlossomed)
+                continue;
+
             if(flower.growth < lowestGrowth) {
                 retFlower = flower;
                 lowestGrowth = flower.growth;
@@ -182,6 +185,40 @@ public class Motherbase : MonoBehaviour {
         }
 
         return retFlower;
+    }
+
+    public UnitAllyFlower GetFlowerLowestGrowthNear(float x, bool isBlossomed) {
+        UnitAllyFlower retFlower = null;
+        float lowestGrowth = float.MaxValue;
+        float lowestNearDist = float.MaxValue;
+
+        for(int i = 0; i < mFlowers.Count; i++) {
+            var flower = mFlowers[i];
+            if(flower.isBlossomed != isBlossomed)
+                continue;
+
+            var dist = Mathf.Abs(x - flower.position.x);
+
+            if(flower.growth < lowestGrowth || (flower.growth == lowestGrowth && dist < lowestNearDist)) {
+                retFlower = flower;
+                lowestGrowth = flower.growth;
+                lowestNearDist = dist;
+            }
+        }
+
+        return retFlower;
+    }
+
+    /// <summary>
+    /// Check if given flower is the lowest growth from the other flowers
+    /// </summary>
+    public bool IsFlowerLowestGrowth(UnitAllyFlower flower) {
+        for(int i = 0; i < mFlowers.Count; i++) {
+            if(mFlowers[i] != flower && mFlowers[i].growth < flower.growth)
+                return false;
+        }
+
+        return true;
     }
 
     public void Enter() {

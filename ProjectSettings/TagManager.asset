@@ -13,6 +13,7 @@ TagManager:
   - ObstacleJumper
   - UIDragGuide
   - UICardDeck
+  - DewSpawner
   layers:
   - Default
   - TransparentFX

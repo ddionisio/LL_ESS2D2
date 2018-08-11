@@ -223,13 +223,14 @@ MonoBehaviour:
   displayRootGO: {fileID: 1022433147348598}
   spawnRootGO: {fileID: 1367800902106892}
   despawnDelay: 2
-  moveSpeed: 3
-  moveReturnSpeed: 1.5
+  moveSpeed: 1.5
+  moveReturnSpeed: 0.5
   collectCheckRadius: 0.75
   collectCheckLayerMask:
     serializedVersion: 2
     m_Bits: 65536
   collectCheckDelay: 0.3
+  collectDropDelay: 3
   collectRoot: {fileID: 4011148756558714}
   animator: {fileID: 114481107842317418}
   takeMove: move

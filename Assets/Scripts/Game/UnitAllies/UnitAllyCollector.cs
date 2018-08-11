@@ -9,6 +9,7 @@ public class UnitAllyCollector : UnitCard {
     public float collectCheckRadius;
     public LayerMask collectCheckLayerMask;
     public float collectCheckDelay = 0.3f;
+    public float collectDropDelay = 3f;
 
     [Header("Collect Display")]
     public Transform collectRoot; //attach collect here
@@ -22,6 +23,7 @@ public class UnitAllyCollector : UnitCard {
     private int mCheckColliderCount;
 
     private UnitAllyFlower mTargetFlowerReturn;
+    private float mTargetFlowerLastGrowth;
 
     private UnitCollect mCollect;
     private Transform mCollectPrevParent;
@@ -71,7 +73,7 @@ public class UnitAllyCollector : UnitCard {
 
     void FixedUpdate() {
         if(state == UnitStates.instance.move) {
-            float curMoveSpeed = mTargetFlowerReturn ? moveReturnSpeed : moveSpeed;
+            float curMoveSpeed = mCollect ? moveReturnSpeed : moveSpeed;
 
             //move
             var nextPos = position + curDir * curMoveSpeed * Time.fixedDeltaTime;
@@ -100,6 +102,12 @@ public class UnitAllyCollector : UnitCard {
                 }
                 else
                     Release();
+            }
+            else if(mCollect) {
+                //check if we need to change flower
+                if(mTargetFlowerReturn == null || mTargetFlowerReturn.isReleased || mTargetFlowerReturn.growth != mTargetFlowerLastGrowth) {
+                    RefreshTargetFlowerReturn();
+                }
             }
 
             UpdatePosition(nextPos);
@@ -133,12 +141,7 @@ public class UnitAllyCollector : UnitCard {
                 mCollect.state = UnitStates.instance.idle;
 
                 //move to flower with lowest growth
-                mTargetFlowerReturn = GameController.instance.motherbase.GetFlowerLowestGrowth();
-                if(mTargetFlowerReturn) {
-                    targetPosition = mTargetFlowerReturn.position;
-
-                    curDir = new Vector2(Mathf.Sign(targetPosition.x - position.x), 0f);
-                }
+                RefreshTargetFlowerReturn();
 
                 animator.Play(takeMoveReturn);
 
@@ -147,6 +150,17 @@ public class UnitAllyCollector : UnitCard {
             }
 
             yield return wait;
+        }
+    }
+
+    private void RefreshTargetFlowerReturn() {
+        mTargetFlowerReturn = GameController.instance.motherbase.GetFlowerLowestGrowthNear(position.x, false);
+        if(mTargetFlowerReturn) {
+            targetPosition = mTargetFlowerReturn.position;
+
+            curDir = new Vector2(Mathf.Sign(targetPosition.x - position.x), 0f);
+
+            mTargetFlowerLastGrowth = mTargetFlowerReturn.growth;
         }
     }
 
@@ -166,6 +180,7 @@ public class UnitAllyCollector : UnitCard {
             if(!mCollect.isReleased) {
                 mCollect.transform.SetParent(mCollectPrevParent, true);
                 mCollect.transform.position = position;
+                mCollect.curDespawnDelay = collectDropDelay;
                 mCollect.state = UnitStates.instance.act;
             }
             mCollect = null;

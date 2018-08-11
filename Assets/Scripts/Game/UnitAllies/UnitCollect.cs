@@ -15,6 +15,8 @@ public class UnitCollect : Unit {
     public string takeIdle;
     public string takeDespawning; //close to despawn
 
+    public float curDespawnDelay { get; set; }
+
     protected override void StateChanged() {
         base.StateChanged();
 
@@ -40,6 +42,8 @@ public class UnitCollect : Unit {
 
     protected override void OnSpawned(M8.GenericParams parms) {
         base.OnSpawned(parms);
+
+        curDespawnDelay = despawnDelay;
 
         state = UnitStates.instance.spawning;
     }
@@ -82,12 +86,18 @@ public class UnitCollect : Unit {
         if(!string.IsNullOrEmpty(takeIdle))
             animator.Play(takeIdle);
 
-        yield return new WaitForSeconds(despawnDelay - despawnWarningDelay);
+        while(curDespawnDelay <= 0f)
+            yield return null;
+
+        float startDelay = curDespawnDelay - despawnWarningDelay;
+        if(startDelay > 0f)
+            yield return new WaitForSeconds(startDelay);
 
         if(!string.IsNullOrEmpty(takeDespawning))
             animator.Play(takeDespawning);
 
-        yield return new WaitForSeconds(despawnWarningDelay);
+        float delay = Mathf.Min(curDespawnDelay, despawnWarningDelay);
+        yield return new WaitForSeconds(delay);
 
         mRout = null;
         state = UnitStates.instance.despawning;

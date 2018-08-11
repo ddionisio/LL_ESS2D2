@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Name: cardCollector
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1787814669991074, guid: 08ef6e7a7126c6249bead7b0e8e89968, type: 2}
-  cooldownDuration: 2
+  cooldownDuration: 3
   targetReticleName: ground
   targetDisplayPrefab: {fileID: 0}
   targetTagFilters:
   - Collect
   icon: {fileID: 21300000, guid: 8c227899ec849c74a8e88839f3769ceb, type: 3}
   image: {fileID: 21300000, guid: c680f3a47d2593c4cb666c69db529ae1, type: 3}
+  illustration: {fileID: 0}
   titleRef: unitAllyGardener
   descriptionRef: unitAllyGardenerDesc
