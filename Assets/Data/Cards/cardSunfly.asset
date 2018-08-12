@@ -18,7 +18,9 @@ MonoBehaviour:
     type: 2}
   targetTagFilters:
   - Flower
+  - Weed
   icon: {fileID: 21300000, guid: b0b3ac1ae980af94d8cc0d449330331d, type: 3}
   image: {fileID: 21300000, guid: 903d5895fcf027d438cd219b5fc87e36, type: 3}
+  illustration: {fileID: 0}
   titleRef: unitAllySpearman
   descriptionRef: unitAllySpearmanDesc

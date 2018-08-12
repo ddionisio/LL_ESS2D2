@@ -7,6 +7,7 @@ public class UnitEnemyWeed : Unit {
 
     [Header("Data")]
     public float flowerReduceGrowthMod;
+    public float initialGrowth;
     public float growthDelay = 4f; //how long it takes to get to maximum growth
 
     [Header("Animation")]
@@ -63,6 +64,8 @@ public class UnitEnemyWeed : Unit {
         }
         else if(state == UnitStates.instance.act) {
             ApplyFlowerGrowth(true);
+
+            ApplyGrowth(initialGrowth);
 
             isPhysicsActive = true;
         }

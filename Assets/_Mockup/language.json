@@ -40,6 +40,12 @@
     "weatherHazeDesc": "Bad Omen",
     "weatherSandstorm": "Sandstorm",
     "weatherSandstormDesc": "danger of flying off",
+    "weatherLightSnow": "Light Snow",
+    "weatherLightSnowDesc": "a dash of snow",
+    "weatherSnow": "Snow",
+    "weatherSnowDesc": "a bunch of snow",
+    "weatherBlizzard": "Blizzard",
+    "weatherBlizzardDesc": "blizzard",
     "unitAllyMallet": "Mallet Guy",
     "unitAllyMalletDesc": "He has a mallet.",
     "unitAllyGardener": "Gardener",
@@ -72,6 +78,7 @@
     "locationSahara": "Sahara Desert",
     "locationBritishIsles": "British Isles",
     "locationPacificNorthwest": "Pacific Northwest",
+    "locationGreenland": "Greenland",
     "tutorialDragInstruction": "Drag the card towards the playing field."
   }
 }

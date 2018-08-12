@@ -10,6 +10,7 @@ public class UnitAllySunFly : UnitCard {
     [M8.TagSelector]
     public float checkDelay = 0.3f;
     public float flowerGrowthMod; //scale of growth rate, growDelta = growRate*flowerGrowthMod*checkDelay
+    public float weedReduceGrowthMod;
 
     [Header("Display")]
     public GameObject glowGO;
@@ -95,13 +96,31 @@ public class UnitAllySunFly : UnitCard {
                     if(!mCardItem.card.IsTargetValid(coll.gameObject))
                         continue;
 
-                    var flowerUnit = coll.GetComponent<UnitAllyFlower>();
-                    if(!flowerUnit)
+                    var unit = coll.GetComponent<Unit>();
+                    if(!unit)
                         continue;
 
-                    float growthDelta = flowerUnit.GetGrowthRate(flowerGrowthMod) * mCurTime;
+                    if(unit is UnitAllyFlower) {
+                        var flowerUnit = (UnitAllyFlower)unit;
+                        if(!flowerUnit)
+                            continue;
 
-                    flowerUnit.ApplyGrowth(growthDelta);
+                        //can't grow flower if infected with weed
+                        if(flowerUnit.ContainsGrowthMod(UnitEnemyWeed.growthModId))
+                            continue;
+
+                        float growthDelta = flowerUnit.GetGrowthRate(flowerGrowthMod) * mCurTime;
+
+                        flowerUnit.ApplyGrowth(growthDelta);
+                    }
+                    else if(unit is UnitEnemyWeed) {
+                        //reduce weed growth
+                        var weed = (UnitEnemyWeed)unit;
+                        if(weed.isGrowing) {
+                            float growthReduceRate = weed.GetGrowthRate(weedReduceGrowthMod);
+                            weed.ApplyGrowth(-growthReduceRate * checkDelay);
+                        }
+                    }
                 }
 
                 mCurTime = 0f;

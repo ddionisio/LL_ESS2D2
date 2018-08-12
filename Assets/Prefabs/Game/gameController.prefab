@@ -640,7 +640,7 @@ MonoBehaviour:
   iconSprite: {fileID: 212418774405955574}
   pointerRoot: {fileID: 4850489221431168}
   pointerInvalidGO: {fileID: 1887718146309198}
-  groundToAirOfs: 1
+  groundToAirOfs: 0.5
 --- !u!114 &114402060913666676
 MonoBehaviour:
   m_ObjectHideFlags: 1

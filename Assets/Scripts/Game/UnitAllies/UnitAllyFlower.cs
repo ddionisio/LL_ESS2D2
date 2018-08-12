@@ -118,6 +118,10 @@ public class UnitAllyFlower : Unit {
             ApplyBlossomValue();
     }
 
+    public bool ContainsGrowthMod(string id) {
+        return mGrowthMods.ContainsKey(id);
+    }
+
     public void ApplyGrowthMod(string id, float mod) {
         if(mGrowthMods.ContainsKey(id))
             mGrowthMods[id] = mod;
