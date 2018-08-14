@@ -156,7 +156,145 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
-  delay: 0.5
+  delay: 0
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &85967944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 85967945}
+  - component: {fileID: 85967946}
+  m_Layer: 0
+  m_Name: frostbite (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &85967945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 85967944}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.23, y: 2.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1642249715}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &85967946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 85967944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 3
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &98610270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98610271}
+  - component: {fileID: 98610272}
+  m_Layer: 0
+  m_Name: mushroom (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &98610271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 98610270}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.52, y: -2.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1807211036}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98610272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 98610270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
+  type: 5
+  prefab: {fileID: 1333031605163652, guid: 5a5a787065076ec4d9040e98e27b7596, type: 2}
+  delay: 5
+  forceDespawnOnCycleEnd: 1
+  dirAngle: 0
+--- !u!1 &105858957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105858958}
+  - component: {fileID: 105858959}
+  m_Layer: 0
+  m_Name: frostbite (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &105858958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105858957}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.28, y: -2.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1807211036}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &105858959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105858957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &127539741
@@ -267,12 +405,12 @@ GameObject:
   - component: {fileID: 140849405}
   - component: {fileID: 140849406}
   m_Layer: 0
-  m_Name: fly
+  m_Name: frostFly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &140849405
 Transform:
   m_ObjectHideFlags: 0
@@ -283,7 +421,7 @@ Transform:
   m_LocalPosition: {x: -16.64, y: 2.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1480217348}
+  m_Father: {fileID: 1642249715}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &140849406
@@ -299,8 +437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
-  prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 2}
-  delay: 3
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &169319996
@@ -377,6 +515,52 @@ Transform:
   m_Father: {fileID: 2066312555}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &246262955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 246262956}
+  - component: {fileID: 246262957}
+  m_Layer: 0
+  m_Name: frostbite (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &246262956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246262955}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.23, y: 1.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1908259918}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &246262957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246262955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 6
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &295010004
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,9 +587,241 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 42493256}
+  - {fileID: 1382504275}
+  - {fileID: 935016544}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &314763577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314763578}
+  - component: {fileID: 314763579}
+  m_Layer: 0
+  m_Name: frostbite (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314763578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 314763577}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.28, y: -1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1002155186}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314763579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 314763577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 6
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &394797188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 394797189}
+  - component: {fileID: 394797190}
+  m_Layer: 0
+  m_Name: frostbite (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &394797189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 394797188}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.28, y: -3.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985872695}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &394797190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 394797188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 4
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &529670081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 529670082}
+  - component: {fileID: 529670083}
+  m_Layer: 0
+  m_Name: mushroom (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &529670082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529670081}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.52, y: 1.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480217348}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529670083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529670081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
+  type: 5
+  prefab: {fileID: 1333031605163652, guid: 5a5a787065076ec4d9040e98e27b7596, type: 2}
+  delay: 2
+  forceDespawnOnCycleEnd: 1
+  dirAngle: 0
+--- !u!1 &789145007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789145008}
+  - component: {fileID: 789145009}
+  m_Layer: 0
+  m_Name: frostbite (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &789145008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 789145007}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.94, y: -3.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985872695}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &789145009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 789145007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 2
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &790318498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790318499}
+  - component: {fileID: 790318500}
+  m_Layer: 0
+  m_Name: frostbite (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &790318499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 790318498}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.74, y: -1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1002155186}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &790318500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 790318498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 1
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1001 &797571130
 Prefab:
   m_ObjectHideFlags: 0
@@ -448,6 +864,190 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55becb6f0da248b4e8318798007caeb0, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &802595241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802595242}
+  - component: {fileID: 802595243}
+  m_Layer: 0
+  m_Name: frostFly (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &802595242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 802595241}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.52, y: 6.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480217348}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &802595243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 802595241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 2
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &935016543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935016544}
+  - component: {fileID: 935016545}
+  m_Layer: 0
+  m_Name: frostbite (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &935016544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 935016543}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.59, y: 3.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 295010005}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &935016545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 935016543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 5
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &965673042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965673043}
+  - component: {fileID: 965673044}
+  m_Layer: 0
+  m_Name: mushroom (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &965673043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 965673042}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.52, y: -0.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1031425860}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965673044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 965673042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
+  type: 5
+  prefab: {fileID: 1333031605163652, guid: 5a5a787065076ec4d9040e98e27b7596, type: 2}
+  delay: 5
+  forceDespawnOnCycleEnd: 1
+  dirAngle: 0
+--- !u!1 &985550045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 985550046}
+  - component: {fileID: 985550047}
+  m_Layer: 0
+  m_Name: mushroom (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &985550046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 985550045}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.43, y: -3.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985872695}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985550047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 985550045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
+  type: 5
+  prefab: {fileID: 1333031605163652, guid: 5a5a787065076ec4d9040e98e27b7596, type: 2}
+  delay: 3
+  forceDespawnOnCycleEnd: 1
+  dirAngle: 0
 --- !u!1 &1002155185
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +1074,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 169319997}
+  - {fileID: 314763578}
+  - {fileID: 790318499}
+  - {fileID: 1402215283}
   m_Father: {fileID: 2066312555}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -501,10 +1104,59 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1060172068}
+  - {fileID: 1244906395}
+  - {fileID: 965673043}
   m_Father: {fileID: 2066312555}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1037038507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037038508}
+  - component: {fileID: 1037038509}
+  m_Layer: 0
+  m_Name: frostFly (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037038508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037038507}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.52, y: 5.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1642249715}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037038509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037038507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 4
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &1038475100
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +1203,52 @@ MonoBehaviour:
   delay: 4
   forceDespawnOnCycleEnd: 0
   dirAngle: 90
+--- !u!1 &1060172067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060172068}
+  - component: {fileID: 1060172069}
+  m_Layer: 0
+  m_Name: frostbite (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1060172068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060172067}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.23, y: -0.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1031425860}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1060172069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060172067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 2
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &1082482960
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +1300,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1244906394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244906395}
+  - component: {fileID: 1244906396}
+  m_Layer: 0
+  m_Name: frostbite (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244906395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244906394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.84, y: -0.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1031425860}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244906396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244906394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 4
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &1332905666
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +1361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1332905667
 Transform:
   m_ObjectHideFlags: 0
@@ -625,11 +1369,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332905666}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.98, y: 2.02, z: 0}
+  m_LocalPosition: {x: 25.52, y: 2.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1480217348}
-  m_RootOrder: 1
+  m_Father: {fileID: 1642249715}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1332905668
 MonoBehaviour:
@@ -648,6 +1392,98 @@ MonoBehaviour:
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
+--- !u!1 &1382504274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1382504275}
+  - component: {fileID: 1382504276}
+  m_Layer: 0
+  m_Name: frostbite (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1382504275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382504274}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.93, y: 3.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 295010005}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1382504276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382504274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 3
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &1402215282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402215283}
+  - component: {fileID: 1402215284}
+  m_Layer: 0
+  m_Name: frostbite (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1402215283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1402215282}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.7, y: -1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1002155186}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1402215284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1402215282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 4
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &1402398361
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +1512,52 @@ Transform:
   m_Father: {fileID: 1720889832}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1418728183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1418728184}
+  - component: {fileID: 1418728185}
+  m_Layer: 0
+  m_Name: frostFly (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1418728184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418728183}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.59, y: 3.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480217348}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1418728185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418728183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 2
+  forceDespawnOnCycleEnd: 1
+  dirAngle: 90
 --- !u!1 &1464418962
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,11 +1684,105 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 140849405}
-  - {fileID: 1332905667}
+  - {fileID: 1841716564}
+  - {fileID: 802595242}
+  - {fileID: 529670082}
+  - {fileID: 1418728184}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1595428364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595428365}
+  - component: {fileID: 1595428366}
+  m_Layer: 0
+  m_Name: frostFly (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595428365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595428364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.52, y: 3.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985872695}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595428366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595428364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 1
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &1606738784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606738785}
+  - component: {fileID: 1606738786}
+  m_Layer: 0
+  m_Name: frostbite (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1606738785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1606738784}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.6, y: 1.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1908259918}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1606738786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1606738784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 2
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &1642249714
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,10 +1807,106 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 140849405}
+  - {fileID: 1037038508}
+  - {fileID: 85967945}
+  - {fileID: 1332905667}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1675107465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675107466}
+  - component: {fileID: 1675107467}
+  m_Layer: 0
+  m_Name: frostbite (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1675107466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1675107465}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.79, y: -2.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1807211036}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675107467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1675107465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 1
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &1689111167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1689111168}
+  - component: {fileID: 1689111169}
+  m_Layer: 0
+  m_Name: frostbite (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1689111168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689111167}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.94, y: 1.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1908259918}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689111169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689111167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 2}
+  delay: 3
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &1720889831
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,10 +1964,153 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1888189887}
+  - {fileID: 1888075182}
+  - {fileID: 105858958}
+  - {fileID: 1675107466}
+  - {fileID: 98610271}
   m_Father: {fileID: 2066312555}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1841716563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841716564}
+  - component: {fileID: 1841716565}
+  m_Layer: 0
+  m_Name: frostFly (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1841716564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841716563}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.52, y: 4.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480217348}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841716565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841716563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 5
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &1888075181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888075182}
+  - component: {fileID: 1888075183}
+  m_Layer: 0
+  m_Name: frostFly (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1888075182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888075181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.52, y: 3.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1807211036}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888075183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888075181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 1
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
+--- !u!1 &1888189886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888189887}
+  - component: {fileID: 1888189888}
+  m_Layer: 0
+  m_Name: frostFly (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1888189887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888189886}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.59, y: 6.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1807211036}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1888189888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888189886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1244815506485882, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 2}
+  delay: 3
+  forceDespawnOnCycleEnd: 1
+  dirAngle: 90
 --- !u!1 &1890392264
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +2166,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1038475101}
+  - {fileID: 246262956}
+  - {fileID: 1689111168}
+  - {fileID: 1606738785}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1032,7 +2250,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1595428365}
+  - {fileID: 394797189}
+  - {fileID: 789145008}
+  - {fileID: 2071086665}
+  - {fileID: 985550046}
   m_Father: {fileID: 2066312555}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1050,7 +2273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2066312555
 Transform:
   m_ObjectHideFlags: 0
@@ -1069,3 +2292,49 @@ Transform:
   m_Father: {fileID: 127539743}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2071086664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071086665}
+  - component: {fileID: 2071086666}
+  m_Layer: 0
+  m_Name: mushroom (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2071086665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071086664}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.52, y: -3.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1985872695}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2071086666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071086664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
+  type: 5
+  prefab: {fileID: 1333031605163652, guid: 5a5a787065076ec4d9040e98e27b7596, type: 2}
+  delay: 4
+  forceDespawnOnCycleEnd: 1
+  dirAngle: 0

@@ -9,6 +9,8 @@
     "title": "Project Sunflower",
     "launch": "LAUNCH",
     "mismatch": "MISMATCH",
+    "on": "ON",
+    "off": "OFF",
     "cycle": "CYCLE {0}",
     "cycleStart": "BEGIN",
     "cycleEnd": "CYCLE COMPLETE",

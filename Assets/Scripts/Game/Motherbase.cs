@@ -301,10 +301,10 @@ public class Motherbase : MonoBehaviour {
 
         for(int i = 0; i < flowerRegionDivisible; i++) {
             var leftOfs = Random.Range(-flowerRegionWidthLeft * spawnAreaSectionRandScale, flowerRegionWidthLeft * spawnAreaSectionRandScale);
-            flowerSpawnLeftXs[i] = worldPos.x + spawnAreaLeft.xMin + (flowerRegionWidthLeft * i) + flowerRegionWidthLeft*0.5f + leftOfs;
+            flowerSpawnLeftXs[i] = worldPos.x + spawnAreaLeft.xMin + (flowerRegionWidthLeft * i) + flowerRegionWidthLeft * 0.5f + leftOfs;
 
             var rightOfs = Random.Range(-flowerRegionWidthRight * spawnAreaSectionRandScale, flowerRegionWidthRight * spawnAreaSectionRandScale);
-            flowerSpawnRightXs[i] = worldPos.x + spawnAreaRight.xMin + (flowerRegionWidthRight * i) + flowerRegionWidthRight*0.5f + rightOfs;
+            flowerSpawnRightXs[i] = worldPos.x + spawnAreaRight.xMin + (flowerRegionWidthRight * i) + flowerRegionWidthRight * 0.5f + rightOfs;
         }
 
         M8.ArrayUtil.Shuffle(flowerSpawnLeftXs);
@@ -324,6 +324,10 @@ public class Motherbase : MonoBehaviour {
             UnitPoint rightGroundPt;
             UnitPoint.GetGroundPoint(new Vector2(flowerSpawnRightXs[i], worldSpawnAreaRight.yMax), out rightGroundPt);
             mSpawnPointRight[i] = rightGroundPt.position;
+        }
+
+        if(animator && !string.IsNullOrEmpty(takeEnter)) {
+            animator.ResetTake(takeEnter);
         }
     }
             

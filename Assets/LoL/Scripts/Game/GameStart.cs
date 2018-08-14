@@ -15,9 +15,9 @@ public class GameStart : MonoBehaviour {
     public string titleStringRef;
 
     void Awake() {
-        loadingGO.SetActive(true);
-        readyGO.SetActive(false);
-        titleGO.SetActive(false);
+        if(loadingGO) loadingGO.SetActive(true);
+        if(readyGO) readyGO.SetActive(false);
+        if(titleGO) titleGO.SetActive(false);
     }
 
     IEnumerator Start () {
@@ -34,13 +34,13 @@ public class GameStart : MonoBehaviour {
             yield return null;
         
         //start title
-        titleText.text = LoLLocalize.Get(titleStringRef);
-        titleGO.SetActive(true);
-                        
+        if(titleText) titleText.text = LoLLocalize.Get(titleStringRef);
+        if(titleGO) titleGO.SetActive(true);
+
         //show other stuff
-        
-        loadingGO.SetActive(false);
-        readyGO.SetActive(true);
+
+        if(loadingGO) loadingGO.SetActive(false);
+        if(readyGO) readyGO.SetActive(true);
         
         //play music
         LoLMusicPlaylist.instance.PlayStartMusic();
