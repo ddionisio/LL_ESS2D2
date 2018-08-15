@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/levelSelect.unity
     guid: b81c9bab5729fb343ae2ee60e5603550
   - enabled: 1
+    path: Assets/Scenes/postGame.unity
+    guid: b821a8ff0594ca84c99f03a9242bc90d
+  - enabled: 1
     path: Assets/Scenes/end.unity
     guid: 7827591dd43051f44b5718e341a7a04e
   - enabled: 1

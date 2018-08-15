@@ -20,9 +20,12 @@ MonoBehaviour:
   levelSelectScene:
     name: levelSelect
     path: Assets/Scenes/levelSelect.unity
-  postGameScene:
+  levelCompleteScene:
     name: 
     path: 
+  postGameScene:
+    name: postGame
+    path: Assets/Scenes/postGame.unity
   levels:
   - climateMatch: {fileID: 11400000, guid: 31767c67b79dc5543b4d0d3b06b7c7af, type: 2}
     scene:

@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.IPush {    
     [System.Serializable]
     public class SlotData {
-        public Transform anchor;
-
-        public int index { get; set; }
-
+        public ClimateZoneData zone;
+        public RectTransform anchor;
+        
         public SlotDropWidget widget { get; private set; }
 
-        public void Init(SlotDropWidget template, SlotDropWidget.DropCallback dropCallback) {
+        public void Init(SlotDropWidget template) {
             if(!widget) {
-                widget = Instantiate(template, anchor);
+                widget = Instantiate(template, anchor.parent);
                 widget.gameObject.SetActive(true);
-                widget.index = index;
-                widget.dropCallback += dropCallback;
             }
 
             widget.Init(anchor.position);
@@ -25,25 +23,21 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
     }
 
     [System.Serializable]
-    public class ItemData {        
+    public class ItemData {
         public Transform anchor;
-        public Sprite imageSprite;
-        [M8.Localize]
-        public string nameRef;
-        [M8.Localize]
-        public string descRef;
-
-        public int index { get; set; }
+        public ClimateData climate;
 
         public SlotDragWidget widget { get; private set; }
 
-        public void Init(SlotDragWidget template, SlotDragWidget.ClickCallback clickCallback) {
+        public void Init(SlotDragWidget template, SlotDragWidget.ClickCallback clickCallback, SlotDragWidget.EventCallback dragCallback, SlotDragWidget.EventCallback dragEndCallback) {
             if(!widget) {
-                widget = Instantiate(template, anchor);
+                widget = Instantiate(template, anchor.parent);
+                widget.name = climate.name;
                 widget.gameObject.SetActive(true);
-                widget.index = index;
-                widget.Setup(imageSprite, M8.Localize.Get(nameRef));
+                widget.Setup(climate.image, climate.titleText);
                 widget.clickCallback += clickCallback;
+                widget.dragCallback += dragCallback;
+                widget.dragEndCallback += dragEndCallback;
             }
 
             widget.Init(anchor.position);
@@ -63,90 +57,169 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
 
     [Header("Display")]
     public Selectable commitAnswerInteract;
-    public GameObject commitActiveGO;
+    public bool commitAnswerUseVisibility; //if true, hide commitActiveGO when not all items have been slotted
+    public GameObject commitActiveGO;    
     public GameObject progressActiveGO;
     
     private int mCorrectCount;
 
     private M8.GenericParams mInfoParms = new M8.GenericParams();
+
+    private int mCurSlotDragIndex;
+
+    private Transform[] mItemsAnchorCache;
             
     public void CommitAnswers() {
         if(commitActiveGO) commitActiveGO.SetActive(false);
         if(progressActiveGO) progressActiveGO.SetActive(true);
 
-        for(int i = 0; i < items.Length; i++) {
-            var item = items[i];
-            item.widget.isClickEnabled = true;
-            item.widget.isDragEnabled = false;
-        }
-    }
+        int correctCount = 0;
 
-    public void Proceed() {
-        GameData.instance.Progress();
+        for(int i = 0; i < slots.Length; i++) {
+            var slot = slots[i];
+            var item = items[slot.widget.droppedWidget.index];
+
+            bool isCorrect = item.climate.zone == slot.zone;
+
+            slot.widget.droppedWidget.SetCorrect(isCorrect);
+            slot.widget.droppedWidget.isClickEnabled = true;
+            slot.widget.droppedWidget.isDragEnabled = false;
+
+            if(isCorrect)
+                correctCount++;
+        }
+
+        //add points
+        Debug.Log("Correct Count: " + correctCount);
     }
 
     void Awake() {
         //initialize data
-        for(int i = 0; i < slots.Length; i++)
-            slots[i].index = i;
-
-        for(int i = 0; i < items.Length; i++)
-            items[i].index = i;
+        mItemsAnchorCache = new Transform[items.Length];
+        for(int i = 0; i < items.Length; i++) {
+            mItemsAnchorCache[i] = items[i].anchor;
+        }
 
         itemTemplate.gameObject.SetActive(false);
         slotTemplate.gameObject.SetActive(false);
     }
 
     void M8.UIModal.Interface.IPush.Push(M8.GenericParams parms) {
-        //mix up items
-        M8.ArrayUtil.Shuffle(items);
-
-        for(int i = 0; i < slots.Length; i++)
-            slots[i].Init(slotTemplate, OnSlotDrop);
+        //mix up item positions
+        M8.ArrayUtil.Shuffle(mItemsAnchorCache);
 
         for(int i = 0; i < items.Length; i++)
-            items[i].Init(itemTemplate, OnItemClick);
+            items[i].anchor = mItemsAnchorCache[i];
+        //
+
+        for(int i = 0; i < slots.Length; i++)
+            slots[i].Init(slotTemplate);
+
+        for(int i = 0; i < items.Length; i++) {
+            items[i].Init(itemTemplate, OnItemClick, OnItemDrag, OnItemDragEnd);
+            items[i].widget.index = i;
+        }
 
         //apply mode
         if(commitAnswerInteract) commitAnswerInteract.interactable = false;
-        if(commitActiveGO) commitActiveGO.SetActive(true);
+        if(commitActiveGO) commitActiveGO.SetActive(!commitAnswerUseVisibility);
         if(progressActiveGO) progressActiveGO.SetActive(false);
+
+        mCurSlotDragIndex = -1;
+    }
+    
+    void OnItemDrag(SlotDragWidget itemWidget, PointerEventData eventData) {
+        //determine which potential slot to drop
+        int slotIndex = -1;
+        for(int i = 0; i < slots.Length; i++) {
+            var slot = slots[i];
+
+            var rect = slot.anchor.rect;
+            rect.position = slot.anchor.TransformPoint(rect.position);
+
+            if(rect.Contains(eventData.position)) {
+                slotIndex = i;
+                break;
+            }
+        }
+
+        if(mCurSlotDragIndex != slotIndex)
+            SetCurrentSlotDrag(slotIndex);
     }
 
-    void OnSlotDrop(SlotDropWidget slot, SlotDragWidget prevItem) {
-        if(prevItem) {
-            //swap, look for the slot that has the item from this 'slot'
-            for(int i = 0; i < slots.Length; i++) {
-                if(slots[i].widget.droppedWidget == slot.droppedWidget) {
-                    slots[i].widget.SetDroppedWidget(prevItem);
-                    break;
+    void OnItemDragEnd(SlotDragWidget itemWidget, PointerEventData eventData) {
+        if(mCurSlotDragIndex != -1) {
+            var slot = slots[mCurSlotDragIndex];
+
+            var prevDroppedWidget = slot.widget.droppedWidget;
+            if(itemWidget != prevDroppedWidget) {
+                slot.widget.SetDroppedWidget(itemWidget);
+
+                //swap prev dragged widget, otherwise, set it to the origin position of the new dragged widget
+                if(prevDroppedWidget) {
+                    SlotDropWidget slotWidget = null;
+                    for(int i = 0; i < slots.Length; i++) {
+                        if(slots[i] != slot && slots[i].widget.droppedWidget == itemWidget) {
+                            slotWidget = slots[i].widget;
+                            break;
+                        }
+                    }
+
+                    if(slotWidget)
+                        slotWidget.SetDroppedWidget(prevDroppedWidget);
+                    else {
+                        prevDroppedWidget.SetOrigin(itemWidget.originPointDragStart);
+                    }
+                }
+                else { //clear out dropped widget from previous slot
+                    for(int i = 0; i < slots.Length; i++) {
+                        if(slots[i] != slot && slots[i].widget.droppedWidget == itemWidget) {
+                            slots[i].widget.SetDroppedWidget(null);
+                            break;
+                        }
+                    }
                 }
             }
-        }
-                
-        if(commitAnswerInteract) {
-            //check if all slots have dropped item
-            int slotFilledCount = 0;
-            for(int i = 0; i < slots.Length; i++) {
-                if(slots[i].widget.droppedWidget)
-                    slotFilledCount++;
-            }
 
-            commitAnswerInteract.interactable = slotFilledCount == slots.Length;
+            SetCurrentSlotDrag(-1);
         }
+
+        //check if all slots have dropped item
+        int slotFilledCount = 0;
+        for(int i = 0; i < slots.Length; i++) {
+            if(slots[i].widget.droppedWidget)
+                slotFilledCount++;
+        }
+
+        bool isAllSlotsFilled = slotFilledCount == slots.Length;
+
+        if(commitAnswerInteract) commitAnswerInteract.interactable = isAllSlotsFilled;
+        if(commitAnswerUseVisibility && commitActiveGO) commitActiveGO.SetActive(isAllSlotsFilled);
     }
 
     void OnItemClick(SlotDragWidget itemWidget) {
         for(int i = 0; i < items.Length; i++) {
             var item = items[i];
             if(item.widget == itemWidget) {
-                mInfoParms[ModalInfo.parmImage] = item.imageSprite;
-                mInfoParms[ModalInfo.parmTitleTextRef] = item.nameRef;
-                mInfoParms[ModalInfo.parmDescTextRef] = item.descRef;
+                mInfoParms[ModalInfo.parmImage] = item.climate.image;
+                mInfoParms[ModalInfo.parmTitleTextRef] = item.climate.titleTextRef;
+                mInfoParms[ModalInfo.parmDescTextRef] = item.climate.descTextRef;
 
                 M8.UIModal.Manager.instance.ModalOpen(modalInfo, mInfoParms);
                 return;
             }
+        }
+    }
+
+    void SetCurrentSlotDrag(int index) {
+        if(mCurSlotDragIndex != -1) {
+            slots[mCurSlotDragIndex].widget.highlightGO.SetActive(false);
+        }
+
+        mCurSlotDragIndex = index;
+
+        if(mCurSlotDragIndex != -1) {
+            slots[mCurSlotDragIndex].widget.highlightGO.SetActive(true);
         }
     }
 }

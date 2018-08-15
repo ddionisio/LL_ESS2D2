@@ -11,4 +11,7 @@ public class ClimateData : ScriptableObject {
     public string descTextRef;
 
     public ClimateZoneData zone;
+
+    public string titleText { get { return M8.Localize.Get(titleTextRef); } }
+    public string descText { get { return M8.Localize.Get(descTextRef); } }
 }

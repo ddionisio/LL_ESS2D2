@@ -19,7 +19,9 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
     public M8.SceneAssetPath introScene;
     public M8.SceneAssetPath endScene;
     public M8.SceneAssetPath levelSelectScene; //only really one level to select
-    public M8.SceneAssetPath postGameScene; //after level is completed, then go back to level select
+    public M8.SceneAssetPath levelCompleteScene; //after level is completed, then go back to level select
+
+    public M8.SceneAssetPath postGameScene; //one last scene before ending
 
     [Header("Levels")]
     public LevelData[] levels;
@@ -59,24 +61,30 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
     public void Current() {
         int progress = LoLManager.instance.curProgress;
 
-        UpdateLevelIndexFromProgress(progress);
-
-        if(curLevelIndex < levels.Length) {
-            int sceneIndex = progress % progressPerLevel;
-            switch(sceneIndex) {
-                case 0:
-                    levelSelectScene.Load();
-                    break;
-                case 1:
-                    levels[curLevelIndex].scene.Load();
-                    break;
-                default:
-                    M8.SceneManager.instance.Reload();
-                    break;
-            }
-        }
-        else
+        if(progress == LoLManager.instance.progressMax)
             endScene.Load();
+        else if(progress < levels.Length * progressPerLevel) {
+            UpdateLevelIndexFromProgress(progress);
+
+            if(curLevelIndex < levels.Length) {
+                int sceneIndex = progress % progressPerLevel;
+                switch(sceneIndex) {
+                    case 0:
+                        levelSelectScene.Load();
+                        break;
+                    case 1:
+                        levels[curLevelIndex].scene.Load();
+                        break;
+                    default:
+                        M8.SceneManager.instance.Reload();
+                        break;
+                }
+            }   
+        }
+        else {
+            //do the last bit before end
+            postGameScene.Load();
+        }
     }
 
     /// <summary>
@@ -110,14 +118,17 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
                 //play level
                 levels[curLevelIndex].scene.Load();
             }
-            else if(curScene.name == postGameScene.name) {
+            else if(curScene.name == levelCompleteScene.name) {
                 //go to next level intro
                 if(curLevelIndex < levels.Length - 1) {
                     curLevelIndex++;
-                    postGameScene.Load();
+                    levelCompleteScene.Load();
                 }
                 else
                     endScene.Load(); //completed
+            }
+            else if(curScene.name == postGameScene.name) {
+                endScene.Load(); //completed
             }
             else {
                 //check levels and load level ending
@@ -132,8 +143,8 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
 
                 if(levelFoundInd != -1) {
                     curLevelIndex = levelFoundInd;
-                    if(postGameScene.isValid)
-                        postGameScene.Load();
+                    if(levelCompleteScene.isValid)
+                        levelCompleteScene.Load();
                     else {
                         if(curLevelIndex < levels.Length - 1) {
                             curLevelIndex++;                            
@@ -152,7 +163,7 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
     protected override void OnInstanceInit() {
         //compute max progress
         if(LoLManager.isInstantiated) {
-            LoLManager.instance.progressMax = levels.Length * progressPerLevel;
+            LoLManager.instance.progressMax = levels.Length * progressPerLevel + 2;
         }
         else
             curLevelIndex = DebugControl.instance.levelIndex;

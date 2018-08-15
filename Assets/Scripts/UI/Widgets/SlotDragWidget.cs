@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler {
     public delegate void ClickCallback(SlotDragWidget item);
+    public delegate void EventCallback(SlotDragWidget item, PointerEventData eventData);
 
     [Header("Display")]
     public Transform dragRoot; //point to use for drag movement
@@ -18,11 +19,14 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
 
     public int index { get; set; }
     public bool isDragging { get; private set; }
+    public Vector2 originPointDragStart { get; private set; }
     public Vector2 originPoint { get; private set; }
     public bool isClickEnabled { get; set; }
     public bool isDragEnabled { get; set; }
 
     public event ClickCallback clickCallback;
+    public event EventCallback dragCallback;
+    public event EventCallback dragEndCallback;
 
     private DG.Tweening.EaseFunction mRevertEaseFunc;
     
@@ -48,8 +52,7 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
     }
 
     public void Init(Vector2 point) {
-        transform.position = point;
-        originPoint = point;
+        transform.position = originPoint = point;
 
         dragRoot.localPosition = Vector3.zero;
 
@@ -108,6 +111,11 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
             }
 
             if(dragInactiveGO) dragInactiveGO.SetActive(!isDragging);
+
+            originPointDragStart = originPoint;
+
+            //set as last children in parent to ensure proper render order
+            transform.SetAsLastSibling();
         }
     }
 
@@ -131,6 +139,9 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
             return;
 
         dragRoot.position = eventData.position;
+
+        if(dragCallback != null)
+            dragCallback(this, eventData);
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData) {
@@ -138,5 +149,8 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
             return;
 
         SetDragging(false);
+
+        if(dragEndCallback != null)
+            dragEndCallback(this, eventData);
     }
 }
