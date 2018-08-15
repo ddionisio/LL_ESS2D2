@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeatherCycleController : MonoBehaviour {
     
     public WeatherCycleData data;
-        
+
     public int curCycleIndex { get; private set; }
     public int curWeatherIndex { get; private set; }
 
@@ -43,6 +43,21 @@ public class WeatherCycleController : MonoBehaviour {
     private float mStartTimeWeather;
 
     private Coroutine mCycleRout;
+
+#if UNITY_EDITOR
+    public void ForceCompleteCycle() {
+        if(mCycleRout != null) {
+            StopCoroutine(mCycleRout);
+            mCycleRout = null;
+
+            if(weatherEndCallback != null)
+                weatherEndCallback();
+
+            if(cycleEndCallback != null)
+                cycleEndCallback();
+        }
+    }
+#endif
 
     public void StartCurCycle() {
         if(mCycleRout != null)
