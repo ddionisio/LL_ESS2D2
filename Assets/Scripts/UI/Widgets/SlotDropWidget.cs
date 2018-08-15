@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class SlotDropWidget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler {
+    public delegate void DropCallback(SlotDropWidget slot, SlotDragWidget prevItem);
+
     [Header("Data")]
     [M8.TagSelector]
     public string dragTag;
@@ -12,15 +14,18 @@ public class SlotDropWidget : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [Header("Display")]
     public GameObject highlightGO;
 
-    public int index { get; private set; }
+    public int index { get; set; }
 
     public SlotDragWidget droppedWidget { get; private set; }
 
-    public event System.Action<SlotDropWidget, SlotDragWidget> dropCallback; //SlotDragWidget is previous dragged widget
+    public event DropCallback dropCallback; //SlotDragWidget is previous dragged widget
 
-    public void Init(int index, Vector3 point) {
-        this.index = index;
+    public void SetDroppedWidget(SlotDragWidget item) {
+        droppedWidget = item;
+        droppedWidget.SetOrigin(transform.position);
+    }
 
+    public void Init(Vector2 point) {
         if(highlightGO) highlightGO.SetActive(false);
 
         transform.position = point;
@@ -47,13 +52,15 @@ public class SlotDropWidget : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if(highlightGO) highlightGO.SetActive(false);
 
         if(eventData.pointerDrag && eventData.pointerDrag.CompareTag(dragTag)) {
-            var prevDragWidget = droppedWidget;
+            var prevDroppedWidget = droppedWidget;
 
             droppedWidget = eventData.pointerDrag.GetComponent<SlotDragWidget>();
             droppedWidget.SetOrigin(transform.position);
 
-            if(dropCallback != null)
-                dropCallback(this, prevDragWidget);
+            if(droppedWidget != prevDroppedWidget) {
+                if(dropCallback != null)
+                    dropCallback(this, prevDroppedWidget);
+            }
         }
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler {
+    public delegate void ClickCallback(SlotDragWidget item);
+
     [Header("Display")]
     public Transform dragRoot; //point to use for drag movement
     public float dragRevertDelay = 0.3f;
@@ -14,12 +16,13 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
     public GameObject correctGO;
     public GameObject incorrectGO;
 
-    public int index { get; private set; }
+    public int index { get; set; }
     public bool isDragging { get; private set; }
     public Vector2 originPoint { get; private set; }
     public bool isClickEnabled { get; set; }
+    public bool isDragEnabled { get; set; }
 
-    public event System.Action<SlotDragWidget> clickCallback;
+    public event ClickCallback clickCallback;
 
     private DG.Tweening.EaseFunction mRevertEaseFunc;
     
@@ -39,16 +42,16 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
         if(incorrectGO) incorrectGO.SetActive(!correct);
     }
     
-    public void Init(int index, Vector2 point, Sprite sprite, string text) {
-        this.index = index;
+    public void Setup(Sprite sprite, string text) {        
+        if(image) image.sprite = sprite;
+        if(label) label.text = text;
+    }
 
+    public void Init(Vector2 point) {
         transform.position = point;
         originPoint = point;
 
         dragRoot.localPosition = Vector3.zero;
-
-        if(image) image.sprite = sprite;
-        if(label) label.text = text;
 
         if(correctGO) correctGO.SetActive(false);
         if(incorrectGO) incorrectGO.SetActive(false);
@@ -56,6 +59,7 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
         if(dragInactiveGO) dragInactiveGO.SetActive(true);
 
         isClickEnabled = false;
+        isDragEnabled = true;
     }
 
     void Awake() {
@@ -116,6 +120,9 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {
+        if(!isDragEnabled)
+            return;
+
         SetDragging(true);
     }
 

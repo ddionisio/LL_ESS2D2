@@ -14,6 +14,7 @@ TagManager:
   - UIDragGuide
   - UICardDeck
   - DewSpawner
+  - SlotDrag
   layers:
   - Default
   - TransparentFX
