@@ -122,6 +122,13 @@ public class UnitAllyFlower : Unit {
         return mGrowthMods.ContainsKey(id);
     }
 
+    public float GetGrowthMod(string id) {
+        if(mGrowthMods != null && mGrowthMods.ContainsKey(id))
+            return mGrowthMods[id];
+
+        return 0f;
+    }
+
     public void ApplyGrowthMod(string id, float mod) {
         if(mGrowthMods.ContainsKey(id))
             mGrowthMods[id] = mod;

@@ -32,6 +32,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: f26a3b21dd514724894aae9a64b64a74, type: 3}
     - {fileID: 102900000, guid: ecda9944367b8a946bb3afe734689c25, type: 3}
     - {fileID: 102900000, guid: dde9830d06527474482c8c7cf7c93d05, type: 3}
+    - {fileID: 102900000, guid: 8d6045efc8a94e64498910ab50ee5523, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -56,6 +57,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5878079b27446154ca6922fc33bbc0b3, type: 3}
   - {fileID: 21300000, guid: 3e373dcba9d42384b901f8003cea65dc, type: 3}
   - {fileID: 21300000, guid: c9248bdc58960c24fbfbfb7a7a523e14, type: 3}
+  - {fileID: 21300000, guid: 3b2c848d201ef554a80af5707776a4d1, type: 3}
   - {fileID: 21300000, guid: c5a54a7e88b59e547a8905c1ad93d892, type: 3}
   - {fileID: 21300000, guid: ca1617ce466bced4986045f4e834640a, type: 3}
   - {fileID: 21300000, guid: d100bf3fba8e48343b4f69fe5447d682, type: 3}
@@ -81,6 +83,7 @@ SpriteAtlas:
   - downArrow
   - cardBase
   - weatherCycleDataBase
+  - flowerStem
   - edge_shade
   - weatherCycleArrow
   - tutorialHandPoint
