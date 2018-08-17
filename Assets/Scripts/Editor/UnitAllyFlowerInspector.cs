@@ -36,6 +36,17 @@ public class UnitAllyFlowerInspector : Editor {
 
         GUILayout.EndHorizontal();
 
+        if(GUILayout.Button("Toggle Bloom")) {            
+            if(dat.isBlossomed) {
+                dat.SetBlossom(false);
+                dat.allowFlowerBlossomGrowth = false;
+            }
+            else {
+                dat.SetBlossom(true);
+                dat.allowFlowerBlossomGrowth = true;
+            }
+        }
+                
         GUI.enabled = lastEnabled;
     }
 }

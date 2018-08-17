@@ -4,20 +4,38 @@ using M8;
 using UnityEngine;
 
 public class UnitAllyFlower : Unit {
+    [System.Serializable]
+    public struct FlowerInfo {
+        public Sprite sprite;
+        public AnimationCurve scaleCurve;
+    }
+
     [Header("Growth")]
     public float growthCycleStemCount = 1; //number of stems expected to fully grow by the end of cycle with no modifications, determines rate.
     public float growthStemValue; //the value representing a full stem growth
     public BoxCollider2D growthCollider; //match height to stem
 
     [Header("Flower")]
-    public float flowerMinScale;
-    public float flowerMaxScale;
+    public FlowerInfo[] flowerLevels;
+
+    [Header("Leaves")]
+    public Sprite[] leafSprites;
+    public int leafCount = 4;
+
+    [Header("Sway")]
+    public float swayAngleMin;
+    public float swayAngleMax;
+    public float swayDelayMin;
+    public float swayDelayMax;
+    public float swayWaitDelayMin;
+    public float swayWaitDelayMax;
 
     [Header("Display")]
     public Transform stemRoot;
     public Transform topRoot; //root for bud and blossom
     public GameObject budGO;
     public GameObject blossomGO;
+    public SpriteRenderer blossomDisplay;
 
     [Header("Stem")]
     public GameObject stemTemplate;
@@ -34,6 +52,8 @@ public class UnitAllyFlower : Unit {
         }
     }
 
+    public bool allowFlowerBlossomGrowth { get; set; }
+
     private FlowerStem[] mStems;
     private int mCurStemIndex;
 
@@ -44,8 +64,14 @@ public class UnitAllyFlower : Unit {
     private float mStemGrowth;
     private Dictionary<string, float> mGrowthMods = new Dictionary<string, float>();
 
+    private Coroutine mSwayRout;
+    private Quaternion[] mSwayStemRotStarts;
+
     public void ApplyGrowth(float growthDelta) {
-        if(isBlossomed && growthDelta > 0f) //don't allow growth for blossomed flower
+        if(growthDelta == 0f)
+            return;
+
+        if(!allowFlowerBlossomGrowth && isBlossomed && growthDelta > 0f) //don't allow growth for blossomed flower
             return;
 
         var curStem = mStems[mCurStemIndex];
@@ -58,9 +84,9 @@ public class UnitAllyFlower : Unit {
 
         curStem.growth = stemVal;
 
-        if(mStemGrowth >= growthStemValue) {
-            curStem.ShowLeaves();
+        var lastStemIndex = mCurStemIndex;
 
+        if(mStemGrowth >= growthStemValue) {
             if(mCurStemIndex < mStems.Length - 1) {
                 mCurStemIndex++;
 
@@ -74,7 +100,6 @@ public class UnitAllyFlower : Unit {
             }
         }
         else if(mStemGrowth < 0f) {
-            curStem.HideLeaves();
             curStem.gameObject.SetActive(false);
 
             if(mCurStemIndex > 0) {
@@ -83,9 +108,8 @@ public class UnitAllyFlower : Unit {
                 mCurStemIndex--;
 
                 curStem = mStems[mCurStemIndex];
-                curStem.HideLeaves();
 
-                curStem.growth = Mathf.Clamp(mStemGrowth / growthStemValue, 0f, curStem.maxGrowth);
+                curStem.growth = mStemGrowth / growthStemValue;
             }
             else {
                 mStemGrowth = 0f;
@@ -95,11 +119,15 @@ public class UnitAllyFlower : Unit {
             }
         }
 
-        var topPos = curStem.topWorldPosition;
+        if(mCurStemIndex != lastStemIndex) {
+            topRoot.SetParent(curStem.transform);
+        }
 
-        topRoot.position = topPos;
+        topRoot.localPosition = curStem.topLocalPosition;
 
         if(growthCollider) {
+            var topPos = curStem.topWorldPosition;
+
             float deltaHeight = topPos.y - position.y;
 
             //assume pivot is bottom
@@ -149,6 +177,22 @@ public class UnitAllyFlower : Unit {
         state = UnitStates.instance.grow;
     }
 
+    public void SetBlossom(bool blossom) {
+        if(isBlossomed == blossom)
+            return;
+
+        if(blossom) {
+            budGO.SetActive(false);
+            blossomGO.SetActive(true);
+
+            ApplyBlossomValue();
+        }
+        else {
+            budGO.SetActive(true);
+            blossomGO.SetActive(false);
+        }
+    }
+
     protected override void StateChanged() {
         base.StateChanged();
 
@@ -159,17 +203,22 @@ public class UnitAllyFlower : Unit {
         if(state == UnitStates.instance.grow) {
             isPhysicsActive = true;
 
+            SetSwayActive(true);
+
             //start growth
             mGrowRout = StartCoroutine(DoGrow());
+        }
+        else if(state == UnitStates.instance.despawning) {
+            SetSwayActive(false);
+        }
+        else if(state == UnitStates.instance.blowOff) {
+            SetSwayActive(false);
         }
     }
 
     protected override void OnSpawned(GenericParams parms) {
         base.OnSpawned(parms);
-
-        budGO.SetActive(false);
-        blossomGO.SetActive(false);
-
+                
         topRoot.localPosition = Vector3.zero;
 
         //determine growth rate
@@ -185,14 +234,20 @@ public class UnitAllyFlower : Unit {
 
         StopGrowRoutine();
 
+        SetSwayActive(false);
+
+        budGO.SetActive(false);
+        blossomGO.SetActive(false);
+
         mGrowthMods.Clear();
 
         mGrowth = 0f;
         mStemGrowth = 0f;
 
+        allowFlowerBlossomGrowth = false;
+
         for(int i = 0; i < stemMaxCount; i++) {
             mStems[i].growth = 0f;
-            mStems[i].HideLeaves();
             mStems[i].gameObject.SetActive(false);
         }
     }
@@ -204,25 +259,40 @@ public class UnitAllyFlower : Unit {
 
         //initialize stems
         mStems = new FlowerStem[stemMaxCount];
+        mSwayStemRotStarts = new Quaternion[stemMaxCount];
 
-        float stemY = 0f;
+        var curStemRoot = stemRoot;
+        var curStemPos = Vector3.zero;
+
+        var leafSprite = leafSprites[Random.Range(0, leafSprites.Length)];
+        bool leafFlip = Random.Range(0, 2) == 0;
 
         for(int i = 0; i < stemMaxCount; i++) {
-            var newGO = Instantiate(stemTemplate, stemRoot);
-            newGO.transform.localPosition = new Vector3(0f, stemY, 0f);
+            var newGO = Instantiate(stemTemplate, curStemRoot);
+            
             mStems[i] = newGO.GetComponent<FlowerStem>();
 
+            mStems[i].Init(leafSprite, leafCount, leafFlip, i < stemMaxCount - 1);
+
+            newGO.transform.localPosition = curStemPos;
             newGO.SetActive(false);
+                        
+            curStemRoot = newGO.transform;
+            curStemPos = mStems[i].topLocalMaxPosition;
 
-            stemY += mStems[i].topOfsY;
-
-            mStems[i].growth = 0f;
+            if(leafCount % 2 != 0)
+                leafFlip = !leafFlip;
         }
 
         stemTemplate.SetActive(false);
 
         budGO.SetActive(false);
         blossomGO.SetActive(false);
+
+        topRoot.SetParent(mStems[0].transform);
+        topRoot.localPosition = mStems[0].topLocalPosition;
+
+        mCurStemIndex = 0;
     }
 
     private void StopGrowRoutine() {
@@ -249,21 +319,23 @@ public class UnitAllyFlower : Unit {
 
         return rate;
     }
-
-    private void Blossom() {
-        mStems[mCurStemIndex].ShowLeaves(); //show if it hasn't already
-
-        budGO.SetActive(false);
-        blossomGO.SetActive(true);
-
-        ApplyBlossomValue();
-    }
-
+        
     private void ApplyBlossomValue() {
-        float blossomT = Mathf.Clamp01(mGrowth / mGrowthMax);
-        float blossomScale = Mathf.Lerp(flowerMinScale, flowerMaxScale, blossomT);
+        float t = mGrowth / mGrowthMax;
 
-        blossomGO.transform.localScale = new Vector3(blossomScale, blossomScale, 1.0f);
+        float fIndex = flowerLevels.Length * t;
+        int index = Mathf.FloorToInt(flowerLevels.Length * t);
+        if(index >= flowerLevels.Length)
+            index = flowerLevels.Length - 1;
+
+        var flowerInfo = flowerLevels[index];
+
+        //float scaleUnit = mGrowthMax / flowerLevels.Length;
+        float scaleT = fIndex - index;
+        float scaleVal = flowerInfo.scaleCurve.Evaluate(scaleT);
+
+        blossomDisplay.sprite = flowerInfo.sprite;
+        blossomDisplay.transform.localScale = new Vector3(scaleVal, scaleVal, 1.0f);
     }
 
     IEnumerator DoGrow() {
@@ -292,7 +364,50 @@ public class UnitAllyFlower : Unit {
         StopGrowRoutine();
 
         //apply flower blossom
-        if(!isBlossomed) //only blossom if we haven't
-            Blossom();
+        SetBlossom(true);
+    }
+
+    private void SetSwayActive(bool active) {
+        if(active) {
+            mSwayRout = StartCoroutine(DoSway());
+        }
+        else if(mSwayRout != null) {
+            StopCoroutine(mSwayRout);
+            mSwayRout = null;
+        }
+    }
+
+    IEnumerator DoSway() {
+        var easeFunc = DG.Tweening.Core.Easing.EaseManager.ToEaseFunction(DG.Tweening.Ease.InOutSine);
+        float angleSign = Random.Range(0, 2) == 0 ? 1f : -1f;
+
+        while(true) {
+            //initialize stem rots
+            for(int i = 0; i < stemMaxCount; i++)
+                mSwayStemRotStarts[i] = mStems[i].transform.localRotation;
+
+            var targetRot = Quaternion.Euler(0f, 0f, angleSign * Random.Range(swayAngleMin, swayAngleMax));
+
+            float curTime = 0f;
+            float delay = Random.Range(swayDelayMin, swayDelayMax);
+            while(curTime < delay) {
+                yield return null;
+
+                curTime += Time.deltaTime;
+
+                float t = easeFunc(curTime, delay, 0f, 0f);
+
+                for(int i = 0; i <= mCurStemIndex; i++) {
+                    var stemT = mStems[i].transform;
+                    stemT.localRotation = Quaternion.Lerp(mSwayStemRotStarts[i], targetRot, t);
+                }
+            }
+
+            yield return new WaitForSeconds(Random.Range(swayWaitDelayMin, swayWaitDelayMax));
+
+            angleSign *= -1f;
+
+            yield return null;
+        }
     }
 }
