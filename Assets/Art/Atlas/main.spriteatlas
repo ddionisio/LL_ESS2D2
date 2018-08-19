@@ -46,6 +46,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d4ed7d83bc476ea45888270b0bb8c14a, type: 3}
   - {fileID: 21300000, guid: e2d23fd3d943d3b4182f0130dd36a59b, type: 3}
   - {fileID: 21300000, guid: f768a6c5b7d83f343b2fd5a4ebeaf5aa, type: 3}
+  - {fileID: 21300000, guid: d4d862f52399acb469f5f01696559a9a, type: 3}
   - {fileID: 21300000, guid: 9d8fbf46f402b0146b8769ec84c39665, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
   - {fileID: 21300000, guid: 49058c18c2c62da43b51e914e09a0d64, type: 3}
@@ -83,6 +84,7 @@ SpriteAtlas:
   - flowerBloom04
   - flowerBase
   - flowerBloom03
+  - spawn
   - weatherCycleDataArrow
   - circle16x16
   - flowerBloom02
