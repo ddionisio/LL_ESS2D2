@@ -41,14 +41,24 @@ SpriteAtlas:
   - {fileID: 21300002, guid: bf8c0222be72dfd48a68e5cf2a7ed5c1, type: 3}
   - {fileID: 21300000, guid: bf8c0222be72dfd48a68e5cf2a7ed5c1, type: 3}
   - {fileID: 21300000, guid: 6437ef22e87e2154d8eb153965699bc2, type: 3}
+  - {fileID: 21300000, guid: 56ec1a6257cc286449829fcb153a88ae, type: 3}
   - {fileID: 21300000, guid: 05c221d27eb4edb40929d15bbf85fb9d, type: 3}
+  - {fileID: 21300000, guid: 1abaebf232c3b9d409c5c9383ee84f5d, type: 3}
+  - {fileID: 21300000, guid: a39e2953e80c3b0479f31140f406a7f0, type: 3}
+  - {fileID: 21300000, guid: e5dc777390553e4499a405c82af83aef, type: 3}
   - {fileID: 21300000, guid: 37c17083343d4cc478b8f1880c561093, type: 3}
   - {fileID: 21300000, guid: d4ed7d83bc476ea45888270b0bb8c14a, type: 3}
   - {fileID: 21300000, guid: e2d23fd3d943d3b4182f0130dd36a59b, type: 3}
+  - {fileID: 21300000, guid: 44a2e43498084d140b46c5499e074241, type: 3}
+  - {fileID: 21300000, guid: 88171d741c8791445ad43a80f603bae0, type: 3}
+  - {fileID: 21300000, guid: fd0292c4e022e8a4eb34089bf9e98374, type: 3}
+  - {fileID: 21300000, guid: 21c769e4040edd24e83c0830fb109b60, type: 3}
   - {fileID: 21300000, guid: f768a6c5b7d83f343b2fd5a4ebeaf5aa, type: 3}
   - {fileID: 21300000, guid: d4d862f52399acb469f5f01696559a9a, type: 3}
   - {fileID: 21300000, guid: 9d8fbf46f402b0146b8769ec84c39665, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
+  - {fileID: 21300000, guid: 0e41974799a06364d86b4b464a928e54, type: 3}
+  - {fileID: 21300000, guid: bf01b0b7199ec26448b016fd2de647e5, type: 3}
   - {fileID: 21300000, guid: 49058c18c2c62da43b51e914e09a0d64, type: 3}
   - {fileID: 21300000, guid: b5f1f248fc842084cb79fa132167e30b, type: 3}
   - {fileID: 21300000, guid: c52d5648fbba71642814e3808a69151c, type: 3}
@@ -66,6 +76,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5878079b27446154ca6922fc33bbc0b3, type: 3}
   - {fileID: 21300000, guid: 3e373dcba9d42384b901f8003cea65dc, type: 3}
   - {fileID: 21300000, guid: abc0dd1cf1be4e24ea3b5bd635722f8f, type: 3}
+  - {fileID: 21300000, guid: 21e6ac3ceac279145a96215dfa3f7079, type: 3}
   - {fileID: 21300000, guid: 41f1dfcc86c5a55408bf5b9d2683900a, type: 3}
   - {fileID: 21300000, guid: c9248bdc58960c24fbfbfb7a7a523e14, type: 3}
   - {fileID: 21300000, guid: 3b2c848d201ef554a80af5707776a4d1, type: 3}
@@ -79,14 +90,24 @@ SpriteAtlas:
   - shadeWhite_bottomLeft
   - shadeWhite
   - leaf05
+  - puff
   - leaf01
+  - explodePixel2
+  - motherbaseBud
+  - explodePixel4
   - flowerBud
   - flowerBloom04
   - flowerBase
+  - explodePixel3
+  - spawnBeam
+  - motherbaseFrogTosser2
+  - explodePixel5
   - flowerBloom03
   - spawn
   - weatherCycleDataArrow
   - circle16x16
+  - motherbaseFrogTosser1
+  - explodePixel1
   - flowerBloom02
   - tutorialHandPointDown
   - quarterCircle
@@ -104,6 +125,7 @@ SpriteAtlas:
   - downArrow
   - cardBase
   - leaf03
+  - motherbasePlatform
   - leaf04
   - weatherCycleDataBase
   - flowerStem

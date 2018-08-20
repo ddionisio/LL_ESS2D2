@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using DG.Tweening;
+
 public class Motherbase : MonoBehaviour {
     public const string poolGroupRef = "flowerUnitPool";
     
@@ -26,7 +28,8 @@ public class Motherbase : MonoBehaviour {
     [Header("Spawn Info")]
     public float spawnUnitHeightOffsetMin = 2.0f;
     public float spawnUnitHeightOffsetMax = 3.0f;
-    public float spawnUnitDelay = 0.35f;
+    public float spawnUnitDelay = 0.35f; //delay from motherbase to ground
+    public float spawnUnitDisplayDelay = 2f; //display purpose, spawner shown until delay and play takeSpawnUnitExit
     public Vector2 spawnStart;
     public Rect spawnAreaLeft; //for flowers
     public Rect spawnAreaRight; //for flowers
@@ -36,6 +39,8 @@ public class Motherbase : MonoBehaviour {
     [Header("Animation")]
     public M8.Animator.Animate animator;
     public string takeEnter;
+    public string takeSpawnUnitEnter;
+    public string takeSpawnUnitExit;
     public string takeSpawnUnit;
         
     public State state { get { return mState; } }
@@ -58,6 +63,12 @@ public class Motherbase : MonoBehaviour {
     private bool mIsFlowerSpawnLeft;
     private int mFlowerSpawnLeftCounter;
     private int mFlowerSpawnRightCounter;
+
+    public void ShakeCamera(float duration, float strength, int vibrato) {
+        var gameCam = M8.Camera2D.main;
+
+        gameCam.unityCamera.DOShakePosition(duration, strength, vibrato).SetAutoKill(true).Play();
+    }
 
     /// <summary>
     /// Returns true if there are any active flowers spawning
@@ -250,7 +261,7 @@ public class Motherbase : MonoBehaviour {
         flower.releaseCallback += OnFlowerRelease;
         mFlowers.Add(flower);
 
-        AddSpawn(flower, spawnStart + (Vector2)transform.position, spawnDest);
+        AddSpawn(flower, spawnStart + (Vector2)transform.position, spawnDest, false);
     }
 
     /// <summary>
@@ -270,7 +281,7 @@ public class Motherbase : MonoBehaviour {
         if(UnitPoint.GetGroundPoint(spawnDest, out groundPoint))
             spawnDest = groundPoint.position;
 
-        AddSpawn(unit, spawnStart + (Vector2)transform.position, spawnDest);
+        AddSpawn(unit, spawnStart + (Vector2)transform.position, spawnDest, true);
     }
 
     public void Victory() {
@@ -338,12 +349,12 @@ public class Motherbase : MonoBehaviour {
         }
     }
 
-    private void AddSpawn(Unit unit, Vector2 start, Vector2 end) {
+    private void AddSpawn(Unit unit, Vector2 start, Vector2 end, bool isSpawnShowDelay) {
         mUnitsToSpawn.Enqueue(new SpawnInfo() { unit=unit, start=start, end=end });
 
         if(mState != State.SpawnUnit) {
             StopCurrentRout();
-            mRout = StartCoroutine(DoSpawning());
+            mRout = StartCoroutine(DoSpawning(isSpawnShowDelay));
         }
     }
 
@@ -360,19 +371,56 @@ public class Motherbase : MonoBehaviour {
         mRout = null;
     }
 
-    IEnumerator DoSpawning() {
+    IEnumerator DoSpawning(bool isSpawnShowDelay) {
         mState = State.SpawnUnit;
 
-        while(mUnitsToSpawn.Count > 0) {
-            var unitSpawnInfo = mUnitsToSpawn.Dequeue();
+        bool doShow = true;
 
-            if(animator && !string.IsNullOrEmpty(takeSpawnUnit)) {
-                animator.Play(takeSpawnUnit);
+        while(true) {
+            //show spawner display
+            if(doShow && animator && !string.IsNullOrEmpty(takeSpawnUnitEnter)) {
+                animator.Play(takeSpawnUnitEnter);
                 while(animator.isPlaying)
+                    yield return null;
+
+                doShow = false;
+            }
+
+            while(mUnitsToSpawn.Count > 0) {
+                var unitSpawnInfo = mUnitsToSpawn.Dequeue();
+
+                if(animator && !string.IsNullOrEmpty(takeSpawnUnit)) {
+                    animator.Play(takeSpawnUnit);
+                    while(animator.isPlaying)
+                        yield return null;
+                }
+
+                StartCoroutine(DoUnitSpawn(unitSpawnInfo.unit, unitSpawnInfo.start, unitSpawnInfo.end));
+            }
+
+            //delay before exiting spawner display
+            if(isSpawnShowDelay) {
+                float lastTime = Time.time;
+                while(Time.time - lastTime < spawnUnitDisplayDelay && mUnitsToSpawn.Count == 0)
                     yield return null;
             }
 
-            StartCoroutine(DoUnitSpawn(unitSpawnInfo.unit, unitSpawnInfo.start, unitSpawnInfo.end));
+            if(mUnitsToSpawn.Count == 0) {
+                //hide spawner display
+                if(animator && !string.IsNullOrEmpty(takeSpawnUnitExit)) {
+                    animator.Play(takeSpawnUnitExit);
+                    while(animator.isPlaying)
+                        yield return null;
+
+                    if(mUnitsToSpawn.Count > 0) {
+                        //got more units to spawn, show again and continue spawning
+                        doShow = true;
+                        continue;
+                    }
+                }
+
+                break;
+            }
         }
 
         mState = State.None;
