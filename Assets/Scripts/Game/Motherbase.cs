@@ -36,14 +36,39 @@ public class Motherbase : MonoBehaviour {
     public float spawnAreaSectionRandScale = 0.25f; //for flowers
     public Rect spawnAreaCenter; //for units
 
+    [Header("Grow")]
+    public GameObject[] growStems;
+    public float growStemDelay = 0.5f;
+    public float growPowerExtractDelay = 0.3f;
+    public SpriteRenderer[] growBlossomDisplays;
+
     [Header("Animation")]
     public M8.Animator.Animate animator;
     public string takeEnter;
     public string takeSpawnUnitEnter;
     public string takeSpawnUnitExit;
     public string takeSpawnUnit;
-        
+    public string takeVictory;
+                
     public State state { get { return mState; } }
+
+    public float flowerTotalGrowth {
+        get {
+            float growth = 0f;
+            for(int i = 0; i < mFlowers.Count; i++)
+                growth += mFlowers[i].growth;
+            return growth;
+        }
+    }
+
+    public float flowerTotalGrowthMax {
+        get {
+            if(mFlowers.Count > 0)
+                return mFlowers[0].growthMax * mFlowers.Count;
+            
+            return 0f;
+        }
+    }
 
     private State mState = State.None;
     private Coroutine mRout;
@@ -286,8 +311,7 @@ public class Motherbase : MonoBehaviour {
 
     public void Victory() {
         if(mState != State.Victory) {
-            StopCurrentRout();
-            mRout = StartCoroutine(DoVictory());
+            StartCoroutine(DoVictory());
         }
     }
 
@@ -459,7 +483,61 @@ public class Motherbase : MonoBehaviour {
     IEnumerator DoVictory() {
         mState = State.Victory;
 
-        yield return new WaitForSeconds(2f);
+        //wait for other rout to finish
+        while(mRout != null)
+            yield return null;
+
+        yield return new WaitForSeconds(0.5f);
+
+        //play a little victory
+        if(animator && !string.IsNullOrEmpty(takeVictory)) {
+            animator.Play(takeVictory);
+            while(animator.isPlaying)
+                yield return null;
+        }
+
+        //extract power from active flowers
+        int powerExtractFinishCount = 0;
+
+        var dest = spawnStart + (Vector2)transform.position;
+
+        //start power extract, apply flower value
+        for(int i = 0; i < mFlowers.Count; i++) {
+            mFlowers[i].PowerExtractDisplay(dest, () => powerExtractFinishCount++);
+
+            if(i < growBlossomDisplays.Length - 1) {
+                growBlossomDisplays[i].sprite = mFlowers[i].blossomDisplay.sprite;
+                growBlossomDisplays[i].transform.localScale = mFlowers[i].blossomDisplay.transform.localScale;
+            }
+
+            yield return new WaitForSeconds(growPowerExtractDelay); //wait a bit to cascade extraction
+        }
+
+        while(powerExtractFinishCount < mFlowers.Count)
+            yield return null;
+                
+        var waitStem = new WaitForSeconds(growStemDelay);
+                
+        int blossomIndex = 0;
+        int blossomCount = Mathf.Min(mFlowers.Count, growBlossomDisplays.Length);
+
+        int stemCount = Mathf.Min(mFlowers.Count, growStems.Length);
+        for(int i = 0; i < stemCount; i++) {
+            growStems[i].SetActive(true);
+
+            yield return waitStem;
+
+            //show blossoms
+            if(blossomIndex < blossomCount) {
+                for(int j = 0; j < 2; j++) {
+                    growBlossomDisplays[blossomIndex].gameObject.SetActive(true);
+
+                    blossomIndex++;
+                    if(blossomIndex >= blossomCount)
+                        break;
+                }
+            }
+        }
 
         mState = State.None;
         mRout = null;

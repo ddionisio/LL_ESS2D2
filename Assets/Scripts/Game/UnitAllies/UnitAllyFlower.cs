@@ -41,6 +41,14 @@ public class UnitAllyFlower : Unit {
     public GameObject stemTemplate;
     public int stemMaxCount = 3;
 
+    [Header("Power To Motherbase")]
+    public Transform powerExtractRoot;
+    public float powerExtractTopOfs = 1.5f; //offset relative to topmost stem
+    public float powerExtractCurveTopOfs = 3.0f; //offset relative to top extract point for midpoint curve path
+    public float powerExtractMoveUpDelay = 0.3f;
+    public float powerExtractMoveWait = 1f;
+    public float powerExtractMoveDelay = 0.5f;
+
     public bool isBlossomed { get { return blossomGO.activeSelf; } }
     public float growth { get { return mGrowth; } }
     public float growthMax { get { return mGrowthMax; } }
@@ -193,6 +201,10 @@ public class UnitAllyFlower : Unit {
         }
     }
 
+    public void PowerExtractDisplay(Vector2 destination, System.Action endCallback) {
+        StartCoroutine(DoPowerExtract(destination, endCallback));
+    }
+
     protected override void StateChanged() {
         base.StateChanged();
 
@@ -238,6 +250,8 @@ public class UnitAllyFlower : Unit {
 
         budGO.SetActive(false);
         blossomGO.SetActive(false);
+
+        if(powerExtractRoot) powerExtractRoot.gameObject.SetActive(false);
 
         mGrowthMods.Clear();
 
@@ -291,6 +305,8 @@ public class UnitAllyFlower : Unit {
 
         topRoot.SetParent(mStems[0].transform);
         topRoot.localPosition = mStems[0].topLocalPosition;
+
+        if(powerExtractRoot) powerExtractRoot.gameObject.SetActive(false);
 
         mCurStemIndex = 0;
     }
@@ -360,8 +376,8 @@ public class UnitAllyFlower : Unit {
 
     void OnCycleEnd() {
         GameController.instance.weatherCycle.cycleEndCallback -= OnCycleEnd;
-        
-        StopGrowRoutine();
+
+        state = UnitStates.instance.idle;
 
         //apply flower blossom
         SetBlossom(true);
@@ -409,5 +425,49 @@ public class UnitAllyFlower : Unit {
 
             yield return null;
         }
+    }
+
+    IEnumerator DoPowerExtract(Vector2 destination, System.Action endCallback) {
+        powerExtractRoot.gameObject.SetActive(true);
+
+        //move up
+        Vector2 startPos = topRoot.position;
+        Vector2 endPos = new Vector2(startPos.x, startPos.y + powerExtractTopOfs);
+
+        powerExtractRoot.position = startPos;
+
+        var easeFunc = DG.Tweening.Core.Easing.EaseManager.ToEaseFunction(DG.Tweening.Ease.OutSine);
+
+        float curTime = 0f;
+        while(curTime < powerExtractMoveUpDelay) {
+            yield return null;
+
+            curTime += Time.deltaTime;
+            float t = easeFunc(curTime, powerExtractMoveUpDelay, 0f, 0f);
+            powerExtractRoot.position = Vector2.Lerp(startPos, endPos, t);
+        }
+
+        yield return new WaitForSeconds(powerExtractMoveWait);
+
+        startPos = endPos;
+        endPos = destination;
+
+        Vector2 midPos = new Vector2(Mathf.Lerp(startPos.x, endPos.x, 0.5f), startPos.y + powerExtractCurveTopOfs);
+
+        easeFunc = DG.Tweening.Core.Easing.EaseManager.ToEaseFunction(DG.Tweening.Ease.InOutSine);
+
+        curTime = 0f;
+        while(curTime < powerExtractMoveDelay) {
+            yield return null;
+
+            curTime += Time.deltaTime;
+            float t = easeFunc(curTime, powerExtractMoveDelay, 0f, 0f);
+            powerExtractRoot.position = M8.MathUtil.Bezier(startPos, midPos, endPos, t);
+        }
+
+        powerExtractRoot.gameObject.SetActive(false);
+
+        if(endCallback != null)
+            endCallback();
     }
 }

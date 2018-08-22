@@ -114,14 +114,12 @@ public class GameController : GameModeController<GameController> {
             StartCoroutine(DoNewCycle());
         }
         else {
+            //allow motherbase to do its victory thing
+            motherbase.Victory();
+
             //end
             if(endCallback != null)
                 endCallback();
-
-            //allow motherbase to do its victory thing
-            motherbase.Victory();
-            while(motherbase.state == Motherbase.State.Victory)
-                yield return null;
 
             //show victory modal, this is where we can proceed to the next level
             M8.UIModal.Manager.instance.ModalCloseAll(); //ensure any modals are closed (fail-safe)
