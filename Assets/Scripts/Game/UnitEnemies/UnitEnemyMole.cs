@@ -11,7 +11,6 @@ public class UnitEnemyMole : Unit {
     public M8.Animator.Animate animator;
     public string takeSpawn;
     public string takeGrab;
-    public string takeDead;
 
     private UnitAllyFlower mFlowerTarget;
 
@@ -45,9 +44,6 @@ public class UnitEnemyMole : Unit {
             mRout = StartCoroutine(DoGrabFlower());
 
             isPhysicsActive = true; //allow allies to see this mole while grabbing
-        }
-        else if(state == UnitStates.instance.dead) {
-            mRout = StartCoroutine(DoAnimatorToRelease(animator, takeDead));
         }
     }
 

@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 4097914752832520}
   - component: {fileID: 114254168804371162}
   - component: {fileID: 114329104841448038}
+  - component: {fileID: 114384058661296536}
   - component: {fileID: 61470636387433718}
   - component: {fileID: 114768181382071498}
   m_Layer: 12
@@ -193,7 +194,6 @@ MonoBehaviour:
   takeSpawn: spawn
   takeHop: hop
   takeHopLand: hopLand
-  takeDeath: despawn
 --- !u!114 &114329104841448038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +209,28 @@ MonoBehaviour:
   animator: {fileID: 114768181382071498}
   takeIdle: idle
   takeMove: 
+--- !u!114 &114384058661296536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750560851219394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDespawnEnable: 1
+  isDeathEnable: 1
+  isBlowOffEnable: 1
+  blowOffMode: 0
+  blowOffEndOfs: 2
+  blowOffDelay: 1
+  blowOffHeight: 3
+  animator: {fileID: 114768181382071498}
+  takeDespawn: despawn
+  takeDeath: despawn
+  takeBlowOff: 
 --- !u!114 &114768181382071498
 MonoBehaviour:
   m_ObjectHideFlags: 1

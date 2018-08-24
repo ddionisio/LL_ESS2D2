@@ -521,7 +521,7 @@ public class Motherbase : MonoBehaviour {
         int blossomIndex = 0;
         int blossomCount = Mathf.Min(mFlowers.Count, growBlossomDisplays.Length);
 
-        int stemCount = Mathf.Min(mFlowers.Count, growStems.Length);
+        int stemCount = Mathf.Min(Mathf.CeilToInt(mFlowers.Count * 0.5f), growStems.Length);
         for(int i = 0; i < stemCount; i++) {
             growStems[i].SetActive(true);
 

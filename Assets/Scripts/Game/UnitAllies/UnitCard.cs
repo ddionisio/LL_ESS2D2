@@ -8,6 +8,10 @@ using UnityEngine;
 public class UnitCard : Unit {
     [Header("UnitCard Data")]
     public float despawnDelay = 2.0f;
+    public float despawnFadeDelay = 1.0f; //delay within the end of despawnDelay
+    public float despawnFadePulsePerSecond;
+    public float despawnAlpha;
+    public M8.SpriteColorGroup despawnFadeColorGroup;
     
     public Vector2 targetPosition { get; protected set; }
 
@@ -15,7 +19,7 @@ public class UnitCard : Unit {
 
     private CardDeployTargetDisplay mTargetDisplay;
 
-    private float mDespawnCurTime;
+    private Coroutine mDespawnRout;
 
     protected void AddTargetDisplay() {
         if(!mTargetDisplay) {
@@ -35,7 +39,10 @@ public class UnitCard : Unit {
     protected override void StateChanged() {
         base.StateChanged();
 
-        if(prevState == UnitStates.instance.move) {
+        if(prevState == UnitStates.instance.idle) {
+            StopDespawn();
+        }
+        else if(prevState == UnitStates.instance.move) {
             RemoveTargetDisplay();
         }
 
@@ -45,8 +52,7 @@ public class UnitCard : Unit {
             isPhysicsActive = true;
         }
         else if(state == UnitStates.instance.idle) {
-            //set despawnTimer
-            mDespawnCurTime = 0f;
+            mDespawnRout = StartCoroutine(DoDespawn());
 
             isPhysicsActive = true;
         }
@@ -67,6 +73,8 @@ public class UnitCard : Unit {
     protected override void OnDespawned() {
         base.OnDespawned();
 
+        StopDespawn();
+
         if(mCardItem != null) {
             mCardItem.IncrementPendingCount();
             mCardItem = null;
@@ -75,11 +83,46 @@ public class UnitCard : Unit {
         RemoveTargetDisplay();
     }
 
-    protected virtual void Update() {
-        if(state == UnitStates.instance.idle) {
-            mDespawnCurTime += Time.deltaTime;
-            if(mDespawnCurTime >= despawnDelay)
-                state = UnitStates.instance.despawning;
+    IEnumerator DoDespawn() {
+        if(despawnFadeColorGroup) {
+            float despawnWaitDelay = despawnDelay - despawnFadeDelay;
+            if(despawnWaitDelay > 0f) {
+                yield return new WaitForSeconds(despawnWaitDelay);
+            }
+
+            float delay = Mathf.Min(despawnFadeDelay, despawnDelay);
+            //float fadeDelay = delay 
+
+            float curTime = 0f;
+            while(curTime < delay) {
+                yield return null;
+
+                curTime += Time.deltaTime;
+
+                float t = Mathf.Sin(Mathf.PI * curTime * despawnFadePulsePerSecond);
+                t *= t;
+
+                var clr = despawnFadeColorGroup.color;
+                clr.a = Mathf.Lerp(1.0f, despawnAlpha, t);
+                despawnFadeColorGroup.color = clr;
+            }
         }
+        else {
+            yield return new WaitForSeconds(despawnDelay);
+        }
+        
+        mDespawnRout = null;
+
+        state = UnitStates.instance.despawning;
+    }
+
+    void StopDespawn() {
+        if(mDespawnRout != null) {
+            StopCoroutine(mDespawnRout);
+            mDespawnRout = null;
+        }
+
+        if(despawnFadeColorGroup)
+            despawnFadeColorGroup.Revert();
     }
 }

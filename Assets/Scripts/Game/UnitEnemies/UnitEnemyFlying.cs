@@ -18,7 +18,6 @@ public class UnitEnemyFlying : Unit {
     public string takeAct;
     public string takeMoveIn;
     public string takeLeave;
-    public string takeDeath;
 
     private UnitAllyFlower mFlowerTarget;
 
@@ -59,9 +58,6 @@ public class UnitEnemyFlying : Unit {
         }
         else if(state == UnitStates.instance.despawning) {
             mRout = StartCoroutine(DoLeave());
-        }
-        else if(state == UnitStates.instance.dead || state == UnitStates.instance.blowOff) {
-            mRout = StartCoroutine(DoAnimatorToRelease(animator, takeDeath));
         }
     }
 

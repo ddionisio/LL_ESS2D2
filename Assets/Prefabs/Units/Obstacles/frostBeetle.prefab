@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4803460297547528}
   - component: {fileID: 114512061254025236}
   - component: {fileID: 114506609417548342}
+  - component: {fileID: 114122619754480086}
   - component: {fileID: 58889164388007618}
   - component: {fileID: 114663024773270960}
   m_Layer: 12
@@ -117,6 +118,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114122619754480086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244815506485882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDespawnEnable: 0
+  isDeathEnable: 1
+  isBlowOffEnable: 1
+  blowOffMode: 2
+  blowOffEndOfs: 2
+  blowOffDelay: 1
+  blowOffHeight: 3
+  animator: {fileID: 114663024773270960}
+  takeDespawn: 
+  takeDeath: 
+  takeBlowOff: 
 --- !u!114 &114506609417548342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,7 +183,6 @@ MonoBehaviour:
   takeAct: eat
   takeMoveIn: move
   takeLeave: move
-  takeDeath: 
 --- !u!114 &114663024773270960
 MonoBehaviour:
   m_ObjectHideFlags: 1

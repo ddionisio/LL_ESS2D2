@@ -352,12 +352,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyBlowOff: 0
+  isDespawnEnable: 1
+  isDeathEnable: 1
+  isBlowOffEnable: 0
+  blowOffMode: 0
   blowOffEndOfs: 2
   blowOffDelay: 1
   blowOffHeight: 3
   animator: {fileID: 114606349257696428}
   takeDespawn: despawn
+  takeDeath: 
   takeBlowOff: 
 --- !u!212 &212433510477638722
 SpriteRenderer:

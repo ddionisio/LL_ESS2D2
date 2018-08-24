@@ -24,7 +24,7 @@ public class UnitAllyFlowerInspector : Editor {
         var dat = target as UnitAllyFlower;
 
         var lastEnabled = GUI.enabled;
-        GUI.enabled = Application.isPlaying;
+        GUI.enabled = Application.isPlaying && !dat.isReleased;
 
         GUILayout.BeginHorizontal();
 
@@ -45,6 +45,10 @@ public class UnitAllyFlowerInspector : Editor {
                 dat.SetBlossom(true);
                 dat.allowFlowerBlossomGrowth = true;
             }
+        }
+
+        if(GUILayout.Button("Release")) {
+            dat.Release();
         }
                 
         GUI.enabled = lastEnabled;

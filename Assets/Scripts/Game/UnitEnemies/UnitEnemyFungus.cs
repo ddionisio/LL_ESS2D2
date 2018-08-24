@@ -26,7 +26,6 @@ public class UnitEnemyFungus : Unit {
     public string takeIdle;
     public string takeAct;
     public string takeGas; //during gas active (loop)
-    public string takeDead;
 
     private Collider2D[] mCollCache = new Collider2D[8];
     private float mGasCheckRot;
@@ -49,9 +48,6 @@ public class UnitEnemyFungus : Unit {
             mRout = StartCoroutine(DoAct());
 
             isPhysicsActive = true;
-        }
-        else if(state == UnitStates.instance.dead) {
-            mRout = StartCoroutine(DoAnimatorToRelease(animator, takeDead));
         }
     }
 
@@ -153,8 +149,7 @@ public class UnitEnemyFungus : Unit {
                             flowerUnit.Release(); //kill flower
                     }
                     else {
-                        //despawn (TODO: death? (for visual purpose))
-                        unit.state = UnitStates.instance.despawning;
+                        unit.state = UnitStates.instance.dead;
                     }
                 }
 

@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4803460297547528}
   - component: {fileID: 114512061254025236}
   - component: {fileID: 114506609417548342}
+  - component: {fileID: 114822148858980720}
   - component: {fileID: 58889164388007618}
   - component: {fileID: 114663024773270960}
   m_Layer: 12
@@ -145,9 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateOnStart: 0
   activator: {fileID: 0}
-  signalStateChanged: {fileID: 11400000, guid: ad1995f1f96bb4d408a34c3c58bdee09, type: 2}
-  signalSpawned: {fileID: 11400000, guid: d5514d8251d1596449526c2771d81af0, type: 2}
-  signalReleased: {fileID: 11400000, guid: 39f4498b36e640b48be5334bc01c1497, type: 2}
+  flags: 0
   displayRootGO: {fileID: 0}
   spawnRootGO: {fileID: 0}
   feedCount: 3
@@ -351,6 +350,28 @@ MonoBehaviour:
       index: 2
       keyIndices: 0300000004000000
     _takeTrackCounts: 010000000100000001000000
+--- !u!114 &114822148858980720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244815506485882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDespawnEnable: 0
+  isDeathEnable: 1
+  isBlowOffEnable: 1
+  blowOffMode: 2
+  blowOffEndOfs: 2
+  blowOffDelay: 1
+  blowOffHeight: 3
+  animator: {fileID: 114663024773270960}
+  takeDespawn: 
+  takeDeath: 
+  takeBlowOff: 
 --- !u!212 &212771510854932706
 SpriteRenderer:
   m_ObjectHideFlags: 1

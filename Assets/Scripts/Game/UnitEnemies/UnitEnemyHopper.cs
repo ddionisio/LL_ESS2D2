@@ -19,7 +19,6 @@ public class UnitEnemyHopper : Unit {
     public string takeSpawn;
     public string takeHop;
     public string takeHopLand;
-    public string takeDeath;
 
     private Collider2D[] mCheckColliders = new Collider2D[8];
 
@@ -37,9 +36,6 @@ public class UnitEnemyHopper : Unit {
             isPhysicsActive = true;
 
             mRout = StartCoroutine(DoMove());
-        }
-        else if(state == UnitStates.instance.despawning || state == UnitStates.instance.dead || state == UnitStates.instance.blowOff) {
-            mRout = StartCoroutine(DoAnimatorToRelease(animator, takeDeath));
         }
     }
 
@@ -158,8 +154,8 @@ public class UnitEnemyHopper : Unit {
                             flowerUnit.Release(); //kill flower
                     }
                 }
-                else //despawn (TODO: death? (for visual purpose))
-                    unit.state = UnitStates.instance.despawning;
+                else
+                    unit.state = UnitStates.instance.dead;
             }
 
             yield return waitDelay;

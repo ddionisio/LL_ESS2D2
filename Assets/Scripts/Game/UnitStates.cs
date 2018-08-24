@@ -11,10 +11,8 @@ public class UnitStates : M8.SingletonScriptableObject<UnitStates> {
     public M8.EntityState act;
     public M8.EntityState despawning;
     public M8.EntityState blowOff;
+    public M8.EntityState dead;
 
     [Header("Flower")]
     public M8.EntityState grow;
-
-    [Header("Enemy")]
-    public M8.EntityState dead;
 }

@@ -64,6 +64,9 @@ TagManager:
   - name: Frontground
     uniqueID: 2487484283
     locked: 0
+  - name: FX
+    uniqueID: 3542945017
+    locked: 0
   - name: Interface
     uniqueID: 2199506255
     locked: 0

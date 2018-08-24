@@ -13,6 +13,9 @@ public class UnitAllyGardener : UnitCard {
     public float checkDelay = 0.5f;
     public LayerMask checkLayerMask;
 
+    [Header("Display")]
+    public GameObject idleGOActive;
+
     private Collider2D[] mCheckColliders = new Collider2D[8];
 
     public override void MotherbaseSpawnFinish() {
@@ -22,8 +25,14 @@ public class UnitAllyGardener : UnitCard {
     protected override void StateChanged() {
         base.StateChanged();
 
+        if(prevState == UnitStates.instance.idle) {
+            if(idleGOActive) idleGOActive.SetActive(false);
+        }
+
         if(state == UnitStates.instance.idle) {
             mRout = StartCoroutine(DoGardening());
+
+            if(idleGOActive) idleGOActive.SetActive(true);
         }
         else if(state == UnitStates.instance.move) {
             //determine dir
@@ -31,7 +40,19 @@ public class UnitAllyGardener : UnitCard {
             curDir = new Vector2(Mathf.Sign(dpos.x), 0f);
         }
     }
-        
+
+    protected override void OnDespawned() {
+        base.OnDespawned();
+
+        if(idleGOActive) idleGOActive.SetActive(false);
+    }
+
+    protected override void Awake() {
+        base.Awake();
+
+        if(idleGOActive) idleGOActive.SetActive(false);
+    }
+
     void FixedUpdate() {
         if(state == UnitStates.instance.move) {
             //move

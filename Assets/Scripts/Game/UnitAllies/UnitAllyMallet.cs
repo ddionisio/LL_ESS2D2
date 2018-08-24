@@ -16,13 +16,21 @@ public class UnitAllyMallet : UnitCard {
     private Unit mTarget;
 
     private Collider2D[] mAttackCheckColls = new Collider2D[4];
+
+    private bool mIsStrikeAction;
     
     public override void MotherbaseSpawnFinish() {
         state = UnitStates.instance.move;
     }
 
+    public void StrikeAction() {
+        mIsStrikeAction = true;
+    }
+
     protected override void OnDespawned() {
         base.OnDespawned();
+
+        mIsStrikeAction = false;
 
         ClearTarget();
     }
@@ -112,14 +120,26 @@ public class UnitAllyMallet : UnitCard {
     }
 
     IEnumerator DoStrike() {
+        mIsStrikeAction = false;
+
         if(animator && !string.IsNullOrEmpty(takeStrike)) {
             animator.Play(takeStrike);
-            while(animator.isPlaying)
-                yield return null;
         }
+        else
+            mIsStrikeAction = true;
+
+        //wait for animation to do strike
+        while(!mIsStrikeAction)
+            yield return null;
 
         mTarget.state = UnitStates.instance.dead;
         mTarget = null;
+
+        //wait for animation to finish
+        if(animator) {
+            while(animator.isPlaying)
+                yield return null;
+        }
 
         state = prevState;
     }

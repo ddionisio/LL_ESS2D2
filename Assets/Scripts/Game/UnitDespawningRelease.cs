@@ -6,8 +6,19 @@ using UnityEngine;
 /// Handle despawn to release
 /// </summary>
 public class UnitDespawningRelease : MonoBehaviour {
+    public enum BlowOffMode {
+        BlowOff,
+        Despawn,
+        Death
+    }
+
+    [Header("Flags")]
+    public bool isDespawnEnable = true;
+    public bool isDeathEnable = true;
+    public bool isBlowOffEnable = true;
+
     [Header("Blow Off")]
-    public bool applyBlowOff;
+    public BlowOffMode blowOffMode = BlowOffMode.BlowOff;
     public float blowOffEndOfs = 2.0f;
     public float blowOffDelay = 1f;
     public float blowOffHeight = 3.0f;
@@ -15,8 +26,9 @@ public class UnitDespawningRelease : MonoBehaviour {
     [Header("Animation")]
     public M8.Animator.Animate animator;
     public string takeDespawn;
+    public string takeDeath;
     public string takeBlowOff;
-
+    
     private Unit mUnit;
 
     void Awake() {
@@ -29,26 +41,39 @@ public class UnitDespawningRelease : MonoBehaviour {
 
     void OnEntityStateChanged(M8.EntityBase ent) {
         if(ent.state == UnitStates.instance.despawning) {
-            Despawn();
+            if(isDespawnEnable)
+                Despawn(takeDespawn);
+        }
+        else if(ent.state == UnitStates.instance.dead) {
+            if(isDeathEnable)
+                Despawn(takeDeath);
         }
         else if(ent.state == UnitStates.instance.blowOff) {
-            if(applyBlowOff) {
-                StartCoroutine(DoBlowOff());
+            if(isBlowOffEnable) {
+                switch(blowOffMode) {
+                    case BlowOffMode.BlowOff:
+                        StartCoroutine(DoBlowOff());
+                        break;
+                    case BlowOffMode.Despawn:
+                        Despawn(takeDespawn);
+                        break;
+                    case BlowOffMode.Death:
+                        Despawn(takeDeath);
+                        break;
+                }
             }
-            else
-                Despawn();
         }
     }
 
-    void Despawn() {
-        if(animator && !string.IsNullOrEmpty(takeDespawn))
-            animator.Play(takeDespawn);
+    void Despawn(string takeName) {
+        if(animator && !string.IsNullOrEmpty(takeName))
+            animator.Play(takeName);
         else
             mUnit.Release();
     }
 
     void OnAnimatorTakeComplete(M8.Animator.Animate anim, M8.Animator.Take take) {
-        if(take.name == takeDespawn) {
+        if(take.name == takeDespawn || take.name == takeDeath) {
             mUnit.Release();
         }
     }
