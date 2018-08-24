@@ -12,8 +12,12 @@ public class UnitAllyFlyingAttacker : UnitCard {
     public LayerMask attackCheckLayerMask;
     public float attackCheckDelay = 0.333f;
 
+    public Transform attackRotateRoot;
+    public float attackRotateDelay = 0.3f;
+
     [Header("Animation")]
     public M8.Animator.Animate animator;
+    public string takeAttackStart;
     public string takeAttackMove;
     public string takeAttackStrike;
     
@@ -32,6 +36,12 @@ public class UnitAllyFlyingAttacker : UnitCard {
 
     protected override void StateChanged() {
         base.StateChanged();
+
+        if(prevState == UnitStates.instance.act) {
+            //in case we change state mid-attack, reset attackRotate
+            if(attackRotateRoot)
+                attackRotateRoot.localRotation = Quaternion.identity;
+        }
                 
         if(state == UnitStates.instance.move) {
             mMoveStartPos = position;
@@ -61,6 +71,9 @@ public class UnitAllyFlyingAttacker : UnitCard {
         base.OnDespawned();
 
         ClearAttackTarget();
+
+        if(attackRotateRoot)
+            attackRotateRoot.localRotation = Quaternion.identity;
     }
 
     protected override void OnSpawned(M8.GenericParams parms) {
@@ -126,26 +139,58 @@ public class UnitAllyFlyingAttacker : UnitCard {
         //hold still
         mAttackTarget.state = UnitStates.instance.idle;
 
+        float curTime = 0f;
+
+        var easeFuncRot = DG.Tweening.Core.Easing.EaseManager.ToEaseFunction(DG.Tweening.Ease.OutSine);
+
+        var startPos = position;
+        var endPos = mAttackTarget.position;
+        Vector2 dpos = mAttackTarget.position - position;        
+        float dist = dpos.magnitude;
+
+        Vector2 dir;
+        if(dist > 0f)
+            dir = dpos / dist;
+        else
+            dir = Vector2.up;
+
+        if(attackRotateRoot) {
+            //rotate towards target
+            float startRotate = attackRotateRoot.localEulerAngles.z;
+            float endRotate = Vector2.SignedAngle(attackRotateRoot.up, dir);
+
+            while(curTime < attackRotateDelay) {
+                yield return null;
+
+                curTime += Time.deltaTime;
+
+                float t = easeFuncRot(curTime, attackRotateDelay, 0f, 0f);
+
+                attackRotateRoot.localEulerAngles = new Vector3(0f, 0f, Mathf.Lerp(startRotate, endRotate, t));
+            }
+        }
+                        
+        //attack start
+        if(!string.IsNullOrEmpty(takeAttackStart)) {
+            animator.Play(takeAttackStart);
+            while(animator.isPlaying)
+                yield return null;
+        }
+
         //move towards target
         if(!string.IsNullOrEmpty(takeAttackMove))
             animator.Play(takeAttackMove);
 
-        var startPos = position;
-        var endPos = mAttackTarget.position;
+        if(moveAttackDistance > 0f) {
+            dist = Mathf.Max(0f, dist - moveAttackDistance);
+            endPos = startPos + dir * dist;
+        }
 
-        if(startPos.x < endPos.x)
-            endPos.x -= moveAttackDistance;
-        else
-            endPos.x += moveAttackDistance;
-
-        Vector2 dpos = endPos - startPos;        
-
-        curDir = new Vector2(Mathf.Sign(dpos.x), 0f);
-
-        float dist = dpos.magnitude;
+        //curDir = new Vector2(Mathf.Sign(dpos.x), 0f);
+                
         float moveDelay = dist / moveAttackSpeed;
 
-        float curTime = 0f;
+        curTime = 0f;
         while(curTime < moveDelay) {            
             yield return null;
 
@@ -158,17 +203,37 @@ public class UnitAllyFlyingAttacker : UnitCard {
         //
 
         //strike
-        curDir = new Vector2(Mathf.Sign(mAttackTarget.position.x - position.x), 0f); //re-orient
+        //curDir = new Vector2(Mathf.Sign(mAttackTarget.position.x - position.x), 0f); //re-orient
 
         if(!string.IsNullOrEmpty(takeAttackStrike)) {
             animator.Play(takeAttackStrike);
             while(animator.isPlaying)
                 yield return null;
         }
+        //
 
         //kill target
         mAttackTarget.state = UnitStates.instance.dead;
         mAttackTarget = null;
+
+        //rotate back to normal
+        if(attackRotateRoot) {
+            //rotate towards target
+            float startRotate = attackRotateRoot.localEulerAngles.z;
+            float endRotate = Vector2.SignedAngle(attackRotateRoot.up, Vector2.up);
+
+            curTime = 0f;
+            while(curTime < attackRotateDelay) {
+                yield return null;
+
+                curTime += Time.deltaTime;
+
+                float t = easeFuncRot(curTime, attackRotateDelay, 0f, 0f);
+
+                attackRotateRoot.localEulerAngles = new Vector3(0f, 0f, Mathf.Lerp(startRotate, endRotate, t));
+            }
+        }
+        //
 
         mRout = null;
 

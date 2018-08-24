@@ -71,6 +71,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2ddc17f5aefeae34f8c9a03f7bc5e941, type: 3}
   - {fileID: 21300000, guid: 9d8fbf46f402b0146b8769ec84c39665, type: 3}
   - {fileID: 21300000, guid: bc972d665a370f7498077c4d029eee6f, type: 3}
+  - {fileID: 21300000, guid: 506b16c67e3ef764ba851e103ccb232f, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
   - {fileID: 21300000, guid: 0e41974799a06364d86b4b464a928e54, type: 3}
   - {fileID: 21300000, guid: bf01b0b7199ec26448b016fd2de647e5, type: 3}
@@ -79,6 +80,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f5fc3938a2ddbed4fbb7ef2d16084dd2, type: 3}
   - {fileID: 21300000, guid: b5f1f248fc842084cb79fa132167e30b, type: 3}
   - {fileID: 21300000, guid: c52d5648fbba71642814e3808a69151c, type: 3}
+  - {fileID: 21300000, guid: d63ec9580442a1147ab4ae102ebf46de, type: 3}
   - {fileID: 21300006, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300000, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300008, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
@@ -104,6 +106,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0cab68aeacf0506498f4ae0833027565, type: 3}
   - {fileID: 21300000, guid: ca1617ce466bced4986045f4e834640a, type: 3}
   - {fileID: 21300000, guid: d100bf3fba8e48343b4f69fe5447d682, type: 3}
+  - {fileID: 21300000, guid: 552b9b9f606d24946aa32a696466c5b9, type: 3}
   - {fileID: 21300000, guid: 006549bf55cfba2428c766cf94f1740d, type: 3}
   m_PackedSpriteNamesToIndex:
   - gardenerAura
@@ -141,6 +144,7 @@ SpriteAtlas:
   - mallet_idle
   - weatherCycleDataArrow
   - flowerPowerCore
+  - spear1
   - circle16x16
   - motherbaseFrogTosser1
   - explodePixel1
@@ -149,6 +153,7 @@ SpriteAtlas:
   - mallet_move1
   - tutorialHandPointDown
   - quarterCircle
+  - gardener_jump1
   - blank4x4_bottomLeft
   - blank4x4_bottom
   - blank4x4_border
@@ -174,6 +179,7 @@ SpriteAtlas:
   - gardenerHat
   - weatherCycleArrow
   - tutorialHandPoint
+  - spear2
   - leaf02
   m_Tag: main
   m_IsVariant: 0
