@@ -58,16 +58,20 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e5dc777390553e4499a405c82af83aef, type: 3}
   - {fileID: 21300000, guid: 37c17083343d4cc478b8f1880c561093, type: 3}
   - {fileID: 21300000, guid: d4ed7d83bc476ea45888270b0bb8c14a, type: 3}
+  - {fileID: 21300000, guid: 9aceb5b3343f9ff44ae44e79733175f3, type: 3}
   - {fileID: 21300000, guid: e2d23fd3d943d3b4182f0130dd36a59b, type: 3}
   - {fileID: 21300000, guid: ed628ff310dd76544b1252bafddbb794, type: 3}
   - {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
   - {fileID: 21300000, guid: 64d83a2486c96a84d8ec1a795cb07a98, type: 3}
   - {fileID: 21300000, guid: 44a2e43498084d140b46c5499e074241, type: 3}
+  - {fileID: 21300000, guid: d0672e54287ab6c4bb0e11db7dea9fac, type: 3}
   - {fileID: 21300000, guid: 851c9a74ba266f443a37dc020e1e6f86, type: 3}
   - {fileID: 21300000, guid: 88171d741c8791445ad43a80f603bae0, type: 3}
   - {fileID: 21300000, guid: 2fc7ce84c21c74d4dac84f9a7ccf1a16, type: 3}
   - {fileID: 21300000, guid: fd0292c4e022e8a4eb34089bf9e98374, type: 3}
   - {fileID: 21300000, guid: 21c769e4040edd24e83c0830fb109b60, type: 3}
+  - {fileID: 21300000, guid: 0e313e256f9b5434ea02e40ab52b3efe, type: 3}
+  - {fileID: 21300000, guid: 73b2a3b50442d57488283f6b16026381, type: 3}
   - {fileID: 21300000, guid: f768a6c5b7d83f343b2fd5a4ebeaf5aa, type: 3}
   - {fileID: 21300000, guid: d4d862f52399acb469f5f01696559a9a, type: 3}
   - {fileID: 21300000, guid: 2ddc17f5aefeae34f8c9a03f7bc5e941, type: 3}
@@ -99,6 +103,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a3b059ca8630fb1468a7f6176603c2db, type: 3}
   - {fileID: 21300000, guid: 3d08dbdaf9c06f2439eccbb55350e795, type: 3}
   - {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
+  - {fileID: 21300000, guid: 1518bd3bf6789de40b7d596d99e27078, type: 3}
   - {fileID: 21300000, guid: bff0135b8a34d00419ed3a32338aab59, type: 3}
   - {fileID: 21300000, guid: 5878079b27446154ca6922fc33bbc0b3, type: 3}
   - {fileID: 21300000, guid: 3e373dcba9d42384b901f8003cea65dc, type: 3}
@@ -139,16 +144,20 @@ SpriteAtlas:
   - explodePixel4
   - flowerBud
   - flowerBloom04
+  - bubble
   - flowerBase
   - windowFrame
   - gardener_dance1
   - mallet_move0
   - explodePixel3
+  - circleTinyGlow
   - baseGradient
   - spawnBeam
   - collector_idle
   - motherbaseFrogTosser2
   - explodePixel5
+  - windBlocker
+  - balloon
   - flowerBloom03
   - spawn
   - mallet_idle
@@ -180,6 +189,7 @@ SpriteAtlas:
   - collector_move2
   - weatherCycleBase
   - gardener_dance0
+  - shieldGlow
   - collector_move2Transport
   - downArrow
   - cardBase

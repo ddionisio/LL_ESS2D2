@@ -123,12 +123,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12345c198b9d8947a0d0d6ac2730680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applyBlowOff: 0
+  isDespawnEnable: 1
+  isDeathEnable: 1
+  isBlowOffEnable: 1
+  blowOffMode: 0
   blowOffEndOfs: 2
   blowOffDelay: 1
   blowOffHeight: 3
   animator: {fileID: 114668106651609768}
   takeDespawn: despawn
+  takeDeath: 
   takeBlowOff: 
 --- !u!114 &114668106651609768
 MonoBehaviour:
@@ -273,7 +277,7 @@ MonoBehaviour:
       val: 0
       valString: 
       valObj: {fileID: 0}
-      vect4: {x: 0.47138664, y: 0.90762156, z: 0.9339623, w: 0}
+      vect4: {x: 0.8078432, y: 0.8000001, z: 0.87843144, w: 0}
     - version: 2
       interp: 1
       frame: 10
@@ -285,7 +289,7 @@ MonoBehaviour:
       val: 0
       valString: 
       valObj: {fileID: 0}
-      vect4: {x: 0.47138664, y: 0.90762156, z: 0.9339623, w: 1}
+      vect4: {x: 0.8078432, y: 0.8000001, z: 0.87843144, w: 1}
     - version: 2
       interp: 1
       frame: 1
@@ -297,31 +301,7 @@ MonoBehaviour:
       val: 0
       valString: 
       valObj: {fileID: 0}
-      vect4: {x: 0.47138664, y: 0.90762156, z: 0.9339623, w: 1}
-    - version: 2
-      interp: 1
-      frame: 1
-      easeType: 1
-      amplitude: 0
-      period: 0
-      customEase: []
-      endFrame: 10
-      val: 0
-      valString: 
-      valObj: {fileID: 0}
-      vect4: {x: 0.47138664, y: 0.90762156, z: 0.9339623, w: 1}
-    - version: 2
-      interp: 1
-      frame: 10
-      easeType: 1
-      amplitude: 0
-      period: 0
-      customEase: []
-      endFrame: -1
-      val: 0
-      valString: 
-      valObj: {fileID: 0}
-      vect4: {x: 0.47138664, y: 0.90762156, z: 0.9339623, w: 0}
+      vect4: {x: 0.8078432, y: 0.8000001, z: 0.87843144, w: 1}
     - version: 2
       interp: 1
       frame: 1
@@ -333,7 +313,7 @@ MonoBehaviour:
       val: 0
       valString: 
       valObj: {fileID: 0}
-      vect4: {x: 0.47138664, y: 0.90762156, z: 0.9339623, w: 1}
+      vect4: {x: 0.8078432, y: 0.8000001, z: 0.87843144, w: 1}
     - version: 2
       interp: 1
       frame: 10
@@ -345,7 +325,31 @@ MonoBehaviour:
       val: 0
       valString: 
       valObj: {fileID: 0}
-      vect4: {x: 0.47138664, y: 0.90762156, z: 0.9339623, w: 0}
+      vect4: {x: 0.8078432, y: 0.8000001, z: 0.87843144, w: 0.23921569}
+    - version: 2
+      interp: 1
+      frame: 1
+      easeType: 1
+      amplitude: 0
+      period: 0
+      customEase: []
+      endFrame: 10
+      val: 0
+      valString: 
+      valObj: {fileID: 0}
+      vect4: {x: 0.8078432, y: 0.8000001, z: 0.87843144, w: 1}
+    - version: 2
+      interp: 1
+      frame: 10
+      easeType: 1
+      amplitude: 0
+      period: 0
+      customEase: []
+      endFrame: -1
+      val: 0
+      valString: 
+      valObj: {fileID: 0}
+      vect4: {x: 0.8078432, y: 0.8000001, z: 0.87843144, w: 0}
     _rotationEulerTracks: []
     _rotationEulerKeys: []
     _rotationTracks: []
@@ -404,9 +408,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
-  m_Color: {r: 0.47138664, g: 0.90762156, b: 0.9339623, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 9aceb5b3343f9ff44ae44e79733175f3, type: 3}
+  m_Color: {r: 0.8078432, g: 0.8000001, b: 0.87843144, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
