@@ -990,12 +990,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114167996126026028, guid: de3f61874713f5341838cd9c872bc73b,
-        type: 2}
-      propertyPath: deckData
-      value: 
-      objectReference: {fileID: 11400000, guid: 0006b16014f526743a62b7ce987d9815,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de3f61874713f5341838cd9c872bc73b, type: 2}
   m_IsPrefabAsset: 0

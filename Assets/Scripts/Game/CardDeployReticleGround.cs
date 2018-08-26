@@ -7,6 +7,7 @@ public class CardDeployReticleGround : CardDeployReticle {
     public Transform pointerRoot;
     public SpriteRenderer groundTargetSprite;
     public SpriteRenderer groundToPointerSprite; //line display between ground and pointer, ensure anchor is bottom
+    public int groundToPointerBottomOfsPixelY; //offset relative to ground target (pixel)
 
     private Vector2 mIconOfsDefault;
     private float mGroundToPointerUnitHeightRatio;
@@ -51,7 +52,7 @@ public class CardDeployReticleGround : CardDeployReticle {
             var t = groundToPointerSprite.transform;
 
             float groundTargetHeightUnit = groundTargetSprite.sprite.rect.height / groundTargetSprite.sprite.pixelsPerUnit;
-            float ofsY = groundTargetHeightUnit - (groundTargetHeightUnit * groundTargetSprite.sprite.pivot.y);
+            float ofsY = groundTargetHeightUnit - (groundTargetSprite.sprite.pivot.y / groundTargetSprite.sprite.pixelsPerUnit) + (groundToPointerBottomOfsPixelY / groundTargetSprite.sprite.pixelsPerUnit);
 
             ofsY *= groundTargetSprite.transform.localScale.y;
 
@@ -60,10 +61,18 @@ public class CardDeployReticleGround : CardDeployReticle {
 
             t.position = groundToPointerStart;
 
-            var s = t.localScale;
-            s.y = (groundToPointerScaleY - ofsY) * mGroundToPointerUnitHeightRatio;
+            if(groundToPointerSprite.drawMode == SpriteDrawMode.Simple) {                
+                var s = t.localScale;
+                s.y = (groundToPointerScaleY - ofsY) * mGroundToPointerUnitHeightRatio;
 
-            t.localScale = s;
+                t.localScale = s;
+            }
+            else {
+                var s = groundToPointerSprite.size;
+                s.y = groundToPointerScaleY - ofsY;
+
+                groundToPointerSprite.size = s;
+            }
         }
         else {
             groundToPointerSprite.gameObject.SetActive(false);
