@@ -75,6 +75,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f768a6c5b7d83f343b2fd5a4ebeaf5aa, type: 3}
   - {fileID: 21300000, guid: d4d862f52399acb469f5f01696559a9a, type: 3}
   - {fileID: 21300000, guid: 2ddc17f5aefeae34f8c9a03f7bc5e941, type: 3}
+  - {fileID: 21300000, guid: 97f1d7061652b6244a9f126a6a39045c, type: 3}
   - {fileID: 21300000, guid: 9d8fbf46f402b0146b8769ec84c39665, type: 3}
   - {fileID: 21300000, guid: bc972d665a370f7498077c4d029eee6f, type: 3}
   - {fileID: 21300000, guid: 506b16c67e3ef764ba851e103ccb232f, type: 3}
@@ -114,7 +115,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3b2c848d201ef554a80af5707776a4d1, type: 3}
   - {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
   - {fileID: 21300000, guid: 696f60cd65ae0044a93f5cc0d5ef3fd8, type: 3}
+  - {fileID: 21300000, guid: 940b9c6eb6b906741a775e421a8dd3bb, type: 3}
   - {fileID: 21300000, guid: c5a54a7e88b59e547a8905c1ad93d892, type: 3}
+  - {fileID: 21300000, guid: 9194d98e9baa1eb459e2528a06afaedb, type: 3}
   - {fileID: 21300000, guid: 0cab68aeacf0506498f4ae0833027565, type: 3}
   - {fileID: 21300000, guid: ca1617ce466bced4986045f4e834640a, type: 3}
   - {fileID: 21300000, guid: d100bf3fba8e48343b4f69fe5447d682, type: 3}
@@ -161,6 +164,7 @@ SpriteAtlas:
   - flowerBloom03
   - spawn
   - mallet_idle
+  - sunflyWing
   - weatherCycleDataArrow
   - flowerPowerCore
   - spear1
@@ -200,7 +204,9 @@ SpriteAtlas:
   - flowerStem
   - gardener_idle
   - motherbaseStem4
+  - sunfly
   - edge_shade
+  - circleGlow
   - gardenerHat
   - weatherCycleArrow
   - tutorialHandPoint
