@@ -59,7 +59,7 @@ public class WeatherWindWidget : MonoBehaviour {
 
     private void ApplyCurrentSpeedDisplay() {
         int val = Mathf.RoundToInt(mCurSpeed);
-        infoLabel.text = val.ToString() + "\nmph";
+        infoLabel.text = val.ToString() + "\nMPH";
     }
 
     void OnPrepareCycle() {

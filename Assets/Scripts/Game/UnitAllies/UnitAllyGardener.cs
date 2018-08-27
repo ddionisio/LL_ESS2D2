@@ -9,7 +9,6 @@ public class UnitAllyGardener : UnitCard {
     public float weedReduceGrowthMod;
 
     [Header("Check Data")]
-    public float checkRadius = 1f;
     public float checkDelay = 0.5f;
     public LayerMask checkLayerMask;
 
@@ -74,7 +73,7 @@ public class UnitAllyGardener : UnitCard {
         var wait = new WaitForSeconds(checkDelay);
 
         while(true) {
-            var checkColliderCount = Physics2D.OverlapCircleNonAlloc(transform.position, checkRadius, mCheckColliders, checkLayerMask);
+            var checkColliderCount = Physics2D.OverlapCircleNonAlloc(transform.position, mCardItem.card.indicatorRadius, mCheckColliders, checkLayerMask);
             for(int i = 0; i < checkColliderCount; i++) {
                 var coll = mCheckColliders[i];
 
@@ -122,7 +121,9 @@ public class UnitAllyGardener : UnitCard {
     }
 
     void OnDrawGizmos() {
-        Gizmos.color = new Color(0.5f, 1f, 0.0f);
-        Gizmos.DrawWireSphere(transform.position, checkRadius);
+        if(mCardItem != null) {
+            Gizmos.color = new Color(0.5f, 1f, 0.0f);
+            Gizmos.DrawWireSphere(transform.position, mCardItem.card.indicatorRadius);
+        }
     }
 }

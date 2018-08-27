@@ -5,7 +5,6 @@ using UnityEngine;
 public class UnitAllySunFly : UnitCard {
     [Header("Data")]
     public float moveSpeed;
-    public float checkRadius;
     public LayerMask checkLayerMask;
     [M8.TagSelector]
     public float checkDelay = 0.3f;
@@ -90,7 +89,7 @@ public class UnitAllySunFly : UnitCard {
         if(state == UnitStates.instance.idle || state == UnitStates.instance.move) {
             mCurTime += Time.fixedDeltaTime;
             if(mCurTime >= checkDelay) {
-                int collCount = Physics2D.OverlapCircleNonAlloc(position, checkRadius, mCheckColliders, checkLayerMask);
+                int collCount = Physics2D.OverlapCircleNonAlloc(position, mCardItem.card.indicatorRadius, mCheckColliders, checkLayerMask);
                 for(int i = 0; i < collCount; i++) {
                     var coll = mCheckColliders[i];
                     if(!mCardItem.card.IsTargetValid(coll.gameObject))
@@ -129,7 +128,9 @@ public class UnitAllySunFly : UnitCard {
     }
 
     void OnDrawGizmos() {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(position, checkRadius);
+        if(mCardItem != null) {
+            Gizmos.color = mCardItem.card.indicatorColor;
+            Gizmos.DrawWireSphere(position, mCardItem.card.indicatorRadius);
+        }
     }
 }

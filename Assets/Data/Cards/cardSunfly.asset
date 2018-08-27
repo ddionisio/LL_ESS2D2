@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1409338656815430, guid: 2baa16fa178ccf940b2b8d625c4159ed, type: 2}
   cooldownDuration: 2
+  indicatorRadius: 2
+  indicatorColor: {r: 1, g: 0.8431373, b: 0.6, a: 1}
   targetReticleName: air
   targetDisplayPrefab: {fileID: 1832675776628012, guid: 5afa4ce0b7ea33a4792f5da5da97ffd7,
     type: 2}

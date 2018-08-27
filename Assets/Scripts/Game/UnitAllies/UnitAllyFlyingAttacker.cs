@@ -7,8 +7,7 @@ public class UnitAllyFlyingAttacker : UnitCard {
     public float moveSpeed;
     public float moveAttackSpeed;
     public float moveAttackDistance; //distance from left or right of target
-
-    public float attackCheckRadius;
+    
     public LayerMask attackCheckLayerMask;
     public float attackCheckDelay = 0.333f;
 
@@ -37,13 +36,18 @@ public class UnitAllyFlyingAttacker : UnitCard {
     protected override void StateChanged() {
         base.StateChanged();
 
-        if(prevState == UnitStates.instance.act) {
+        if(prevState == UnitStates.instance.idle || prevState == UnitStates.instance.move) {
+            ShowReticleIndicator(false);
+        }
+        else if(prevState == UnitStates.instance.act) {
             //in case we change state mid-attack, reset attackRotate
             if(attackRotateRoot)
                 attackRotateRoot.localRotation = Quaternion.identity;
         }
                 
         if(state == UnitStates.instance.move) {
+            ShowReticleIndicator(true);
+
             mMoveStartPos = position;
 
             var dpos = targetPosition - mMoveStartPos;
@@ -58,6 +62,8 @@ public class UnitAllyFlyingAttacker : UnitCard {
             mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.idle) {
+            ShowReticleIndicator(true);
+
             mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.act) {
@@ -108,7 +114,7 @@ public class UnitAllyFlyingAttacker : UnitCard {
 
             var checkPos = position;
 
-            int collCount = Physics2D.OverlapCircleNonAlloc(checkPos, attackCheckRadius, mAttackCheckColls, attackCheckLayerMask);
+            int collCount = Physics2D.OverlapCircleNonAlloc(checkPos, mCardItem.card.indicatorRadius, mAttackCheckColls, attackCheckLayerMask);
             for(int i = 0; i < collCount; i++) {
                 var coll = mAttackCheckColls[i];
                 if(!mCardItem.card.IsTargetValid(coll.gameObject))
@@ -249,7 +255,9 @@ public class UnitAllyFlyingAttacker : UnitCard {
     }
 
     void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(position, attackCheckRadius);
+        if(mCardItem != null) {
+            Gizmos.color = mCardItem.card.indicatorColor;
+            Gizmos.DrawWireSphere(position, mCardItem.card.indicatorRadius);
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class CardDeployReticle : MonoBehaviour {
     [Header("Display")]
     public SpriteRenderer iconSprite;
+    public ReticleIndicator reticle;
 
     /// <summary>
     /// target destination
@@ -15,16 +16,28 @@ public abstract class CardDeployReticle : MonoBehaviour {
 
     protected Vector2 mTargetPos; //set this during DoUpdatePosition
 
+    private bool mIsReticleActive;
+
     public virtual void Init(CardData card) {
         if(iconSprite) iconSprite.sprite = card.icon;
+
+        mIsReticleActive = reticle && card.indicatorRadius > 0f;
+        if(mIsReticleActive) {
+            reticle.radius = card.indicatorRadius;
+            reticle.color = card.indicatorColor;
+        }
     }
     
     public void Show() {
         gameObject.SetActive(true);
+
+        if(reticle) reticle.gameObject.SetActive(mIsReticleActive);
     }
 
     public void Hide() {
         gameObject.SetActive(false);
+
+        if(reticle) reticle.gameObject.SetActive(false);
     }
 
     public void UpdatePosition(Vector2 uiPoint) {

@@ -6,7 +6,6 @@ public class UnitAllyMallet : UnitCard {
     [Header("Data")]
     public float moveSpeed;
     public LayerMask attackCheckLayerMask;
-    public float attackCheckRadius;
     public float attackCheckDelay = 0.333f;
 
     [Header("Animation")]
@@ -38,14 +37,21 @@ public class UnitAllyMallet : UnitCard {
     protected override void StateChanged() {
         base.StateChanged();
 
-        if(prevState == UnitStates.instance.act) {
+        if(prevState == UnitStates.instance.idle || prevState == UnitStates.instance.move) {
+            ShowReticleIndicator(false);
+        }
+        else if(prevState == UnitStates.instance.act) {
             ClearTarget();
         }
 
         if(state == UnitStates.instance.idle) {
+            ShowReticleIndicator(true);
+
             mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.move) {
+            ShowReticleIndicator(true);
+
             //determine dir
             var dpos = targetPosition - position;
             curDir = new Vector2(Mathf.Sign(dpos.x), 0f);
@@ -87,7 +93,7 @@ public class UnitAllyMallet : UnitCard {
 
             var checkPos = position;
 
-            int collCount = Physics2D.OverlapCircleNonAlloc(checkPos, attackCheckRadius, mAttackCheckColls, attackCheckLayerMask);
+            int collCount = Physics2D.OverlapCircleNonAlloc(checkPos, mCardItem.card.indicatorRadius, mAttackCheckColls, attackCheckLayerMask);
             for(int i = 0; i < collCount; i++) {
                 var coll = mAttackCheckColls[i];
                 if(!mCardItem.card.IsTargetValid(coll.gameObject))
@@ -163,7 +169,9 @@ public class UnitAllyMallet : UnitCard {
     }
 
     void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(position, attackCheckRadius);
+        if(mCardItem != null) {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(position, mCardItem.card.indicatorRadius);
+        }
     }
 }

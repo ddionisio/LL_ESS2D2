@@ -7,6 +7,8 @@ public class CardData : ScriptableObject {
     [Header("Data")]
     public GameObject unitPrefab;
     public float cooldownDuration;
+    public float indicatorRadius;
+    public Color indicatorColor;
 
     [Header("Target Info")]
     public string targetReticleName;

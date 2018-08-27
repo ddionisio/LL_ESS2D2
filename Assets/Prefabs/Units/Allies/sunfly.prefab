@@ -746,8 +746,8 @@ MonoBehaviour:
   despawnFadePulsePerSecond: 4
   despawnAlpha: 0.25
   despawnFadeColorGroup: {fileID: 114097521164926644}
+  reticleIndicator: {fileID: 0}
   moveSpeed: 1.5
-  checkRadius: 2
   checkLayerMask:
     serializedVersion: 2
     m_Bits: 5120

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1668219201330406, guid: 3567f60fffcf8cc4ea35f913870204c3, type: 2}
   cooldownDuration: 4
+  indicatorRadius: 0.75
+  indicatorColor: {r: 0.7607844, g: 0.9450981, b: 0.6509804, a: 1}
   targetReticleName: ground
   targetDisplayPrefab: {fileID: 1832675776628012, guid: 05602737a3cc4a549836e051941a6e5e,
     type: 2}
@@ -21,5 +23,6 @@ MonoBehaviour:
   - Weed
   icon: {fileID: 21300000, guid: 318b89c2e6dec3d4ba089635616d0e0b, type: 3}
   image: {fileID: 21300000, guid: c680f3a47d2593c4cb666c69db529ae1, type: 3}
+  illustration: {fileID: 0}
   titleRef: unitAllyGardener
   descriptionRef: unitAllyGardenerDesc

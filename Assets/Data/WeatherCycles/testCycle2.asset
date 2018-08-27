@@ -45,7 +45,7 @@ MonoBehaviour:
       humidityPercent: 48
       precipitationPercent: 43
       flowerGrowthMod: 0
-    duration: 60
+    duration: 80
     flowerGrowthMod: -1
   - weathers:
     - type: {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
@@ -80,5 +80,5 @@ MonoBehaviour:
       humidityPercent: 48
       precipitationPercent: 43
       flowerGrowthMod: 0
-    duration: 60
+    duration: 80
     flowerGrowthMod: -1

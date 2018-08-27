@@ -12,6 +12,7 @@ public class UnitCard : Unit {
     public float despawnFadePulsePerSecond;
     public float despawnAlpha;
     public M8.SpriteColorGroup despawnFadeColorGroup;
+    public ReticleIndicator reticleIndicator;
     
     public Vector2 targetPosition { get; protected set; }
 
@@ -20,6 +21,7 @@ public class UnitCard : Unit {
     private CardDeployTargetDisplay mTargetDisplay;
 
     private Coroutine mDespawnRout;
+    private bool mReticleIndicatorIsActive;
 
     protected void AddTargetDisplay() {
         if(!mTargetDisplay) {
@@ -68,6 +70,11 @@ public class UnitCard : Unit {
             parms.TryGetValue(UnitSpawnParams.target, out targetPt);
             targetPosition = targetPt;
         }
+
+        if(mCardItem != null && reticleIndicator) {
+            reticleIndicator.radius = mCardItem.card.indicatorRadius;
+            reticleIndicator.color = mCardItem.card.indicatorColor;
+        }
     }
 
     protected override void OnDespawned() {
@@ -81,6 +88,25 @@ public class UnitCard : Unit {
         }
 
         RemoveTargetDisplay();
+
+        ShowReticleIndicator(false);
+    }
+
+    protected override void Awake() {
+        base.Awake();
+
+        if(reticleIndicator) reticleIndicator.gameObject.SetActive(false);
+        mReticleIndicatorIsActive = false;
+    }
+
+    protected void ShowReticleIndicator(bool show) {
+        if(mReticleIndicatorIsActive != show) {
+            mReticleIndicatorIsActive = show;
+
+            if(reticleIndicator) {
+                reticleIndicator.gameObject.SetActive(mReticleIndicatorIsActive && reticleIndicator.radius > 0f);
+            }
+        }
     }
 
     IEnumerator DoDespawn() {

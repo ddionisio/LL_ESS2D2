@@ -293,7 +293,6 @@ MonoBehaviour:
   moveSpeed: 0.5
   flowerGrowthMod: 2
   weedReduceGrowthMod: 2
-  checkRadius: 0.75
   checkDelay: 0.5
   checkLayerMask:
     serializedVersion: 2
