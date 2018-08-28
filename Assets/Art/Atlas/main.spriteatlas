@@ -45,6 +45,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f90d3ab1c0e88aa4799d9afb52758976, type: 3}
   - {fileID: 21300000, guid: 348189c1c8820fb4c9587ea1c479cccd, type: 3}
   - {fileID: 21300000, guid: 0ecd35d133c259e41925a0b82aca225d, type: 3}
+  - {fileID: 21300000, guid: 999f48e1159a7a148a01ab00360e44cc, type: 3}
   - {fileID: 21300000, guid: 83123512a688d804288abf50bf4f519b, type: 3}
   - {fileID: 21300002, guid: bf8c0222be72dfd48a68e5cf2a7ed5c1, type: 3}
   - {fileID: 21300000, guid: bf8c0222be72dfd48a68e5cf2a7ed5c1, type: 3}
@@ -66,6 +67,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
   - {fileID: 21300000, guid: 64d83a2486c96a84d8ec1a795cb07a98, type: 3}
   - {fileID: 21300000, guid: 44a2e43498084d140b46c5499e074241, type: 3}
+  - {fileID: 21300000, guid: 597521548307e9942a5ff09a629b3f5d, type: 3}
   - {fileID: 21300000, guid: d0672e54287ab6c4bb0e11db7dea9fac, type: 3}
   - {fileID: 21300000, guid: 851c9a74ba266f443a37dc020e1e6f86, type: 3}
   - {fileID: 21300000, guid: 88171d741c8791445ad43a80f603bae0, type: 3}
@@ -131,6 +133,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 31c7ecce7a756db48a64dec20453a6f2, type: 3}
   - {fileID: 21300000, guid: d100bf3fba8e48343b4f69fe5447d682, type: 3}
   - {fileID: 21300000, guid: 7852375fc0a68284cb4166bf156a27e1, type: 3}
+  - {fileID: 21300000, guid: e0b0a99f0a6b53441915d84fec70a2f8, type: 3}
   - {fileID: 21300000, guid: 552b9b9f606d24946aa32a696466c5b9, type: 3}
   - {fileID: 21300000, guid: 006549bf55cfba2428c766cf94f1740d, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -143,6 +146,7 @@ SpriteAtlas:
   - flowerPowerBase
   - mallet_move2
   - gardener_jump
+  - simplePanel
   - mallet_launch
   - shadeWhite_bottomLeft
   - shadeWhite
@@ -164,6 +168,7 @@ SpriteAtlas:
   - gardener_dance1
   - mallet_move0
   - explodePixel3
+  - cloudFrame
   - circleTinyGlow
   - baseGradient
   - spawnBeam
@@ -229,6 +234,7 @@ SpriteAtlas:
   - stop
   - tutorialHandPoint
   - collector_move0Transport
+  - separator
   - spear2
   - leaf02
   m_Tag: main
