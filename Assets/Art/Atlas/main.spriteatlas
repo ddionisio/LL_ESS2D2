@@ -36,9 +36,9 @@ SpriteAtlas:
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: e1f783001194a594c8e1ad4ba0892917, type: 3}
   - {fileID: 21300000, guid: 71e67fe0513db6b499573fef6d4807db, type: 3}
   - {fileID: 21300000, guid: 6b8ecff026293b04181e4ad55a418012, type: 3}
-  - {fileID: 21300000, guid: df51293152686bd4db8f7f6fdb96ba51, type: 3}
   - {fileID: 21300000, guid: f4683e31b11d8c249ac19e37611319cd, type: 3}
   - {fileID: 21300000, guid: a7b1f251ac8866d45931626b09df9d16, type: 3}
   - {fileID: 21300000, guid: 2c182d91a96c3c949bcbade9ea5d4ba4, type: 3}
@@ -89,6 +89,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: bf01b0b7199ec26448b016fd2de647e5, type: 3}
   - {fileID: 21300000, guid: 82d63ab78673ed94a87431931602a2cf, type: 3}
   - {fileID: 21300000, guid: 5427e4f7e1cb9704892fb4854f1cf6a9, type: 3}
+  - {fileID: 21300000, guid: ff13ac08115a4a54aa1f54e606b72ff4, type: 3}
   - {fileID: 21300000, guid: 49058c18c2c62da43b51e914e09a0d64, type: 3}
   - {fileID: 21300000, guid: f5fc3938a2ddbed4fbb7ef2d16084dd2, type: 3}
   - {fileID: 21300000, guid: b5f1f248fc842084cb79fa132167e30b, type: 3}
@@ -108,6 +109,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4517cad98236488479ff48a35064577e, type: 3}
   - {fileID: 21300000, guid: 08a2183a126de914ea9d3a2a31a76d94, type: 3}
   - {fileID: 21300000, guid: 7168da6aea1c4154bbc52d54856e6639, type: 3}
+  - {fileID: 21300000, guid: c1f5fc9afb034f74aac8e0be2bdbc03e, type: 3}
   - {fileID: 21300000, guid: a3b059ca8630fb1468a7f6176603c2db, type: 3}
   - {fileID: 21300000, guid: 3d08dbdaf9c06f2439eccbb55350e795, type: 3}
   - {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
@@ -136,10 +138,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e0b0a99f0a6b53441915d84fec70a2f8, type: 3}
   - {fileID: 21300000, guid: 552b9b9f606d24946aa32a696466c5b9, type: 3}
   - {fileID: 21300000, guid: 006549bf55cfba2428c766cf94f1740d, type: 3}
+  - {fileID: 21300000, guid: 40de69efda6516444b3fc152bc6992c2, type: 3}
   m_PackedSpriteNamesToIndex:
+  - targetFlag
   - gardenerAura
   - weatherMetricIcon_humidity
-  - flag
   - downArrow
   - headerDecor
   - tutorialArrow2
@@ -190,6 +193,7 @@ SpriteAtlas:
   - explodePixel1
   - motherbaseStem2
   - dot
+  - headerDecorSun
   - flowerBloom02
   - mallet_move1
   - tutorialHandPointDown
@@ -209,6 +213,7 @@ SpriteAtlas:
   - collector_move1
   - flowerBloom01
   - gradient8x8
+  - nextArrow
   - collector_move2
   - weatherCycleBase
   - gardener_dance0
@@ -237,5 +242,6 @@ SpriteAtlas:
   - separator
   - spear2
   - leaf02
+  - flowerIcon
   m_Tag: main
   m_IsVariant: 0
