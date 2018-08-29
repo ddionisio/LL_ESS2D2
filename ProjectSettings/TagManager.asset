@@ -52,6 +52,9 @@ TagManager:
   - name: Background
     uniqueID: 1259828915
     locked: 0
+  - name: BackgroundFX
+    uniqueID: 2292163373
+    locked: 0
   - name: BackEntities
     uniqueID: 1869694669
     locked: 0

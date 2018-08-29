@@ -30,13 +30,28 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f58dc7f70aeca8f448e7701b7256f568, type: 3}
+    - {fileID: 102900000, guid: 437e5f2ac4661654aa3d62f31865c6e8, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: b9b01c607375d5743a52e9fd911104f8, type: 3}
   - {fileID: 21300000, guid: b37a88802acd5a04f872d5a3a41e0afd, type: 3}
+  - {fileID: 21300000, guid: 59a766143f96bbc4b8a1140594766c16, type: 3}
+  - {fileID: 21300000, guid: 6d7ebd341eabdd94090e681eea774ef3, type: 3}
+  - {fileID: 21300000, guid: 924159a7606cf7c4fba4efea1a787ab8, type: 3}
+  - {fileID: 21300000, guid: 5088ddb77283401498c1bd00604523be, type: 3}
+  - {fileID: 21300000, guid: efdf2598793e6eb4192513d886f6ffd2, type: 3}
   - {fileID: 21300000, guid: 192c41f9fe3437c4d9696ccfead2171f, type: 3}
+  - {fileID: 21300000, guid: b32516ad145561a419f7eb09fdc74236, type: 3}
   m_PackedSpriteNamesToIndex:
+  - circle3_3
   - tileGround
+  - circle3_1
+  - backgroundTileMountain
+  - circle1
+  - circle3_2
+  - tileMountains2
   - grassTileGreatPlane
+  - circle2
   m_Tag: level1Background
   m_IsVariant: 0
