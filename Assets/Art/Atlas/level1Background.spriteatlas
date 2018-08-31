@@ -47,6 +47,7 @@ SpriteAtlas:
   - {fileID: 21300008, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300002, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300004, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
+  - {fileID: 21300000, guid: c0ade4379d5fdfc48819a6f64c07cf79, type: 3}
   - {fileID: 21300000, guid: 924159a7606cf7c4fba4efea1a787ab8, type: 3}
   - {fileID: 21300000, guid: 5088ddb77283401498c1bd00604523be, type: 3}
   - {fileID: 21300000, guid: 82776078f37aa324faa1e12f1fec5c61, type: 3}
@@ -66,6 +67,7 @@ SpriteAtlas:
   - blank4x4_border
   - blank4x4
   - blank4x4_topLeft
+  - rainDrop
   - circle1
   - circle3_2
   - cloud1
