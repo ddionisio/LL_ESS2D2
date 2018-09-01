@@ -504,6 +504,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8b220e78bbaaef499b56cfa1b591c40, type: 2}
   - {fileID: 11400000, guid: 170ce778c4cacf044b7f2a56aeadf375, type: 2}
   - {fileID: 11400000, guid: f2389ca1202b0cd49a33fd25f0e90767, type: 2}
+  - {fileID: 11400000, guid: 9eb4727edac69fe45a4fbba76e25bb35, type: 2}
+  - {fileID: 11400000, guid: e2dbb95062da7b343a599286e649ca66, type: 2}
   rootGO: {fileID: 1328514208623344}
   animator: {fileID: 114786996950225688}
   takePlay: play

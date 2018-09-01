@@ -5,7 +5,7 @@ SpriteAtlas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: level2Background
+  m_Name: level3Background
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -29,66 +29,53 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: b9c3d7f4f1a3aeb4fa42f0598dde79b5, type: 3}
+    - {fileID: 102900000, guid: 64f960d7d6f1e86429c668de0e091b2a, type: 3}
     - {fileID: 102900000, guid: 2be943664d32fb14c9d302b81ea88c92, type: 3}
     - {fileID: 102900000, guid: 437e5f2ac4661654aa3d62f31865c6e8, type: 3}
     - {fileID: 102900000, guid: 774cdc8dd38413643b20cb7ff154029e, type: 3}
-    - {fileID: 102900000, guid: b766ca43a02b72245a0f7a9948cd88a3, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: b9b01c607375d5743a52e9fd911104f8, type: 3}
   - {fileID: 21300000, guid: 28df7eb00eb34b4458d46b9cd5e94019, type: 3}
-  - {fileID: 21300000, guid: b081a7e00b52d254b941ee61875de841, type: 3}
-  - {fileID: 21300000, guid: 6c7ab5114d02f774ba316209c3ab22db, type: 3}
-  - {fileID: 21300000, guid: 84080b515c6118442b1965e84a01a228, type: 3}
+  - {fileID: 21300000, guid: 7b83d7419caa2fa4587afd56837578a5, type: 3}
   - {fileID: 21300002, guid: bb756703b1239c24988e9ed7eefc3991, type: 3}
   - {fileID: 21300000, guid: bb756703b1239c24988e9ed7eefc3991, type: 3}
   - {fileID: 21300000, guid: 59a766143f96bbc4b8a1140594766c16, type: 3}
-  - {fileID: 21300000, guid: 933f3744a2b040945a64b8e05795ae76, type: 3}
   - {fileID: 21300006, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300000, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300008, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300002, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300004, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300000, guid: c0ade4379d5fdfc48819a6f64c07cf79, type: 3}
-  - {fileID: 21300000, guid: 7b60e477bb5a7f942ae2fd4997c3ff93, type: 3}
-  - {fileID: 21300000, guid: 17473b77df3b6e547866143ac77c8d4d, type: 3}
   - {fileID: 21300000, guid: 924159a7606cf7c4fba4efea1a787ab8, type: 3}
   - {fileID: 21300000, guid: 5088ddb77283401498c1bd00604523be, type: 3}
-  - {fileID: 21300000, guid: b7ec5039b199a18449cd3a1d7e7668f6, type: 3}
+  - {fileID: 21300000, guid: 6eb20799a73d724409be93056414d589, type: 3}
+  - {fileID: 21300000, guid: e087c2b97f38e924e9fb94060e611deb, type: 3}
+  - {fileID: 21300000, guid: 21096fdbb32bee046a4cb701e277bf6f, type: 3}
   - {fileID: 21300000, guid: b32516ad145561a419f7eb09fdc74236, type: 3}
-  - {fileID: 21300000, guid: f304a51eb35dfec47b85b225490494ad, type: 3}
-  - {fileID: 21300000, guid: 060cd64e1cde6424cb11fe38669bfe10, type: 3}
-  - {fileID: 21300000, guid: 9b3c3f8e6a38f0c4b8f0af4cb394b3a7, type: 3}
+  - {fileID: 21300000, guid: 59dda47e585c05f4bb911fee1325c376, type: 3}
   - {fileID: 21300000, guid: 6488f8ee19d43d9489bc878860a25252, type: 3}
-  - {fileID: 21300000, guid: d6df01ef82be3ac4ca28755578e0f674, type: 3}
   m_PackedSpriteNamesToIndex:
   - circle3_3
   - sun
-  - grassTileMarineCoast
-  - backgroundMarineCoastDoodad2
-  - cloudOvercast3
+  - backgroundTileDesert
   - shadeWhite_bottomLeft
   - shadeWhite
   - circle3_1
-  - backgroundMarineCoast1
   - blank4x4_bottomLeft
   - blank4x4_bottom
   - blank4x4_border
   - blank4x4
   - blank4x4_topLeft
   - rainDrop
-  - cloudOvercast2
-  - backgroundMarineCoast3
   - circle1
   - circle3_2
-  - backgroundMarineCoastDoodad1
+  - grassTileDesert
+  - backgroundDesertDoodadWaterPool
+  - backgroundDesertDoodadGrass
   - circle2
-  - backgroundMarineCoast2
   - tileGround
-  - backgroundMarineCoastTrees
   - sunFin
-  - cloudOvercast1
-  m_Tag: level2Background
+  m_Tag: level3Background
   m_IsVariant: 0

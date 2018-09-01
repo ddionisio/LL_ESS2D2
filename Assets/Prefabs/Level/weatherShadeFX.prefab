@@ -58,6 +58,16 @@ MonoBehaviour:
     - {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - {r: 0.99501324, g: 1, b: 0.80784315, a: 1}
     - {r: 1, g: 1, b: 1, a: 1}
+  - weather: {fileID: 11400000, guid: 9eb4727edac69fe45a4fbba76e25bb35, type: 2}
+    colors:
+    - {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - {r: 0.699, g: 0.6259147, b: 0.537531, a: 1}
+    - {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+  - weather: {fileID: 11400000, guid: e2dbb95062da7b343a599286e649ca66, type: 2}
+    colors:
+    - {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - {r: 0.699, g: 0.6259147, b: 0.537531, a: 1}
+    - {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   - weather: {fileID: 11400000, guid: 170ce778c4cacf044b7f2a56aeadf375, type: 2}
     colors:
     - {r: 0.2, g: 0.2, b: 0.2, a: 1}
