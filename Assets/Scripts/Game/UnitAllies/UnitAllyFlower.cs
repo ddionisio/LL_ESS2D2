@@ -91,9 +91,7 @@ public class UnitAllyFlower : Unit {
         float stemVal = Mathf.Clamp(mStemGrowth / growthStemValue, 0f, curStem.maxGrowth);
 
         curStem.growth = stemVal;
-
-        var lastStemIndex = mCurStemIndex;
-
+        
         if(mStemGrowth >= growthStemValue) {
             if(mCurStemIndex < mStems.Length - 1) {
                 mCurStemIndex++;
@@ -127,7 +125,7 @@ public class UnitAllyFlower : Unit {
             }
         }
 
-        if(mCurStemIndex != lastStemIndex) {
+        if(topRoot.parent != curStem.transform) {
             topRoot.SetParent(curStem.transform);
         }
 
@@ -248,17 +246,7 @@ public class UnitAllyFlower : Unit {
 
         SetSwayActive(false);
 
-        budGO.SetActive(false);
-        blossomGO.SetActive(false);
-
-        if(powerExtractRoot) powerExtractRoot.gameObject.SetActive(false);
-
-        mGrowthMods.Clear();
-
-        mGrowth = 0f;
-        mStemGrowth = 0f;
-
-        allowFlowerBlossomGrowth = false;
+        ResetState();
 
         for(int i = 0; i < stemMaxCount; i++) {
             mStems[i].growth = 0f;
@@ -300,6 +288,10 @@ public class UnitAllyFlower : Unit {
 
         stemTemplate.SetActive(false);
 
+        ResetState();
+    }
+
+    private void ResetState() {
         budGO.SetActive(false);
         blossomGO.SetActive(false);
 
@@ -309,6 +301,13 @@ public class UnitAllyFlower : Unit {
         if(powerExtractRoot) powerExtractRoot.gameObject.SetActive(false);
 
         mCurStemIndex = 0;
+        
+        mGrowthMods.Clear();
+
+        mGrowth = 0f;
+        mStemGrowth = 0f;
+
+        allowFlowerBlossomGrowth = false;
     }
 
     private void StopGrowRoutine() {

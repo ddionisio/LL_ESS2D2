@@ -2,10 +2,10 @@ fileFormatVersion: 2
 guid: bb756703b1239c24988e9ed7eefc3991
 TextureImporter:
   fileIDToRecycleName:
-    21300000: shadeWhite
-    21300002: shadeWhite_bottomLeft
+    21300000: fillShade
+    21300002: fillShade_bottomLeft
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -23,6 +23,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,7 +35,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -117,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shadeWhite
+      name: fillShade
       rect:
         serializedVersion: 2
         x: 0
@@ -137,7 +139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shadeWhite_bottomLeft
+      name: fillShade_bottomLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -165,6 +167,8 @@ TextureImporter:
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

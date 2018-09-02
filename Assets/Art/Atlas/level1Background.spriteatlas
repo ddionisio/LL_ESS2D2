@@ -44,8 +44,10 @@ SpriteAtlas:
   - {fileID: 21300002, guid: bb756703b1239c24988e9ed7eefc3991, type: 3}
   - {fileID: 21300000, guid: bb756703b1239c24988e9ed7eefc3991, type: 3}
   - {fileID: 21300000, guid: 59a766143f96bbc4b8a1140594766c16, type: 3}
-  - {fileID: 21300006, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
+  - {fileID: 21300000, guid: 6c985f055a2eafc47b0c3a970a263d18, type: 3}
+  - {fileID: 21300000, guid: 63fdd225d27ee1546bfa54e020d1e789, type: 3}
   - {fileID: 21300000, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
+  - {fileID: 21300006, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300008, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300002, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300004, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
@@ -63,14 +65,16 @@ SpriteAtlas:
   - circle3_3
   - tileGround
   - sun
-  - shadeWhite_bottomLeft
-  - shadeWhite
+  - fillShade_bottomLeft
+  - fillShade
   - circle3_1
-  - blank4x4_bottomLeft
-  - blank4x4_bottom
-  - blank4x4_border
-  - blank4x4
-  - blank4x4_topLeft
+  - fillDot
+  - fillPuff
+  - fillBlank_bottom
+  - fillBlank_bottomLeft
+  - fillBlank_border
+  - fillBlank
+  - fillBlank_topLeft
   - rainDrop
   - circle1
   - circle3_2

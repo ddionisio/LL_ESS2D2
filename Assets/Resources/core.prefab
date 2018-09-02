@@ -200,4 +200,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tweenCapacity: 1250
-  sequenceCapacity: 125
+  sequenceCapacity: 312
