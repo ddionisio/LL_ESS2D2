@@ -8,7 +8,7 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
     public GameObject[] levelGroupGOs;
 
     [Header("Signal")]
-    public SignalBoolean signalActive;
+    public M8.Signal signalShowLevelMatch;
     public SignalLevelLocationData signalLevelLocation;
 
     private M8.GenericParams mLevelLocationParms = new M8.GenericParams();
@@ -47,9 +47,8 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
 
         //tutorial at beginning
 
-        //active selection
-        if(signalActive)
-            signalActive.Invoke(true);
+        if(signalShowLevelMatch)
+            signalShowLevelMatch.Invoke();
     }
 
     void OnLevelLocationClicked(LevelLocationData levelData) {
