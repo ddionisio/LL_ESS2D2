@@ -56,6 +56,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 64189d92954da314f9b6a05b228c08ec, type: 3}
   - {fileID: 21300000, guid: 05c221d27eb4edb40929d15bbf85fb9d, type: 3}
   - {fileID: 21300000, guid: 1abaebf232c3b9d409c5c9383ee84f5d, type: 3}
+  - {fileID: 21300000, guid: fde78cf21a65a2248a76a1c56c4b2bdf, type: 3}
   - {fileID: 21300000, guid: 5ec92153de737f94a9f2a333a83947a4, type: 3}
   - {fileID: 21300000, guid: a39e2953e80c3b0479f31140f406a7f0, type: 3}
   - {fileID: 21300000, guid: e5dc777390553e4499a405c82af83aef, type: 3}
@@ -124,7 +125,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 21e6ac3ceac279145a96215dfa3f7079, type: 3}
   - {fileID: 21300000, guid: 0015e3cc72924fb4ea10b97dfd6d0b0c, type: 3}
   - {fileID: 21300000, guid: 41f1dfcc86c5a55408bf5b9d2683900a, type: 3}
+  - {fileID: 21300000, guid: 8b2091dc11eecec41b04b688346ba04b, type: 3}
   - {fileID: 21300000, guid: c9248bdc58960c24fbfbfb7a7a523e14, type: 3}
+  - {fileID: 21300000, guid: c44548ecdd4dab846ace7565e6166c20, type: 3}
   - {fileID: 21300000, guid: 3b2c848d201ef554a80af5707776a4d1, type: 3}
   - {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
   - {fileID: 21300000, guid: 696f60cd65ae0044a93f5cc0d5ef3fd8, type: 3}
@@ -162,6 +165,7 @@ SpriteAtlas:
   - motherbaseStem3
   - leaf01
   - explodePixel2
+  - portraitRobot
   - motherbaseStem1
   - motherbaseBud
   - explodePixel4
@@ -230,7 +234,9 @@ SpriteAtlas:
   - motherbasePlatform
   - weatherMetricIcon_temperature
   - leaf04
+  - toggleBase
   - weatherCycleDataBase
+  - toggleOn
   - flowerStem
   - gardener_idle
   - motherbaseStem4

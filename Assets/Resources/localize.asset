@@ -18,3 +18,19 @@ MonoBehaviour:
   languageExtraInfos:
   - key: welcome
     voiceDuration: 1.5
+  - key: levelMatchTitle
+    voiceDuration: 1.5
+  - key: levelMatchDesc
+    voiceDuration: 4
+  - key: levelMatchNotFound
+    voiceDuration: 4
+  - key: levelMatchFound
+    voiceDuration: 3
+  - key: climateTypeArid
+    voiceDuration: 0.6
+  - key: climateTypeAridDesc
+    voiceDuration: 5
+  - key: climateTypeContinental
+    voiceDuration: 1
+  - key: climateTypeContinentalDesc
+    voiceDuration: 5

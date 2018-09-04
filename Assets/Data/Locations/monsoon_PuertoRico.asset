@@ -9,8 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e89b82452bbb9d54ea514c6f84cb3cf0, type: 3}
-  m_Name: continental_EU
+  m_Name: monsoon_PuertoRico
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   titleTextRef: 
-  climate: {fileID: 11400000, guid: 31767c67b79dc5543b4d0d3b06b7c7af, type: 2}
+  descTextRef: 
+  climate: {fileID: 11400000, guid: bdf59d1ebb1476a40aecc8beb03aa27c, type: 2}
