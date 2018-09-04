@@ -49,10 +49,7 @@ public class ModalLevelLocation : M8.UIModal.Controller, M8.UIModal.Interface.IP
     public Image levelImage;
     public M8.UI.Texts.Localizer levelTitleLocLabel;
     public M8.UI.Texts.Localizer levelDescLocLabel;
-
-    [Header("Speech")]
-    public string textSpeechGroup;
-
+    
     [Header("Data")]
     public ItemMatchData climateLevel;
     public ItemMatchData climateMatch;
@@ -137,8 +134,8 @@ public class ModalLevelLocation : M8.UIModal.Controller, M8.UIModal.Interface.IP
 
         if(aActive) {
             //play speech
-            if(!string.IsNullOrEmpty(mLevelLocationData.titleTextRef)) LoLManager.instance.SpeakTextQueue(mLevelLocationData.titleTextRef, textSpeechGroup, 0);
-            if(!string.IsNullOrEmpty(mLevelLocationData.descTextRef)) LoLManager.instance.SpeakTextQueue(mLevelLocationData.descTextRef, textSpeechGroup, 1);
+            if(!string.IsNullOrEmpty(mLevelLocationData.titleTextRef)) LoLManager.instance.SpeakTextQueue(mLevelLocationData.titleTextRef, mLevelLocationData.titleTextRef, 0);
+            if(!string.IsNullOrEmpty(mLevelLocationData.descTextRef)) LoLManager.instance.SpeakTextQueue(mLevelLocationData.descTextRef, mLevelLocationData.titleTextRef, 1);
         }
     }
 

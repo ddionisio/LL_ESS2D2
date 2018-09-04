@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: levelSelect
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 933c7c0b4538a1f46b3c5d23b48c1e21, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d6c970b05aa4c124f806d97cf25c0d65, type: 3}
+  - {fileID: 21300000, guid: 6ba7225438a2cba4d8b7117129293f93, type: 3}
+  - {fileID: 21300000, guid: 7d7410b7585cc264caa5c851b8ab59f3, type: 3}
+  - {fileID: 21300000, guid: 09f696585972b4c48aa4ba53790bd57c, type: 3}
+  - {fileID: 21300006, guid: d341491a53f40ba489547917602c3c2f, type: 3}
+  - {fileID: 21300000, guid: d341491a53f40ba489547917602c3c2f, type: 3}
+  - {fileID: 21300008, guid: d341491a53f40ba489547917602c3c2f, type: 3}
+  - {fileID: 21300002, guid: d341491a53f40ba489547917602c3c2f, type: 3}
+  - {fileID: 21300004, guid: d341491a53f40ba489547917602c3c2f, type: 3}
+  - {fileID: 21300000, guid: daee9b7dec39e30488fdf2ea9070c92f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - world
+  - levelSelectDot
+  - levelSelectDot2
+  - frame
+  - blank4x4_bottomLeft
+  - blank4x4_bottom
+  - blank4x4_border
+  - blank4x4
+  - blank4x4_topLeft
+  - dot
+  m_Tag: levelSelect
+  m_IsVariant: 0

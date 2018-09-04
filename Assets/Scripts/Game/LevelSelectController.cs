@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelSelectController : GameModeController<LevelSelectController> {
     [Header("Data")]
+    public float startWaitDelay = 0.5f;
     public string modalLevelSelect = "levelSelect";
     public GameObject[] levelGroupGOs;
 
@@ -44,6 +45,8 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
 
     protected override IEnumerator Start() {
         yield return base.Start();
+
+        yield return new WaitForSeconds(startWaitDelay);
 
         //tutorial at beginning
 
