@@ -37,6 +37,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: e1f783001194a594c8e1ad4ba0892917, type: 3}
+  - {fileID: 21300000, guid: ae6caf1086101164288b97622d075591, type: 3}
   - {fileID: 21300000, guid: 71e67fe0513db6b499573fef6d4807db, type: 3}
   - {fileID: 21300000, guid: 6b8ecff026293b04181e4ad55a418012, type: 3}
   - {fileID: 21300000, guid: c65d7601f254c734cae3b4024c306073, type: 3}
@@ -62,6 +63,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a39e2953e80c3b0479f31140f406a7f0, type: 3}
   - {fileID: 21300000, guid: e5dc777390553e4499a405c82af83aef, type: 3}
   - {fileID: 21300000, guid: 37c17083343d4cc478b8f1880c561093, type: 3}
+  - {fileID: 21300000, guid: 12149583ac6288d4cab04d1d37d68591, type: 3}
   - {fileID: 21300000, guid: d4ed7d83bc476ea45888270b0bb8c14a, type: 3}
   - {fileID: 21300000, guid: 9aceb5b3343f9ff44ae44e79733175f3, type: 3}
   - {fileID: 21300000, guid: e2d23fd3d943d3b4182f0130dd36a59b, type: 3}
@@ -91,6 +93,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: bc972d665a370f7498077c4d029eee6f, type: 3}
   - {fileID: 21300000, guid: 506b16c67e3ef764ba851e103ccb232f, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
+  - {fileID: 21300000, guid: 82d71227d5b6eee41bcf8592ba9fd4e7, type: 3}
   - {fileID: 21300000, guid: 0e41974799a06364d86b4b464a928e54, type: 3}
   - {fileID: 21300000, guid: bf01b0b7199ec26448b016fd2de647e5, type: 3}
   - {fileID: 21300000, guid: 82d63ab78673ed94a87431931602a2cf, type: 3}
@@ -148,12 +151,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 31c7ecce7a756db48a64dec20453a6f2, type: 3}
   - {fileID: 21300000, guid: d100bf3fba8e48343b4f69fe5447d682, type: 3}
   - {fileID: 21300000, guid: 7852375fc0a68284cb4166bf156a27e1, type: 3}
+  - {fileID: 21300000, guid: 1919c76fa34aacd4a9b65d76624f34be, type: 3}
   - {fileID: 21300000, guid: e0b0a99f0a6b53441915d84fec70a2f8, type: 3}
   - {fileID: 21300000, guid: 552b9b9f606d24946aa32a696466c5b9, type: 3}
   - {fileID: 21300000, guid: 006549bf55cfba2428c766cf94f1740d, type: 3}
   - {fileID: 21300000, guid: 40de69efda6516444b3fc152bc6992c2, type: 3}
+  - {fileID: 21300000, guid: b9ececefc7b235e4eb5dcfd00877041e, type: 3}
   m_PackedSpriteNamesToIndex:
   - targetFlag
+  - fly2
   - gardenerAura
   - weatherMetricIcon_humidity
   - moleDig
@@ -179,6 +185,7 @@ SpriteAtlas:
   - motherbaseBud
   - explodePixel4
   - flowerBud
+  - fly3
   - flowerBloom04
   - bubble
   - flowerBase
@@ -208,6 +215,7 @@ SpriteAtlas:
   - flowerPowerCore
   - spear1
   - circle16x16
+  - fly4
   - motherbaseFrogTosser1
   - explodePixel1
   - motherbaseStem2
@@ -265,9 +273,11 @@ SpriteAtlas:
   - stop
   - tutorialHandPoint
   - collector_move0Transport
+  - fly1
   - separator
   - spear2
   - leaf02
   - flowerIcon
+  - mushroom
   m_Tag: main
   m_IsVariant: 0
