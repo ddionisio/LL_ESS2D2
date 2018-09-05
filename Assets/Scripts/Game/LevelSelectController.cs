@@ -57,8 +57,6 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
         //tutorial at beginning
         var curIndex = GameData.instance.curLevelIndex;
         if(curIndex == 0) {
-            M8.GenericParams dlgParms = new M8.GenericParams();
-
             for(int i = 0; i < tutorialDialogTexts.Length; i++) {
                 bool isNext = false;
                 ModalDialog.Open(tutorialModalDialog, "", tutorialDialogTexts[i], () => isNext = true);

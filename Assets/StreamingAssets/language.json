@@ -26,6 +26,7 @@
     "cycleStart": "BEGIN",
     "cycleEnd": "CYCLE FINISH",
     "victory": "VICTORY",
+    "summaryTitle": "SUMMARY",
     "climate": "Climate",
     "climateZone": "Climate Zone",
     "climateZones": "Climate Zones",

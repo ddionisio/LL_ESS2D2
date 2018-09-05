@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.IPush {    
+public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M8.UIModal.Interface.IClose {    
     [System.Serializable]
     public class SlotData {
         public ClimateZoneData zone;
@@ -32,14 +32,14 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
         public void Init(SlotDragWidget template, SlotDragWidget.ClickCallback clickCallback, SlotDragWidget.EventCallback dragCallback, SlotDragWidget.EventCallback dragEndCallback) {
             if(!widget) {
                 widget = Instantiate(template, anchor.parent);
-                widget.name = climate.name;
-                widget.gameObject.SetActive(true);
+                widget.name = climate.name;                
                 widget.Setup(climate.image, climate.titleText);
                 widget.clickCallback += clickCallback;
                 widget.dragCallback += dragCallback;
                 widget.dragEndCallback += dragEndCallback;
             }
 
+            widget.gameObject.SetActive(true);
             widget.Init(anchor.position);
         }
     }
@@ -102,6 +102,14 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
 
         itemTemplate.gameObject.SetActive(false);
         slotTemplate.gameObject.SetActive(false);
+    }
+
+    void M8.UIModal.Interface.IClose.Close() {
+        //hide items
+        for(int i = 0; i < items.Length; i++) {
+            if(items[i].widget)
+                items[i].widget.gameObject.SetActive(false);
+        }
     }
 
     void M8.UIModal.Interface.IPush.Push(M8.GenericParams parms) {

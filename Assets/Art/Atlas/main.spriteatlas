@@ -98,6 +98,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c52d5648fbba71642814e3808a69151c, type: 3}
   - {fileID: 21300000, guid: 2c1b3a48eb06c25408341d6d427b7b66, type: 3}
   - {fileID: 21300000, guid: d63ec9580442a1147ab4ae102ebf46de, type: 3}
+  - {fileID: 21300000, guid: da31137816cf809418b316e76d82a36b, type: 3}
   - {fileID: 21300000, guid: 98dcbc88df1944742b74d24843f65c75, type: 3}
   - {fileID: 21300000, guid: e2f899a8eb3311e439f18e52b5f79886, type: 3}
   - {fileID: 21300006, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
@@ -207,6 +208,7 @@ SpriteAtlas:
   - quarterCircle
   - weatherCycleDataFill
   - gardener_jump1
+  - potion
   - correctCheck
   - collector_move1Transport
   - blank4x4_bottomLeft

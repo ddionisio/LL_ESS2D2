@@ -9,8 +9,15 @@ public class ModalVictory : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M
 
     public Text scoreLabel;
 
+    public string modalNext;
+
     public void Proceed() {
-        GameData.instance.Progress();
+        if(!string.IsNullOrEmpty(modalNext)) {
+            Close();
+            M8.UIModal.Manager.instance.ModalOpen(modalNext);
+        }
+        else
+            GameData.instance.Progress();
     }
 
     void M8.UIModal.Interface.IPush.Push(M8.GenericParams parms) {
