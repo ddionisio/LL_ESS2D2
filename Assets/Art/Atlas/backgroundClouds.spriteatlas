@@ -5,7 +5,7 @@ SpriteAtlas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: level2Background
+  m_Name: backgroundClouds
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -40,20 +40,16 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: b9c3d7f4f1a3aeb4fa42f0598dde79b5, type: 3}
+    - {fileID: 102900000, guid: ee05c51859480d246b03ade38ff43971, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 014bd516067dc3f4386c326954a71c4a, type: 3}
-  - {fileID: 21300000, guid: acf4f7179d4d83945911d6a0c3d1c4f5, type: 3}
-  - {fileID: 21300000, guid: 7593d049eeef8624283a237d7003c646, type: 3}
-  - {fileID: 21300000, guid: bb72a60cd576fbf4091946a60e900dbd, type: 3}
-  - {fileID: 21300000, guid: 060cd64e1cde6424cb11fe38669bfe10, type: 3}
+  - {fileID: 21300000, guid: 6fd9ea000f55b23458cf82d7f0b22441, type: 3}
+  - {fileID: 21300000, guid: 82776078f37aa324faa1e12f1fec5c61, type: 3}
+  - {fileID: 21300000, guid: 99b0c1ba8723f26458a89788f5cda8be, type: 3}
   m_PackedSpriteNamesToIndex:
-  - background
-  - shades1
-  - foregroundTop
-  - shades2
-  - tileGround
-  m_Tag: level2Background
+  - cloud3
+  - cloud1
+  - cloud2
+  m_Tag: backgroundClouds
   m_IsVariant: 0

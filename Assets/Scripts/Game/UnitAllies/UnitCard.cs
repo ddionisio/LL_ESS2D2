@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class UnitCard : Unit {
     [Header("UnitCard Data")]
-    public float despawnDelay = 2.0f; // set to <= 0 to not despawn
+    public float despawnDelay = 2.0f; // set to -1 to not despawn
     public float despawnFadeDelay = 1.0f; //delay within the end of despawnDelay
     public float despawnFadePulsePerSecond;
     public float despawnAlpha;
@@ -54,10 +54,12 @@ public class UnitCard : Unit {
             isPhysicsActive = true;
         }
         else if(state == UnitStates.instance.idle) {
-            if(despawnDelay > 0f)
+            if(despawnDelay > 0f) {
                 mDespawnRout = StartCoroutine(DoDespawn());
-
-            isPhysicsActive = true;
+                isPhysicsActive = true;
+            }
+            else
+                state = UnitStates.instance.despawning;
         }
     }
 

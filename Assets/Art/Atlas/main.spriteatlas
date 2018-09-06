@@ -38,6 +38,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: e1f783001194a594c8e1ad4ba0892917, type: 3}
   - {fileID: 21300000, guid: ae6caf1086101164288b97622d075591, type: 3}
+  - {fileID: 21300000, guid: 28df7eb00eb34b4458d46b9cd5e94019, type: 3}
   - {fileID: 21300000, guid: 71e67fe0513db6b499573fef6d4807db, type: 3}
   - {fileID: 21300000, guid: 6b8ecff026293b04181e4ad55a418012, type: 3}
   - {fileID: 21300000, guid: c65d7601f254c734cae3b4024c306073, type: 3}
@@ -98,6 +99,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 506b16c67e3ef764ba851e103ccb232f, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
   - {fileID: 21300000, guid: 82d71227d5b6eee41bcf8592ba9fd4e7, type: 3}
+  - {fileID: 21300000, guid: c0ade4379d5fdfc48819a6f64c07cf79, type: 3}
   - {fileID: 21300000, guid: 0e41974799a06364d86b4b464a928e54, type: 3}
   - {fileID: 21300000, guid: bf01b0b7199ec26448b016fd2de647e5, type: 3}
   - {fileID: 21300000, guid: 82d63ab78673ed94a87431931602a2cf, type: 3}
@@ -106,7 +108,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 49058c18c2c62da43b51e914e09a0d64, type: 3}
   - {fileID: 21300000, guid: f5fc3938a2ddbed4fbb7ef2d16084dd2, type: 3}
   - {fileID: 21300000, guid: b5f1f248fc842084cb79fa132167e30b, type: 3}
-  - {fileID: 21300000, guid: c52d5648fbba71642814e3808a69151c, type: 3}
   - {fileID: 21300000, guid: 2c1b3a48eb06c25408341d6d427b7b66, type: 3}
   - {fileID: 21300000, guid: d63ec9580442a1147ab4ae102ebf46de, type: 3}
   - {fileID: 21300000, guid: da31137816cf809418b316e76d82a36b, type: 3}
@@ -157,6 +158,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9194d98e9baa1eb459e2528a06afaedb, type: 3}
   - {fileID: 21300000, guid: ca1617ce466bced4986045f4e834640a, type: 3}
   - {fileID: 21300000, guid: 31c7ecce7a756db48a64dec20453a6f2, type: 3}
+  - {fileID: 21300000, guid: 6488f8ee19d43d9489bc878860a25252, type: 3}
   - {fileID: 21300000, guid: dd25473fffe1efc4ea57beec09145e2c, type: 3}
   - {fileID: 21300000, guid: d100bf3fba8e48343b4f69fe5447d682, type: 3}
   - {fileID: 21300000, guid: 7852375fc0a68284cb4166bf156a27e1, type: 3}
@@ -169,6 +171,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - targetFlag
   - fly2
+  - sun
   - gardenerAura
   - weatherMetricIcon_humidity
   - moleDig
@@ -229,6 +232,7 @@ SpriteAtlas:
   - spear1
   - circle16x16
   - fly4
+  - rainDrop
   - motherbaseFrogTosser1
   - explodePixel1
   - motherbaseStem2
@@ -237,7 +241,6 @@ SpriteAtlas:
   - flowerBloom02
   - mallet_move1
   - tutorialHandPointDown
-  - quarterCircle
   - weatherCycleDataFill
   - gardener_jump1
   - potion
@@ -288,6 +291,7 @@ SpriteAtlas:
   - circleGlow
   - weatherCycleArrow
   - stop
+  - sunFin
   - hopper1
   - tutorialHandPoint
   - collector_move0Transport

@@ -16,8 +16,7 @@ MonoBehaviour:
   indicatorRadius: 1
   indicatorColor: {r: 0.9960785, g: 0.4431373, b: 0.43137258, a: 1}
   targetReticleName: ground
-  targetDisplayPrefab: {fileID: 1832675776628012, guid: 05602737a3cc4a549836e051941a6e5e,
-    type: 2}
+  targetDisplayPrefab: {fileID: 0}
   targetTagFilters:
   - ObstacleGround
   - ObstacleJumper

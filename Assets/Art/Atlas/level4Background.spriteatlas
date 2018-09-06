@@ -61,7 +61,6 @@ SpriteAtlas:
   - {fileID: 21300002, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300004, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
   - {fileID: 21300000, guid: fc5a31c62f45fee46b4bed76dd25489d, type: 3}
-  - {fileID: 21300000, guid: c0ade4379d5fdfc48819a6f64c07cf79, type: 3}
   - {fileID: 21300000, guid: 7b60e477bb5a7f942ae2fd4997c3ff93, type: 3}
   - {fileID: 21300000, guid: 924159a7606cf7c4fba4efea1a787ab8, type: 3}
   - {fileID: 21300000, guid: 5088ddb77283401498c1bd00604523be, type: 3}
@@ -83,7 +82,6 @@ SpriteAtlas:
   - fillBlank
   - fillBlank_topLeft
   - backgroundBorealMountain
-  - rainDrop
   - cloudOvercast2
   - circle1
   - circle3_2

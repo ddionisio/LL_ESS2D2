@@ -1164,7 +1164,7 @@ MonoBehaviour:
     y: 0.5
     width: 2
     height: 1
-  gasStartDelay: 2
+  gasStartDelay: 1.5
   gasCheckCount: 3
   gasCheckDelay: 0.5
   gasLayerMask:

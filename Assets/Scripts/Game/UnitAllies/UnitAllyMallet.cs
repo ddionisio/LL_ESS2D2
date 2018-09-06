@@ -62,14 +62,12 @@ public class UnitAllyMallet : UnitCard {
             }
         }
         else if(state == UnitStates.instance.idle) {
-            if(!isTargetOffscreen)
-                ShowReticleIndicator(true);
+            ShowReticleIndicator(true);
 
             mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.move) {
-            if(!isTargetOffscreen)
-                ShowReticleIndicator(true);
+            ShowReticleIndicator(true);
 
             //determine dir
             var dpos = targetPosition - position;
@@ -99,7 +97,8 @@ public class UnitAllyMallet : UnitCard {
                 state = UnitStates.instance.idle;
             }
 
-            UpdatePosition(nextPos);
+            if(!UpdatePosition(nextPos))
+                state = UnitStates.instance.idle;
         }
     }
 
@@ -176,15 +175,18 @@ public class UnitAllyMallet : UnitCard {
         }
     }
 
-    private void UpdatePosition(Vector2 toPos) {
+    private bool UpdatePosition(Vector2 toPos) {
         UnitPoint point;
-        if(UnitPoint.GetGroundPoint(toPos, out point)) {
+        bool ret = UnitPoint.GetGroundPoint(toPos, out point);
+        if(ret) {
             ApplyUnitPoint(point);
 
             float dirSign = Mathf.Sign(curDir.x);
 
             curDir = M8.MathUtil.Rotate(Vector2.up, dirSign * M8.MathUtil.HalfPI);
         }
+
+        return ret;
     }
 
     void OnDrawGizmos() {

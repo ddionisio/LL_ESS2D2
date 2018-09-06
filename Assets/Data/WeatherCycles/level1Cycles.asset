@@ -46,7 +46,7 @@ MonoBehaviour:
       precipitationPercent: 83
       flowerGrowthMod: 0.25
     duration: 80
-    flowerGrowthMod: 0.2
+    flowerGrowthMod: 0.15
   - weathers:
     - type: {fileID: 11400000, guid: c8b220e78bbaaef499b56cfa1b591c40, type: 2}
       uvLevel: 8
@@ -81,4 +81,4 @@ MonoBehaviour:
       precipitationPercent: 43
       flowerGrowthMod: 0.1
     duration: 80
-    flowerGrowthMod: 0.2
+    flowerGrowthMod: 0.15

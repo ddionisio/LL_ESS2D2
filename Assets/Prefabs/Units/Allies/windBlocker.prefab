@@ -971,7 +971,7 @@ MonoBehaviour:
   flags: 0
   displayRootGO: {fileID: 1375363535891926}
   spawnRootGO: {fileID: 1364830990913880}
-  despawnDelay: 0
+  despawnDelay: -1
   despawnFadeDelay: 1
   despawnFadePulsePerSecond: 4
   despawnAlpha: 0.25
