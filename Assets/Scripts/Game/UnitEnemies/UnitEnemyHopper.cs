@@ -12,8 +12,9 @@ public class UnitEnemyHopper : Unit {
     public LayerMask hopAttackLayerMask;
     [M8.TagSelector]
     public string[] hopAttackTagFilters;
+    public bool hopLandAnimWait;
     public float flowerReduceScale = 0.1f; //scale of flower's max growth
-
+    
     [Header("Animation")]
     public M8.Animator.Animate animator;
     public string takeSpawn;
@@ -116,8 +117,13 @@ public class UnitEnemyHopper : Unit {
                         
             up = destUp;
 
-            if(!string.IsNullOrEmpty(takeHopLand))
+            if(!string.IsNullOrEmpty(takeHopLand)) {
                 animator.Play(takeHopLand);
+                if(hopLandAnimWait) {
+                    while(animator.isPlaying)
+                        yield return null;
+                }
+            }
 
             //attack area
             var hopAttackAreaWorld = hopAttackArea;

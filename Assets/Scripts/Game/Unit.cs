@@ -241,6 +241,8 @@ public class Unit : M8.EntityBase {
             while(animator.isPlaying)
                 yield return null;
         }
+        else
+            yield return null;
 
         mRout = null;
         state = toState;
