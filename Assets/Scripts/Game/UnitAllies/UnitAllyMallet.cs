@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using M8;
 using UnityEngine;
 
 public class UnitAllyMallet : UnitCard {
@@ -7,6 +8,8 @@ public class UnitAllyMallet : UnitCard {
     public float moveSpeed;
     public LayerMask attackCheckLayerMask;
     public float attackCheckDelay = 0.333f;
+    public bool isTargetOffscreen; //if true, set target destination offscreen
+    public float targetOffscreenOfs; //for isTargetOffscreen, use this as offset outside the screen
 
     [Header("Animation")]
     public M8.Animator.Animate animator;
@@ -44,13 +47,29 @@ public class UnitAllyMallet : UnitCard {
             ClearTarget();
         }
 
-        if(state == UnitStates.instance.idle) {
-            ShowReticleIndicator(true);
+        if(state == UnitStates.instance.spawning) {
+            //change target position to off-screen
+            if(isTargetOffscreen) {
+                var dpos = targetPosition - position;
+
+                float x;
+                if(dpos.x < 0f)
+                    x = GameController.instance.levelBounds.rect.xMin - targetOffscreenOfs;
+                else
+                    x = GameController.instance.levelBounds.rect.xMax + targetOffscreenOfs;
+
+                targetPosition = new Vector2(x, targetPosition.y);
+            }
+        }
+        else if(state == UnitStates.instance.idle) {
+            if(!isTargetOffscreen)
+                ShowReticleIndicator(true);
 
             mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.move) {
-            ShowReticleIndicator(true);
+            if(!isTargetOffscreen)
+                ShowReticleIndicator(true);
 
             //determine dir
             var dpos = targetPosition - position;

@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDespawnEnable: 1
   isDeathEnable: 1
-  isBlowOffEnable: 0
+  isBlowOffEnable: 1
   blowOffMode: 0
   blowOffEndOfs: 2
   blowOffDelay: 1
@@ -968,14 +968,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateOnStart: 0
   activator: {fileID: 0}
-  flags: -1
+  flags: 0
   displayRootGO: {fileID: 1375363535891926}
   spawnRootGO: {fileID: 1364830990913880}
-  despawnDelay: 5
+  despawnDelay: 0
   despawnFadeDelay: 1
   despawnFadePulsePerSecond: 4
   despawnAlpha: 0.25
   despawnFadeColorGroup: {fileID: 114703235993035908}
+  reticleIndicator: {fileID: 0}
   moveSpeed: 2.5
 --- !u!212 &212251049602577022
 SpriteRenderer:
@@ -1102,7 +1103,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -752022279
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bf01b0b7199ec26448b016fd2de647e5, type: 3}
   m_Color: {r: 0.93725497, g: 0.94117653, b: 0.7803922, a: 1}
@@ -1148,7 +1149,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -752022279
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 1518bd3bf6789de40b7d596d99e27078, type: 3}
   m_Color: {r: 1, g: 0.8431373, b: 0.6, a: 0.6392157}
@@ -1240,7 +1241,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -276586837
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: d4d862f52399acb469f5f01696559a9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

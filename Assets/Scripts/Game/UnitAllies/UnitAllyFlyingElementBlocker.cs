@@ -14,6 +14,9 @@ public class UnitAllyFlyingElementBlocker : UnitCard {
 
     public override void MotherbaseSpawnFinish() {
         state = UnitStates.instance.move;
+
+        //add callback to weather end
+        GameController.instance.weatherCycle.weatherEndCallback += OnWeatherEnd;
     }
 
     protected override void StateChanged() {
@@ -34,6 +37,9 @@ public class UnitAllyFlyingElementBlocker : UnitCard {
     }
 
     protected override void OnDespawned() {
+        if(GameController.isInstantiated && GameController.instance.weatherCycle)
+            GameController.instance.weatherCycle.weatherEndCallback -= OnWeatherEnd;
+
         base.OnDespawned();
     }
 
@@ -58,5 +64,10 @@ public class UnitAllyFlyingElementBlocker : UnitCard {
             if(mMoveCurTime >= mMoveDelay)
                 state = UnitStates.instance.idle;
         }
+    }
+
+    void OnWeatherEnd() {
+        //despawn
+        state = UnitStates.instance.despawning;
     }
 }

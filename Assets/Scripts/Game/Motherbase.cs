@@ -452,14 +452,14 @@ public class Motherbase : MonoBehaviour {
     }
 
     IEnumerator DoUnitSpawn(Unit unit, Vector2 start, Vector2 end) {
-        unit.state = UnitStates.instance.spawning;
-
         var unitTrans = unit.transform;
 
         var topY = Mathf.Max(start.y, end.y);
         var midPoint = new Vector2(Mathf.Lerp(start.x, end.x, 0.5f), topY + Random.Range(spawnUnitHeightOffsetMin, spawnUnitHeightOffsetMax));
 
         unitTrans.position = start;
+
+        unit.state = UnitStates.instance.spawning;
 
         float curTime = 0f;
         while(curTime < spawnUnitDelay) {
