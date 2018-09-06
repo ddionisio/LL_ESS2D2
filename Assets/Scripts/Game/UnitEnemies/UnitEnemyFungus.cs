@@ -16,6 +16,7 @@ public class UnitEnemyFungus : Unit {
     [M8.TagSelector]
     public string[] gasTagFilters;
     public GameObject gasActiveGO;
+    public bool gasPlayAnimPerCheck; //play takeGas for each check
 
     [Header("Stats")]
     public float flowerReduceScale = 0.1f; //scale of flower's max growth
@@ -110,11 +111,12 @@ public class UnitEnemyFungus : Unit {
             }
 
             //gas things
-            if(!string.IsNullOrEmpty(takeGas))
+            if(!string.IsNullOrEmpty(takeGas)) {
                 animator.Play(takeGas);
+            }
             else if(!string.IsNullOrEmpty(takeIdle))
                 animator.Play(takeIdle);
-                        
+
             if(gasActiveGO) gasActiveGO.SetActive(true);
                         
             for(int i = 0; i < gasCheckCount; i++) {
@@ -155,6 +157,11 @@ public class UnitEnemyFungus : Unit {
 
 
                 yield return waitCheck;
+
+                if(gasPlayAnimPerCheck) {
+                    if(!string.IsNullOrEmpty(takeGas))
+                        animator.Play(takeGas);
+                }
             }
 
             if(gasActiveGO) gasActiveGO.SetActive(false);

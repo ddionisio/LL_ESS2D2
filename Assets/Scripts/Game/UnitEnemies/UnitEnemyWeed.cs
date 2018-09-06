@@ -84,6 +84,8 @@ public class UnitEnemyWeed : Unit {
     protected override void OnSpawned(M8.GenericParams parms) {
         base.OnSpawned(parms);
 
+        animator.ResetTake(takeGrow);
+
         mFlowerTarget = parms.GetValue<UnitAllyFlower>(UnitSpawnParams.unitTarget);
 
         state = UnitStates.instance.spawning;
