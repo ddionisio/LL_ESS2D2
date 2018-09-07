@@ -27,7 +27,11 @@ public class ModalCardDetail : M8.UIModal.Controller, M8.UIModal.Interface.IPush
         if(titleLabel) titleLabel.text = mCard.title;
         if(descLabel) descLabel.text = mCard.description;
         if(cardImage) cardImage.sprite = mCard.image;
-        if(cardIcon) cardIcon.sprite = mCard.icon;
+
+        if(cardIcon) {
+            cardIcon.sprite = mCard.icon;
+            cardIcon.SetNativeSize();
+        }
 
         if(cardIllustration) {
             cardIllustration.sprite = mCard.illustration;

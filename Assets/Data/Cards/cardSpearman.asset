@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1729833318283786, guid: db5ae14f1a3c02f43a226de3e6c0554e, type: 2}
   cooldownDuration: 2
-  indicatorRadius: 2
+  indicatorRadius: 2.5
   indicatorColor: {r: 0.9960785, g: 0.4431373, b: 0.43137258, a: 1}
   targetReticleName: air
   targetDisplayPrefab: {fileID: 1832675776628012, guid: 5afa4ce0b7ea33a4792f5da5da97ffd7,
@@ -21,7 +21,7 @@ MonoBehaviour:
   targetTagFilters:
   - ObstacleAir
   - ObstacleJumper
-  icon: {fileID: 21300000, guid: c525e7478bffd4846964d5a922de188d, type: 3}
+  icon: {fileID: 21300000, guid: 2875e0ce39b08194d89b24614da86815, type: 3}
   image: {fileID: 21300000, guid: 903d5895fcf027d438cd219b5fc87e36, type: 3}
   illustration: {fileID: 0}
   titleRef: unitAllySpearman

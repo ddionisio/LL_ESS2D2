@@ -1372,6 +1372,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1850026678182626, guid: 55becb6f0da248b4e8318798007caeb0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224981102389377288, guid: 55becb6f0da248b4e8318798007caeb0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -97
+      objectReference: {fileID: 0}
+    - target: {fileID: 224981102389377288, guid: 55becb6f0da248b4e8318798007caeb0,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55becb6f0da248b4e8318798007caeb0, type: 2}
   m_IsPrefabAsset: 0
@@ -1830,26 +1844,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1697434721930248, guid: de3f61874713f5341838cd9c872bc73b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114154149855624608, guid: de3f61874713f5341838cd9c872bc73b,
-        type: 2}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 01b282de86bccac42bf9820c6150602c,
-        type: 2}
-    - target: {fileID: 4678232585522776, guid: de3f61874713f5341838cd9c872bc73b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 114167996126026028, guid: de3f61874713f5341838cd9c872bc73b,
-        type: 2}
-      propertyPath: deckData
-      value: 
-      objectReference: {fileID: 11400000, guid: 0006b16014f526743a62b7ce987d9815,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de3f61874713f5341838cd9c872bc73b, type: 2}
   m_IsPrefabAsset: 0

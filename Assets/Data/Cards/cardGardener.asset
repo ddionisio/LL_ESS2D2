@@ -21,7 +21,7 @@ MonoBehaviour:
   targetTagFilters:
   - Flower
   - Weed
-  icon: {fileID: 21300000, guid: 318b89c2e6dec3d4ba089635616d0e0b, type: 3}
+  icon: {fileID: 21300000, guid: 1eb9f59413b6dd045893666d700b6884, type: 3}
   image: {fileID: 21300000, guid: c680f3a47d2593c4cb666c69db529ae1, type: 3}
   illustration: {fileID: 0}
   titleRef: unitAllyGardener
