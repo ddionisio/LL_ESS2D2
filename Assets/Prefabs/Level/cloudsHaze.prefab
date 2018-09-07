@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weatherTypes:
-  - {fileID: 11400000, guid: 403c4119c0de9e040ab091dd2bf9f2f3, type: 2}
+  - {fileID: 11400000, guid: 9eb4727edac69fe45a4fbba76e25bb35, type: 2}
   rootGO: {fileID: 1161704451848170}
   animator: {fileID: 114240213848382636}
   takeEnter: enter
@@ -301,8 +301,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1259828915
   m_SortingLayer: -5
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 5102a745585bd3e4e9ea9bc6c24e6879, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300002, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   m_Color: {r: 1, g: 0.8980393, b: 0.6862745, a: 0.4}
   m_FlipX: 0
   m_FlipY: 0

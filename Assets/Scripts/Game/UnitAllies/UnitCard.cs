@@ -58,7 +58,7 @@ public class UnitCard : Unit {
                 mDespawnRout = StartCoroutine(DoDespawn());
                 isPhysicsActive = true;
             }
-            else
+            else if(despawnDelay == 0f)
                 state = UnitStates.instance.despawning;
         }
     }

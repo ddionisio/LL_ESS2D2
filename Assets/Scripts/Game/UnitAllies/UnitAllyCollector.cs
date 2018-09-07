@@ -110,7 +110,8 @@ public class UnitAllyCollector : UnitCard {
                 }
             }
 
-            UpdatePosition(nextPos);
+            if(!UpdatePosition(nextPos))
+                Release();
         }
     }
 
@@ -160,15 +161,18 @@ public class UnitAllyCollector : UnitCard {
         }
     }
 
-    private void UpdatePosition(Vector2 toPos) {
+    private bool UpdatePosition(Vector2 toPos) {
         UnitPoint point;
-        if(UnitPoint.GetGroundPoint(toPos, out point)) {
+        bool ret = UnitPoint.GetGroundPoint(toPos, out point);
+        if(ret) {
             ApplyUnitPoint(point);
 
             float dirSign = Mathf.Sign(curDir.x);
 
             curDir = M8.MathUtil.Rotate(Vector2.up, dirSign * M8.MathUtil.HalfPI);
         }
+
+        return ret;
     }
 
     private void DetachCollect() {

@@ -17,10 +17,10 @@ MonoBehaviour:
     startCount: 3
   - card: {fileID: 11400000, guid: 9cd46c0cfdfd2504dafeab7aa19ff68a, type: 2}
     startHidden: 1
-    startCount: 3
+    startCount: 2
   - card: {fileID: 11400000, guid: 44cc420c6075e134b8f9d3649a26237c, type: 2}
     startHidden: 1
-    startCount: 3
+    startCount: 2
   - card: {fileID: 11400000, guid: ca6124e098b73674381e1b5189d002e3, type: 2}
     startHidden: 1
-    startCount: 3
+    startCount: 2
