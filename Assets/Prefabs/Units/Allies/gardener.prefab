@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f316dbe52a4ec64fbca833f8400fdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 212689239284032128}
   pulsePerSecond: 0.5
   startColor: {r: 0.98823535, g: 0.6901961, b: 0.47450984, a: 0.16078432}
   endColor: {r: 1, g: 0.8431373, b: 0.6, a: 0.5019608}

@@ -21,7 +21,7 @@ MonoBehaviour:
   - ObstacleGround
   - ObstacleJumper
   icon: {fileID: 21300000, guid: 6406b9e0e31f3214a9ae7843d0cb420f, type: 3}
-  image: {fileID: 21300000, guid: 844605f805d618f4caad901324485ed3, type: 3}
-  illustration: {fileID: 0}
+  image: {fileID: 21300000, guid: 312a1d2aa377f9941bf39107f8963891, type: 3}
+  illustration: {fileID: 21300000, guid: 312a1d2aa377f9941bf39107f8963891, type: 3}
   titleRef: unitAllyMallet
   descriptionRef: unitAllyMalletDesc

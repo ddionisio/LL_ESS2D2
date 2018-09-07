@@ -42,10 +42,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6406b9e0e31f3214a9ae7843d0cb420f, type: 3}
   - {fileID: 21300000, guid: 71e67fe0513db6b499573fef6d4807db, type: 3}
   - {fileID: 21300000, guid: 6b8ecff026293b04181e4ad55a418012, type: 3}
+  - {fileID: 21300000, guid: 2556430103a7e4a489ab71ec17d2baf2, type: 3}
   - {fileID: 21300000, guid: c65d7601f254c734cae3b4024c306073, type: 3}
   - {fileID: 21300000, guid: 2075b12156fd31241913177791b23fc8, type: 3}
   - {fileID: 21300000, guid: f4683e31b11d8c249ac19e37611319cd, type: 3}
   - {fileID: 21300000, guid: a7b1f251ac8866d45931626b09df9d16, type: 3}
+  - {fileID: 21300000, guid: b0762981804d54343ba605e54b8a4fba, type: 3}
   - {fileID: 21300000, guid: 2c182d91a96c3c949bcbade9ea5d4ba4, type: 3}
   - {fileID: 21300000, guid: f90d3ab1c0e88aa4799d9afb52758976, type: 3}
   - {fileID: 21300000, guid: 348189c1c8820fb4c9587ea1c479cccd, type: 3}
@@ -58,8 +60,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6437ef22e87e2154d8eb153965699bc2, type: 3}
   - {fileID: 21300000, guid: b79110522171b2348868d8c86d6ac7b3, type: 3}
   - {fileID: 21300000, guid: 56ec1a6257cc286449829fcb153a88ae, type: 3}
+  - {fileID: 21300000, guid: 61e3868251a73da41889427301dc2458, type: 3}
   - {fileID: 21300000, guid: 64189d92954da314f9b6a05b228c08ec, type: 3}
   - {fileID: 21300000, guid: 05c221d27eb4edb40929d15bbf85fb9d, type: 3}
+  - {fileID: 21300000, guid: e06075f2ba60dfa48a42d1268e31c2b1, type: 3}
   - {fileID: 21300000, guid: 1abaebf232c3b9d409c5c9383ee84f5d, type: 3}
   - {fileID: 21300000, guid: fde78cf21a65a2248a76a1c56c4b2bdf, type: 3}
   - {fileID: 21300000, guid: 5ec92153de737f94a9f2a333a83947a4, type: 3}
@@ -116,6 +120,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2c1b3a48eb06c25408341d6d427b7b66, type: 3}
   - {fileID: 21300000, guid: d63ec9580442a1147ab4ae102ebf46de, type: 3}
   - {fileID: 21300000, guid: da31137816cf809418b316e76d82a36b, type: 3}
+  - {fileID: 21300000, guid: a01d6588446d28f40aeb50c3dfe0b57e, type: 3}
   - {fileID: 21300000, guid: 98dcbc88df1944742b74d24843f65c75, type: 3}
   - {fileID: 21300000, guid: e1a1aa98ec3d5fc40af86723834e55ad, type: 3}
   - {fileID: 21300000, guid: e2f899a8eb3311e439f18e52b5f79886, type: 3}
@@ -129,6 +134,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1936bac986127cb4bad904bfad92c266, type: 3}
   - {fileID: 21300002, guid: 1936bac986127cb4bad904bfad92c266, type: 3}
   - {fileID: 21300000, guid: 4517cad98236488479ff48a35064577e, type: 3}
+  - {fileID: 21300000, guid: 312a1d2aa377f9941bf39107f8963891, type: 3}
   - {fileID: 21300000, guid: 4278b03a128f6844daf0a8ea0a2ca55a, type: 3}
   - {fileID: 21300000, guid: 08a2183a126de914ea9d3a2a31a76d94, type: 3}
   - {fileID: 21300000, guid: 7168da6aea1c4154bbc52d54856e6639, type: 3}
@@ -151,6 +157,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 21e6ac3ceac279145a96215dfa3f7079, type: 3}
   - {fileID: 21300000, guid: 7f4a0dac271c57e48a6af18e5a08625d, type: 3}
   - {fileID: 21300000, guid: 0015e3cc72924fb4ea10b97dfd6d0b0c, type: 3}
+  - {fileID: 21300000, guid: d24baaccd12cc524b8011cb2ca6dc904, type: 3}
   - {fileID: 21300000, guid: 41f1dfcc86c5a55408bf5b9d2683900a, type: 3}
   - {fileID: 21300000, guid: 8b2091dc11eecec41b04b688346ba04b, type: 3}
   - {fileID: 21300000, guid: c9248bdc58960c24fbfbfb7a7a523e14, type: 3}
@@ -158,7 +165,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3b2c848d201ef554a80af5707776a4d1, type: 3}
   - {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
   - {fileID: 21300000, guid: 696f60cd65ae0044a93f5cc0d5ef3fd8, type: 3}
+  - {fileID: 21300000, guid: 097e8aed29bd0f9409491574b3c2ac8f, type: 3}
   - {fileID: 21300000, guid: b24feefdb03bcdf4e8553819f0cf8cc8, type: 3}
+  - {fileID: 21300000, guid: 3ca2e71e9af88624eae0b2c7cd816df7, type: 3}
   - {fileID: 21300000, guid: 940b9c6eb6b906741a775e421a8dd3bb, type: 3}
   - {fileID: 21300000, guid: c5a54a7e88b59e547a8905c1ad93d892, type: 3}
   - {fileID: 21300000, guid: 0ab4558e48c0ce44b815a8ae18178db4, type: 3}
@@ -168,13 +177,16 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 31c7ecce7a756db48a64dec20453a6f2, type: 3}
   - {fileID: 21300000, guid: 6488f8ee19d43d9489bc878860a25252, type: 3}
   - {fileID: 21300000, guid: dd25473fffe1efc4ea57beec09145e2c, type: 3}
+  - {fileID: 21300000, guid: b993cb3f7725cc14e9c9bd97865a3b2e, type: 3}
   - {fileID: 21300000, guid: d100bf3fba8e48343b4f69fe5447d682, type: 3}
   - {fileID: 21300000, guid: 7852375fc0a68284cb4166bf156a27e1, type: 3}
+  - {fileID: 21300000, guid: 2e4d426fcb94024488d6d532e8bbc1b3, type: 3}
   - {fileID: 21300000, guid: 1919c76fa34aacd4a9b65d76624f34be, type: 3}
   - {fileID: 21300000, guid: e0b0a99f0a6b53441915d84fec70a2f8, type: 3}
   - {fileID: 21300000, guid: 552b9b9f606d24946aa32a696466c5b9, type: 3}
   - {fileID: 21300000, guid: 006549bf55cfba2428c766cf94f1740d, type: 3}
   - {fileID: 21300000, guid: 40de69efda6516444b3fc152bc6992c2, type: 3}
+  - {fileID: 21300000, guid: 445f9bef92111c2409c28897c5f7c792, type: 3}
   - {fileID: 21300000, guid: b9ececefc7b235e4eb5dcfd00877041e, type: 3}
   m_PackedSpriteNamesToIndex:
   - targetFlag
@@ -183,10 +195,12 @@ SpriteAtlas:
   - cardIcon_mallet
   - gardenerAura
   - weatherMetricIcon_humidity
+  - cardPortrait_windBlocker
   - moleDig
   - hopper3
   - downArrow
   - headerDecor
+  - cardPortrait_sunfly
   - tutorialArrow2
   - flowerPowerBase
   - mallet_move2
@@ -199,8 +213,10 @@ SpriteAtlas:
   - leaf05
   - buttonCloud
   - puff
+  - cardIllustration_sunfly
   - motherbaseStem3
   - leaf01
+  - cardIllustration_collector
   - explodePixel2
   - portraitRobot
   - motherbaseStem1
@@ -257,6 +273,7 @@ SpriteAtlas:
   - weatherCycleDataFill
   - gardener_jump1
   - potion
+  - cardIllustration_mallet
   - correctCheck
   - flySnow
   - collector_move1Transport
@@ -270,6 +287,7 @@ SpriteAtlas:
   - shade
   - shade_bottom
   - collector_move1
+  - cardPortrait_mallet
   - moleMove
   - flowerBloom01
   - gradient8x8
@@ -292,6 +310,7 @@ SpriteAtlas:
   - motherbasePlatform
   - cardIcon_windBlocker
   - weatherMetricIcon_temperature
+  - cardIllustration_windbreaker
   - leaf04
   - toggleBase
   - weatherCycleDataBase
@@ -299,7 +318,9 @@ SpriteAtlas:
   - flowerStem
   - gardener_idle
   - motherbaseStem4
+  - cardPortrait_gardener
   - hopper2
+  - cardPortrait_collector
   - sunfly
   - edge_shade
   - cloudSilhouette
@@ -309,13 +330,16 @@ SpriteAtlas:
   - stop
   - sunFin
   - hopper1
+  - cardPortrait_spearman
   - tutorialHandPoint
   - collector_move0Transport
+  - cardIllustration_gardener
   - fly1
   - separator
   - spear2
   - leaf02
   - flowerIcon
+  - cardIllustration_spearman
   - mushroom
   m_Tag: main
   m_IsVariant: 0

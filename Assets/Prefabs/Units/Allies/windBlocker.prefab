@@ -213,7 +213,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803001162912204}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.06, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -680,16 +680,7 @@ MonoBehaviour:
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 0, y: 0.5, z: 1}
-      endFrame: 22
-    - version: 1
-      interp: 1
-      frame: 22
-      easeType: 2
-      amplitude: 0
-      period: 0
-      customEase: []
-      scale: {x: 0.5, y: 1, z: 1}
+      scale: {x: 0.1, y: 1, z: 1}
       endFrame: 25
     - version: 1
       interp: 1
@@ -844,25 +835,25 @@ MonoBehaviour:
       keyIndices: 00000000
     - type: 11
       index: 1
-      keyIndices: 030000000400000005000000
+      keyIndices: 0300000004000000
     - type: 11
       index: 2
-      keyIndices: 0600000007000000
+      keyIndices: 0500000006000000
     - type: 11
       index: 3
-      keyIndices: 0800000009000000
+      keyIndices: 0700000008000000
     - type: 4
       index: 1
       keyIndices: 01000000
     - type: 11
       index: 4
-      keyIndices: 0a0000000b000000
+      keyIndices: 090000000a000000
     - type: 11
       index: 5
-      keyIndices: 0c0000000d0000000e000000
+      keyIndices: 0b0000000c0000000d000000
     - type: 11
       index: 6
-      keyIndices: 0f00000010000000
+      keyIndices: 0e0000000f000000
     - type: 4
       index: 2
       keyIndices: 02000000
@@ -871,13 +862,13 @@ MonoBehaviour:
       keyIndices: 0000000001000000020000000300000004000000
     - type: 11
       index: 7
-      keyIndices: 1100000012000000
+      keyIndices: 1000000011000000
     - type: 4
       index: 3
       keyIndices: 0300000004000000
     - type: 11
       index: 8
-      keyIndices: 1300000014000000
+      keyIndices: 1200000013000000
     _takeTrackCounts: 040000000400000006000000
 --- !u!114 &114540642376227178
 MonoBehaviour:

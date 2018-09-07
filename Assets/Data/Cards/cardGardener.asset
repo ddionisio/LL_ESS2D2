@@ -22,7 +22,7 @@ MonoBehaviour:
   - Flower
   - Weed
   icon: {fileID: 21300000, guid: 1eb9f59413b6dd045893666d700b6884, type: 3}
-  image: {fileID: 21300000, guid: c680f3a47d2593c4cb666c69db529ae1, type: 3}
-  illustration: {fileID: 0}
+  image: {fileID: 21300000, guid: 097e8aed29bd0f9409491574b3c2ac8f, type: 3}
+  illustration: {fileID: 21300000, guid: 2e4d426fcb94024488d6d532e8bbc1b3, type: 3}
   titleRef: unitAllyGardener
   descriptionRef: unitAllyGardenerDesc
