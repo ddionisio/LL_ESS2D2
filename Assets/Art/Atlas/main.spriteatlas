@@ -69,6 +69,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 12149583ac6288d4cab04d1d37d68591, type: 3}
   - {fileID: 21300000, guid: d4ed7d83bc476ea45888270b0bb8c14a, type: 3}
   - {fileID: 21300000, guid: 9aceb5b3343f9ff44ae44e79733175f3, type: 3}
+  - {fileID: 21300000, guid: c3ff8ed3c3ff8ea4eac2bfc7406b2c5b, type: 3}
   - {fileID: 21300000, guid: e2d23fd3d943d3b4182f0130dd36a59b, type: 3}
   - {fileID: 21300000, guid: ed628ff310dd76544b1252bafddbb794, type: 3}
   - {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
@@ -203,6 +204,7 @@ SpriteAtlas:
   - fly3
   - flowerBloom04
   - bubble
+  - cardCounterBase
   - flowerBase
   - windowFrame
   - gardener_dance1
