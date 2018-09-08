@@ -35,8 +35,11 @@ public class WeatherInfoWidget : MonoBehaviour {
         mImageSpr = weather.type.image;
         mTitleTextRef = weather.type.titleRef;
         mDetailTextRef = weather.type.detailRef;
-        
-        if(image) image.sprite = mImageSpr;
+
+        if(image) {
+            image.sprite = mImageSpr;
+            image.SetNativeSize();
+        }
 
         if(nameLabel) nameLabel.text = M8.Localize.Get(mTitleTextRef);
         if(temperatureLabel) temperatureLabel.text = weather.temperatureText;

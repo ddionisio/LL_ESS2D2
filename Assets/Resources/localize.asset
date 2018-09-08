@@ -26,6 +26,30 @@ MonoBehaviour:
     voiceDuration: 4
   - key: levelMatchFound
     voiceDuration: 3
+  - key: unitAllyCollector
+    voiceDuration: 1.25
+  - key: unitAllyCollectorDesc
+    voiceDuration: 5
+  - key: unitAllyGardener
+    voiceDuration: 1.25
+  - key: unitAllyGardenerDesc
+    voiceDuration: 5
+  - key: unitAllyMallet
+    voiceDuration: 1.25
+  - key: unitAllyMalletDesc
+    voiceDuration: 5
+  - key: unitAllySpearman
+    voiceDuration: 1.25
+  - key: unitAllySpearmanDesc
+    voiceDuration: 5
+  - key: unitAllySunfly
+    voiceDuration: 1.25
+  - key: unitAllySunflyDesc
+    voiceDuration: 5
+  - key: unitAllyWindBlocker
+    voiceDuration: 1.5
+  - key: unitAllyWindBlockerDesc
+    voiceDuration: 5
   - key: climateTypeArid
     voiceDuration: 0.6
   - key: climateTypeAridDesc

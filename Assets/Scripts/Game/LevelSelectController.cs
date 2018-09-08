@@ -8,20 +8,28 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
     public string modalLevelSelect = "levelSelect";
     public GameObject[] levelGroupGOs;
 
+    [Header("Intro")]
+    public CutsceneController introCutscene;
+    public GameObject introRootGO;
+
     [Header("Tutorial")]
     public string tutorialModalDialog;
     [M8.Localize]
     public string[] tutorialDialogTexts;
-    public float tutorialEndWaitDelay = 1f;
 
     [Header("Signal")]
     public M8.Signal signalShowLevelMatch;
     public SignalLevelLocationData signalLevelLocation;
 
     private M8.GenericParams mLevelLocationParms = new M8.GenericParams();
+
+    private bool mIsIntroFinish;
         
     protected override void OnInstanceDeinit() {
         base.OnInstanceDeinit();
+
+        if(introCutscene)
+            introCutscene.endCallback -= OnIntroEnd;
 
         if(signalLevelLocation)
             signalLevelLocation.callback -= OnLevelLocationClicked;
@@ -45,33 +53,51 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
         }
         //
 
+        if(introCutscene)
+            introCutscene.endCallback += OnIntroEnd;
+
         if(signalLevelLocation)
             signalLevelLocation.callback += OnLevelLocationClicked;
     }
 
     protected override IEnumerator Start() {
-        yield return base.Start();
-
-        yield return new WaitForSeconds(startWaitDelay);
-
-        //tutorial at beginning
         var curIndex = GameData.instance.curLevelIndex;
+
+        if(introRootGO) introRootGO.SetActive(curIndex == 0);
+
+        do {
+            yield return null;
+        } while(M8.SceneManager.instance.isLoading);
+                
+        //tutorial at beginning        
         if(curIndex == 0) {
-            for(int i = 0; i < tutorialDialogTexts.Length; i++) {
-                bool isNext = false;
-                ModalDialog.Open(tutorialModalDialog, "", tutorialDialogTexts[i], () => isNext = true);
-                while(!isNext)
+            if(introCutscene) {
+                mIsIntroFinish = false;
+                introCutscene.Play();
+                while(!mIsIntroFinish)
                     yield return null;
             }
 
-            M8.UIModal.Manager.instance.ModalCloseUpTo(tutorialModalDialog, true);
-
-            while(M8.UIModal.Manager.instance.isBusy)
-                yield return null;
-
-            yield return new WaitForSeconds(tutorialEndWaitDelay);
+            if(introRootGO) introRootGO.SetActive(false);
         }
-                
+
+        if(signalModeChanged)
+            signalModeChanged.Invoke(mode);
+
+        yield return new WaitForSeconds(startWaitDelay);
+
+        for(int i = 0; i < tutorialDialogTexts.Length; i++) {
+            bool isNext = false;
+            ModalDialog.Open(tutorialModalDialog, "", tutorialDialogTexts[i], () => isNext = true);
+            while(!isNext)
+                yield return null;
+        }
+
+        M8.UIModal.Manager.instance.ModalCloseUpTo(tutorialModalDialog, true);
+
+        while(M8.UIModal.Manager.instance.isBusy)
+            yield return null;
+
         if(signalShowLevelMatch)
             signalShowLevelMatch.Invoke();
     }
@@ -81,5 +107,9 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
         mLevelLocationParms[ModalLevelLocation.parmClimateMatch] = GameData.instance.curLevelData.climateMatch;
 
         M8.UIModal.Manager.instance.ModalOpen(modalLevelSelect, mLevelLocationParms);
+    }
+
+    void OnIntroEnd() {
+        mIsIntroFinish = true;
     }
 }

@@ -16,7 +16,7 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
     }
 
     [Header("Scenes")]
-    public M8.SceneAssetPath introScene;
+    //public M8.SceneAssetPath introScene;
     public M8.SceneAssetPath endScene;
     public M8.SceneAssetPath levelSelectScene; //only really one level to select
     public M8.SceneAssetPath levelCompleteScene; //after level is completed, then go back to level select
@@ -48,7 +48,8 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
         isGameStarted = true;
 
         if(LoLManager.instance.curProgress == 0)
-            introScene.Load();
+            levelSelectScene.Load();
+        //introScene.Load();
         else {
             LoLMusicPlaylist.instance.Play();
             Current();
@@ -95,11 +96,11 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
 
         if(isGameStarted) {
             //we are in intro, proceed
-            if(curScene.name == introScene.name) {
-                Current();
-            }
+            //if(curScene.name == introScene.name) {
+                //Current();
+            //}
             //ending if we are already at max
-            else if(LoLManager.instance.curProgress == LoLManager.instance.progressMax)
+            if(LoLManager.instance.curProgress == LoLManager.instance.progressMax)
                 endScene.Load();
             //proceed to next progress
             else {
@@ -108,13 +109,13 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
             }
         }
         else { //debug
-            if(curScene.name == introScene.name) {
+            /*if(curScene.name == introScene.name) {
                 //play first level intro
                 curLevelIndex = 0;
 
                 levelSelectScene.Load();
-            }
-            else if(curScene.name == levelSelectScene.name) {
+            }*/
+            if(curScene.name == levelSelectScene.name) {
                 //play level
                 levels[curLevelIndex].scene.Load();
             }

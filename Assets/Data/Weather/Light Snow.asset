@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b292407ca563e4f82ca273dadc5066, type: 3}
   m_Name: Light Snow
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  image: {fileID: 0}
+  icon: {fileID: 21300000, guid: 07bf6b3ccadbbbd4ebdd5151fa4473cc, type: 3}
+  image: {fileID: 21300000, guid: 07bf6b3ccadbbbd4ebdd5151fa4473cc, type: 3}
   titleRef: weatherLightSnow
   detailRef: weatherLightSnowDesc

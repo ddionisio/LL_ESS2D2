@@ -28,6 +28,8 @@ public class CutsceneController : MonoBehaviour {
     [Header("Pages")]
     public Data[] pages;
 
+    public event System.Action endCallback;
+
     public bool playOnStart = true;
     public bool progressOnEnd = true;
 
@@ -189,8 +191,13 @@ public class CutsceneController : MonoBehaviour {
             mCurPageInd++;
             ShowCurrentPage();
         }
-        else if(progressOnEnd) { //proceed
-            GameData.instance.Progress();
+        else { 
+            if(progressOnEnd) { //proceed
+                GameData.instance.Progress();
+            }
+
+            if(endCallback != null)
+                endCallback();
         }
     }
 }

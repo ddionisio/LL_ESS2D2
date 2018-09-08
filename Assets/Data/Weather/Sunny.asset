@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b292407ca563e4f82ca273dadc5066, type: 3}
   m_Name: Sunny
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 54e39456c698d3b418bc99c3868f36ab, type: 3}
+  image: {fileID: 21300000, guid: 54e39456c698d3b418bc99c3868f36ab, type: 3}
   titleRef: weatherSunny
   detailRef: weatherSunnyDesc
