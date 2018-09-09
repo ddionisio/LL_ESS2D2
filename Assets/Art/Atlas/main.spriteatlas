@@ -35,6 +35,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 8d6045efc8a94e64498910ab50ee5523, type: 3}
     - {fileID: 102900000, guid: 1525c848b4cf994428f5c1a96ded1985, type: 3}
     - {fileID: 102900000, guid: 0506a66612c4ecf4985d26d7cf4dd922, type: 3}
+    - {fileID: 102900000, guid: 1aaa6db66eae5f64e85e7c975a683dab, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -137,6 +138,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 98dcbc88df1944742b74d24843f65c75, type: 3}
   - {fileID: 21300000, guid: e1a1aa98ec3d5fc40af86723834e55ad, type: 3}
   - {fileID: 21300000, guid: e2f899a8eb3311e439f18e52b5f79886, type: 3}
+  - {fileID: 21300000, guid: d9cbc8b8fecb4854c9bcf7b8bfe7c15b, type: 3}
   - {fileID: 21300006, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300000, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300008, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
@@ -148,6 +150,8 @@ SpriteAtlas:
   - {fileID: 21300002, guid: 1936bac986127cb4bad904bfad92c266, type: 3}
   - {fileID: 21300000, guid: 5bd30cc97b03ee3439a8b13f52fdba3a, type: 3}
   - {fileID: 21300000, guid: 4517cad98236488479ff48a35064577e, type: 3}
+  - {fileID: 21300000, guid: d1bd9fe987f9c1c439ccc74a5fd3a287, type: 3}
+  - {fileID: 21300000, guid: 0b446b2a89339784b9bc37768f9b8583, type: 3}
   - {fileID: 21300000, guid: 312a1d2aa377f9941bf39107f8963891, type: 3}
   - {fileID: 21300000, guid: 4278b03a128f6844daf0a8ea0a2ca55a, type: 3}
   - {fileID: 21300000, guid: 08a2183a126de914ea9d3a2a31a76d94, type: 3}
@@ -178,6 +182,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8b2091dc11eecec41b04b688346ba04b, type: 3}
   - {fileID: 21300000, guid: c9248bdc58960c24fbfbfb7a7a523e14, type: 3}
   - {fileID: 21300000, guid: c44548ecdd4dab846ace7565e6166c20, type: 3}
+  - {fileID: 21300000, guid: 966d114d04e7ebf4da5e508ad4b0216f, type: 3}
   - {fileID: 21300000, guid: 3b2c848d201ef554a80af5707776a4d1, type: 3}
   - {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
   - {fileID: 21300000, guid: 696f60cd65ae0044a93f5cc0d5ef3fd8, type: 3}
@@ -303,6 +308,7 @@ SpriteAtlas:
   - correctCheck
   - flySnow
   - collector_move1Transport
+  - climateTemperate
   - blank4x4_bottomLeft
   - blank4x4_bottom
   - blank4x4_border
@@ -314,6 +320,8 @@ SpriteAtlas:
   - shade_bottom
   - weather_overcast
   - collector_move1
+  - climateArid
+  - climateSemiTropical
   - cardPortrait_mallet
   - moleMove
   - flowerBloom01
@@ -344,6 +352,7 @@ SpriteAtlas:
   - toggleBase
   - weatherCycleDataBase
   - toggleOn
+  - climatePolarChill
   - flowerStem
   - gardener_idle
   - motherbaseStem4

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c751cc6377bb8d4da4155ed7f62d7e2, type: 3}
   m_Name: climateMarineWestCoast
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 4bcd4f3655521854e8ad932a2ab75e13, type: 3}
   titleTextRef: climateTypeMarineWestCoast
   descTextRef: climateTypeMarineWestCoastDesc
   zone: {fileID: 11400000, guid: 8d8d2b5abb68d7d49be846f15ea14fba, type: 2}
