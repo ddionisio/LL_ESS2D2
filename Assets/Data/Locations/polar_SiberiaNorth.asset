@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: polar_SiberiaNorth
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  titleTextRef: 
-  descTextRef: 
+  titleTextRef: locationSiberia
+  descTextRef: locationSiberiaDesc
   climate: {fileID: 11400000, guid: aa20eddbb5997964eae00e5718a0a7f2, type: 2}

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   titleTextRef: locationSahara
+  descTextRef: locationSaharaDesc
   climate: {fileID: 11400000, guid: fc254b8f9d1898146968c0f6cdb5ad0f, type: 2}

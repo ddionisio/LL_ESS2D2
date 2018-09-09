@@ -26,6 +26,58 @@ MonoBehaviour:
     voiceDuration: 4
   - key: levelMatchFound
     voiceDuration: 3
+  - key: weatherSunny
+    voiceDuration: 2
+  - key: weatherSunnyDesc
+    voiceDuration: 5
+  - key: weatherPartlySunny
+    voiceDuration: 2
+  - key: weatherPartlySunnyDesc
+    voiceDuration: 5
+  - key: weatherMostlyCloudy
+    voiceDuration: 2
+  - key: weatherMostlyCloudyDesc
+    voiceDuration: 5
+  - key: weatherCloudy
+    voiceDuration: 2
+  - key: weatherCloudyDesc
+    voiceDuration: 5
+  - key: weatherLightRain
+    voiceDuration: 2
+  - key: weatherLightRainDesc
+    voiceDuration: 5
+  - key: weatherRain
+    voiceDuration: 1
+  - key: weatherRainDesc
+    voiceDuration: 5
+  - key: weatherOvercast
+    voiceDuration: 1
+  - key: weatherOvercastDesc
+    voiceDuration: 5
+  - key: weatherFog
+    voiceDuration: 1
+  - key: weatherFogDesc
+    voiceDuration: 5
+  - key: weatherHaze
+    voiceDuration: 1
+  - key: weatherHazeDesc
+    voiceDuration: 4
+  - key: weatherSandstorm
+    voiceDuration: 2
+  - key: weatherSandstormDesc
+    voiceDuration: 8
+  - key: weatherLightSnow
+    voiceDuration: 2
+  - key: weatherLightSnowDesc
+    voiceDuration: 5
+  - key: weatherSnow
+    voiceDuration: 1
+  - key: weatherSnowDesc
+    voiceDuration: 5
+  - key: weatherBlizzard
+    voiceDuration: 1.5
+  - key: weatherBlizzardDesc
+    voiceDuration: 10
   - key: unitAllyCollector
     voiceDuration: 1.25
   - key: unitAllyCollectorDesc
@@ -51,10 +103,66 @@ MonoBehaviour:
   - key: unitAllyWindBlockerDesc
     voiceDuration: 5
   - key: climateTypeArid
-    voiceDuration: 0.6
+    voiceDuration: 1
   - key: climateTypeAridDesc
     voiceDuration: 5
   - key: climateTypeContinental
     voiceDuration: 1
   - key: climateTypeContinentalDesc
-    voiceDuration: 5
+    voiceDuration: 8
+  - key: climateTypeMarineWestCoast
+    voiceDuration: 1
+  - key: climateTypeMarineWestCoastDesc
+    voiceDuration: 8
+  - key: climateTypeMediterranean
+    voiceDuration: 1.5
+  - key: climateTypeMediterraneanDesc
+    voiceDuration: 8
+  - key: climateTypePolar
+    voiceDuration: 1
+  - key: climateTypePolarDesc
+    voiceDuration: 8
+  - key: climateTypeRainforest
+    voiceDuration: 1
+  - key: climateTypeRainforestDesc
+    voiceDuration: 8
+  - key: locationOutback
+    voiceDuration: 2
+  - key: locationOutbackDesc
+    voiceDuration: 10
+  - key: locationGreatPlains
+    voiceDuration: 1.5
+  - key: locationGreatPlainsDesc
+    voiceDuration: 10
+  - key: locationSahara
+    voiceDuration: 2.5
+  - key: locationSaharaDesc
+    voiceDuration: 10
+  - key: locationBritishIsles
+    voiceDuration: 2.5
+  - key: locationBritishIslesDesc
+    voiceDuration: 12
+  - key: locationPacificNorthwest
+    voiceDuration: 2
+  - key: locationPacificNorthwestDesc
+    voiceDuration: 12
+  - key: locationCostaBrava
+    voiceDuration: 2.5
+  - key: locationCostaBravaDesc
+    voiceDuration: 8
+  - key: locationGreenland
+    voiceDuration: 2
+  - key: locationGreenlandDesc
+    voiceDuration: 10
+  - key: locationSiberia
+    voiceDuration: 1.5
+  - key: locationSiberiaDesc
+    voiceDuration: 8
+  - key: locationBrazil
+    voiceDuration: 1
+  - key: locationBrazilDesc
+    voiceDuration: 10
+  - key: locationPuertoRico
+    voiceDuration: 2
+  - key: locationPuertoRicoDesc
+    voiceDuration: 10

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: rainforest_AmazonasBrazil
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  titleTextRef: 
-  descTextRef: 
+  titleTextRef: locationBrazil
+  descTextRef: locationBrazilDesc
   climate: {fileID: 11400000, guid: 8c6f52f1e5f122a4699c5b8436fc172c, type: 2}

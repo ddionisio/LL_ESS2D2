@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: arid_Outback
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  titleTextRef: 
-  descTextRef: 
+  titleTextRef: locationOutback
+  descTextRef: locationOutbackDesc
   climate: {fileID: 11400000, guid: fc254b8f9d1898146968c0f6cdb5ad0f, type: 2}

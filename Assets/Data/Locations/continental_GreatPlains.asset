@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   titleTextRef: locationGreatPlains
+  descTextRef: locationGreatPlainsDesc
   climate: {fileID: 11400000, guid: 31767c67b79dc5543b4d0d3b06b7c7af, type: 2}

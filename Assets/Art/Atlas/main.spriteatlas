@@ -115,6 +115,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 97f1d7061652b6244a9f126a6a39045c, type: 3}
   - {fileID: 21300000, guid: c54f880656c99e84abb3acb993afb9c9, type: 3}
   - {fileID: 21300000, guid: f66892366cc920b4f8e45289d384d222, type: 3}
+  - {fileID: 21300000, guid: 4bcd4f3655521854e8ad932a2ab75e13, type: 3}
   - {fileID: 21300000, guid: 9d8fbf46f402b0146b8769ec84c39665, type: 3}
   - {fileID: 21300000, guid: 54e39456c698d3b418bc99c3868f36ab, type: 3}
   - {fileID: 21300000, guid: bc972d665a370f7498077c4d029eee6f, type: 3}
@@ -144,6 +145,7 @@ SpriteAtlas:
   - {fileID: 21300008, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300002, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
   - {fileID: 21300004, guid: 02cb7109eec577d45a27167e2308de23, type: 3}
+  - {fileID: 21300000, guid: 5f0516191dd43624aa3a4b9275f30158, type: 3}
   - {fileID: 21300000, guid: 4f1bdd49b6c3856418b146cbcfcb6df7, type: 3}
   - {fileID: 21300000, guid: bb8a087995e8ab149b0f5c36c07f3d96, type: 3}
   - {fileID: 21300000, guid: 1936bac986127cb4bad904bfad92c266, type: 3}
@@ -186,6 +188,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3b2c848d201ef554a80af5707776a4d1, type: 3}
   - {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
   - {fileID: 21300000, guid: 696f60cd65ae0044a93f5cc0d5ef3fd8, type: 3}
+  - {fileID: 21300000, guid: 8b49acdd30b84114daf7d030924cb0a4, type: 3}
   - {fileID: 21300000, guid: 097e8aed29bd0f9409491574b3c2ac8f, type: 3}
   - {fileID: 21300000, guid: b24feefdb03bcdf4e8553819f0cf8cc8, type: 3}
   - {fileID: 21300000, guid: 940b9c6eb6b906741a775e421a8dd3bb, type: 3}
@@ -285,6 +288,7 @@ SpriteAtlas:
   - sunflyWing
   - iceyBase
   - weather_haze
+  - climateOceanic
   - weatherCycleDataArrow
   - weather_sunny
   - flowerPowerCore
@@ -314,6 +318,7 @@ SpriteAtlas:
   - blank4x4_border
   - blank4x4
   - blank4x4_topLeft
+  - climateMonsoon
   - collector_move0
   - optionButton
   - shade
@@ -356,6 +361,7 @@ SpriteAtlas:
   - flowerStem
   - gardener_idle
   - motherbaseStem4
+  - climateMediterranean
   - cardPortrait_gardener
   - hopper2
   - sunfly

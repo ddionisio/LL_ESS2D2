@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   titleTextRef: locationPacificNorthwest
+  descTextRef: locationPacificNorthwestDesc
   climate: {fileID: 11400000, guid: 706786bf0e18724418a7142600fa3f45, type: 2}

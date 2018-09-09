@@ -69,7 +69,7 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
             yield return null;
         } while(M8.SceneManager.instance.isLoading);
                 
-        //tutorial at beginning        
+        //intro at beginning
         if(curIndex == 0) {
             if(introCutscene) {
                 mIsIntroFinish = false;
@@ -81,22 +81,26 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
             if(introRootGO) introRootGO.SetActive(false);
         }
 
+        //begin mode
         if(signalModeChanged)
             signalModeChanged.Invoke(mode);
 
         yield return new WaitForSeconds(startWaitDelay);
 
-        for(int i = 0; i < tutorialDialogTexts.Length; i++) {
-            bool isNext = false;
-            ModalDialog.Open(tutorialModalDialog, "", tutorialDialogTexts[i], () => isNext = true);
-            while(!isNext)
+        //tutorial at beginning
+        if(curIndex == 0) {
+            for(int i = 0; i < tutorialDialogTexts.Length; i++) {
+                bool isNext = false;
+                ModalDialog.Open(tutorialModalDialog, "", tutorialDialogTexts[i], () => isNext = true);
+                while(!isNext)
+                    yield return null;
+            }
+
+            M8.UIModal.Manager.instance.ModalCloseUpTo(tutorialModalDialog, true);
+
+            while(M8.UIModal.Manager.instance.isBusy)
                 yield return null;
         }
-
-        M8.UIModal.Manager.instance.ModalCloseUpTo(tutorialModalDialog, true);
-
-        while(M8.UIModal.Manager.instance.isBusy)
-            yield return null;
 
         if(signalShowLevelMatch)
             signalShowLevelMatch.Invoke();
