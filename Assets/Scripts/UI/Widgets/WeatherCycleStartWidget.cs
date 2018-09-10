@@ -8,6 +8,11 @@ public class WeatherCycleStartWidget : MonoBehaviour {
     [M8.Localize]
     public string cycleTextRef;
 
+    [Header("Speech")]
+    public string speechGroup;
+    [M8.Localize]
+    public string[] speechTextRefs;
+
     [Header("Animation")]
     public M8.Animator.Animate animator;
     public string takeCycleStart;
@@ -31,5 +36,11 @@ public class WeatherCycleStartWidget : MonoBehaviour {
 
         if(animator && !string.IsNullOrEmpty(takeCycleStart))
             animator.Play(takeCycleStart);
+
+        //play speeches
+        for(int i = 0; i < speechTextRefs.Length; i++) {
+            if(!string.IsNullOrEmpty(speechTextRefs[i]))
+                LoLManager.instance.SpeakTextQueue(speechTextRefs[i], speechGroup, i);
+        }
     }
 }

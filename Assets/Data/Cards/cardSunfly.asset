@@ -23,6 +23,6 @@ MonoBehaviour:
   - Weed
   icon: {fileID: 21300000, guid: 2f6628f39682d184493457b343043453, type: 3}
   image: {fileID: 21300000, guid: b0762981804d54343ba605e54b8a4fba, type: 3}
-  illustration: {fileID: 21300000, guid: b0762981804d54343ba605e54b8a4fba, type: 3}
+  illustration: {fileID: 21300000, guid: 61e3868251a73da41889427301dc2458, type: 3}
   titleRef: unitAllySunfly
   descriptionRef: unitAllySunflyDesc

@@ -9,12 +9,20 @@ public class ModalVictory : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M
 
     public Text scoreLabel;
 
-    public string modalNext;
+    [M8.TagSelector]
+    public string proceedTagActivate;
 
     public void Proceed() {
-        if(!string.IsNullOrEmpty(modalNext)) {
+        if(!string.IsNullOrEmpty(proceedTagActivate)) {
             Close();
-            M8.UIModal.Manager.instance.ModalOpen(modalNext);
+
+            var go = GameObject.FindGameObjectWithTag(proceedTagActivate);
+            M8.GOActiveToggle goToggle = null;
+            if(go && (goToggle = go.GetComponent<M8.GOActiveToggle>())) {
+                goToggle.Toggle();
+            }
+            else
+                GameData.instance.Progress();
         }
         else
             GameData.instance.Progress();

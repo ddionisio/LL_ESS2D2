@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89b82452bbb9d54ea514c6f84cb3cf0, type: 3}
   m_Name: marineWestCoast_BritishIsle
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: fd1c50c5c7075c243b85c385818ad628, type: 3}
   titleTextRef: locationBritishIsles
   descTextRef: locationBritishIslesDesc
   climate: {fileID: 11400000, guid: 706786bf0e18724418a7142600fa3f45, type: 2}

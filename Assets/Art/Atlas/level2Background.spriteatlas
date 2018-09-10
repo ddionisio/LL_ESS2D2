@@ -46,12 +46,14 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 014bd516067dc3f4386c326954a71c4a, type: 3}
   - {fileID: 21300000, guid: acf4f7179d4d83945911d6a0c3d1c4f5, type: 3}
+  - {fileID: 21300000, guid: 7553e5b887ac59749b46b2a1c789739f, type: 3}
   - {fileID: 21300000, guid: 7593d049eeef8624283a237d7003c646, type: 3}
   - {fileID: 21300000, guid: bb72a60cd576fbf4091946a60e900dbd, type: 3}
   - {fileID: 21300000, guid: 060cd64e1cde6424cb11fe38669bfe10, type: 3}
   m_PackedSpriteNamesToIndex:
   - background
   - shades1
+  - summaryIllustrate
   - foregroundTop
   - shades2
   - tileGround

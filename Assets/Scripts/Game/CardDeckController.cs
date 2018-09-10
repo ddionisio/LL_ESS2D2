@@ -136,6 +136,11 @@ public class CardDeckController : MonoBehaviour {
         cards[cardIndex].curState = mIsCardsActive ? CardState.Active : CardState.Disabled;
     }
 
+    public void HideAllCards() {
+        for(int i = 0; i < cards.Length; i++)
+            cards[i].curState = CardState.Hidden;
+    }
+
     public CardItem GetCardItem(Unit unit) {
         for(int i = 0; i < cards.Length; i++) {
             string templateName = unit.spawnType;

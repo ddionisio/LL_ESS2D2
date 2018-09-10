@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89b82452bbb9d54ea514c6f84cb3cf0, type: 3}
   m_Name: mediterranean_CostaBrava
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 6411a4be886a6fe49a5fc39425b90ba4, type: 3}
   titleTextRef: locationCostaBrava
   descTextRef: locationCostaBravaDesc
   climate: {fileID: 11400000, guid: baba1d729bda3c94281c7be2842b568e, type: 2}

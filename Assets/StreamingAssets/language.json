@@ -7,6 +7,7 @@
   "en": {
     "welcome": "Welcome!",
     "title": "PROJECT BLOOM",
+    "credits": "Written by: David Dionisio\nMusic from: Kevin Macleod\nPhotos:\nSahara (Kent Larsson), Road to the Isles (Trevor Wright), Similkameen River (Greg Shine, BLM), Costa Brava (Gordito1869), Puerto Rico (Oquendo)",
     "launch": "LAUNCH",
     "mismatch": "MISMATCH",
     "options": "OPTIONS",
@@ -22,6 +23,7 @@
     "levelMatchDesc": "Find the location that matches the following climate.",
     "levelMatchNotFound": "Climate does not match, try another location.",
     "levelMatchFound": "Climate Match Found!",
+    "cycleTitle": "Cycle",
     "cycle": "CYCLE {0}",
     "cycleStart": "BEGIN",
     "cycleEnd": "CYCLE FINISH",
@@ -44,6 +46,8 @@
     "type": "Type",
     "humidity": "Humidity",
     "wind": "Wind",
+    "winter": "Winter",
+    "summer": "Summer",
     "weatherForecast": "Weather Forecast",
     "weatherSunny": "Sunny",
     "weatherSunnyDesc": "Sun is visible for most of the day with few scattered clouds.",
@@ -125,6 +129,16 @@
     "intro02": "We need you to help train these fine capable frogs to nurture and protect the flowers.",
     "tutorialLevelSelect01": "This is a satellite map of Earth. Help us find a suitable location to land our seedling based on the target climate.",
     "tutorialLevelSelect02": "You can press the image of the climate to get more information.",
-    "tutorialDragInstruction": "Drag the card towards the playing field."
+    "tutorialDragInstruction": "Drag the card towards the playing field.",
+    "level1Summary01": "Climate versus Weather",
+    "level1Summary02": "Weather describes the atmospheric condition at a specific region, and specific period of time. This is typically in hour-to-hour, day-to-day.",
+    "level1Summary03": "Climate describes the pattern of weather over a long period of time at a specific region. This can be 30 years, or even over a century.",
+    "level1Summary_ex01": "Day 1",
+    "level1Summary_ex02": "Day 2",
+    "level1Summary_ex03": "Day 3",
+    "level2Summary01": "Microclimate",
+    "level2Summary02": "Certain local areas can have a different pattern of weather than the main climate. This can be as small as a garden patch, or even be in a cave. As an example: a mountain or a hill can block the sunlight for most of the time, causing a cooler region.",
+    "level3Summary01": "Severe Weather",
+    "level3Summary02": "These are rare types of weather that can cause drastic change to a region. Their atmospheric condition such as wind speed and temperature are off the charts. Severe weathers are considered to be dangerous, and can put you in a perilous situation."
   }
 }

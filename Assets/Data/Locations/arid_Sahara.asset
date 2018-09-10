@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89b82452bbb9d54ea514c6f84cb3cf0, type: 3}
   m_Name: arid_Sahara
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: b50ac5c8af63f7d4384f48a3b3fe76ca, type: 3}
   titleTextRef: locationSahara
   descTextRef: locationSaharaDesc
   climate: {fileID: 11400000, guid: fc254b8f9d1898146968c0f6cdb5ad0f, type: 2}

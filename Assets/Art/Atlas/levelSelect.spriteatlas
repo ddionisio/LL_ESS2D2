@@ -41,29 +41,50 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 933c7c0b4538a1f46b3c5d23b48c1e21, type: 3}
+    - {fileID: 102900000, guid: 00dc9a8515da49348b179dda526a28e6, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: d6c970b05aa4c124f806d97cf25c0d65, type: 3}
+  - {fileID: 21300000, guid: 164b1b9185836b44cae4873363f13838, type: 3}
+  - {fileID: 21300000, guid: 20c46f33d2f9fdb44801641facd8de49, type: 3}
+  - {fileID: 21300000, guid: 4d619d53f63ff7c4aaf5f4c3350fdd2d, type: 3}
   - {fileID: 21300000, guid: 6ba7225438a2cba4d8b7117129293f93, type: 3}
+  - {fileID: 21300000, guid: c9da6955ec1777a439161b69a69b772e, type: 3}
+  - {fileID: 21300000, guid: fd1c50c5c7075c243b85c385818ad628, type: 3}
   - {fileID: 21300000, guid: 7d7410b7585cc264caa5c851b8ab59f3, type: 3}
+  - {fileID: 21300000, guid: 5f0b4c18fd5a8f34d8ff1a89a3f6de7f, type: 3}
   - {fileID: 21300000, guid: 09f696585972b4c48aa4ba53790bd57c, type: 3}
+  - {fileID: 21300000, guid: b50ac5c8af63f7d4384f48a3b3fe76ca, type: 3}
+  - {fileID: 21300000, guid: d9a159d8093b5394a805ba0eded7fbe4, type: 3}
   - {fileID: 21300006, guid: d341491a53f40ba489547917602c3c2f, type: 3}
   - {fileID: 21300000, guid: d341491a53f40ba489547917602c3c2f, type: 3}
   - {fileID: 21300008, guid: d341491a53f40ba489547917602c3c2f, type: 3}
   - {fileID: 21300002, guid: d341491a53f40ba489547917602c3c2f, type: 3}
   - {fileID: 21300004, guid: d341491a53f40ba489547917602c3c2f, type: 3}
+  - {fileID: 21300000, guid: 1484454a7568dae458a93438ae259f90, type: 3}
   - {fileID: 21300000, guid: daee9b7dec39e30488fdf2ea9070c92f, type: 3}
+  - {fileID: 21300000, guid: 6411a4be886a6fe49a5fc39425b90ba4, type: 3}
   m_PackedSpriteNamesToIndex:
   - world
+  - brazil
+  - greatPlains
+  - greenland
   - levelSelectDot
+  - outback
+  - britishIsles
   - levelSelectDot2
+  - siberia
   - frame
+  - sahara
+  - pacificNorthwest
   - blank4x4_bottomLeft
   - blank4x4_bottom
   - blank4x4_border
   - blank4x4
   - blank4x4_topLeft
+  - puertoRico
   - dot
+  - costaBrava
   m_Tag: levelSelect
   m_IsVariant: 0

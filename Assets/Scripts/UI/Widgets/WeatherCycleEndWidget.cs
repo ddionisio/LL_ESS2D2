@@ -7,6 +7,11 @@ public class WeatherCycleEndWidget : MonoBehaviour {
     public M8.Animator.Animate animator;
     public string takeCycleStart;
 
+    [Header("Speech")]
+    public string speechGroup;
+    [M8.Localize]
+    public string speechTextRef;
+
     void OnDisable() {
         if(GameController.isInstantiated && GameController.instance.weatherCycle)
             GameController.instance.weatherCycle.cycleEndCallback -= OnCycleEnd;
@@ -23,5 +28,8 @@ public class WeatherCycleEndWidget : MonoBehaviour {
     void OnCycleEnd() {
         if(animator && !string.IsNullOrEmpty(takeCycleStart))
             animator.Play(takeCycleStart);
+
+        if(!string.IsNullOrEmpty(speechTextRef))
+            LoLManager.instance.SpeakTextQueue(speechTextRef, speechGroup, 0);
     }
 }

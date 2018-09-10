@@ -11,9 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3799090134f9daf469bbcbde4f650887, type: 3}
   m_Name: gameData
   m_EditorClassIdentifier: 
-  introScene:
-    name: intro
-    path: Assets/Scenes/intro.unity
   endScene:
     name: end
     path: Assets/Scenes/end.unity
@@ -44,7 +41,7 @@ MonoBehaviour:
       name: level4
       path: Assets/Scenes/level4.unity
   levelCycleStartDelay: 2
-  levelCycleEndDelay: 2
+  levelCycleEndDelay: 3
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 513

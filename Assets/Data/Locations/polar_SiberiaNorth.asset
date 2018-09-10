@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89b82452bbb9d54ea514c6f84cb3cf0, type: 3}
   m_Name: polar_SiberiaNorth
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 5f0b4c18fd5a8f34d8ff1a89a3f6de7f, type: 3}
   titleTextRef: locationSiberia
   descTextRef: locationSiberiaDesc
   climate: {fileID: 11400000, guid: aa20eddbb5997964eae00e5718a0a7f2, type: 2}

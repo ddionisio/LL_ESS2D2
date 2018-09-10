@@ -114,6 +114,9 @@ public class GameController : GameModeController<GameController> {
             StartCoroutine(DoNewCycle());
         }
         else {
+            //hide cards
+            cardDeck.HideAllCards();
+
             //allow motherbase to do its victory thing
             motherbase.Victory();
 

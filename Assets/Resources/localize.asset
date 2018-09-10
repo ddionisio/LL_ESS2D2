@@ -26,6 +26,16 @@ MonoBehaviour:
     voiceDuration: 4
   - key: levelMatchFound
     voiceDuration: 3
+  - key: cycleTitle
+    voiceDuration: 1
+  - key: cycleStart
+    voiceDuration: 1
+  - key: cycleEnd
+    voiceDuration: 2
+  - key: summaryTitle
+    voiceDuration: 1
+  - key: weatherForecast
+    voiceDuration: 2.5
   - key: weatherSunny
     voiceDuration: 2
   - key: weatherSunnyDesc
@@ -165,4 +175,18 @@ MonoBehaviour:
   - key: locationPuertoRico
     voiceDuration: 2
   - key: locationPuertoRicoDesc
+    voiceDuration: 10
+  - key: level1Summary01
+    voiceDuration: 3
+  - key: level1Summary02
+    voiceDuration: 10
+  - key: level1Summary03
+    voiceDuration: 10
+  - key: level2Summary01
+    voiceDuration: 2
+  - key: level2Summary02
+    voiceDuration: 10
+  - key: level3Summary01
+    voiceDuration: 2
+  - key: level3Summary02
     voiceDuration: 10

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89b82452bbb9d54ea514c6f84cb3cf0, type: 3}
   m_Name: rainforest_PuertoRico
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 1484454a7568dae458a93438ae259f90, type: 3}
   titleTextRef: locationPuertoRico
   descTextRef: locationPuertoRicoDesc
   climate: {fileID: 11400000, guid: 8c6f52f1e5f122a4699c5b8436fc172c, type: 2}
