@@ -54,6 +54,10 @@ public class ModalLevelLocation : M8.UIModal.Controller, M8.UIModal.Interface.IP
     public ItemMatchData climateLevel;
     public ItemMatchData climateMatch;
 
+    [Header("Audio")]
+    public string sfxPathMatch;
+    public string sfxPathMismatch;
+
     private State state {
         get { return mState; }
         set {
@@ -82,10 +86,14 @@ public class ModalLevelLocation : M8.UIModal.Controller, M8.UIModal.Interface.IP
 
         if(isMatch) {
             //play ding sound
+            if(!string.IsNullOrEmpty(sfxPathMatch)) LoLManager.instance.PlaySound(sfxPathMatch, false, false);
+
             state = State.Match;
         }
         else {
             //play error sound
+            if(!string.IsNullOrEmpty(sfxPathMismatch)) LoLManager.instance.PlaySound(sfxPathMismatch, false, false);
+
             state = State.Mismatch;
         }
     }
@@ -97,6 +105,16 @@ public class ModalLevelLocation : M8.UIModal.Controller, M8.UIModal.Interface.IP
     void M8.UIModal.Interface.IPop.Pop() {
         mLevelLocationData = null;
         mClimateMatchData = null;
+
+        if(revealGO) revealGO.SetActive(false);
+        if(matchGO) matchGO.SetActive(false);
+        if(mismatchGO) mismatchGO.SetActive(false);
+
+        if(climateMatchGO) climateMatchGO.SetActive(false);
+        if(climateMismatchGO) climateMismatchGO.SetActive(false);
+
+        if(climateZoneMatchGO) climateZoneMatchGO.SetActive(false);
+        if(climateZoneMismatchGO) climateZoneMismatchGO.SetActive(false);
     }
 
     void M8.UIModal.Interface.IPush.Push(M8.GenericParams parms) {

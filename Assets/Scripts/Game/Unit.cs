@@ -25,6 +25,9 @@ public class Unit : M8.EntityBase {
     public GameObject displayRootGO;
     public GameObject spawnRootGO;
 
+    [Header("SFX")]
+    public string sfxPathDeath = "Audio/boop.wav";
+
     public Rigidbody2D body { get; private set; }
     public Collider2D coll { get; private set; }
 
@@ -179,6 +182,9 @@ public class Unit : M8.EntityBase {
         else if(state == UnitStates.instance.dead || state == UnitStates.instance.blowOff) {
             isPhysicsActive = false;
             despawnCycleType = DespawnCycleType.None;
+
+            if(!string.IsNullOrEmpty(sfxPathDeath))
+                LoLManager.instance.PlaySound(sfxPathDeath, false, false);
         }
     }
 

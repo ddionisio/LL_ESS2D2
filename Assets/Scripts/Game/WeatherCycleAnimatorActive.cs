@@ -10,18 +10,20 @@ public class WeatherCycleAnimatorActive : MonoBehaviour {
 
     private bool mIsActive = false;
 
-    void OnDestroy() {
+    void OnDisable() {
         if(GameController.isInstantiated && GameController.instance.weatherCycle) {
             GameController.instance.weatherCycle.weatherBeginCallback -= OnWeatherBegin;
             GameController.instance.weatherCycle.cycleEndCallback -= OnCycleEnd;
         }
     }
 
-    void Awake() {
+    void OnEnable() {
         GameController.instance.weatherCycle.weatherBeginCallback += OnWeatherBegin;
         GameController.instance.weatherCycle.cycleEndCallback += OnCycleEnd;
 
         if(rootGO) rootGO.SetActive(false);
+
+        mIsActive = false;
     }
 
     void OnWeatherBegin() {

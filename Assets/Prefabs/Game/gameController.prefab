@@ -158,6 +158,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1222813467404998
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4479050749857976}
+  - component: {fileID: 114547575043666970}
+  m_Layer: 0
+  m_Name: enterLandSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1228809747776474
 GameObject:
   m_ObjectHideFlags: 1
@@ -899,7 +915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4678232585522776}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4243622423551348
 Transform:
@@ -1010,6 +1026,19 @@ Transform:
   m_Father: {fileID: 4814091205471514}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4479050749857976
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222813467404998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4678232585522776}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4514413699333174
 Transform:
   m_ObjectHideFlags: 1
@@ -1081,7 +1110,7 @@ Transform:
   m_Children:
   - {fileID: 4923105787334934}
   m_Father: {fileID: 4678232585522776}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4584992168251654
 Transform:
@@ -1177,6 +1206,7 @@ Transform:
   m_Children:
   - {fileID: 4069978024902176}
   - {fileID: 4002290295305834}
+  - {fileID: 4479050749857976}
   - {fileID: 4238636613963466}
   - {fileID: 4583190666370526}
   - {fileID: 4814091205471514}
@@ -1252,7 +1282,7 @@ Transform:
   - {fileID: 4442765770077420}
   - {fileID: 4339596467265954}
   m_Father: {fileID: 4678232585522776}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4829696678736408
 Transform:
@@ -1571,6 +1601,11 @@ MonoBehaviour:
   takeSpawnUnitExit: spawnUnitExit
   takeSpawnUnit: spawnUnit
   takeVictory: victory
+  sfxPathSpawns:
+  - Audio/jump1.wav
+  - Audio/jump2.wav
+  - Audio/jump3.wav
+  - Audio/jump4.wav
 --- !u!114 &114107250171220908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2147,12 +2182,12 @@ MonoBehaviour:
     numLoop: 1
     loopMode: 0
     loopBackToFrame: 0
-    trackCounter: 9
+    trackCounter: 10
     groupCounter: 0
     rootGroup:
       group_name: 
       group_id: 0
-      elements: 0300000004000000020000000500000006000000070000000800000009000000
+      elements: 03000000040000000200000005000000060000000700000008000000090000000a000000
       foldout: 1
     groupValues: []
   - name: spawnUnit
@@ -2226,29 +2261,25 @@ MonoBehaviour:
     _cameraSwitcherTracks: []
     _cameraSwitcherKeys: []
     _eventTracks:
-    - id: 5
-      name: Track4
-      foldout: 1
-      _targetPath: 
-      obj: {fileID: 198504184531721828}
-      componentName: ParticleSystem
     - id: 6
       name: Track5
       foldout: 1
       _targetPath: 
       obj: {fileID: 114083606029822400}
       componentName: Motherbase
+    - id: 10
+      name: Track9
+      foldout: 1
+      _targetPath: 
+      obj: {fileID: 114547575043666970}
+      componentName: LoLPlaySound
+    - id: 5
+      name: Track4
+      foldout: 1
+      _targetPath: 
+      obj: {fileID: 198504184531721828}
+      componentName: ParticleSystem
     _eventKeys:
-    - version: 0
-      interp: 0
-      frame: 25
-      easeType: 1
-      amplitude: 0
-      period: 0
-      customEase: []
-      useSendMessage: 0
-      parameters: []
-      methodName: Play
     - version: 0
       interp: 0
       frame: 25
@@ -2280,19 +2311,39 @@ MonoBehaviour:
         val_obj: {fileID: 0}
         lsArray: []
       methodName: ShakeCamera
+    - version: 0
+      interp: 0
+      frame: 25
+      easeType: 1
+      amplitude: 0
+      period: 0
+      customEase: []
+      useSendMessage: 0
+      parameters: []
+      methodName: Play
+    - version: 0
+      interp: 0
+      frame: 25
+      easeType: 1
+      amplitude: 0
+      period: 0
+      customEase: []
+      useSendMessage: 0
+      parameters: []
+      methodName: Play
     _goSetActiveTracks:
-    - id: 9
-      name: Track8
-      foldout: 1
-      _targetPath: 
-      obj: {fileID: 1531727288459872}
-      startActive: 0
     - id: 7
       name: Track6
       foldout: 1
       _targetPath: 
       obj: {fileID: 1536287260317534}
       startActive: 1
+    - id: 9
+      name: Track8
+      foldout: 1
+      _targetPath: 
+      obj: {fileID: 1531727288459872}
+      startActive: 0
     - id: 3
       name: Track2
       foldout: 1
@@ -2320,21 +2371,21 @@ MonoBehaviour:
     _goSetActiveKeys:
     - version: 1
       interp: 1
-      frame: 50
-      easeType: 1
-      amplitude: 0
-      period: 0
-      customEase: []
-      setActive: 1
-      endFrame: -1
-    - version: 1
-      interp: 1
       frame: 35
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       setActive: 0
+      endFrame: -1
+    - version: 1
+      interp: 1
+      frame: 50
+      easeType: 1
+      amplitude: 0
+      period: 0
+      customEase: []
+      setActive: 1
       endFrame: -1
     - version: 1
       interp: 1
@@ -2889,18 +2940,18 @@ MonoBehaviour:
     _unityAnimationTracks: []
     _unityAnimationKeys: []
     _scaleTracks:
-    - id: 3
-      name: Track2
-      foldout: 1
-      _targetPath: 
-      axis: -1
-      _obj: {fileID: 4069978024902176}
     - id: 8
       name: Track7
       foldout: 1
       _targetPath: 
       axis: -1
       _obj: {fileID: 4923105787334934}
+    - id: 3
+      name: Track2
+      foldout: 1
+      _targetPath: 
+      axis: -1
+      _obj: {fileID: 4069978024902176}
     - id: 7
       name: Track4
       foldout: 1
@@ -2916,24 +2967,6 @@ MonoBehaviour:
     _scaleKeys:
     - version: 1
       interp: 1
-      frame: 1
-      easeType: 3
-      amplitude: 0
-      period: 0
-      customEase: []
-      scale: {x: 0, y: 1, z: 1}
-      endFrame: 10
-    - version: 1
-      interp: 1
-      frame: 10
-      easeType: 1
-      amplitude: 0
-      period: 0
-      customEase: []
-      scale: {x: 1, y: 1, z: 1}
-      endFrame: -1
-    - version: 1
-      interp: 1
       frame: 50
       easeType: 3
       amplitude: 0
@@ -2944,6 +2977,24 @@ MonoBehaviour:
     - version: 1
       interp: 1
       frame: 60
+      easeType: 1
+      amplitude: 0
+      period: 0
+      customEase: []
+      scale: {x: 1, y: 1, z: 1}
+      endFrame: -1
+    - version: 1
+      interp: 1
+      frame: 1
+      easeType: 3
+      amplitude: 0
+      period: 0
+      customEase: []
+      scale: {x: 0, y: 1, z: 1}
+      endFrame: 10
+    - version: 1
+      interp: 1
+      frame: 10
       easeType: 1
       amplitude: 0
       period: 0
@@ -3005,30 +3056,33 @@ MonoBehaviour:
       scale: {x: 0, y: 0, z: 1}
       endFrame: -1
     _trackLookups:
-    - type: 3
-      index: 0
-      keyIndices: 00000000
-    - type: 11
-      index: 0
-      keyIndices: 0000000001000000
-    - type: 4
-      index: 0
-      keyIndices: 00000000
-    - type: 4
-      index: 1
-      keyIndices: 01000000
-    - type: 7
-      index: 0
-      keyIndices: 00000000010000000200000003000000
-    - type: 3
-      index: 1
-      keyIndices: 01000000
     - type: 10
       index: 0
       keyIndices: 0000000001000000
+    - type: 3
+      index: 0
+      keyIndices: 00000000
+    - type: 3
+      index: 1
+      keyIndices: 01000000
+    - type: 11
+      index: 0
+      keyIndices: 0000000001000000
+    - type: 7
+      index: 0
+      keyIndices: 00000000010000000200000003000000
     - type: 11
       index: 1
       keyIndices: 0200000003000000
+    - type: 3
+      index: 2
+      keyIndices: 02000000
+    - type: 4
+      index: 0
+      keyIndices: 00000000
+    - type: 4
+      index: 1
+      keyIndices: 01000000
     - type: 7
       index: 1
       keyIndices: 040000000500000006000000
@@ -3071,7 +3125,21 @@ MonoBehaviour:
     - type: 4
       index: 5
       keyIndices: 0500000006000000
-    _takeTrackCounts: 0800000004000000020000000200000006000000
+    _takeTrackCounts: 0900000004000000020000000200000006000000
+--- !u!114 &114547575043666970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222813467404998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210e46a1230fadd44974d60bf6374f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPath: Audio/cannonFire.wav
+  isBackground: 0
+  isLoop: 0
 --- !u!114 &114557332368121128
 MonoBehaviour:
   m_ObjectHideFlags: 1

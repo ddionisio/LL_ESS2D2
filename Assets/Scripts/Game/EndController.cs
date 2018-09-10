@@ -18,6 +18,9 @@ public class EndController : GameModeController<EndController> {
     protected override IEnumerator Start() {
         animator.ResetTake(takePlay);
 
+        if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath)
+            LoLManager.instance.PlaySound(musicPath, true, true);
+
         yield return base.Start();
 
         yield return new WaitForSeconds(playDelay);

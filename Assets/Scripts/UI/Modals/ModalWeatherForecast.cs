@@ -42,8 +42,8 @@ public class ModalWeatherForecast : M8.UIModal.Controller, M8.UIModal.Interface.
         base.SetActive(aActive);
 
         if(aActive) {
-            if(!string.IsNullOrEmpty(textSpeechTitleRef))
-                LoLManager.instance.SpeakTextQueue(textSpeechTitleRef, textSpeechGroup, 0);
+            //if(!string.IsNullOrEmpty(textSpeechTitleRef))
+                //LoLManager.instance.SpeakTextQueue(textSpeechTitleRef, textSpeechGroup, 0);
 
             /*for(int i = 0; i < mWeatherInfos.Length; i++) {
                 var textRef = mWeatherInfos[i].titleTextRef;

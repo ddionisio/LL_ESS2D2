@@ -49,6 +49,10 @@ public class Motherbase : MonoBehaviour {
     public string takeSpawnUnitExit;
     public string takeSpawnUnit;
     public string takeVictory;
+
+    [Header("SFX")]
+    public string[] sfxPathSpawns;
+    public string sfxPathVictory = "Audio/achieve.wav";
                 
     public State state { get { return mState; } }
 
@@ -477,6 +481,10 @@ public class Motherbase : MonoBehaviour {
             unitTrans.position = M8.MathUtil.Bezier(start, midPoint, end, t);            
         }
 
+        int sfxPathSpawnInd = Random.Range(0, sfxPathSpawns.Length);
+        string sfxPath = sfxPathSpawns[sfxPathSpawnInd];
+        LoLManager.instance.PlaySound(sfxPath, false, false);
+
         unit.MotherbaseSpawnFinish();
     }
 
@@ -488,6 +496,9 @@ public class Motherbase : MonoBehaviour {
             yield return null;
 
         yield return new WaitForSeconds(0.5f);
+
+        if(!string.IsNullOrEmpty(sfxPathVictory))
+            LoLManager.instance.PlaySound(sfxPathVictory, false, false);
 
         //play a little victory
         if(animator && !string.IsNullOrEmpty(takeVictory)) {

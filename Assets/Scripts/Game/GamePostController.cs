@@ -9,6 +9,9 @@ public class GamePostController : GameModeController<GamePostController> {
     [Header("Cutscene")]
     public CutsceneController cutscene;
 
+    [Header("Audio")]
+    public string musicPath;
+
     private bool mIsCutsceneFinish;
 
     protected override void OnInstanceDeinit() {
@@ -26,6 +29,9 @@ public class GamePostController : GameModeController<GamePostController> {
     }
 
     protected override IEnumerator Start() {
+        if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath)
+            LoLManager.instance.PlaySound(musicPath, true, true);
+
         //wait for scene
         yield return base.Start();
 
