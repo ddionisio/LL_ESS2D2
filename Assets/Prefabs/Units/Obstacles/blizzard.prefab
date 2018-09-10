@@ -58,6 +58,7 @@ MonoBehaviour:
   flags: -1
   displayRootGO: {fileID: 0}
   spawnRootGO: {fileID: 0}
+  sfxPathDeath: 
   checkLength: 5
   checkBlockerLayerMask:
     serializedVersion: 2
@@ -1455,7 +1456,7 @@ ParticleSystem:
     flipV: 0
     randomRow: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 63fdd225d27ee1546bfa54e020d1e789, type: 3}
+    - sprite: {fileID: 21300000, guid: bcb6af9c27700c148b5e6aa152ac1042, type: 3}
   VelocityModule:
     enabled: 0
     x:

@@ -35,11 +35,11 @@ MonoBehaviour:
   - key: summaryTitle
     voiceDuration: 1
   - key: weatherAlert
-    voiceDuration: 2.5
+    voiceDuration: 1.5
   - key: weatherForecast
-    voiceDuration: 3
-  - key: weatherSunny
     voiceDuration: 2
+  - key: weatherSunny
+    voiceDuration: 1.25
   - key: weatherSunnyDesc
     voiceDuration: 5
   - key: weatherPartlySunny
@@ -51,7 +51,7 @@ MonoBehaviour:
   - key: weatherMostlyCloudyDesc
     voiceDuration: 5
   - key: weatherCloudy
-    voiceDuration: 2
+    voiceDuration: 1.25
   - key: weatherCloudyDesc
     voiceDuration: 5
   - key: weatherLightRain
@@ -73,11 +73,11 @@ MonoBehaviour:
   - key: weatherHaze
     voiceDuration: 1
   - key: weatherHazeDesc
-    voiceDuration: 4
+    voiceDuration: 5
   - key: weatherSandstorm
-    voiceDuration: 2
+    voiceDuration: 1.25
   - key: weatherSandstormDesc
-    voiceDuration: 8
+    voiceDuration: 5
   - key: weatherLightSnow
     voiceDuration: 2
   - key: weatherLightSnowDesc
@@ -195,6 +195,6 @@ MonoBehaviour:
   - key: level3Summary02
     voiceDuration: 10
   - key: projectSuccess
-    voiceDuration: 2.5
+    voiceDuration: 2
   - key: congrats
     voiceDuration: 8

@@ -73,7 +73,7 @@ Material:
     - _ZWrite: 1
     - speedX: 0.05
     - speedY: 0
-    - tileX: 1.25
+    - tileX: 1.98
     - tileY: 0.99
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -71,7 +71,7 @@ public class GamePostController : GameModeController<GamePostController> {
     IEnumerator DoPostReview() {
         //TODO: something
         //yield return new WaitForSeconds(2f);
-        yield return null;
+        yield return new WaitForSeconds(1f);
 
         if(GameData.instance.isGameStarted)
             GameData.instance.Progress();

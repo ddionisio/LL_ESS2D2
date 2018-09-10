@@ -104,7 +104,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0d7a05b4c87d2924d81188ba1c2573ba, type: 3}
   - {fileID: 21300000, guid: fd0292c4e022e8a4eb34089bf9e98374, type: 3}
   - {fileID: 21300000, guid: 21c769e4040edd24e83c0830fb109b60, type: 3}
-  - {fileID: 21300000, guid: 63fdd225d27ee1546bfa54e020d1e789, type: 3}
   - {fileID: 21300000, guid: 0e313e256f9b5434ea02e40ab52b3efe, type: 3}
   - {fileID: 21300000, guid: 2d2d723522fdad642b69de406fb7e21b, type: 3}
   - {fileID: 21300000, guid: 7428624581668694ca5e5ec7e287bb0d, type: 3}
@@ -179,6 +178,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 586f973cf29c8874f8d37ae8746cf0b9, type: 3}
   - {fileID: 21300000, guid: 07bf6b3ccadbbbd4ebdd5151fa4473cc, type: 3}
   - {fileID: 21300000, guid: 21e6ac3ceac279145a96215dfa3f7079, type: 3}
+  - {fileID: 21300000, guid: bcb6af9c27700c148b5e6aa152ac1042, type: 3}
   - {fileID: 21300000, guid: 7f4a0dac271c57e48a6af18e5a08625d, type: 3}
   - {fileID: 21300000, guid: 0015e3cc72924fb4ea10b97dfd6d0b0c, type: 3}
   - {fileID: 21300000, guid: d24baaccd12cc524b8011cb2ca6dc904, type: 3}
@@ -278,7 +278,6 @@ SpriteAtlas:
   - weather_fog
   - motherbaseFrogTosser2
   - explodePixel5
-  - fillPuff
   - windBlocker
   - square
   - wrongX
@@ -353,6 +352,7 @@ SpriteAtlas:
   - weather_cloudy
   - weather_lightSnow
   - motherbasePlatform
+  - puffPuff
   - cardIcon_windBlocker
   - weatherMetricIcon_temperature
   - cardIllustration_windbreaker
