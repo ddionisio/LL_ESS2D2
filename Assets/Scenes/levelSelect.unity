@@ -2653,6 +2653,7 @@ MonoBehaviour:
     type: 2}
   signalLevelLocation: {fileID: 11400000, guid: 82a32e97756c91248b602ddb78dfc8f5,
     type: 2}
+  musicPath: Audio/gettingItDone.mp3
 --- !u!4 &827881803
 Transform:
   m_ObjectHideFlags: 0

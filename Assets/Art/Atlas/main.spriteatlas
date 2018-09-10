@@ -44,6 +44,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ae6caf1086101164288b97622d075591, type: 3}
   - {fileID: 21300000, guid: f2fc6db0d5be7c145b76d91e27ce298e, type: 3}
   - {fileID: 21300000, guid: 28df7eb00eb34b4458d46b9cd5e94019, type: 3}
+  - {fileID: 21300000, guid: 372df8e0fbf2db748b63dc9680eb9d55, type: 3}
   - {fileID: 21300000, guid: 6406b9e0e31f3214a9ae7843d0cb420f, type: 3}
   - {fileID: 21300000, guid: 71e67fe0513db6b499573fef6d4807db, type: 3}
   - {fileID: 21300000, guid: 6b8ecff026293b04181e4ad55a418012, type: 3}
@@ -71,6 +72,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e407f9c2c62766f448bda5118ff052d5, type: 3}
   - {fileID: 21300000, guid: 069caac24145d1f41a2ce5dd9f49bf81, type: 3}
   - {fileID: 21300000, guid: 05c221d27eb4edb40929d15bbf85fb9d, type: 3}
+  - {fileID: 21300000, guid: 39ea61f2bdd1a10469f6b0055f95be3f, type: 3}
   - {fileID: 21300000, guid: e06075f2ba60dfa48a42d1268e31c2b1, type: 3}
   - {fileID: 21300000, guid: 1abaebf232c3b9d409c5c9383ee84f5d, type: 3}
   - {fileID: 21300000, guid: fde78cf21a65a2248a76a1c56c4b2bdf, type: 3}
@@ -216,6 +218,7 @@ SpriteAtlas:
   - fly2
   - weather_snow
   - sun
+  - planet
   - cardIcon_mallet
   - gardenerAura
   - weatherMetricIcon_humidity
@@ -243,6 +246,7 @@ SpriteAtlas:
   - weather_sandstorm
   - spaceCapsule
   - leaf01
+  - warning
   - cardIllustration_collector
   - explodePixel2
   - portraitRobot

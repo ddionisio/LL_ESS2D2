@@ -21,6 +21,6 @@ MonoBehaviour:
   targetTagFilters: []
   icon: {fileID: 21300000, guid: 7f4a0dac271c57e48a6af18e5a08625d, type: 3}
   image: {fileID: 21300000, guid: 2556430103a7e4a489ab71ec17d2baf2, type: 3}
-  illustration: {fileID: 21300000, guid: 2556430103a7e4a489ab71ec17d2baf2, type: 3}
+  illustration: {fileID: 21300000, guid: d24baaccd12cc524b8011cb2ca6dc904, type: 3}
   titleRef: unitAllyWindBlocker
   descriptionRef: unitAllyWindBlockerDesc

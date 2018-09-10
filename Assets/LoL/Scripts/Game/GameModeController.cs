@@ -20,9 +20,11 @@ public abstract class GameModeController<T> : M8.SingletonBehaviour<T> where T :
     }
 
     protected virtual IEnumerator Start() {
-        do {
-            yield return null;
-        } while(M8.SceneManager.instance.isLoading);
+        //if(M8.SceneManager.isInstantiated) {
+            do {
+                yield return null;
+            } while(M8.SceneManager.instance.isLoading);
+       // }
 
         if(signalModeChanged)
             signalModeChanged.Invoke(mode);

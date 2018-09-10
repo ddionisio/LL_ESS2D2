@@ -18,6 +18,9 @@ public class GameController : GameModeController<GameController> {
     public GameBounds2D levelBounds;
     public string modalVictory = "victory";
 
+    [Header("Audio")]
+    public string musicPath;
+
     /// <summary>
     /// Called before current cycle starts (initialize info here)
     /// </summary>
@@ -64,6 +67,10 @@ public class GameController : GameModeController<GameController> {
     }
 
     protected override IEnumerator Start() {
+        if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath) {
+            LoLManager.instance.PlaySound(musicPath, true, true);
+        }
+
         yield return base.Start();
                 
         motherbase.Enter();
@@ -119,6 +126,9 @@ public class GameController : GameModeController<GameController> {
 
             //allow motherbase to do its victory thing
             motherbase.Victory();
+
+            //add flowers value to game score
+            GameData.instance.gameScore += Mathf.RoundToInt(motherbase.flowerTotalGrowth);
 
             //end
             if(endCallback != null)

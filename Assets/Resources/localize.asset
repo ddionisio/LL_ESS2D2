@@ -34,8 +34,10 @@ MonoBehaviour:
     voiceDuration: 2
   - key: summaryTitle
     voiceDuration: 1
-  - key: weatherForecast
+  - key: weatherAlert
     voiceDuration: 2.5
+  - key: weatherForecast
+    voiceDuration: 3
   - key: weatherSunny
     voiceDuration: 2
   - key: weatherSunnyDesc
@@ -176,6 +178,8 @@ MonoBehaviour:
     voiceDuration: 2
   - key: locationPuertoRicoDesc
     voiceDuration: 10
+  - key: tutorialWeatherInfo
+    voiceDuration: 8
   - key: level1Summary01
     voiceDuration: 3
   - key: level1Summary02
@@ -190,3 +194,7 @@ MonoBehaviour:
     voiceDuration: 2
   - key: level3Summary02
     voiceDuration: 10
+  - key: projectSuccess
+    voiceDuration: 2.5
+  - key: congrats
+    voiceDuration: 8

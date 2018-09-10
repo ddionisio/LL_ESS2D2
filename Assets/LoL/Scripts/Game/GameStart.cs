@@ -14,6 +14,8 @@ public class GameStart : MonoBehaviour {
     [M8.Localize]
     public string titleStringRef;
 
+    public string musicPath;
+
     void Awake() {
         if(loadingGO) loadingGO.SetActive(true);
         if(readyGO) readyGO.SetActive(false);
@@ -41,9 +43,10 @@ public class GameStart : MonoBehaviour {
 
         if(loadingGO) loadingGO.SetActive(false);
         if(readyGO) readyGO.SetActive(true);
-        
+
         //play music
-        LoLMusicPlaylist.instance.PlayStartMusic();
+        if(!string.IsNullOrEmpty(musicPath))
+            LoLManager.instance.PlaySound(musicPath, true, true);
 
         isStarted = true;
     }

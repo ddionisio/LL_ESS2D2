@@ -45,11 +45,11 @@ public class ModalWeatherForecast : M8.UIModal.Controller, M8.UIModal.Interface.
             if(!string.IsNullOrEmpty(textSpeechTitleRef))
                 LoLManager.instance.SpeakTextQueue(textSpeechTitleRef, textSpeechGroup, 0);
 
-            for(int i = 0; i < mWeatherInfos.Length; i++) {
+            /*for(int i = 0; i < mWeatherInfos.Length; i++) {
                 var textRef = mWeatherInfos[i].titleTextRef;
                 if(!string.IsNullOrEmpty(textRef))
                     LoLManager.instance.SpeakTextQueue(textRef, textSpeechGroup, i + 1);
-            }
+            }*/
         }
     }
 

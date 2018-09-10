@@ -56,10 +56,12 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
     public ItemData[] items;
 
     [Header("Display")]
+    public GameScoreWidget gameScoreWidget;
     public Selectable commitAnswerInteract;
     public bool commitAnswerUseVisibility; //if true, hide commitActiveGO when not all items have been slotted
-    public GameObject commitActiveGO;    
-    public GameObject progressActiveGO;
+    public GameObject commitActiveGO;
+    public GameObject progressResultGO;
+    public GameObject progressActiveGO;    
     
     private int mCorrectCount;
 
@@ -72,6 +74,7 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
     public void CommitAnswers() {
         if(commitActiveGO) commitActiveGO.SetActive(false);
         if(progressActiveGO) progressActiveGO.SetActive(true);
+        if(progressResultGO) progressResultGO.SetActive(true);
 
         int correctCount = 0;
 
@@ -91,6 +94,12 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
 
         //add points
         Debug.Log("Correct Count: " + correctCount);
+
+        int score = correctCount * GameData.instance.scoreMatchPerCorrect;
+
+        LoLManager.instance.curScore += score;
+
+        gameScoreWidget.Play(score);
     }
 
     void Awake() {
@@ -125,13 +134,16 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
 
         for(int i = 0; i < items.Length; i++) {
             items[i].Init(itemTemplate, OnItemClick, OnItemDrag, OnItemDragEnd);
+
             items[i].widget.index = i;
+            items[i].widget.isClickEnabled = true;
         }
 
         //apply mode
         if(commitAnswerInteract) commitAnswerInteract.interactable = false;
         if(commitActiveGO) commitActiveGO.SetActive(!commitAnswerUseVisibility);
         if(progressActiveGO) progressActiveGO.SetActive(false);
+        if(progressResultGO) progressResultGO.SetActive(false);
 
         mCurSlotDragIndex = -1;
     }

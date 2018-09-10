@@ -31,15 +31,46 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
     public float levelCycleEndDelay = 1.0f;
     public LayerMask groundLayerMask;
 
+    [Header("Data")]
+    public int scoreMatchPerCorrect = 500;
+
+    [Header("Signals")]
+    public SignalGameFlag signalGameFlagChanged;
+
     public bool isGameStarted { get; private set; } //true: we got through start normally, false: debug
     public int curLevelIndex { get; private set; }
     public LevelData curLevelData { get { return levels[curLevelIndex]; } }
+
+    public int gameScore { get; set; }
+
+    private Dictionary<string, int> mFlags;
 
 #if UNITY_EDITOR
     public void OverrideLevelIndex(int index) {
         curLevelIndex = index;
     }
 #endif
+
+    public void SetFlag(string key, int flag) {
+        if(mFlags.ContainsKey(key)) {
+            if(mFlags[key] != flag) {
+                mFlags[key] = flag;
+
+                if(signalGameFlagChanged) signalGameFlagChanged.Invoke(key, flag);
+            }
+        }
+        else {
+            mFlags.Add(key, flag);
+
+            if(signalGameFlagChanged) signalGameFlagChanged.Invoke(key, flag);
+        }
+    }
+
+    public int GetFlag(string key) {
+        int flag = 0;
+        mFlags.TryGetValue(key, out flag);
+        return flag;
+    }
 
     /// <summary>
     /// Called in start scene
@@ -168,6 +199,12 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
         }
         else
             curLevelIndex = DebugControl.instance.levelIndex;
+
+        isGameStarted = false;
+        curLevelIndex = 0;
+        gameScore = 0;
+
+        mFlags = new Dictionary<string, int>();
     }
 
     private void UpdateLevelIndexFromProgress(int progress) {

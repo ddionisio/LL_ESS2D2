@@ -1363,6 +1363,7 @@ MonoBehaviour:
   modalWeatherForecast: weatherForecast
   levelBounds: {fileID: 114067335070394916}
   modalVictory: victory
+  musicPath: Audio/overworld.mp3
 --- !u!114 &114067335070394916
 MonoBehaviour:
   m_ObjectHideFlags: 1

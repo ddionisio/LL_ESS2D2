@@ -21,6 +21,9 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
     public M8.Signal signalShowLevelMatch;
     public SignalLevelLocationData signalLevelLocation;
 
+    [Header("Audio")]
+    public string musicPath;
+
     private M8.GenericParams mLevelLocationParms = new M8.GenericParams();
 
     private bool mIsIntroFinish;
@@ -68,6 +71,10 @@ public class LevelSelectController : GameModeController<LevelSelectController> {
         do {
             yield return null;
         } while(M8.SceneManager.instance.isLoading);
+
+        if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath) {
+            LoLManager.instance.PlaySound(musicPath, true, true);
+        }
                 
         //intro at beginning
         if(curIndex == 0) {

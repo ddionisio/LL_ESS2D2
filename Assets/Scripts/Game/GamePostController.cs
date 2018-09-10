@@ -6,8 +6,23 @@ public class GamePostController : GameModeController<GamePostController> {
     [Header("Data")]
     public string modalQuiz = "quizClimateZoneMatch";
 
+    [Header("Cutscene")]
+    public CutsceneController cutscene;
+
+    private bool mIsCutsceneFinish;
+
+    protected override void OnInstanceDeinit() {
+        if(cutscene)
+            cutscene.endCallback -= OnCutsceneEnd;
+
+        base.OnInstanceDeinit();
+    }
+
     protected override void OnInstanceInit() {
         base.OnInstanceInit();
+
+        if(cutscene)
+            cutscene.endCallback += OnCutsceneEnd;
     }
 
     protected override IEnumerator Start() {
@@ -27,6 +42,14 @@ public class GamePostController : GameModeController<GamePostController> {
     }
 
     IEnumerator DoReview() {
+        //do cutscene
+        if(cutscene) {
+            mIsCutsceneFinish = false;
+            cutscene.Play();
+            while(!mIsCutsceneFinish)
+                yield return null;
+        }
+
         M8.UIModal.Manager.instance.ModalOpen(modalQuiz);
 
         //wait for modals to clear
@@ -41,8 +64,16 @@ public class GamePostController : GameModeController<GamePostController> {
 
     IEnumerator DoPostReview() {
         //TODO: something
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
+        yield return null;
 
-        GameData.instance.Progress();
+        if(GameData.instance.isGameStarted)
+            GameData.instance.Progress();
+        else
+            GameData.instance.endScene.Load(); //for debug purpose
+    }
+
+    void OnCutsceneEnd() {
+        mIsCutsceneFinish = true;
     }
 }

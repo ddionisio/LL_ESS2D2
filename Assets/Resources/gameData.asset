@@ -45,3 +45,6 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 513
+  scoreMatchPerCorrect: 500
+  signalGameFlagChanged: {fileID: 11400000, guid: a79a8b8f31898c44da95c54bff4d9fdb,
+    type: 2}

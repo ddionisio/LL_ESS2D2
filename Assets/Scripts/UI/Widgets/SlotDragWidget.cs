@@ -120,7 +120,7 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData) {
-        if(!isClickEnabled)
+        if(!isClickEnabled || isDragging)
             return;
 
         if(clickCallback != null)

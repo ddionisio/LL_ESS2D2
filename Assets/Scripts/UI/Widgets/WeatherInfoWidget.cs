@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class WeatherInfoWidget : MonoBehaviour {
+public class WeatherInfoWidget : MonoBehaviour, IPointerClickHandler {
     [Header("Data")]
     public string modalDescription = "weatherDescription";
+    public string flagSet = "weatherForecastFirstTime"; //set on click
 
     [Header("Display")]
     public Image image;
@@ -51,5 +53,12 @@ public class WeatherInfoWidget : MonoBehaviour {
     void Awake() {
         if(nameLabel)
             mNameSpeakText = nameLabel.GetComponent<LoLSpeakTextClick>();
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData) {
+        if(!string.IsNullOrEmpty(flagSet))
+            GameData.instance.SetFlag(flagSet, 1);
+
+        OpenDescription();
     }
 }
