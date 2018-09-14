@@ -52,7 +52,8 @@ public class DragToGuideWidget : MonoBehaviour {
         if(dist > 0f)
             lineRoot.up = dpos / dist;
 
-        lineRoot.sizeDelta = new Vector2(lineRoot.sizeDelta.x, dist);
+        //HACK: need a way to scale properly based on canvas resolution scaling
+        lineRoot.sizeDelta = new Vector2(lineRoot.sizeDelta.x, dist * (576f / Screen.height));
         //
 
         dragPosition = 0f;
