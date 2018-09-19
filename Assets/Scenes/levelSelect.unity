@@ -2648,7 +2648,6 @@ MonoBehaviour:
   tutorialModalDialog: dialogCutscene
   tutorialDialogTexts:
   - tutorialLevelSelect01
-  - tutorialLevelSelect02
   signalShowLevelMatch: {fileID: 11400000, guid: aa65f3bfea74b4c4cb1aacf61c6eeda8,
     type: 2}
   signalLevelLocation: {fileID: 11400000, guid: 82a32e97756c91248b602ddb78dfc8f5,

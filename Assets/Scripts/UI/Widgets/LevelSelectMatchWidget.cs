@@ -22,6 +22,9 @@ public class LevelSelectMatchWidget : MonoBehaviour {
         //move widget to the side
         if(animator && !string.IsNullOrEmpty(takeSide))
             animator.Play(takeSide);
+
+        //open climate description
+        climateWidget.OpenDescription();
     }
 
     void OnDisable() {
