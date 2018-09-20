@@ -47,6 +47,7 @@
     "type": "Type",
     "humidity": "Humidity",
     "wind": "Wind",
+    "windSpeed": "Wind Speed",
     "winter": "Winter",
     "summer": "Summer",
     "weatherAlert": "WEATHER ALERT",
