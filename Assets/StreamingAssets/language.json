@@ -20,6 +20,7 @@
     "okay": "OKAY",
     "reveal": "REVEAL",
     "back": "BACK",
+    "toggleClimateHint": "Climate zones help determine the general temperature of climates based on the latitude. The closer you are at the equator, the more sunlight you will receive.",
     "levelMatchTitle": "MATCH CLIMATE",
     "levelMatchDesc": "Find the location that matches the climate.",
     "levelMatchNotFound": "Climate does not match, try another location.",

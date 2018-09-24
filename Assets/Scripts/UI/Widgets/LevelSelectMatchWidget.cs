@@ -8,6 +8,7 @@ public class LevelSelectMatchWidget : MonoBehaviour {
     public GameObject rootGO;
     public ClimateWidget climateWidget;
     public ClimateZoneWidget climateZoneWidget;
+    public GameObject toggleHintGO;
 
     [Header("Animation")]
     public M8.Animator.Animate animator;
@@ -25,6 +26,9 @@ public class LevelSelectMatchWidget : MonoBehaviour {
 
         //open climate description
         climateWidget.OpenDescription();
+
+        if(GameData.instance.curLevelIndex == 0)
+            StartCoroutine(DoToggleHint());
     }
 
     void OnDisable() {
@@ -70,5 +74,13 @@ public class LevelSelectMatchWidget : MonoBehaviour {
             if(signalLocationActive)
                 signalLocationActive.Invoke(true);
         }
+    }
+
+    IEnumerator DoToggleHint() {
+        do {
+            yield return null;
+        } while(M8.UIModal.Manager.instance.isBusy || M8.UIModal.Manager.instance.ModalIsInStack(climateWidget.modalDesc));
+
+        toggleHintGO.SetActive(true);
     }
 }

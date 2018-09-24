@@ -18,6 +18,8 @@ MonoBehaviour:
   languageExtraInfos:
   - key: welcome
     voiceDuration: 1.5
+  - key: toggleClimateHint
+    voiceDuration: 4
   - key: levelMatchTitle
     voiceDuration: 1.5
   - key: levelMatchDesc
