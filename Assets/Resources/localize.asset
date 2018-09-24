@@ -185,7 +185,7 @@ MonoBehaviour:
   - key: level1Summary01
     voiceDuration: 3
   - key: level1Summary02
-    voiceDuration: 10
+    voiceDuration: 8
   - key: level1Summary03
     voiceDuration: 10
   - key: level2Summary01
