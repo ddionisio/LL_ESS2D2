@@ -1,3 +1,11 @@
 Project Bloom: Climates and Weather
 
 Gather the frogs, hoist the sails, and prepare for a journey across the world as you learn about climate and weather.
+
+Controls:
+Use the touchpad or mouse for interactions.
+
+To drag/drop an item – press and hold the item of interest using the touchpad or mouse. While pressing, slide towards where you want to drop the item, and then release the touchpad or mouse left button.
+
+Hints:
+Don’t worry too much about the flowers, their purpose is to show how different strategies (or way of life) are required based on the climate of the area. The game will progress regardless.
