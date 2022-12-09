@@ -4,4 +4,12 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "gameModeSignal", menuName = "Game/Mode Signal")]
 public class GameModeSignal : M8.SignalParam<GameMode> {
+    public override void Invoke(GameMode parm) {
+        if(parm != null)
+            parm.SetAsCurrent();
+        else
+            GameMode.ClearCurrent();
+
+        base.Invoke(parm);
+    }
 }

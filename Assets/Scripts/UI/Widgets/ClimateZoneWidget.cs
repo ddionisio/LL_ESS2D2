@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using LoLExt;
 
 public class ClimateZoneWidget : MonoBehaviour {
     [Header("Data")]

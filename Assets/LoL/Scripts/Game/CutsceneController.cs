@@ -2,202 +2,199 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutsceneController : MonoBehaviour {
-    [System.Serializable]
-    public struct Data {
-        public string name;
-        public GameObject root;
-        public M8.Animator.Animate animator;
-        public string takeEnter;        
-        public string takeExit;
-    }
-
-    [Header("Music")]
-    public string playMusicPath; //if not empty, play this music
-    public bool startMusicPlaylist = true; //make sure playMusicPath is empty
-
-    [Header("Modals")]
-    public string modalDialog; //use for opening dialog via OpenDialog, set to null to use generic dialog.
-    
-    [Header("Animation")]
-    public M8.Animator.Animate animator;
-    public string takeStart; //prep background
-    public string takeInteractEnter; //'next' button enter
-    public string takeInteractExit; //'next' button exit
-
-    [Header("Pages")]
-    public Data[] pages;
-
-    public event System.Action endCallback;
-
-    public bool playOnStart = true;
-    public bool progressOnEnd = true;
-
-    private int mCurPageInd;
-    private bool mIsDialogOpen;
-    private bool mIsInteractActive;
-
-    public void OpenDialog(string nameTextRef, string dialogTextRef) {
-        if(!string.IsNullOrEmpty(modalDialog))
-            ModalDialog.Open(modalDialog, nameTextRef, dialogTextRef, NextPage);
-        else
-            ModalDialog.Open(nameTextRef, dialogTextRef, NextPage);
-
-        mIsDialogOpen = true;
-    }
-
-    public void OpenDialogPortrait(Sprite portrait, string nameTextRef, string dialogTextRef) {
-        if(!string.IsNullOrEmpty(modalDialog))
-            ModalDialog.OpenApplyPortrait(modalDialog, portrait, nameTextRef, dialogTextRef, NextPage);
-        else
-            ModalDialog.OpenApplyPortrait(portrait, nameTextRef, dialogTextRef, NextPage);
-
-        mIsDialogOpen = true;
-    }
-
-    public void CloseDialog() {
-        if(!string.IsNullOrEmpty(modalDialog)) {
-            M8.UIModal.Manager.instance.ModalCloseUpTo(modalDialog, true);
+namespace LoLExt {
+    public class CutsceneController : MonoBehaviour {
+        [System.Serializable]
+        public struct Data {
+            public string name;
+            public GameObject root;
+            public M8.Animator.Animate animator;
+            public string takeEnter;
+            public string takeExit;
         }
-        else
-            M8.UIModal.Manager.instance.ModalCloseUpTo(ModalDialog.modalNameGeneric, true);
 
-        mIsDialogOpen = false;
-    }
+        [Header("Music")]
+        public string playMusicPath; //if not empty, play this music
+        public bool startMusicPlaylist = true; //make sure playMusicPath is empty
 
-    public void Play() {
-        StopAllCoroutines();
+        [Header("Modals")]
+        public string modalDialog; //use for opening dialog via OpenDialog, set to null to use generic dialog.
 
-        HideAllPages();
+        [Header("Animation")]
+        public M8.Animator.Animate animator;
+        public string takeStart; //prep background
+        public string takeInteractEnter; //'next' button enter
+        public string takeInteractExit; //'next' button exit
 
-        mIsDialogOpen = false;
-        mIsInteractActive = false;
+        [Header("Pages")]
+        public Data[] pages;
 
-        StartCoroutine(DoPlay());
-    }
+        public event System.Action endCallback;
 
-    public void NextPage() {
-        StartCoroutine(DoGoNextPage());
-    }
+        public bool playOnStart = true;
 
-    void Awake() {
-        //ensure UIRoot exists
-        if(!UIRoot.isInstantiated)
-            UIRoot.Reinstantiate();
+        private int mCurPageInd;
+        private bool mIsDialogOpen;
+        private bool mIsInteractActive;
 
-        HideAllPages();
-    }
+        public void OpenDialog(string nameTextRef, string dialogTextRef) {
+            if(!string.IsNullOrEmpty(modalDialog))
+                ModalDialog.Open(modalDialog, nameTextRef, dialogTextRef, NextPage);
+            else
+                ModalDialog.Open(nameTextRef, dialogTextRef, NextPage);
 
-    IEnumerator Start() {
-        ResetAnimates();
+            mIsDialogOpen = true;
+        }
 
-        if(playOnStart) {
-            while(M8.SceneManager.instance.isLoading)
-                yield return null;
+        public void OpenDialogPortrait(Sprite portrait, string nameTextRef, string dialogTextRef) {
+            if(!string.IsNullOrEmpty(modalDialog))
+                ModalDialog.OpenApplyPortrait(modalDialog, portrait, nameTextRef, dialogTextRef, NextPage);
+            else
+                ModalDialog.OpenApplyPortrait(portrait, nameTextRef, dialogTextRef, NextPage);
+
+            mIsDialogOpen = true;
+        }
+
+        public void CloseDialog() {
+            if(!string.IsNullOrEmpty(modalDialog)) {
+                M8.UIModal.Manager.instance.ModalCloseUpTo(modalDialog, true);
+            }
+            else
+                M8.UIModal.Manager.instance.ModalCloseUpTo(ModalDialog.modalNameGeneric, true);
+
+            mIsDialogOpen = false;
+        }
+
+        public void Play() {
+            StopAllCoroutines();
+
+            HideAllPages();
+
+            mIsDialogOpen = false;
+            mIsInteractActive = false;
 
             StartCoroutine(DoPlay());
         }
-    }
 
-    void HideAllPages() {
-        for(int i = 0; i < pages.Length; i++) {
-            if(pages[i].root)
-                pages[i].root.SetActive(false);
-        }
-    }
-
-    // Use this for initialization
-    IEnumerator DoPlay() {
-        if(animator && !string.IsNullOrEmpty(takeStart)) {
-            animator.Play(takeStart);
-            while(animator.isPlaying)
-                yield return null;
+        public void NextPage() {
+            StartCoroutine(DoGoNextPage());
         }
 
-        //music
-        if(!string.IsNullOrEmpty(playMusicPath)) {
-            LoLMusicPlaylist.instance.Stop(); //ensure playlist is stopped
+        void Awake() {
+            //ensure UIRoot exists
+            if(!UIRoot.isInstantiated)
+                UIRoot.Reinstantiate();
 
-            LoLManager.instance.PlaySound(playMusicPath, true, true);
+            HideAllPages();
         }
-        else if(startMusicPlaylist)
-            LoLMusicPlaylist.instance.Play();
 
-        //start up the first page
-        mCurPageInd = 0;
-        ShowCurrentPage();
-    }
+        IEnumerator Start() {
+            ResetAnimates();
 
-    void ResetAnimates() {
-        if(animator) {
-            if(!string.IsNullOrEmpty(takeStart))
-                animator.ResetTake(takeStart);
-            if(!string.IsNullOrEmpty(takeInteractEnter))
-                animator.ResetTake(takeInteractEnter);
-        }
-    }
-
-    void ShowCurrentPage() {
-        StartCoroutine(DoShowCurrentPage());
-    }
-
-    IEnumerator DoShowCurrentPage() {
-        if(mCurPageInd < pages.Length) {
-            var page = pages[mCurPageInd];
-
-            if(page.root)
-                page.root.SetActive(true);
-
-            if(page.animator && !string.IsNullOrEmpty(page.takeEnter)) {
-                page.animator.Play(page.takeEnter);
-                while(page.animator.isPlaying)
+            if(playOnStart) {
+                while(M8.SceneManager.instance.isLoading)
                     yield return null;
+
+                StartCoroutine(DoPlay());
             }
         }
 
-        if(!mIsDialogOpen) {
-            if(animator && !string.IsNullOrEmpty(takeInteractEnter))
-                animator.Play(takeInteractEnter);
-
-            mIsInteractActive = true;
-        }
-    }
-
-    IEnumerator DoGoNextPage() {
-        if(mIsInteractActive) {
-            if(animator && !string.IsNullOrEmpty(takeInteractExit))
-                animator.Play(takeInteractExit);
-
-            mIsInteractActive = false;
+        void HideAllPages() {
+            for(int i = 0; i < pages.Length; i++) {
+                if(pages[i].root)
+                    pages[i].root.SetActive(false);
+            }
         }
 
-        bool isLastPage = pages.Length == 0 || mCurPageInd == pages.Length - 1;
-
-        if(mCurPageInd < pages.Length) {
-            var page = pages[mCurPageInd];
-
-            if(page.animator && !string.IsNullOrEmpty(page.takeExit)) {
-                page.animator.Play(page.takeExit);
-                while(page.animator.isPlaying)
+        // Use this for initialization
+        IEnumerator DoPlay() {
+            if(animator && !string.IsNullOrEmpty(takeStart)) {
+                animator.Play(takeStart);
+                while(animator.isPlaying)
                     yield return null;
             }
 
-            //only deactivate if it's the last page or the next page has a different root
-            if(isLastPage || page.root != pages[mCurPageInd + 1].root)
-                page.root.SetActive(false);
-        }
+            //music
+            if(!string.IsNullOrEmpty(playMusicPath)) {
+                LoLMusicPlaylist.instance.Stop(); //ensure playlist is stopped
 
-        if(!isLastPage) {
-            mCurPageInd++;
+                LoLManager.instance.PlaySound(playMusicPath, true, true);
+            }
+            else if(startMusicPlaylist)
+                LoLMusicPlaylist.instance.Play();
+
+            //start up the first page
+            mCurPageInd = 0;
             ShowCurrentPage();
         }
-        else { 
-            if(progressOnEnd) { //proceed
-                GameData.instance.Progress();
+
+        void ResetAnimates() {
+            if(animator) {
+                if(!string.IsNullOrEmpty(takeStart))
+                    animator.ResetTake(takeStart);
+                if(!string.IsNullOrEmpty(takeInteractEnter))
+                    animator.ResetTake(takeInteractEnter);
+            }
+        }
+
+        void ShowCurrentPage() {
+            StartCoroutine(DoShowCurrentPage());
+        }
+
+        IEnumerator DoShowCurrentPage() {
+            if(mCurPageInd < pages.Length) {
+                var page = pages[mCurPageInd];
+
+                if(page.root)
+                    page.root.SetActive(true);
+
+                if(page.animator && !string.IsNullOrEmpty(page.takeEnter)) {
+                    page.animator.Play(page.takeEnter);
+                    while(page.animator.isPlaying)
+                        yield return null;
+                }
             }
 
-            if(endCallback != null)
-                endCallback();
+            if(!mIsDialogOpen) {
+                if(animator && !string.IsNullOrEmpty(takeInteractEnter))
+                    animator.Play(takeInteractEnter);
+
+                mIsInteractActive = true;
+            }
+        }
+
+        IEnumerator DoGoNextPage() {
+            if(mIsInteractActive) {
+                if(animator && !string.IsNullOrEmpty(takeInteractExit))
+                    animator.Play(takeInteractExit);
+
+                mIsInteractActive = false;
+            }
+
+            bool isLastPage = pages.Length == 0 || mCurPageInd == pages.Length - 1;
+
+            if(mCurPageInd < pages.Length) {
+                var page = pages[mCurPageInd];
+
+                if(page.animator && !string.IsNullOrEmpty(page.takeExit)) {
+                    page.animator.Play(page.takeExit);
+                    while(page.animator.isPlaying)
+                        yield return null;
+                }
+
+                //only deactivate if it's the last page or the next page has a different root
+                if(isLastPage || page.root != pages[mCurPageInd + 1].root)
+                    page.root.SetActive(false);
+            }
+
+            if(!isLastPage) {
+                mCurPageInd++;
+                ShowCurrentPage();
+            }
+            else {
+                if(endCallback != null)
+                    endCallback();
+            }
         }
     }
 }

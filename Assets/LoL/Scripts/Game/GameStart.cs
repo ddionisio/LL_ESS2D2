@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameStart : MonoBehaviour {
+using LoLExt;
+
+public class GameStart : GameModeController<GameStart> {
     public static bool isStarted = false;
 
+    [Header("Game Start")]
     public GameObject loadingGO;
     public GameObject readyGO;
 
@@ -16,24 +19,24 @@ public class GameStart : MonoBehaviour {
 
     public string musicPath;
 
-    void Awake() {
+    public GameObject continueButtonGO;
+
+    protected override void OnInstanceInit() {
+        base.OnInstanceInit();
+
         if(loadingGO) loadingGO.SetActive(true);
         if(readyGO) readyGO.SetActive(false);
         if(titleGO) titleGO.SetActive(false);
     }
 
-    IEnumerator Start () {
-        //hide other stuff
+    protected override IEnumerator Start () {
+        yield return base.Start();
 
-        yield return null;
-
-        //wait for scene to load
-        while(M8.SceneManager.instance.isLoading)
-            yield return null;
-        
         //wait for LoL to load/initialize
         while(!LoLManager.instance.isReady)
             yield return null;
+
+        yield return new WaitForSeconds(0.5f);
         
         //start title
         if(titleText) titleText.text = LoLLocalize.Get(titleStringRef);
@@ -43,6 +46,10 @@ public class GameStart : MonoBehaviour {
 
         if(loadingGO) loadingGO.SetActive(false);
         if(readyGO) readyGO.SetActive(true);
+
+        //enable continue button if progress > 0
+        if(continueButtonGO)
+            continueButtonGO.SetActive(LoLManager.instance.curProgress > 0);
 
         //play music
         if(!string.IsNullOrEmpty(musicPath))

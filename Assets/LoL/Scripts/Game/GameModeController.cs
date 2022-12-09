@@ -8,6 +8,10 @@ public abstract class GameModeController<T> : M8.SingletonBehaviour<T> where T :
     public GameModeSignal signalModeChanged;
 
     protected override void OnInstanceInit() {
+        //ensure scene manager exists
+        if(!M8.SceneManager.isInstantiated)
+            M8.SceneManager.Reinstantiate();
+
         //ensure UIRoot exists
         if(!UIRoot.isInstantiated)
             UIRoot.Reinstantiate();
@@ -20,11 +24,9 @@ public abstract class GameModeController<T> : M8.SingletonBehaviour<T> where T :
     }
 
     protected virtual IEnumerator Start() {
-        //if(M8.SceneManager.isInstantiated) {
-            do {
-                yield return null;
-            } while(M8.SceneManager.instance.isLoading);
-       // }
+        do {
+            yield return null;
+        } while(M8.SceneManager.instance.isLoading);
 
         if(signalModeChanged)
             signalModeChanged.Invoke(mode);

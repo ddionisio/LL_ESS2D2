@@ -27,13 +27,19 @@ public class GameModeGOActiveSwitch : MonoBehaviour {
 
     private int mCurState = -1;
 
-    void OnDestroy() {
+    void OnDisable() {
         signalGameStateChanged.callback -= OnGameModeChanged;
     }
 
-    void Awake() {
-        for(int i = 0; i < states.Length; i++)
-            states[i].Hide();
+    void OnEnable() {
+        var curMode = GameMode.currentMode;
+
+        for(int i = 0; i < states.Length; i++) {
+            if(states[i].mode == curMode)
+                states[i].Show();
+            else
+                states[i].Hide();
+        }
 
         signalGameStateChanged.callback += OnGameModeChanged;
     }

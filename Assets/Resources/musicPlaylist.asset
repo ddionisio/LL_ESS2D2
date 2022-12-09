@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a109ff7ad827d4396e6fc363da6b6b, type: 3}
+  m_Name: musicPlaylist
+  m_EditorClassIdentifier: 
+  music:
+  - name: Audio/digitalLemonade.mp3
+    source: {fileID: 8300000, guid: 4e2a7f92c58bd064ab7619f32e6ed3f8, type: 3}
+  - name: Audio/gettingItDone.mp3
+    source: {fileID: 8300000, guid: fb88d00e2738abb4e85a83da6eab61e8, type: 3}
+  - name: Audio/overworld.mp3
+    source: {fileID: 8300000, guid: 906f778b528dead41af17fdae7323d3b, type: 3}
+  audioMixer: {fileID: 0}
+  muteOnFocusLost: 1
+  fadeInDelay: 0.3
+  fadeOutDelay: 0.3

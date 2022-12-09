@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LoLExt;
 
 public class GameController : GameModeController<GameController> {
     [Header("Controls")]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using LoLExt;
 
 public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M8.UIModal.Interface.IClose {    
     [System.Serializable]

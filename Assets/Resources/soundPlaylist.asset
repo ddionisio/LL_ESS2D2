@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fba05c719519b4db251fead2709c54, type: 3}
+  m_Name: soundPlaylist
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Audio/achieve.wav
+    clip: {fileID: 8300000, guid: 51f819ccee60cd040b611f7ce0491a9e, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/boop.wav
+    clip: {fileID: 8300000, guid: c27e190964065a2419fa6ecbffb3c90e, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/cannonFire.wav
+    clip: {fileID: 8300000, guid: 02b062c32e176db419bedabec9463ef0, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/checkpoint.wav
+    clip: {fileID: 8300000, guid: f9f87b54981c94d4d8ab4146ced726e7, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/click.wav
+    clip: {fileID: 8300000, guid: 5f579e9411b552747bb561b9883dcc3c, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/correct.wav
+    clip: {fileID: 8300000, guid: 45d701a2744bf924d90ce764028605d2, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/jump1.wav
+    clip: {fileID: 8300000, guid: 036e288cf726acc498d47fdfd0f3bb2d, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/jump2.wav
+    clip: {fileID: 8300000, guid: fea3d0df075e13a4795edd2f47739bef, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/jump3.wav
+    clip: {fileID: 8300000, guid: 362de6ef40fcdc34090608c75c277fd6, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/jump4.wav
+    clip: {fileID: 8300000, guid: 6fb664a52a05802409eee55151f1d7b9, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  - name: Audio/wrong.wav
+    clip: {fileID: 8300000, guid: c6a411767ff73a5498f8f8b3e5adfaf3, type: 3}
+    clipVariants: []
+    spatialBlend: 0
+  max: 32
+  audioMixer: {fileID: 0}
+  muteOnFocusLost: 1

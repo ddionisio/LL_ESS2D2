@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using LoLExt;
 
 public class WeatherInfoWidget : MonoBehaviour, IPointerClickHandler {
     [Header("Data")]
