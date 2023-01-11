@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 114925404863051222}
   - component: {fileID: 114102384461637484}
   - component: {fileID: 5081988198980619079}
+  - component: {fileID: 3971232998423011440}
   - component: {fileID: 81379163373136684}
   - component: {fileID: 114767850048585082}
   m_Layer: 0
@@ -189,6 +190,23 @@ MonoBehaviour:
   _masterVolumeDefault: 1
   _soundVolumeDefault: 0.3
   _musicVolumeDefault: 0.3
+--- !u!114 &3971232998423011440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290401582171184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50bba549c63247e4c8497436df4fe3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMusicPath: Audio/gettingItDone.mp3
+  items:
+  - path: Audio/overworld.mp3
+    duration: 151.8
+    disabled: 0
 --- !u!81 &81379163373136684
 AudioListener:
   m_ObjectHideFlags: 0
