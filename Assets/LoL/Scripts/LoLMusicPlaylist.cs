@@ -31,7 +31,7 @@ namespace LoLExt {
         }
 
         public void PlayTrack(int itemIndex) {
-            if(items[itemIndex].disabled)
+            if(items == null || items.Length == 0 || items[itemIndex].disabled)
                 return;
 
             string path = items[itemIndex].path;
@@ -48,7 +48,7 @@ namespace LoLExt {
         }
 
         public void Play() {
-            if(mRout != null)
+            if(items == null || items.Length == 0 || mRout != null)
                 return; //already playing
 
             mRout = StartCoroutine(DoPlaylist());

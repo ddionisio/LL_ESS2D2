@@ -15,6 +15,13 @@ public class AnimatorPlayProceed : MonoBehaviour {
     public string playTake;
     public Mode mode = Mode.Progress;
 
+    public void ProceedResetProgress() {
+        if(LoLManager.instance.curProgress > 0 || LoLManager.instance.curScore > 0)
+            LoLManager.instance.ApplyProgress(0, 0);
+
+        animator.Play(playTake);
+    }
+
     public void Proceed() {
         animator.Play(playTake);
     }

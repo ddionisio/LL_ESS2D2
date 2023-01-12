@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b73b53817ad9234cae2bdeb7041fe9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweenCapacity: 1250
+  tweenCapacity: 3125
   sequenceCapacity: 312
 --- !u!114 &114102384461637484
 MonoBehaviour:
@@ -202,11 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bba549c63247e4c8497436df4fe3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMusicPath: Audio/gettingItDone.mp3
-  items:
-  - path: Audio/overworld.mp3
-    duration: 151.8
-    disabled: 0
+  startMusicPath: 
+  items: []
 --- !u!81 &81379163373136684
 AudioListener:
   m_ObjectHideFlags: 0
