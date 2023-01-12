@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -19,7 +20,7 @@ MonoBehaviour:
   - key: welcome
     voiceDuration: 1.5
   - key: toggleClimateHint
-    voiceDuration: 4
+    voiceDuration: 5
   - key: levelMatchTitle
     voiceDuration: 1.5
   - key: levelMatchDesc
@@ -197,6 +198,6 @@ MonoBehaviour:
   - key: level3Summary02
     voiceDuration: 10
   - key: projectSuccess
-    voiceDuration: 2
+    voiceDuration: 3
   - key: congrats
-    voiceDuration: 8
+    voiceDuration: 5
