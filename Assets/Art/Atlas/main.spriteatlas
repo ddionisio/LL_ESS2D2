@@ -20,7 +20,19 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
       padding: 4
@@ -76,7 +88,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 39ea61f2bdd1a10469f6b0055f95be3f, type: 3}
   - {fileID: 21300000, guid: e06075f2ba60dfa48a42d1268e31c2b1, type: 3}
   - {fileID: 21300000, guid: 1abaebf232c3b9d409c5c9383ee84f5d, type: 3}
-  - {fileID: 21300000, guid: fde78cf21a65a2248a76a1c56c4b2bdf, type: 3}
   - {fileID: 21300000, guid: 77fd9723bbf31044b93f33e78a3f5eb1, type: 3}
   - {fileID: 21300000, guid: 5ec92153de737f94a9f2a333a83947a4, type: 3}
   - {fileID: 21300000, guid: a39e2953e80c3b0479f31140f406a7f0, type: 3}
@@ -105,6 +116,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0d7a05b4c87d2924d81188ba1c2573ba, type: 3}
   - {fileID: 21300000, guid: fd0292c4e022e8a4eb34089bf9e98374, type: 3}
   - {fileID: 21300000, guid: 21c769e4040edd24e83c0830fb109b60, type: 3}
+  - {fileID: 21300000, guid: 08d122f41cb4d294d9f5112304b14505, type: 3}
   - {fileID: 21300000, guid: 0e313e256f9b5434ea02e40ab52b3efe, type: 3}
   - {fileID: 21300000, guid: 2d2d723522fdad642b69de406fb7e21b, type: 3}
   - {fileID: 21300000, guid: 7428624581668694ca5e5ec7e287bb0d, type: 3}
@@ -123,6 +135,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: bc972d665a370f7498077c4d029eee6f, type: 3}
   - {fileID: 21300000, guid: 4cca0ba61708774459f6f1544655e1c2, type: 3}
   - {fileID: 21300000, guid: 506b16c67e3ef764ba851e103ccb232f, type: 3}
+  - {fileID: 21300000, guid: 63a527f61ac87224cb15c6b6c304cbc6, type: 3}
   - {fileID: 21300000, guid: 833257f6cb1a9d241b3fc454fef9d45a, type: 3}
   - {fileID: 21300000, guid: 61506a07341b40a419a4d83af272118b, type: 3}
   - {fileID: 21300000, guid: 82d71227d5b6eee41bcf8592ba9fd4e7, type: 3}
@@ -179,6 +192,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 586f973cf29c8874f8d37ae8746cf0b9, type: 3}
   - {fileID: 21300000, guid: 07bf6b3ccadbbbd4ebdd5151fa4473cc, type: 3}
   - {fileID: 21300000, guid: 21e6ac3ceac279145a96215dfa3f7079, type: 3}
+  - {fileID: 21300000, guid: 6e46d65c795b56344b389f1886fb3982, type: 3}
   - {fileID: 21300000, guid: bcb6af9c27700c148b5e6aa152ac1042, type: 3}
   - {fileID: 21300000, guid: 7f4a0dac271c57e48a6af18e5a08625d, type: 3}
   - {fileID: 21300000, guid: 0015e3cc72924fb4ea10b97dfd6d0b0c, type: 3}
@@ -210,6 +224,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e0b0a99f0a6b53441915d84fec70a2f8, type: 3}
   - {fileID: 21300000, guid: 552b9b9f606d24946aa32a696466c5b9, type: 3}
   - {fileID: 21300000, guid: 006549bf55cfba2428c766cf94f1740d, type: 3}
+  - {fileID: 21300000, guid: 49f63cbf9fa458c4cbc656fbdbb5124a, type: 3}
   - {fileID: 21300000, guid: 40de69efda6516444b3fc152bc6992c2, type: 3}
   - {fileID: 21300000, guid: 445f9bef92111c2409c28897c5f7c792, type: 3}
   - {fileID: 21300000, guid: b9ececefc7b235e4eb5dcfd00877041e, type: 3}
@@ -250,7 +265,6 @@ SpriteAtlas:
   - warning
   - cardIllustration_collector
   - explodePixel2
-  - portraitRobot
   - weather_lightRain
   - motherbaseStem1
   - motherbaseBud
@@ -279,6 +293,7 @@ SpriteAtlas:
   - weather_fog
   - motherbaseFrogTosser2
   - explodePixel5
+  - devicerBody
   - windBlocker
   - square
   - wrongX
@@ -297,6 +312,7 @@ SpriteAtlas:
   - flowerPowerCore
   - sunFin
   - spear1
+  - devicerEye
   - circle16x16
   - weather_mostlyCloudy
   - fly4
@@ -353,6 +369,7 @@ SpriteAtlas:
   - weather_cloudy
   - weather_lightSnow
   - motherbasePlatform
+  - devicerMouthClose
   - puffPuff
   - cardIcon_windBlocker
   - weatherMetricIcon_temperature
@@ -384,6 +401,7 @@ SpriteAtlas:
   - separator
   - spear2
   - leaf02
+  - devicerMouthOpen
   - flowerIcon
   - cardIllustration_spearman
   - mushroom
