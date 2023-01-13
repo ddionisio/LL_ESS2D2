@@ -27,9 +27,14 @@ public class UnitAllyFlyingAttacker : UnitCard {
     private float mMoveCurTime;
     private float mMoveDelay;
 
+    private float mIdleEndX;
+
     private Collider2D[] mAttackCheckColls = new Collider2D[4];
 
     public override void MotherbaseSpawnFinish() {
+        var motherbase = GameController.instance.motherbase;
+        curDir = new Vector2(Mathf.Sign(position.x - motherbase.transform.position.x), 0f);
+
         state = UnitStates.instance.move;
     }
 
@@ -57,12 +62,22 @@ public class UnitAllyFlyingAttacker : UnitCard {
             mMoveCurTime = 0f;
             mMoveDelay = dist / moveSpeed;
 
-            curDir = new Vector2(Mathf.Sign(dpos.x), 0f);
-
             mRout = StartCoroutine(DoAttackCheck());
         }
         else if(state == UnitStates.instance.idle) {
             ShowReticleIndicator(true);
+
+            //setup wander
+            var motherbase = GameController.instance.motherbase;
+            if(curDir.x < 0f)
+                mIdleEndX = motherbase.transform.position.x + motherbase.spawnAreaLeft.xMin;
+            else
+                mIdleEndX = motherbase.transform.position.x + motherbase.spawnAreaRight.xMax;
+
+            mMoveCurTime = 0f;
+            mMoveDelay = Mathf.Abs(position.x - mIdleEndX) / moveSpeed;
+
+            mMoveStartPos = position;
 
             mRout = StartCoroutine(DoAttackCheck());
         }
@@ -103,11 +118,39 @@ public class UnitAllyFlyingAttacker : UnitCard {
             if(mMoveCurTime >= mMoveDelay)
                 state = UnitStates.instance.idle;
         }
+        else if(state == UnitStates.instance.idle) {
+            var endPos = new Vector2(mIdleEndX, targetPosition.y);
+
+            mMoveCurTime += Time.fixedDeltaTime;
+
+            float t = mMoveEaseFunc(mMoveCurTime, mMoveDelay, 0f, 0f);
+
+            position = Vector2.Lerp(mMoveStartPos, endPos, t);
+
+            targetPosition = position;
+
+            //bounce to other dir
+            if(mMoveCurTime >= mMoveDelay) {
+                curDir = new Vector2(-curDir.x, curDir.y);
+
+                var motherbase = GameController.instance.motherbase;
+                if(curDir.x < 0f)
+                    mIdleEndX = motherbase.transform.position.x + motherbase.spawnAreaLeft.xMin;
+                else
+                    mIdleEndX = motherbase.transform.position.x + motherbase.spawnAreaRight.xMax;
+
+                mMoveCurTime = 0f;
+                mMoveDelay = Mathf.Abs(position.x - mIdleEndX) / moveSpeed;
+
+                mMoveStartPos = position;
+            }
+        }
     }
 
     IEnumerator DoAttackCheck() {
+        var checkWait = new WaitForSeconds(attackCheckDelay);
         while(true) {
-            yield return new WaitForSeconds(attackCheckDelay);
+            yield return checkWait;
 
             Collider2D nearestColl = null;
             float nearestCollDistSqr = float.MaxValue;

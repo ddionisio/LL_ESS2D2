@@ -46,6 +46,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -141,6 +142,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -295,19 +297,20 @@ MonoBehaviour:
   displayRootGO: {fileID: 1469002662818138}
   spawnRootGO: {fileID: 1568183789612444}
   sfxPathDeath: Audio/boop.wav
-  despawnDelay: 4
+  despawnDelay: 5
   despawnFadeDelay: 1
   despawnFadePulsePerSecond: 4
   despawnAlpha: 0.25
   despawnFadeColorGroup: {fileID: 114721096082766706}
   reticleIndicator: {fileID: 0}
-  moveSpeed: 0.5
+  moveSpeed: 0.75
   flowerGrowthMod: 2
   weedReduceGrowthMod: 2
   checkDelay: 0.5
   checkLayerMask:
     serializedVersion: 2
     m_Bits: 5120
+  targetTemplateCheck: weed
   idleGOActive: {fileID: 1849382109341690}
 --- !u!114 &114380944812851906
 MonoBehaviour:
@@ -464,15 +467,15 @@ MonoBehaviour:
     _eventTracks: []
     _eventKeys: []
     _goSetActiveTracks:
-    - id: 6
+    - _version: 1
+      id: 6
       name: Track5
       foldout: 1
       _targetPath: 
       obj: {fileID: 1269800418298614}
       startActive: 0
     _goSetActiveKeys:
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 5
       easeType: 1
       amplitude: 0
@@ -480,8 +483,7 @@ MonoBehaviour:
       customEase: []
       setActive: 1
       endFrame: 30
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 30
       easeType: 1
       amplitude: 0
@@ -494,7 +496,8 @@ MonoBehaviour:
     _orientationTracks: []
     _orientationKeys: []
     _propertyTracks:
-    - id: 5
+    - _version: 1
+      id: 5
       name: Track3
       foldout: 1
       _targetPath: 
@@ -504,7 +507,8 @@ MonoBehaviour:
       componentName: SpriteRenderer
       fieldName: 
       propertyName: sprite
-    - id: 5
+    - _version: 1
+      id: 5
       name: Track3
       foldout: 1
       _targetPath: 
@@ -514,7 +518,8 @@ MonoBehaviour:
       componentName: SpriteRenderer
       fieldName: 
       propertyName: sprite
-    - id: 4
+    - _version: 1
+      id: 4
       name: Track2
       foldout: 1
       _targetPath: 
@@ -524,7 +529,8 @@ MonoBehaviour:
       componentName: SpriteRenderer
       fieldName: 
       propertyName: sprite
-    - id: 7
+    - _version: 1
+      id: 7
       name: Track6
       foldout: 1
       _targetPath: 
@@ -534,7 +540,8 @@ MonoBehaviour:
       componentName: SpriteRenderer
       fieldName: 
       propertyName: sprite
-    - id: 3
+    - _version: 1
+      id: 3
       name: Track2
       foldout: 1
       _targetPath: 
@@ -544,7 +551,8 @@ MonoBehaviour:
       componentName: SpriteRenderer
       fieldName: 
       propertyName: sprite
-    - id: 2
+    - _version: 1
+      id: 2
       name: Track1
       foldout: 1
       _targetPath: 
@@ -555,302 +563,327 @@ MonoBehaviour:
       fieldName: 
       propertyName: sprite
     _propertyKeys:
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 10
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 10
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 20
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 20
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 30
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 30
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 40
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 40
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 50
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 50
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 60
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 60
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 70
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 70
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 80
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 80
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 90
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 90
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 100
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 100
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 110
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 110
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 120
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 52c8761bd77069543be52c9bb66f9c07, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 120
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 4
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 4
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 14
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 0ecd35d133c259e41925a0b82aca225d, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 14
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 21
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: d63ec9580442a1147ab4ae102ebf46de, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 21
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: d3d23d8d96a12324a8825c29795ce1b9, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 1cd75014f5a0b3341a50aaa40a606e27, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 5
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 10
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: bf01b0b7199ec26448b016fd2de647e5, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 10
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 15
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 1abaebf232c3b9d409c5c9383ee84f5d, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 15
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 20
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 44a2e43498084d140b46c5499e074241, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 20
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 25
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: e5dc777390553e4499a405c82af83aef, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 25
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 21c769e4040edd24e83c0830fb109b60, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 0ecd35d133c259e41925a0b82aca225d, type: 3}
       vect4: {x: 0, y: 0, z: 0, w: 0}
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 21300000, guid: 0ecd35d133c259e41925a0b82aca225d, type: 3}
@@ -858,78 +891,88 @@ MonoBehaviour:
     _rotationEulerTracks: []
     _rotationEulerKeys: []
     _rotationTracks:
-    - id: 4
+    - _version: 1
+      id: 4
       name: Track2
       foldout: 1
       _targetPath: 
       _obj: {fileID: 4806270422104282}
-    - id: 4
+    - _version: 1
+      id: 4
       name: Track2
       foldout: 1
       _targetPath: 
       _obj: {fileID: 4806270422104282}
     _rotationKeys:
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      rotation: {x: 0, y: 0, z: 0, w: 1}
       endFrame: -1
-    - version: 2
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+    - interp: 1
       frame: 4
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      rotation: {x: 0, y: 0, z: 0, w: 1}
       endFrame: 12
-    - version: 2
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+    - interp: 1
       frame: 12
       easeType: 2
       amplitude: 0
       period: 0
       customEase: []
-      rotation: {x: 0, y: 0, z: 0.098609194, w: 0.99512625}
       endFrame: 19
-    - version: 2
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      rotation: {x: 0, y: 0, z: 0.098609194, w: 0.99512625}
+    - interp: 1
       frame: 19
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      rotation: {x: 0, y: 0, z: -0.1391731, w: 0.99026805}
       endFrame: 21
-    - version: 2
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      rotation: {x: 0, y: 0, z: -0.1391731, w: 0.99026805}
+    - interp: 1
       frame: 21
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      rotation: {x: 0, y: 0, z: 0, w: 1}
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
+      rotation: {x: 0, y: 0, z: 0, w: 1}
     _translationTracks:
-    - id: 3
+    - _version: 1
+      id: 3
       name: Track1
       foldout: 1
       _targetPath: 
       _obj: {fileID: 4806270422104282}
       pixelSnap: 0
       pixelPerUnit: 100
-    - id: 3
+    - _version: 1
+      id: 3
       name: Track1
       foldout: 1
       _targetPath: 
       _obj: {fileID: 4806270422104282}
       pixelSnap: 0
       pixelPerUnit: 100
-    - id: 5
+    - _version: 1
+      id: 5
       name: Track4
       foldout: 1
       _targetPath: 
@@ -937,375 +980,385 @@ MonoBehaviour:
       pixelSnap: 0
       pixelPerUnit: 100
     _translationKeys:
-    - version: 2
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 20
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 20
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 30
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0.25, z: 0}
-      - {x: 0, y: 0, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 25
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.25, z: 0}
       endFrame: 25
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 2
+      _paths: []
+      position: {x: 0, y: 0.25, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 2
       frame: 30
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 40
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 40
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 50
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0.25, z: 0}
-      - {x: 0, y: 0, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 45
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.25, z: 0}
       endFrame: 45
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 2
+      _paths: []
+      position: {x: 0, y: 0.25, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 2
       frame: 50
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 80
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 80
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 90
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0.25, z: 0}
-      - {x: 0, y: 0, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 85
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.25, z: 0}
       endFrame: 85
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 2
+      _paths: []
+      position: {x: 0, y: 0.25, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 2
       frame: 90
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 100
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 100
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 110
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0.25, z: 0}
-      - {x: 0, y: 0, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 105
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.25, z: 0}
       endFrame: 105
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0.25, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 110
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 110
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 2
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 4
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0.4, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 4
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 11
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0.3, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 2
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 2
       frame: 11
       easeType: 4
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.3, z: 0}
       endFrame: 14
-      path:
-      - {x: 0, y: 0.49, z: 0}
-      - {x: 0, y: 0.25, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 1
+      _paths: []
+      position: {x: 0, y: 0.3, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 1
       frame: 14
       easeType: 2
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.3, z: 0}
       endFrame: 21
-      path:
-      - {x: 0, y: 0.3, z: 0}
-      - {x: 0, y: 0, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 1
+      _paths: []
+      position: {x: 0, y: 0.3, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 1
       frame: 21
       easeType: 2
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 21
-      path: []
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 1
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0, z: 0}
       endFrame: 5
-      path:
-      - {x: 0, y: 0, z: 0}
-      - {x: 0, y: 0.21, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 5
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.21, z: 0}
       endFrame: 5
-      path: []
       isConstSpeed: 1
+      _paths: []
+      position: {x: 0, y: 0.21, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
     _unityAnimationTracks: []
     _unityAnimationKeys: []
     _scaleTracks:
-    - id: 7
+    - _version: 1
+      id: 7
       name: Track5
       foldout: 1
       _targetPath: 
       axis: -1
       _obj: {fileID: 4806270422104282}
-    - id: 7
+    - _version: 1
+      id: 7
       name: Track5
       foldout: 1
       _targetPath: 
       axis: -1
       _obj: {fileID: 4806270422104282}
-    - id: 3
+    - _version: 1
+      id: 3
       name: Track1
       foldout: 1
       _targetPath: 
       axis: -1
       _obj: {fileID: 4806270422104282}
-    - id: 2
+    - _version: 1
+      id: 2
       name: Track1
       foldout: 1
       _targetPath: 
       axis: -1
       _obj: {fileID: 4806270422104282}
-    - id: 4
+    - _version: 1
+      id: 4
       name: Track3
       foldout: 1
       _targetPath: 
       axis: -1
       _obj: {fileID: 4806270422104282}
     _scaleKeys:
-    - version: 1
-      interp: 2
+    - interp: 2
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1, y: 1, z: 1}
       endFrame: 60
-    - version: 1
-      interp: 2
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1, y: 1, z: 1}
+    - interp: 2
       frame: 60
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: -1, y: 1, z: 1}
       endFrame: 120
-    - version: 1
-      interp: 2
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: -1, y: 1, z: 1}
+    - interp: 2
       frame: 120
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1, y: 1, z: 1}
       endFrame: -1
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1, y: 1, z: 1}
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1, y: 1, z: 1}
       endFrame: -1
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1, y: 1, z: 1}
+    - interp: 1
       frame: 1
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1, y: 1, z: 1}
       endFrame: 10
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1, y: 1, z: 1}
+    - interp: 1
       frame: 10
       easeType: 2
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1.5, y: 0.2, z: 1}
       endFrame: 20
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1.5, y: 0.2, z: 1}
+    - interp: 1
       frame: 20
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 0, y: 1.5, z: 1}
       endFrame: -1
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 0, y: 1.5, z: 1}
+    - interp: 1
       frame: 1
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1, y: 1, z: 1}
       endFrame: 10
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1, y: 1, z: 1}
+    - interp: 1
       frame: 10
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 0, y: 0, z: 1}
       endFrame: -1
-    - version: 1
-      interp: 0
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 0, y: 0, z: 1}
+    - interp: 0
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1, y: 1, z: 1}
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1, y: 1, z: 1}
     _trackLookups:
     - type: 7
       index: 0
@@ -1405,6 +1458,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1502,6 +1556,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:

@@ -8103,8 +8103,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224616087093992130}
-  - component: {fileID: 114548468478001976}
-  - component: {fileID: 114031390089581912}
   - component: {fileID: 222503466974727136}
   - component: {fileID: 114545010570617524}
   m_Layer: 5
@@ -8139,46 +8137,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &114548468478001976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249507540802948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68d392643a82284f985aa747e9f902b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardImage: {fileID: 114134603884000094}
-  cardFill: {fileID: 114381833751090970}
-  cardIconImage: {fileID: 114130066562170524}
-  cardIconFill: {fileID: 114664585663048948}
-  cardCountLabel: {fileID: 114533400386500964}
-  cardNameLabel: {fileID: 0}
-  colorGroup: {fileID: 114031390089581912}
-  disableColor: {r: 0.636, g: 0.636, b: 0.636, a: 0.75}
-  cardDrag: {fileID: 114163488419029932}
-  signalCardDragStart: {fileID: 11400000, guid: 1c993e9116ffa8f439bd690fdfcf827f,
-    type: 2}
-  signalCardDragEnd: {fileID: 11400000, guid: 4b812a9c183d06843b792d9574f2da95, type: 2}
-  signalCardSpawned: {fileID: 11400000, guid: f5d50083e68d04d4bbe0effeac55b373, type: 2}
---- !u!114 &114031390089581912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249507540802948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d324cdbfb9a7cc0459b47cfbda9375d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  initOnAwake: 0
-  applyColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &222503466974727136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22232,7 +22190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.7490196}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
