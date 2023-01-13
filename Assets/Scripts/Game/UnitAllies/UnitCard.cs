@@ -14,7 +14,16 @@ public class UnitCard : Unit {
     public M8.SpriteColorGroup despawnFadeColorGroup;
     public ReticleIndicator reticleIndicator;
     
-    public Vector2 targetPosition { get; protected set; }
+    public Vector2 targetPosition { 
+        get { return mTargetPosition; }
+        protected set {
+            mTargetPosition = value;
+            if(mTargetDisplay)
+                mTargetDisplay.transform.position = mTargetPosition;
+            else
+                AddTargetDisplay();
+        }
+    }
 
     protected CardDeckController.CardItem mCardItem;
 
@@ -22,6 +31,8 @@ public class UnitCard : Unit {
 
     private Coroutine mDespawnRout;
     private bool mReticleIndicatorIsActive;
+
+    private Vector2 mTargetPosition;
 
     protected void AddTargetDisplay() {
         if(!mTargetDisplay) {
