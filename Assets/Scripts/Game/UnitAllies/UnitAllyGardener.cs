@@ -212,8 +212,7 @@ public class UnitAllyGardener : UnitCard {
 
     private void ClearTarget() {
         if(mTargetUnit) {
-            if(!mTargetUnit.isReleased)
-                mTargetUnit.SetMark(false);
+            mTargetUnit.SetMark(false);
             mTargetUnit = null;
         }
     }

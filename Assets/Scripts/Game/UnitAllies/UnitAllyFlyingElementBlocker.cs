@@ -90,14 +90,16 @@ public class UnitAllyFlyingElementBlocker : UnitCard {
 
             for(int i = 0; !isTargetFound && i < targetTemplates.Length; i++) {
                 var actives = pool.GetActiveList(targetTemplates[i]);
-                for(int j = 0; j < actives.Count; j++) {
-                    var ent = actives[j];
-                    if(ent) {
-                        var enemyElem = ent.GetComponent<UnitEnemyElement>();
-                        if(enemyElem) {
-                            MoveToTarget(enemyElem);
-                            isTargetFound = true;
-                            break;
+                if(actives != null) {
+                    for(int j = 0; j < actives.Count; j++) {
+                        var ent = actives[j];
+                        if(ent) {
+                            var enemyElem = ent.GetComponent<UnitEnemyElement>();
+                            if(enemyElem) {
+                                MoveToTarget(enemyElem);
+                                isTargetFound = true;
+                                break;
+                            }
                         }
                     }
                 }

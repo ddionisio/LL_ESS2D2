@@ -38,6 +38,10 @@ public class UnitEnemyWeed : Unit {
     public void ApplyGrowth(float growthDelta) {
         var newGrowth = Mathf.Clamp01(mCurGrowth + growthDelta);
         if(mCurGrowth != newGrowth) {
+            //hide indicator if we are getting shrunk
+            if(newGrowth < mCurGrowth)
+                IndicatorHide();
+
             mCurGrowth = newGrowth;
             if(mCurGrowth > 0f) {
                 if(animator.currentPlayingTakeIndex != -1)

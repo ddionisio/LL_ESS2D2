@@ -26,6 +26,10 @@ public class Unit : M8.EntityBase {
     public GameObject displayRootGO;
     public GameObject spawnRootGO;
 
+    [Header("Indicator")]
+    public GameObject indicatorGO;
+    public float indicatorShowDelay = 3f;
+
     [Header("SFX")]
     public string sfxPathDeath = "Audio/boop.wav";
 
@@ -126,13 +130,16 @@ public class Unit : M8.EntityBase {
     private DespawnCycleType mIsDespawnOnCycleEnd = DespawnCycleType.None;
     private bool mIsPhysicsActive;
 
+    private Coroutine mIndicatorShowRout;
+    private WaitForSeconds mIndicatorShowWait;
+
     /// <summary>
     /// Increase/decrease mark counter, make sure to called with marked=false at some point
     /// </summary>
     public void SetMark(bool marked) {
         if(marked)
             mMarkCounter++;
-        else
+        else if(mMarkCounter > 0)
             mMarkCounter--;
     }
 
@@ -179,6 +186,8 @@ public class Unit : M8.EntityBase {
         }
         else if(state == UnitStates.instance.despawning) {
             isPhysicsActive = false;
+
+            IndicatorHide();
         }
         else if(state == UnitStates.instance.dead || state == UnitStates.instance.blowOff) {
             isPhysicsActive = false;
@@ -186,6 +195,8 @@ public class Unit : M8.EntityBase {
 
             if(!string.IsNullOrEmpty(sfxPathDeath))
                 LoLManager.instance.PlaySound(sfxPathDeath, false, false);
+
+            IndicatorHide();
         }
     }
 
@@ -195,6 +206,8 @@ public class Unit : M8.EntityBase {
 
         if(spawnRootGO)
             spawnRootGO.SetActive(false);
+
+        IndicatorHide();
 
         isPhysicsActive = false;
 
@@ -211,6 +224,8 @@ public class Unit : M8.EntityBase {
 
             despawnCycleType = parms.GetValue<DespawnCycleType>(UnitSpawnParams.despawnCycleType);
         }
+
+        mIndicatorShowRout = StartCoroutine(DoShowIndicator());
     }
 
     protected override void OnDestroy() {
@@ -233,6 +248,11 @@ public class Unit : M8.EntityBase {
 
         if(spawnRootGO)
             spawnRootGO.SetActive(false);
+
+        if(indicatorGO)
+            indicatorGO.SetActive(false);
+
+        mIndicatorShowWait = new WaitForSeconds(indicatorShowDelay);
     }
 
     // Use this for one-time initialization
@@ -264,6 +284,25 @@ public class Unit : M8.EntityBase {
 
         mRout = null;
         Release();
+    }
+
+    protected void IndicatorHide() {
+        if(indicatorGO)
+            indicatorGO.SetActive(false);
+
+        if(mIndicatorShowRout != null) {
+            StopCoroutine(mIndicatorShowRout);
+            mIndicatorShowRout = null;
+        }
+    }
+
+    IEnumerator DoShowIndicator() {
+        yield return mIndicatorShowWait;
+
+        if(indicatorGO)
+            indicatorGO.SetActive(true);
+
+        mIndicatorShowRout = null;
     }
 
     private void ApplyPhysicsActive() {

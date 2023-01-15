@@ -45,6 +45,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -125,6 +126,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -205,6 +207,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -274,6 +277,7 @@ Transform:
   - {fileID: 4128553471500948}
   - {fileID: 4609254632394282}
   - {fileID: 4058702141056224}
+  - {fileID: 528514615777175160}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -294,6 +298,8 @@ MonoBehaviour:
   flags: 4
   displayRootGO: {fileID: 0}
   spawnRootGO: {fileID: 0}
+  indicatorGO: {fileID: 542424498068897927}
+  indicatorShowDelay: 3
   sfxPathDeath: Audio/boop.wav
   flowerReduceGrowthMod: 0.65
   initialGrowth: 0
@@ -412,45 +418,50 @@ MonoBehaviour:
     _eventTracks: []
     _eventKeys: []
     _goSetActiveTracks:
-    - id: 3
+    - _version: 1
+      id: 3
       name: Track2
       foldout: 1
       _targetPath: 
       obj: {fileID: 1853649007318242}
       startActive: 0
-    - id: 4
+    - _version: 1
+      id: 4
       name: Track3
       foldout: 1
       _targetPath: 
       obj: {fileID: 1671522062814848}
       startActive: 0
-    - id: 4
+    - _version: 1
+      id: 4
       name: Track3
       foldout: 1
       _targetPath: 
       obj: {fileID: 1671522062814848}
       startActive: 0
-    - id: 3
+    - _version: 1
+      id: 3
       name: Track2
       foldout: 1
       _targetPath: 
       obj: {fileID: 1853649007318242}
       startActive: 0
-    - id: 3
+    - _version: 1
+      id: 3
       name: Track2
       foldout: 1
       _targetPath: 
       obj: {fileID: 1853649007318242}
       startActive: 1
-    - id: 4
+    - _version: 1
+      id: 4
       name: Track3
       foldout: 1
       _targetPath: 
       obj: {fileID: 1671522062814848}
       startActive: 1
     _goSetActiveKeys:
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 10
       easeType: 1
       amplitude: 0
@@ -458,8 +469,7 @@ MonoBehaviour:
       customEase: []
       setActive: 1
       endFrame: -1
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 10
       easeType: 1
       amplitude: 0
@@ -467,8 +477,7 @@ MonoBehaviour:
       customEase: []
       setActive: 1
       endFrame: -1
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
@@ -476,8 +485,7 @@ MonoBehaviour:
       customEase: []
       setActive: 0
       endFrame: -1
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
@@ -485,8 +493,7 @@ MonoBehaviour:
       customEase: []
       setActive: 0
       endFrame: -1
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
@@ -494,8 +501,7 @@ MonoBehaviour:
       customEase: []
       setActive: 1
       endFrame: -1
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
@@ -508,7 +514,8 @@ MonoBehaviour:
     _orientationTracks: []
     _orientationKeys: []
     _propertyTracks:
-    - id: 2
+    - _version: 1
+      id: 2
       name: Track1
       foldout: 1
       _targetPath: 
@@ -518,7 +525,8 @@ MonoBehaviour:
       componentName: SpriteRenderer
       fieldName: 
       propertyName: color
-    - id: 2
+    - _version: 1
+      id: 2
       name: Track1
       foldout: 1
       _targetPath: 
@@ -528,7 +536,8 @@ MonoBehaviour:
       componentName: SpriteRenderer
       fieldName: 
       propertyName: color
-    - id: 5
+    - _version: 1
+      id: 5
       name: Track3
       foldout: 1
       _targetPath: 
@@ -539,74 +548,80 @@ MonoBehaviour:
       fieldName: 
       propertyName: size
     _propertyKeys:
-    - version: 2
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 10
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 0}
       vect4: {x: 0.8584906, y: 0.7984777, z: 0.26321647, w: 0}
-    - version: 2
-      interp: 1
+    - interp: 1
       frame: 10
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 0}
       vect4: {x: 1, y: 1, z: 1, w: 1}
-    - version: 2
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 10
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 0}
       vect4: {x: 1, y: 1, z: 1, w: 1}
-    - version: 2
-      interp: 1
+    - interp: 1
       frame: 10
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 0}
       vect4: {x: 0.8584906, y: 0.7984777, z: 0.26321647, w: 0}
-    - version: 2
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: 30
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 0}
       vect4: {x: 0.25, y: 0.01, z: 0, w: 0}
-    - version: 2
-      interp: 1
+    - interp: 1
       frame: 30
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
       val: 0
       valString: 
       valObj: {fileID: 0}
@@ -616,7 +631,8 @@ MonoBehaviour:
     _rotationTracks: []
     _rotationKeys: []
     _translationTracks:
-    - id: 6
+    - _version: 1
+      id: 6
       name: Track4
       foldout: 1
       _targetPath: 
@@ -624,76 +640,81 @@ MonoBehaviour:
       pixelSnap: 0
       pixelPerUnit: 100
     _translationKeys:
-    - version: 2
-      interp: 0
+    - interp: 0
       frame: 1
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.1, z: 0}
       endFrame: 30
-      path:
-      - {x: 0, y: 0.1, z: 0}
-      - {x: 0, y: 0.74, z: 0}
       isConstSpeed: 1
-    - version: 2
-      interp: 0
+      _paths: []
+      position: {x: 0, y: 0.1, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
+    - interp: 0
       frame: 30
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      position: {x: 0, y: 0.74, z: 0}
       endFrame: 30
-      path: []
       isConstSpeed: 1
+      _paths: []
+      position: {x: 0, y: 0.74, z: 0}
+      orientMode: 0
+      orientLockAxis: 0
     _unityAnimationTracks: []
     _unityAnimationKeys: []
     _scaleTracks:
-    - id: 5
+    - _version: 1
+      id: 5
       name: Track4
       foldout: 1
       _targetPath: 
       axis: -1
       _obj: {fileID: 4128553471500948}
     _scaleKeys:
-    - version: 1
-      interp: 1
+    - interp: 1
       frame: 1
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 0.5, y: 0.5, z: 1}
       endFrame: 5
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 0.5, y: 0.5, z: 1}
+    - interp: 1
       frame: 5
       easeType: 2
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1.2, y: 0.8333334, z: 1}
       endFrame: 8
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1.2, y: 0.8333334, z: 1}
+    - interp: 1
       frame: 8
       easeType: 3
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 0.7, y: 1.3, z: 1}
       endFrame: 10
-    - version: 1
-      interp: 1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 0.7, y: 1.3, z: 1}
+    - interp: 1
       frame: 10
       easeType: 1
       amplitude: 0
       period: 0
       customEase: []
-      scale: {x: 1, y: 1, z: 1}
       endFrame: -1
+      isConstSpeed: 0
+      _paths: []
+      scale: {x: 1, y: 1, z: 1}
     _trackLookups:
     - type: 4
       index: 0
@@ -729,3 +750,90 @@ MonoBehaviour:
       index: 5
       keyIndices: 05000000
     _takeTrackCounts: 040000000300000004000000
+--- !u!1001 &7219908294395007151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4698233637600958}
+    m_Modifications:
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184737163627614248, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_Name
+      value: actionIndicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334794614567328661, guid: 97517a0c47cc4144e9336a67c044e51d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1eb9f59413b6dd045893666d700b6884,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97517a0c47cc4144e9336a67c044e51d, type: 3}
+--- !u!1 &542424498068897927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7184737163627614248, guid: 97517a0c47cc4144e9336a67c044e51d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7219908294395007151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &528514615777175160 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7162954769232803543, guid: 97517a0c47cc4144e9336a67c044e51d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7219908294395007151}
+  m_PrefabAsset: {fileID: 0}
