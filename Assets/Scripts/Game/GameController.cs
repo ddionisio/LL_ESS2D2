@@ -37,6 +37,8 @@ public class GameController : GameModeController<GameController> {
     /// </summary>
     public event System.Action endCallback;
 
+    public bool pause { get; set; } = false;
+
     private M8.GenericParams mWeatherForecastParms = new M8.GenericParams();
     
     public CardDeployReticle GetCardDeployReticle(string reticleName) {
@@ -87,6 +89,9 @@ public class GameController : GameModeController<GameController> {
         if(prepareCycleCallback != null)
             prepareCycleCallback();
 
+        while(pause)
+            yield return null;
+
         //open weather forecast
         mWeatherForecastParms[ModalWeatherForecast.parmWeatherCycleIndex] = weatherCycle.curCycleIndex;
         mWeatherForecastParms[ModalWeatherForecast.parmWeatherCycle] = weatherCycle.curCycleData;
@@ -102,6 +107,9 @@ public class GameController : GameModeController<GameController> {
 
         if(startCycleCallback != null)
             startCycleCallback();
+
+        while(pause)
+            yield return null;
 
         yield return new WaitForSeconds(GameData.instance.levelCycleStartDelay);
                 

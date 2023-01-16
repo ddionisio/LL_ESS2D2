@@ -9,6 +9,17 @@ public class TutorialLevel1 : MonoBehaviour {
     [M8.TagSelector]
     public string dragGuideTag;
 
+    [Header("Intro")]
+    public AnimatorEnterExit introClimateIllustration;
+    public LoLExt.ModalDialogController introClimateDialog;
+    public AnimatorEnterExit introWeatherIllustration;
+    public LoLExt.ModalDialogController introWeatherDialog;
+
+    [Header("Enemy Intro")]
+    public LoLExt.ModalDialogController introWeedDialog;
+    public LoLExt.ModalDialogController introMoleDialog;
+    public LoLExt.ModalDialogController introBeetleDialog;
+
     [Header("Cards")]
     public CardData cardGardener;
     public CardData cardMallet;
@@ -66,6 +77,10 @@ public class TutorialLevel1 : MonoBehaviour {
 
         if(!mDragGuide)
             mDragGuide = GameObject.FindGameObjectWithTag(dragGuideTag).GetComponent<DragToGuideWidget>();
+
+        //show intro
+        if(GameController.instance.weatherCycle.curCycleIndex == 0)
+            StartCoroutine(DoIntro());
     }
 
     void OnWeatherBegin() {
@@ -95,6 +110,47 @@ public class TutorialLevel1 : MonoBehaviour {
         }
     }
 
+    IEnumerator DoIntro() {
+        GameController.instance.pause = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        if(introClimateIllustration) {
+            introClimateIllustration.gameObject.SetActive(true);
+            yield return introClimateIllustration.PlayEnterWait();
+        }
+
+        if(introClimateDialog) {
+            introClimateDialog.Play();
+            while(introClimateDialog.isPlaying)
+                yield return null;
+        }
+
+        if(introClimateIllustration) {            
+            yield return introClimateIllustration.PlayExitWait();
+            introClimateIllustration.gameObject.SetActive(false);
+        }
+
+        if(introWeatherIllustration) {
+            introWeatherIllustration.gameObject.SetActive(true);
+            yield return introWeatherIllustration.PlayEnterWait();
+        }
+
+        if(introWeatherDialog) {
+            introWeatherDialog.Play();
+            while(introWeatherDialog.isPlaying)
+                yield return null;
+        }
+
+        if(introWeatherIllustration) {
+            yield return introWeatherIllustration.PlayExitWait();
+            introWeatherIllustration.gameObject.SetActive(false);
+        }
+
+
+        GameController.instance.pause = false;
+    }
+
     IEnumerator DoGardener() {
         //wait for weed to spawn
         while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != weedPrefab.name)
@@ -102,7 +158,18 @@ public class TutorialLevel1 : MonoBehaviour {
 
         var weedUnit = mCycleUnitSpawned;
 
-        yield return new WaitForSeconds(0.5f); //wait a bit
+        yield return new WaitForSeconds(1f); //wait a bit
+
+        //show dialog
+        if(introWeedDialog) {
+            M8.SceneManager.instance.Pause();
+
+            introWeedDialog.Play();
+            while(introWeedDialog.isPlaying)
+                yield return null;
+
+            M8.SceneManager.instance.Resume();
+        }
 
         //show gardener card
         GameController.instance.cardDeck.ShowCard(cardGardener.name);
@@ -151,6 +218,17 @@ public class TutorialLevel1 : MonoBehaviour {
 
         yield return new WaitForSeconds(1.5f); //wait a bit
 
+        //show dialog
+        if(introMoleDialog) {
+            M8.SceneManager.instance.Pause();
+
+            introMoleDialog.Play();
+            while(introMoleDialog.isPlaying)
+                yield return null;
+
+            M8.SceneManager.instance.Resume();
+        }
+
         //show mallet card
         GameController.instance.cardDeck.ShowCard(cardMallet.name);
 
@@ -174,7 +252,18 @@ public class TutorialLevel1 : MonoBehaviour {
 
         yield return new WaitForSeconds(1f); //wait a bit
 
-        //show mallet card
+        //show dialog
+        if(introBeetleDialog) {
+            M8.SceneManager.instance.Pause();
+
+            introBeetleDialog.Play();
+            while(introBeetleDialog.isPlaying)
+                yield return null;
+
+            M8.SceneManager.instance.Resume();
+        }
+
+        //show spearman card
         GameController.instance.cardDeck.ShowCard(cardSpearman.name);
 
         yield return new WaitForSeconds(0.3f); //wait for card animation
