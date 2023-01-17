@@ -39,6 +39,7 @@
     "climateZone": "Climate Zone",
     "climateZones": "Climate Zones",
     "weather_title": "WEATHER",
+    "microclimate_title": "MICROCLIMATE",
     "latitudes": "Latitudes",
     "latitudeEquator": "Equator (0°)",
     "latitudeTropicCancer": "Tropic of Cancer (23°27')",
@@ -174,8 +175,20 @@
     "mole_intro_02": "While moles don't have much interest in veggies, their tunneling however, can ruin a plant's roots.",
     "mole_intro_03": "Though they are essential in a healthy ecosystem, we don't want them near our plants!",
     "beetle_intro_01": "Look out, it's a beetle!",
-    "beetle_intro_02": "Though beetles almost eat anything, this one in particular seem to prefer eating plants.",
-    "beetle_intro_03": "These insects thrive in most climates, so we will be seeing more of them later."
+    "beetle_intro_02": "Though beetles almost eat anything, this one in particular seems to prefer eating plants.",
+    "beetle_intro_03": "These insects thrive in most climates, so we will be seeing more of them later.",
+    "coolRainyAnnually": "Cool and rainy most of the year.",
+    "intro_climate_oceanic_01": "Ah, the oceanic climate! Where it’s nice and cool throughout the year!",
+    "intro_climate_oceanic_02": "This is due to the region being close to the ocean that regulates the temperature.",
+    "intro_climate_oceanic_03": "However, the winds carrying the nice ocean breeze can cause a lot of days to be dull and dreary.",
+    "intro_climate_oceanic_04": "Nevertheless, this moody atmosphere is a perfect place to grow our plants!",
+    "intro_microclimate_01": "Looks like we landed in a peculiar place where the weather is a little bit cooler than usual.",
+    "intro_microclimate_02": "This is known as a microclimate, where the local atmospheric condition can differ from the surrounding areas.",
+    "intro_microclimate_03": "In our case, we are below the slope of a hill that obscures most of the sunlight, and precipitations linger around longer.",
+    "mushroom_intro_01": "Uh oh, a mushroom started to grow near our plants!",
+    "mushroom_intro_02": "Since there’s a lot of moisture in the region, the fungi that grow these mushrooms from beneath are able to absorb a lot of nutrients.",
+    "mushroom_intro_03": "Their spores appear to be harmful to all our frogs and plants, but one: the iron frog!",
+    "mushroom_intro_04": "Just as the iron frogs can rid us of the moles, they, too, can rid us of these mushrooms."
   },
   "es": {
     "welcome": "Bienvenido!",
@@ -212,6 +225,7 @@
     "climateZone": "Zona Climática",
     "climateZones": "Zonas Climáticas",
     "weather_title": "TIEMPO",
+    "microclimate_title": "MICROCLIMA",
     "latitudes": "Latitudes",
     "latitudeEquator": "Ecuador (0°)",
     "latitudeTropicCancer": "Trópico de cáncer (23°27')",
@@ -348,6 +362,18 @@
     "mole_intro_03": "",
     "beetle_intro_01": "",
     "beetle_intro_02": "",
-    "beetle_intro_03": ""
+    "beetle_intro_03": "",
+    "coolRainyAnnually": "",
+    "intro_climate_oceanic_01": "",
+    "intro_climate_oceanic_02": "",
+    "intro_climate_oceanic_03": "",
+    "intro_climate_oceanic_04": "",
+    "intro_microclimate_01": "",
+    "intro_microclimate_02": "",
+    "intro_microclimate_03": "",
+    "mushroom_intro_01": "",
+    "mushroom_intro_02": "",
+    "mushroom_intro_03": "",
+    "mushroom_intro_04": ""
   }
 }
