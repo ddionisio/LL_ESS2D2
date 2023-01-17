@@ -424,9 +424,11 @@ MonoBehaviour:
   flags: 0
   displayRootGO: {fileID: 1375363535891926}
   spawnRootGO: {fileID: 1364830990913880}
+  indicatorGO: {fileID: 0}
+  indicatorShowDelay: 2
   sfxPathDeath: Audio/boop.wav
   despawnDelay: -1
-  despawnFadeDelay: 1
+  despawnFadeDelay: 1.5
   despawnFadePulsePerSecond: 4
   despawnAlpha: 0.25
   despawnFadeColorGroup: {fileID: 114703235993035908}

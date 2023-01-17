@@ -11,13 +11,29 @@ public class TutorialLevel3 : MonoBehaviour {
 
     public Transform dragToWindbreakerPoint;
 
+    [Header("Intro")]
+    public AnimatorEnterExit introClimateIllustration;
+    public LoLExt.ModalDialogController introClimateDialog;
+
+    [Header("Enemy Intro")]
+    public AnimatorEnterExit introIronFrogCard;
+    public AnimatorEnterExit introIronAndSpearFrogCard;
+
+    public LoLExt.ModalDialogController introHopperDialog01;
+    public LoLExt.ModalDialogController introHopperDialog02;
+    public LoLExt.ModalDialogController introAntlerDialog01;
+    public LoLExt.ModalDialogController introAntlerDialog02;
+    public LoLExt.ModalDialogController introWeatherHazzardDialog;
+
     [Header("Cards")]
     public CardData cardCollector;
     public CardData cardWindbreaker;
 
     [Header("Unit Templates")]
     public GameObject collectorPrefab;
-    public GameObject windPrefab;
+    public GameObject hopperPrefab;
+    public GameObject antlerPrefab;
+    public GameObject windPrefab;    
 
     [Header("Signal")]
     public SignalCardWidget signalCardDragBegin;
@@ -72,6 +88,10 @@ public class TutorialLevel3 : MonoBehaviour {
 
         if(!mDragGuide)
             mDragGuide = GameObject.FindGameObjectWithTag(dragGuideTag).GetComponent<DragToGuideWidget>();
+
+        //show intro
+        if(GameController.instance.weatherCycle.curCycleIndex == 0)
+            StartCoroutine(DoIntro());
     }
 
     void OnWeatherBegin() {
@@ -90,6 +110,10 @@ public class TutorialLevel3 : MonoBehaviour {
         if(curCycleInd == 0) {
             if(curWeatherInd == 0) {
                 StartCoroutine(DoCollector());
+                StartCoroutine(DoHopper());
+            }
+            else if(curWeatherInd == 1) {
+                StartCoroutine(DoAntler());
             }
         }
         else if(curCycleInd == 1) {
@@ -128,6 +152,30 @@ public class TutorialLevel3 : MonoBehaviour {
         mUnitSpawnerSpawned = ent;
     }
 
+    IEnumerator DoIntro() {
+        GameController.instance.pause = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        if(introClimateIllustration) {
+            introClimateIllustration.gameObject.SetActive(true);
+            yield return introClimateIllustration.PlayEnterWait();
+        }
+
+        if(introClimateDialog) {
+            introClimateDialog.Play();
+            while(introClimateDialog.isPlaying)
+                yield return null;
+        }
+
+        if(introClimateIllustration) {
+            yield return introClimateIllustration.PlayExitWait();
+            introClimateIllustration.gameObject.SetActive(false);
+        }
+
+        GameController.instance.pause = false;
+    }
+
     IEnumerator DoCollector() {
         //wait for a collector to spawn
         do {
@@ -146,10 +194,91 @@ public class TutorialLevel3 : MonoBehaviour {
         //
     }
 
+    IEnumerator DoHopper() {
+        //wait for hopper to spawn
+        while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != hopperPrefab.name)
+            yield return null;
+
+        yield return new WaitForSeconds(1f); //wait a bit
+
+        M8.SceneManager.instance.Pause();
+
+        //show dialog
+        if(introHopperDialog01) {
+            introHopperDialog01.Play();
+            while(introHopperDialog01.isPlaying)
+                yield return null;
+        }
+
+        if(introIronAndSpearFrogCard) {
+            introIronAndSpearFrogCard.gameObject.SetActive(true);
+            yield return introIronAndSpearFrogCard.PlayEnterWait();
+        }
+
+        //show dialog
+        if(introHopperDialog02) {
+            introHopperDialog02.Play();
+            while(introHopperDialog02.isPlaying)
+                yield return null;
+        }
+
+        if(introIronAndSpearFrogCard) {            
+            yield return introIronAndSpearFrogCard.PlayExitWait();
+            introIronAndSpearFrogCard.gameObject.SetActive(false);
+        }
+
+        M8.SceneManager.instance.Resume();
+    }
+
+    IEnumerator DoAntler() {
+        //wait for hopper to spawn
+        while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != antlerPrefab.name)
+            yield return null;
+
+        yield return new WaitForSeconds(1f); //wait a bit
+
+        M8.SceneManager.instance.Pause();
+
+        //show dialog
+        if(introAntlerDialog01) {
+            introAntlerDialog01.Play();
+            while(introAntlerDialog01.isPlaying)
+                yield return null;
+        }
+
+        if(introIronFrogCard) {
+            introIronFrogCard.gameObject.SetActive(true);
+            yield return introIronFrogCard.PlayEnterWait();
+        }
+
+        if(introAntlerDialog02) {
+            introAntlerDialog02.Play();
+            while(introAntlerDialog02.isPlaying)
+                yield return null;
+        }
+
+        if(introIronFrogCard) {
+            yield return introIronFrogCard.PlayExitWait();
+            introIronFrogCard.gameObject.SetActive(false);
+        }
+
+        M8.SceneManager.instance.Resume();
+    }
+
     IEnumerator DoWindbreaker() {
         do {
             yield return null;
         } while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != windPrefab.name || mCycleUnitSpawned.state == UnitStates.instance.spawning);
+
+        M8.SceneManager.instance.Pause();
+
+        if(introWeatherHazzardDialog) {
+            introWeatherHazzardDialog.Play();
+            while(introWeatherHazzardDialog.isPlaying)
+                yield return null;
+        }
+
+        M8.SceneManager.instance.Resume();
 
         //show windbreaker card
         GameController.instance.cardDeck.ShowCard(cardWindbreaker.name);
