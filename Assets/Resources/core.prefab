@@ -189,7 +189,7 @@ MonoBehaviour:
   _loadOnInstance: 1
   _masterVolumeDefault: 1
   _soundVolumeDefault: 0.3
-  _musicVolumeDefault: 0.3
+  _musicVolumeDefault: 0.2
 --- !u!114 &3971232998423011440
 MonoBehaviour:
   m_ObjectHideFlags: 0

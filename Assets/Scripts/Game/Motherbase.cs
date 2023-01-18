@@ -228,7 +228,10 @@ public class Motherbase : MonoBehaviour {
         return retFlower;
     }
 
-    public UnitAllyFlower GetFlowerGrowingNear(float x) {
+    /// <summary>
+    /// Ensure dirX is either -1 or 1, set dir = 0 to check either direction
+    /// </summary>
+    public UnitAllyFlower GetFlowerGrowingNear(float x, float dirX) {
         UnitAllyFlower retFlower = null;
         float nearDist = float.MaxValue;
 
@@ -237,7 +240,11 @@ public class Motherbase : MonoBehaviour {
             if(flower.isBlossomed)
                 continue;
 
-            var dist = Mathf.Abs(x - flower.position.x);
+            var delta = flower.position.x - x;
+            if(dirX != 0f && Mathf.Sign(delta) != dirX)
+                continue;
+
+            var dist = Mathf.Abs(delta);
 
             if(flower.growth < flower.growthMax && dist < nearDist) {
                 retFlower = flower;

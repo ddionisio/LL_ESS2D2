@@ -173,7 +173,7 @@ MonoBehaviour:
   indicatorShowDelay: 3
   sfxPathDeath: Audio/boop.wav
   feedCount: 3
-  moveSpeed: 1.75
+  moveSpeed: 3.5
   moveSpeedLeave: 4
   moveHeightRangeMin: 0.5
   moveHeightRangeMax: 1.5

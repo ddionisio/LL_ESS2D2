@@ -118,27 +118,27 @@ MonoBehaviour:
   - key: unitAllyWindBlockerDesc
     voiceDuration: 5
   - key: climateTypeArid
-    voiceDuration: 1
+    voiceDuration: 1.5
   - key: climateTypeAridDesc
     voiceDuration: 5
   - key: climateTypeContinental
-    voiceDuration: 1
+    voiceDuration: 1.5
   - key: climateTypeContinentalDesc
     voiceDuration: 8
   - key: climateTypeMarineWestCoast
-    voiceDuration: 1
+    voiceDuration: 1.5
   - key: climateTypeMarineWestCoastDesc
     voiceDuration: 8
   - key: climateTypeMediterranean
-    voiceDuration: 1.5
+    voiceDuration: 2
   - key: climateTypeMediterraneanDesc
     voiceDuration: 8
   - key: climateTypePolar
-    voiceDuration: 1
+    voiceDuration: 1.5
   - key: climateTypePolarDesc
     voiceDuration: 8
   - key: climateTypeRainforest
-    voiceDuration: 1
+    voiceDuration: 1.5
   - key: climateTypeRainforestDesc
     voiceDuration: 8
   - key: locationOutback

@@ -167,7 +167,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 5
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &37770261
@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &37770262
 Transform:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 3
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &42493255
@@ -265,7 +265,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 2
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &42692239
@@ -507,7 +507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &152187956
 Transform:
   m_ObjectHideFlags: 0
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 5
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &476439279
@@ -1869,7 +1869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &496284205
 Transform:
   m_ObjectHideFlags: 0
@@ -3308,7 +3308,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 0
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 2
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1017666318
@@ -3942,7 +3942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209078537}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.6, y: 3.93, z: 0}
+  m_LocalPosition: {x: 16.6, y: 3.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1985872695}
@@ -3963,9 +3963,9 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
-  delay: 4
+  delay: 3
   forceDespawnOnCycleEnd: 1
-  dirAngle: 90
+  dirAngle: -90
 --- !u!1 &1220758645
 GameObject:
   m_ObjectHideFlags: 0
@@ -4419,7 +4419,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 7
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &1366159957
@@ -4468,7 +4468,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 6
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &1369766243
@@ -5470,7 +5470,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 5
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1773250266
@@ -6369,7 +6369,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
-  delay: 6
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &1977374823
@@ -6850,7 +6850,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 3
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &2066312554
@@ -6904,7 +6904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2090078184
 Transform:
   m_ObjectHideFlags: 0
@@ -6934,7 +6934,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 0.5
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &2096372880
@@ -6983,7 +6983,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 1
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &2110580559

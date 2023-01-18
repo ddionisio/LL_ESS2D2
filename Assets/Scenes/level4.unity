@@ -216,7 +216,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 3
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &98610270
@@ -265,7 +265,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 5
   prefab: {fileID: 1333031605163652, guid: 86f36c4e182d8c74a833abe61d738f52, type: 3}
-  delay: 5
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
 --- !u!1 &105858957
@@ -314,7 +314,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 4
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &127539741
@@ -537,7 +537,7 @@ MonoBehaviour:
   editColor: {r: 0.1568627, g: 0.60376114, b: 0.85882354, a: 1}
   type: 0
   prefab: {fileID: 1874793753943524, guid: 861a78fbbccd4e1498ddd7049d092a8d, type: 3}
-  delay: 4
+  delay: 2
   forceDespawnOnCycleEnd: 0
   dirAngle: -90
 --- !u!1001 &211559236
@@ -740,7 +740,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 6
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &295010004
@@ -822,7 +822,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 6
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &394797188
@@ -871,7 +871,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 4
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &443119600
@@ -1085,7 +1085,6 @@ MonoBehaviour:
   applyPortrait: 0
   nameTextRef: 
   dialogTextRefs:
-  - intro_climate_polar_01
   - intro_climate_polar_02
   - intro_climate_polar_03
   - intro_climate_polar_04
@@ -1204,7 +1203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &789145008
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,7 +1233,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 2
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &790318498
@@ -1465,7 +1464,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 5
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &965673042
@@ -1514,7 +1513,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 5
   prefab: {fileID: 1333031605163652, guid: 86f36c4e182d8c74a833abe61d738f52, type: 3}
-  delay: 5
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
 --- !u!1 &985550045
@@ -1679,7 +1678,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1504075056688940, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 3}
-  delay: 4
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1038475100
@@ -1728,7 +1727,7 @@ MonoBehaviour:
   editColor: {r: 0.1568627, g: 0.60376114, b: 0.85882354, a: 1}
   type: 0
   prefab: {fileID: 1874793753943524, guid: 861a78fbbccd4e1498ddd7049d092a8d, type: 3}
-  delay: 4
+  delay: 2
   forceDespawnOnCycleEnd: 0
   dirAngle: 90
 --- !u!1 &1060172067
@@ -1930,7 +1929,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 4
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1001 &1251389384
@@ -2160,7 +2159,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
-  delay: 4
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1402398361
@@ -2209,7 +2208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1418728184
 Transform:
   m_ObjectHideFlags: 0
@@ -2239,7 +2238,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1504075056688940, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 3}
-  delay: 2
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &1480217347
@@ -3055,7 +3054,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1504075056688940, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 3}
-  delay: 5
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1879934860
@@ -3111,7 +3110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1888075182
 Transform:
   m_ObjectHideFlags: 0
@@ -3190,7 +3189,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1504075056688940, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 3}
-  delay: 3
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &1908259917
@@ -3528,6 +3527,6 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 5
   prefab: {fileID: 1333031605163652, guid: 86f36c4e182d8c74a833abe61d738f52, type: 3}
-  delay: 4
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 0

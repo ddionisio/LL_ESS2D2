@@ -255,7 +255,12 @@ public class UnitAllyGardener : UnitCard {
         if(!motherbase)
             return;
 
-        var flower = motherbase.GetFlowerGrowingNear(position.x);
+        var dirCheck = Mathf.Sign(position.x - motherbase.transform.position.x);
+
+        var flower = motherbase.GetFlowerGrowingNear(position.x, dirCheck);
+        if(!flower) //try any dir
+            flower = motherbase.GetFlowerGrowingNear(position.x, 0f);
+
         if(flower) {
             targetPosition = flower.position;
 
