@@ -9,6 +9,10 @@ public class TutorialLevel4 : MonoBehaviour {
     [M8.TagSelector]
     public string dragGuideTag;
 
+    [Header("Intro")]
+    public AnimatorEnterExit introClimateIllustration;
+    public LoLExt.ModalDialogController introClimateDialog;
+
     [Header("Cards")]
     public CardData cardSunfly;
 
@@ -62,6 +66,10 @@ public class TutorialLevel4 : MonoBehaviour {
 
         if(!mDragGuide)
             mDragGuide = GameObject.FindGameObjectWithTag(dragGuideTag).GetComponent<DragToGuideWidget>();
+
+        //show intro
+        if(GameController.instance.weatherCycle.curCycleIndex == 0)
+            StartCoroutine(DoIntro());
     }
 
     void OnWeatherBegin() {
@@ -87,6 +95,30 @@ public class TutorialLevel4 : MonoBehaviour {
                 GameController.instance.cardDeck.ShowCard(3);
             }
         }
+    }
+
+    IEnumerator DoIntro() {
+        GameController.instance.pause = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        if(introClimateIllustration) {
+            introClimateIllustration.gameObject.SetActive(true);
+            yield return introClimateIllustration.PlayEnterWait();
+        }
+
+        if(introClimateDialog) {
+            introClimateDialog.Play();
+            while(introClimateDialog.isPlaying)
+                yield return null;
+        }
+
+        if(introClimateIllustration) {
+            yield return introClimateIllustration.PlayExitWait();
+            introClimateIllustration.gameObject.SetActive(false);
+        }
+
+        GameController.instance.pause = false;
     }
 
     IEnumerator DoSunfly() {
