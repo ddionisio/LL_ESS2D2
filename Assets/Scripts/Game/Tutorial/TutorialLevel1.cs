@@ -160,6 +160,8 @@ public class TutorialLevel1 : MonoBehaviour {
 
         yield return new WaitForSeconds(1f); //wait a bit
 
+        mCycleUnitSpawned.ShowIndicator();
+
         //show dialog
         if(introWeedDialog) {
             M8.SceneManager.instance.Pause();
@@ -218,6 +220,8 @@ public class TutorialLevel1 : MonoBehaviour {
 
         yield return new WaitForSeconds(1.5f); //wait a bit
 
+        mCycleUnitSpawned.ShowIndicator();
+
         //show dialog
         if(introMoleDialog) {
             M8.SceneManager.instance.Pause();
@@ -251,6 +255,8 @@ public class TutorialLevel1 : MonoBehaviour {
         //var moleUnit = mCycleUnitSpawned;
 
         yield return new WaitForSeconds(1f); //wait a bit
+
+        mCycleUnitSpawned.ShowIndicator();
 
         //show dialog
         if(introBeetleDialog) {

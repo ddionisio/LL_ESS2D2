@@ -98,7 +98,7 @@ MonoBehaviour:
   pulsePerSecond: 0.4
   startColor: {r: 0.29799998, g: 0.06443243, b: 0.08590995, a: 0.5019608}
   endColor: {r: 0.43529415, g: 0.09411766, b: 0.1254902, a: 0.8}
-  isRealTime: 0
+  isRealTime: 1
 --- !u!1 &3446059218859977524
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   pulsePerSecond: 0.4
   startColor: {r: 0.29799998, g: 0.06443243, b: 0.08590995, a: 0.5019608}
   endColor: {r: 0.43529415, g: 0.09411766, b: 0.1254902, a: 0.8}
-  isRealTime: 0
+  isRealTime: 1
 --- !u!1 &7184737163627614248
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
   isGlobal: 0
   onDisableAction: 3
   updateType: 0
-  updateTimeIndependent: 0
+  updateTimeIndependent: 1
   serializeData:
     _audioTracks: []
     _audioKeys: []

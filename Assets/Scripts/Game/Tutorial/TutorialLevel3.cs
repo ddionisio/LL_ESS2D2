@@ -203,6 +203,8 @@ public class TutorialLevel3 : MonoBehaviour {
 
         M8.SceneManager.instance.Pause();
 
+        mCycleUnitSpawned.ShowIndicator();
+
         //show dialog
         if(introHopperDialog01) {
             introHopperDialog01.Play();
@@ -238,6 +240,8 @@ public class TutorialLevel3 : MonoBehaviour {
         yield return new WaitForSeconds(1f); //wait a bit
 
         M8.SceneManager.instance.Pause();
+
+        mCycleUnitSpawned.ShowIndicator();
 
         //show dialog
         if(introAntlerDialog01) {

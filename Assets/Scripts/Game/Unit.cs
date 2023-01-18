@@ -133,6 +133,16 @@ public class Unit : M8.EntityBase {
     private Coroutine mIndicatorShowRout;
     private WaitForSeconds mIndicatorShowWait;
 
+    public void ShowIndicator() {
+        if(indicatorGO)
+            indicatorGO.SetActive(true);
+
+        if(mIndicatorShowRout != null) {
+            StopCoroutine(mIndicatorShowRout);
+            mIndicatorShowRout = null;
+        }
+    }
+
     /// <summary>
     /// Increase/decrease mark counter, make sure to called with marked=false at some point
     /// </summary>

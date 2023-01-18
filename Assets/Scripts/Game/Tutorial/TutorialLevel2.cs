@@ -113,6 +113,8 @@ public class TutorialLevel2 : MonoBehaviour {
 
         M8.SceneManager.instance.Pause();
 
+        mCycleUnitSpawned.ShowIndicator();
+
         //show dialog
         if(introMushroomDialog01) {
             introMushroomDialog01.Play();
