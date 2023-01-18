@@ -296,6 +296,8 @@ MonoBehaviour:
   flags: 0
   displayRootGO: {fileID: 1469002662818138}
   spawnRootGO: {fileID: 1568183789612444}
+  indicatorGO: {fileID: 0}
+  indicatorShowDelay: 2
   sfxPathDeath: Audio/boop.wav
   despawnDelay: 5
   despawnFadeDelay: 1
@@ -303,7 +305,7 @@ MonoBehaviour:
   despawnAlpha: 0.25
   despawnFadeColorGroup: {fileID: 114721096082766706}
   reticleIndicator: {fileID: 0}
-  moveSpeed: 0.75
+  moveSpeed: 1.25
   flowerGrowthMod: 2
   weedReduceGrowthMod: 2
   checkDelay: 0.5

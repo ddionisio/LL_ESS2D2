@@ -34,6 +34,7 @@ public class GameData : M8.SingletonScriptableObject<GameData> {
 
     [Header("Data")]
     public int scoreMatchPerCorrect = 500;
+    public int scoreIncorrectPenalty = 200;
 
     [Header("Signals")]
     public SignalGameFlag signalGameFlagChanged;

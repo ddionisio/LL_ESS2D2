@@ -62,8 +62,12 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
     public bool commitAnswerUseVisibility; //if true, hide commitActiveGO when not all items have been slotted
     public GameObject commitActiveGO;
     public GameObject progressResultGO;
-    public GameObject progressActiveGO;    
-    
+    public GameObject progressActiveGO;
+
+    [Header("SFX")]
+    public string sfxCommitCorrect = "Audio/checkpoint.wav";
+    public string sfxCommitWrong = "Audio/wrong.wav";
+
     private int mCorrectCount;
 
     private M8.GenericParams mInfoParms = new M8.GenericParams();
@@ -71,12 +75,13 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
     private int mCurSlotDragIndex;
 
     private Transform[] mItemsAnchorCache;
+
+    private int mIncorrectCount;
             
     public void CommitAnswers() {
-        if(commitActiveGO) commitActiveGO.SetActive(false);
-        if(progressActiveGO) progressActiveGO.SetActive(true);
-        if(progressResultGO) progressResultGO.SetActive(true);
+        if(commitActiveGO) commitActiveGO.SetActive(false);        
 
+        //check if all is correct?
         int correctCount = 0;
 
         for(int i = 0; i < slots.Length; i++) {
@@ -84,23 +89,42 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
             var item = items[slot.widget.droppedWidget.index];
 
             bool isCorrect = item.climate.zone == slot.zone;
+            if(isCorrect) {
+                slot.widget.droppedWidget.SetCorrect(isCorrect);
+                slot.widget.droppedWidget.isClickEnabled = true;
+                slot.widget.droppedWidget.isDragEnabled = false;
 
-            slot.widget.droppedWidget.SetCorrect(isCorrect);
-            slot.widget.droppedWidget.isClickEnabled = true;
-            slot.widget.droppedWidget.isDragEnabled = false;
-
-            if(isCorrect)
                 correctCount++;
+            }
+            else {
+                //revert back to tray and clear slot
+                slot.widget.droppedWidget.SetOrigin(item.anchor.position);
+                slot.widget.SetDroppedWidget(null);
+            }
         }
 
-        //add points
-        Debug.Log("Correct Count: " + correctCount);
+        if(correctCount == slots.Length) {
+            //add points
+            //Debug.Log("Correct Count: " + correctCount);
 
-        int score = correctCount * GameData.instance.scoreMatchPerCorrect;
+            int score = correctCount * GameData.instance.scoreMatchPerCorrect - mIncorrectCount * GameData.instance.scoreIncorrectPenalty;
+            if(score < 0)
+                score = 0;
 
-        LoLManager.instance.curScore += score;
+            LoLManager.instance.curScore += score;
 
-        gameScoreWidget.Play(score);
+            LoLManager.instance.PlaySound(sfxCommitCorrect, false, false);
+
+            gameScoreWidget.Play(score);
+
+            if(progressActiveGO) progressActiveGO.SetActive(true);
+            if(progressResultGO) progressResultGO.SetActive(true);
+        }
+        else {
+            mIncorrectCount++;
+
+            LoLManager.instance.PlaySound(sfxCommitWrong, false, false);
+        }
     }
 
     void Awake() {
@@ -158,7 +182,7 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
             var rect = slot.anchor.rect;
             rect.position = slot.anchor.TransformPoint(rect.position);
 
-            if(rect.Contains(eventData.position)) {
+            if(rect.Contains(eventData.position) && (!slot.widget.droppedWidget || slot.widget.droppedWidget.isDragEnabled)) {
                 slotIndex = i;
                 break;
             }
@@ -174,25 +198,30 @@ public class ModalQuizMatchSlots : M8.UIModal.Controller, M8.UIModal.Interface.I
 
             var prevDroppedWidget = slot.widget.droppedWidget;
             if(itemWidget != prevDroppedWidget) {
-                slot.widget.SetDroppedWidget(itemWidget);
-
                 //swap prev dragged widget, otherwise, set it to the origin position of the new dragged widget
                 if(prevDroppedWidget) {
-                    SlotDropWidget slotWidget = null;
-                    for(int i = 0; i < slots.Length; i++) {
-                        if(slots[i] != slot && slots[i].widget.droppedWidget == itemWidget) {
-                            slotWidget = slots[i].widget;
-                            break;
+                    if(prevDroppedWidget.isDragEnabled) { //make sure it's not locked in (currently correct slot)
+                        slot.widget.SetDroppedWidget(itemWidget);
+
+                        SlotDropWidget slotWidget = null;
+                        for(int i = 0; i < slots.Length; i++) {
+                            if(slots[i] != slot && slots[i].widget.droppedWidget == itemWidget) {
+                                slotWidget = slots[i].widget;
+                                break;
+                            }
+                        }
+
+                        if(slotWidget)
+                            slotWidget.SetDroppedWidget(prevDroppedWidget);
+                        else {
+                            prevDroppedWidget.SetOrigin(itemWidget.originPointDragStart);
                         }
                     }
-
-                    if(slotWidget)
-                        slotWidget.SetDroppedWidget(prevDroppedWidget);
-                    else {
-                        prevDroppedWidget.SetOrigin(itemWidget.originPointDragStart);
-                    }
                 }
-                else { //clear out dropped widget from previous slot
+                else { //slot is empty
+                    slot.widget.SetDroppedWidget(itemWidget);
+
+                    //clear out dropped widget from previous slot of itemWidget
                     for(int i = 0; i < slots.Length; i++) {
                         if(slots[i] != slot && slots[i].widget.droppedWidget == itemWidget) {
                             slots[i].widget.SetDroppedWidget(null);

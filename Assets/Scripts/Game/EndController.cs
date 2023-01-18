@@ -30,5 +30,12 @@ public class EndController : GameModeController<EndController> {
 
         if(flowerScoreWidget) flowerScoreWidget.Play(GameData.instance.gameScore);
         if(gameScoreWidget) gameScoreWidget.Play(LoLManager.instance.curScore);
+
+        while(animator.isPlaying)
+            yield return null;
+
+        yield return new WaitForSeconds(5f);
+
+        LoLManager.instance.Complete();
     }
 }

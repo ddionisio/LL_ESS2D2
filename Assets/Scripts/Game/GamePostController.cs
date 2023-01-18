@@ -30,11 +30,11 @@ public class GamePostController : GameModeController<GamePostController> {
     }
 
     protected override IEnumerator Start() {
-        if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath)
-            LoLManager.instance.PlaySound(musicPath, true, true);
-
         //wait for scene
         yield return base.Start();
+
+        if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath)
+            LoLManager.instance.PlaySound(musicPath, true, true);
 
         //check progress to see if we are doing review or post review
         if(GameData.instance.isGameStarted) {

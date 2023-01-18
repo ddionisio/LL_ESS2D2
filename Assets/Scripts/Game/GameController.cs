@@ -70,12 +70,12 @@ public class GameController : GameModeController<GameController> {
     }
 
     protected override IEnumerator Start() {
+        yield return base.Start();
+
         if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath) {
             LoLManager.instance.PlaySound(musicPath, true, true);
         }
 
-        yield return base.Start();
-                
         motherbase.Enter();
         while(motherbase.state == Motherbase.State.Entering)
             yield return null;

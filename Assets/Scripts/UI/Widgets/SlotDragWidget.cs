@@ -105,6 +105,9 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
             isDragging = dragging;
             if(isDragging) {
                 StopAllCoroutines();
+
+                if(correctGO) correctGO.SetActive(false);
+                if(incorrectGO) incorrectGO.SetActive(false);
             }
             else {
                 RevertDrag();
