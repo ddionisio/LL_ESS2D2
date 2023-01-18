@@ -435,7 +435,7 @@ namespace LoLExt {
             lastTime = Time.time;
 
             //load settings data
-            if(_settingsData && _settingsData != _userData) {
+            if(_settingsData && !_settingsData.isLoaded && _settingsData != _userData) {
                 _settingsData.Load();
                 while(!_settingsData.isLoaded) {
                     //time-out?
@@ -491,13 +491,7 @@ namespace LoLExt {
         }
 
         protected void ApplySettings() {
-            if(_settingsData) {
-                mIsSpeechMute = _settingsData.GetInt(settingsSpeechMuteKey) != 0;
-
-                var audioSettings = GetComponent<M8.UserSettingAudio>();
-                if(audioSettings)
-                    audioSettings.Load();
-            }
+            mIsSpeechMute = _settingsData ? _settingsData.GetInt(settingsSpeechMuteKey) != 0 : false;
         }
 
         // Start the game here

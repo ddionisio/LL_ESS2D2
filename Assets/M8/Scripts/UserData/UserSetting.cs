@@ -17,17 +17,13 @@ namespace M8 {
         public abstract void Load();
 
         public virtual void Save() {
-            userData.Save();
+            if(userData)
+                userData.Save();
         }
         
         protected override void OnInstanceInit() {
             if(_loadOnInstance) {
-                if(!userData) {
-                    Debug.LogError("userData is null.");
-                    return;
-                }
-
-                if(!userData.isLoaded)
+                if(userData && !userData.isLoaded)
                     userData.Load();
 
                 Load();

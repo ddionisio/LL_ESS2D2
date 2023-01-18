@@ -22,7 +22,7 @@ namespace M8 {
             set {
                 if(mSoundVolume != value) {
                     mSoundVolume = value;
-                    userData.SetFloat(soundKey, mSoundVolume);
+                    if(userData) userData.SetFloat(soundKey, mSoundVolume);
 
                     RelaySettingsChanged();
                 }
@@ -35,7 +35,7 @@ namespace M8 {
             set {
                 if(mMusicVolume != value) {
                     mMusicVolume = value;
-                    userData.SetFloat(musicKey, mMusicVolume);
+                    if(userData) userData.SetFloat(musicKey, mMusicVolume);
 
                     RelaySettingsChanged();
                 }
@@ -48,7 +48,7 @@ namespace M8 {
             set {
                 if(mVolume != value) {
                     mVolume = value;
-                    userData.SetFloat(volumeKey, mVolume);
+                    if(userData) userData.SetFloat(volumeKey, mVolume);
 
                     AudioListener.volume = mVolume;
                 }
@@ -64,11 +64,11 @@ namespace M8 {
         private float mMusicVolume;
 
         public override void Load() {
-            mVolume = userData.GetFloat(volumeKey, _masterVolumeDefault);
+            mVolume = userData ? userData.GetFloat(volumeKey, _masterVolumeDefault) : _masterVolumeDefault;
 
-            mSoundVolume = userData.GetFloat(soundKey, _soundVolumeDefault);
+            mSoundVolume = userData ? userData.GetFloat(soundKey, _soundVolumeDefault) : _soundVolumeDefault;
 
-            mMusicVolume = userData.GetFloat(musicKey, _musicVolumeDefault);
+            mMusicVolume = userData ? userData.GetFloat(musicKey, _musicVolumeDefault) : _musicVolumeDefault;
 
             AudioListener.volume = mVolume;
         }
