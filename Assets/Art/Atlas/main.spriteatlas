@@ -40,6 +40,7 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f26a3b21dd514724894aae9a64b64a74, type: 3}
@@ -50,6 +51,8 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 0506a66612c4ecf4985d26d7cf4dd922, type: 3}
     - {fileID: 102900000, guid: 1aaa6db66eae5f64e85e7c975a683dab, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: e1f783001194a594c8e1ad4ba0892917, type: 3}
@@ -405,5 +408,6 @@ SpriteAtlas:
   - flowerIcon
   - cardIllustration_spearman
   - mushroom
+  m_RenderDataMap: {}
   m_Tag: main
   m_IsVariant: 0

@@ -162,9 +162,6 @@ namespace M8 {
 
             Rigidbody2D body = col.attachedRigidbody;
 
-            RigidBodyController ctrl = col.GetComponent<RigidBodyController>();
-            if(ctrl) { ctrl.enabled = false; }
-
             if(nudgeOfs != 0.0f)
                 col.transform.position = col.transform.position + (Vector3)(dir*nudgeOfs);
 
@@ -204,8 +201,6 @@ namespace M8 {
 
                 t += Time.fixedDeltaTime;
             }
-
-            if(ctrl) { ctrl.enabled = true; }
 
             mColliders.Remove(col);
             //Debug.Log("removed: " + col.gameObject.name);

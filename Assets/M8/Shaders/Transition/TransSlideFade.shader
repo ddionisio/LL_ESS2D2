@@ -33,6 +33,7 @@
 			v2f o;
 			o.pos = UnityObjectToClipPos (v.vertex);
 			o.uv = v.texcoord.xy;
+			o.uv1 = v.texcoord.xy;
 			
 			#if SHADER_API_D3D9 || SHADER_API_XBOX360 || SHADER_API_D3D11
 			if (_MainTex_TexelSize.y < 0)

@@ -23,16 +23,6 @@ namespace M8 {
         private bool mStarted;
         private Vector3 mCurVel;
 
-        void OnTriggerEnter(Collider c) {
-            if(useTrigger && target == null)
-                target = c.transform;
-        }
-
-        void OnTriggerExit(Collider c) {
-            if(useTrigger && target == c.transform)
-                target = null;
-        }
-
         void OnEnable() {
             if(mStarted) {
                 if(target == null && !useTrigger && !string.IsNullOrEmpty(targetTag)) {

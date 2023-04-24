@@ -21,7 +21,6 @@ namespace M8 {
         private Vector3 mEulerAnglesOrig;
         private Vector3 mEulerAnglesDefault;
         private float mSpeedScale = 1.0f;
-        private Rigidbody mBody;
         private float mLastTime;
 
         public float speedScale {
@@ -50,7 +49,6 @@ namespace M8 {
         void Awake() {
             if(!target) target = transform;
 
-            mBody = target.GetComponent<Rigidbody>();
             mEulerAnglesOrig = target.eulerAngles;
 
             mEulerAnglesDefault = local ? target.localEulerAngles : mEulerAnglesOrig;
@@ -100,20 +98,6 @@ namespace M8 {
                 else {
                     mEulerAnglesOrig += rotatePerSecond * mSpeedScale * dt;
                     target.eulerAngles = mEulerAnglesOrig;
-                }
-            }
-            else if(updateType == UpdateType.RigidBody && mBody) {
-                float time = Time.fixedTime;
-                float dt = time - mLastTime;
-                mLastTime = time;
-
-                if(local) {
-                    Vector3 eulers = target.eulerAngles;
-                    mBody.MoveRotation(Quaternion.Euler(eulers + (rotatePerSecond * mSpeedScale * dt)));
-                }
-                else {
-                    mEulerAnglesOrig += rotatePerSecond * mSpeedScale * dt;
-                    mBody.MoveRotation(Quaternion.Euler(mEulerAnglesOrig));
                 }
             }
         }
