@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using LoLExt;
+using TMPro;
 
 public class GameStart : GameModeController<GameStart> {
     public static bool isStarted = false;
@@ -13,7 +14,7 @@ public class GameStart : GameModeController<GameStart> {
     public GameObject readyGO;
 
     public GameObject titleGO;
-    public Text titleText;
+    public TMP_Text titleText;
     [M8.Localize]
     public string titleStringRef;
 

@@ -20,8 +20,8 @@ namespace M8 {
             }
             else if(targets != null && targets.Length > 1) {
                 foreach(Object obj in targets) {
-                    PrefabType prefabType = PrefabUtility.GetPrefabType(obj);
-                    if(prefabType == PrefabType.Prefab || prefabType == PrefabType.ModelPrefab) {
+                    var prefabType = PrefabUtility.GetPrefabAssetType(obj);
+                    if(prefabType == PrefabAssetType.Regular || prefabType == PrefabAssetType.Variant || prefabType == PrefabAssetType.Model) {
                         continue;
                     }
 
@@ -31,8 +31,8 @@ namespace M8 {
                 EditorGUILayout.LabelField("id", "--");
             }
             else {
-                PrefabType prefabType = PrefabUtility.GetPrefabType(target);
-                if(prefabType == PrefabType.Prefab || prefabType == PrefabType.ModelPrefab) {
+                var prefabType = PrefabUtility.GetPrefabAssetType(target);
+                if(prefabType == PrefabAssetType.Regular || prefabType == PrefabAssetType.Variant || prefabType == PrefabAssetType.Model) {
                     EditorGUILayout.LabelField("id", "??");
                     return;
                 }

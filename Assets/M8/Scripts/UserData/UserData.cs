@@ -17,6 +17,9 @@ namespace M8 {
 
         public bool isLoaded { get; protected set; }
         public int valueCount { get { return mValues != null ? mValues.Count : 0; } }
+                
+        [SerializeField]
+        bool _isReadOnly;
 
         /// <summary>
         /// Called before values are saved
@@ -27,6 +30,8 @@ namespace M8 {
         /// Called after values are loaded
         /// </summary>
         public event Action loadedCallback;
+
+        public bool isReadyOnly { get { return _isReadOnly; } }
 
         private Dictionary<string, object> mValues = null;
 
@@ -95,7 +100,10 @@ namespace M8 {
             }
         }
 
-        public virtual void Save() {
+        public void Save() {
+            if(_isReadOnly)
+                return;
+
             if(mValues != null) {
                 if(saveCallback != null)
                     saveCallback();

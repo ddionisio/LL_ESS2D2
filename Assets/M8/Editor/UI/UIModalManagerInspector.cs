@@ -75,7 +75,8 @@ public class UIModalManagerInspector : Editor {
             if(uiCtrl) {
                 _name = uiCtrl.name;
 
-                _isPrefab = PrefabUtility.GetPrefabType(uiCtrl) == PrefabType.Prefab;
+                var prefabType = PrefabUtility.GetPrefabAssetType(uiCtrl);
+                _isPrefab = prefabType == PrefabAssetType.Regular || prefabType == PrefabAssetType.Variant;
                 if(_isPrefab) {
                     _instantiateTo = EditorGUILayout.ObjectField("instantiateTo", _instantiateTo, typeof(Transform), true) as Transform;                    
                 }
@@ -121,7 +122,8 @@ public class UIModalManagerInspector : Editor {
             UIModalManager.UIData newDat = new UIModalManager.UIData();
             newDat.e_ui = mNewUI;
             newDat.name = mNewUI.name;
-            newDat.isPrefab = PrefabUtility.GetPrefabType(mNewUI) == PrefabType.Prefab;
+            var prefabType = PrefabUtility.GetPrefabAssetType(mNewUI);
+            newDat.isPrefab = prefabType == PrefabAssetType.Regular || prefabType == PrefabAssetType.Variant;
             input.uis[input.uis.Length - 1] = newDat;
             mNewUI = null;
         }
