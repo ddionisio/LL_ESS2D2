@@ -48,8 +48,8 @@ public class ModalLevelLocation : M8.UIModal.Controller, M8.UIModal.Interface.IP
     public GameObject climateZoneMismatchGO;
 
     public Image levelImage;
-    public M8.UI.Texts.Localizer levelTitleLocLabel;
-    public M8.UI.Texts.Localizer levelDescLocLabel;
+    public M8.TextMeshPro.LocalizerTextMeshPro levelTitleLocLabel;
+    public M8.TextMeshPro.LocalizerTextMeshPro levelDescLocLabel;
     
     [Header("Data")]
     public ItemMatchData climateLevel;

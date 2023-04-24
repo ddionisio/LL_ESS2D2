@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace LoLExt {
     public class ModalDialog : M8.UIModal.Controller, M8.UIModal.Interface.IActive, M8.UIModal.Interface.IPush, M8.UIModal.Interface.IPop {
@@ -16,9 +17,9 @@ namespace LoLExt {
         public Image portraitImage;
         public bool portraitResize;
 
-        public Text nameLabel;
+        public TMP_Text nameLabel;
 
-        public Text textLabel;
+        public TMP_Text textLabel;
         public float textCharPerSecond = 0.04f;
 
         public GameObject textProcessActiveGO;

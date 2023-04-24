@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using LoLExt;
+using TMPro;
 
 public class ClimateWidget : MonoBehaviour {
     [Header("Data")]
@@ -13,7 +14,7 @@ public class ClimateWidget : MonoBehaviour {
 
     [Header("Display")]
     public Image image;
-    public Text titleLabel;
+    public TMP_Text titleLabel;
 
     private M8.GenericParams mModalDescParms = new M8.GenericParams();
 

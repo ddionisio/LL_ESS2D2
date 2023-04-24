@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+using TMPro;
+
 public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler {
     public delegate void ClickCallback(SlotDragWidget item);
     public delegate void EventCallback(SlotDragWidget item, PointerEventData eventData);
@@ -12,7 +14,7 @@ public class SlotDragWidget : MonoBehaviour, IPointerClickHandler, IBeginDragHan
     public Transform dragRoot; //point to use for drag movement
     public float dragRevertDelay = 0.3f;
     public Image image;
-    public Text label;
+    public TMP_Text label;
     public GameObject dragInactiveGO;
     public GameObject correctGO;
     public GameObject incorrectGO;

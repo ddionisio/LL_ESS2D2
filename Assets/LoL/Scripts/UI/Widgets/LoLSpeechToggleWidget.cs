@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using TMPro;
+
 namespace LoLExt {
     public class LoLSpeechToggleWidget : MonoBehaviour {
         [Header("Display")]
         public Button button;
-        public Text toggleLabel;
+        public TMP_Text toggleLabel;
         [M8.Localize]
         public string onStringRef;
         [M8.Localize]

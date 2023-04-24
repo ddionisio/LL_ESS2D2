@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using TMPro;
+
 namespace LoLExt {
     public class ModalInfo : M8.UIModal.Controller, M8.UIModal.Interface.IPush {
         public const string speechGroup = "description";
@@ -15,8 +17,8 @@ namespace LoLExt {
         public Image image;
         public bool isImageResize; //if true, set to correct size upon change
 
-        public Text titleLabel;
-        public Text descLabel;
+        public TMP_Text titleLabel;
+        public TMP_Text descLabel;
 
         private LoLSpeakTextClick mTitleLabelSpeakText;
         private LoLSpeakTextClick mDescLabelSpeakText;

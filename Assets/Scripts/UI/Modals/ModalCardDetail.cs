@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using LoLExt;
 
+using TMPro;
+
 public class ModalCardDetail : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M8.UIModal.Interface.IPop {
     public const string parmCardRef = "c";
 
     [Header("Display")]
-    public Text titleLabel;
-    public Text descLabel;
+    public TMP_Text titleLabel;
+    public TMP_Text descLabel;
     public Image cardImage;
     public Image cardIcon;
     public Image cardIllustration;

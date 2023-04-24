@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using LoLExt;
+using TMPro;
 
 public class WeatherInfoWidget : MonoBehaviour, IPointerClickHandler {
     [Header("Data")]
@@ -12,9 +13,9 @@ public class WeatherInfoWidget : MonoBehaviour, IPointerClickHandler {
 
     [Header("Display")]
     public Image image;
-    public Text nameLabel;
-    public Text temperatureLabel;
-    public Text precipitationLabel;
+    public TMP_Text nameLabel;
+    public TMP_Text temperatureLabel;
+    public TMP_Text precipitationLabel;
 
     public string titleTextRef { get { return mTitleTextRef; } }
 

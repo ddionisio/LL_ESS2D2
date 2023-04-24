@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
+using TMPro;
 
 public class GameScoreWidget : MonoBehaviour {
-    public Text scoreLabel;
+    public TMP_Text scoreLabel;
     public float delay;
     public DG.Tweening.Ease ease;
 

@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ModalVictory : M8.UIModal.Controller, M8.UIModal.Interface.IPush, M8.UIModal.Interface.IPop {
     //TODO: info and stuff (Score, etc.)
     public GameObject proceedGO; //root to allow moving to next level
 
-    public Text scoreLabel;
+    public TMP_Text scoreLabel;
 
     [M8.TagSelector]
     public string proceedTagActivate;
