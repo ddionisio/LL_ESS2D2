@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeatherCycleWidget : MonoBehaviour {
     [System.Serializable]
@@ -31,8 +32,8 @@ public class WeatherCycleWidget : MonoBehaviour {
     public WeatherData[] weatherSlots;
 
     [Header("Display State")]
-    public Text weatherTitleLabel;
-    public Text temperatureLabel;
+    public TMP_Text weatherTitleLabel;
+    public TMP_Text temperatureLabel;
     public Color panelColorInactive;
     public Color iconColorInactive;
 

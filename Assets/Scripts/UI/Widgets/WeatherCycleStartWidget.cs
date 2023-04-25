@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using LoLExt;
+using TMPro;
 
 public class WeatherCycleStartWidget : MonoBehaviour {
-    public Text cycleLabel;
+    public TMP_Text cycleLabel;
     [M8.Localize]
     public string cycleTextRef;
 

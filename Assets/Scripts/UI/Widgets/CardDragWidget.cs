@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CardDragWidget : MonoBehaviour {
     public GameObject cardBaseGO;
@@ -10,7 +11,7 @@ public class CardDragWidget : MonoBehaviour {
     public Image cardImage;
     public Image cardIconImage;
 
-    public Text cardNameLabel;
+    public TMP_Text cardNameLabel;
 
     public void Init(CardData card) {
         cardImage.sprite = card.image;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     [Header("Display")]
@@ -12,8 +13,8 @@ public class CardWidget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public Image cardIconImage;
     public Image cardIconFill;
     
-    public Text cardCountLabel;
-    public Text cardNameLabel;
+    public TMP_Text cardCountLabel;
+    public TMP_Text cardNameLabel;
 
     public M8.UI.Graphics.ColorGroup colorGroup;
     public Color disableColor = new Color(0.75f, 0.75f, 0.75f, 0.75f);

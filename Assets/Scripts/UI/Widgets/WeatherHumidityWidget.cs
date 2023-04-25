@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeatherHumidityWidget : MonoBehaviour {
     [Header("Display")]
-    public Text percentLabel;
+    public TMP_Text percentLabel;
     public Image fillImage;
 
     [Header("Data")]

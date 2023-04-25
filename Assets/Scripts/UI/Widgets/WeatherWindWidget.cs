@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class WeatherWindWidget : MonoBehaviour {
     [Header("Display")]
-    public Text infoLabel;
+    public TMP_Text infoLabel;
     public Transform pointerRoot;
 
     [Header("Data")]
