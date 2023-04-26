@@ -46,40 +46,5 @@ MonoBehaviour:
       humidityPercent: 74
       precipitationPercent: 83
       flowerGrowthMod: 0.25
-    duration: 50
-    flowerGrowthMod: 0.15
-  - weathers:
-    - type: {fileID: 11400000, guid: c8b220e78bbaaef499b56cfa1b591c40, type: 2}
-      uvLevel: 8
-      temperature: 80
-      windAngle: -80
-      windSpeed: 4
-      humidityPercent: 70
-      precipitationPercent: 41
-      flowerGrowthMod: 0
-    - type: {fileID: 11400000, guid: a2b9f3c7a41fd6a49a7dbba5ab04f997, type: 2}
-      uvLevel: 8
-      temperature: 73
-      windAngle: -72
-      windSpeed: 5
-      humidityPercent: 76
-      precipitationPercent: 100
-      flowerGrowthMod: 0.25
-    - type: {fileID: 11400000, guid: d81baa804cf6f1c489e888cf8fbc800a, type: 2}
-      uvLevel: 8
-      temperature: 70
-      windAngle: -90
-      windSpeed: 6
-      humidityPercent: 72
-      precipitationPercent: 63
-      flowerGrowthMod: 0
-    - type: {fileID: 11400000, guid: 170ce778c4cacf044b7f2a56aeadf375, type: 2}
-      uvLevel: 8
-      temperature: 68
-      windAngle: -86
-      windSpeed: 7
-      humidityPercent: 71
-      precipitationPercent: 43
-      flowerGrowthMod: 0.1
-    duration: 50
-    flowerGrowthMod: 0.15
+    duration: 60
+    flowerGrowthMod: 0.12

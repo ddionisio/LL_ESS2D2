@@ -18,17 +18,17 @@ public class TutorialLevel1 : MonoBehaviour {
     [Header("Enemy Intro")]
     public LoLExt.ModalDialogController introWeedDialog;
     public LoLExt.ModalDialogController introMoleDialog;
-    public LoLExt.ModalDialogController introBeetleDialog;
+    //public LoLExt.ModalDialogController introBeetleDialog;
 
     [Header("Cards")]
     public CardData cardGardener;
     public CardData cardMallet;
-    public CardData cardSpearman;
+    //public CardData cardSpearman;
 
     [Header("Unit Templates")]
     public GameObject weedPrefab;
     public GameObject molePrefab;
-    public GameObject insectPrefab;
+    //public GameObject insectPrefab;
     
     [Header("Signal")]
     public SignalCardWidget signalCardDragBegin;
@@ -105,7 +105,7 @@ public class TutorialLevel1 : MonoBehaviour {
         }
         else if(curCycleInd == 1) {
             if(curWeatherInd == 1) {
-                StartCoroutine(DoSpearman());
+                //StartCoroutine(DoSpearman());
             }
         }
     }
@@ -248,7 +248,7 @@ public class TutorialLevel1 : MonoBehaviour {
         //
     }
 
-    IEnumerator DoSpearman() {
+    /*IEnumerator DoSpearman() {
         while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != insectPrefab.name)
             yield return null;
 
@@ -282,7 +282,7 @@ public class TutorialLevel1 : MonoBehaviour {
         //while(M8.UIModal.Manager.instance.isBusy || M8.UIModal.Manager.instance.activeCount > 0)
         //yield return null;
         //
-    }
+    }*/
 
     void OnCardDragBegin(CardWidget cardWidget) {
 

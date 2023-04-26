@@ -6,21 +6,29 @@ public class TutorialLevel2 : MonoBehaviour {
     [Header("Intro")]
     public AnimatorEnterExit introClimateIllustration;
     public LoLExt.ModalDialogController introClimateDialog;
-    public AnimatorEnterExit introMicroClimateIllustration;
-    public LoLExt.ModalDialogController introMicroClimateDialog;
+    //public AnimatorEnterExit introMicroClimateIllustration;
+    //public LoLExt.ModalDialogController introMicroClimateDialog;
 
     [Header("Enemy Intro")]
     public LoLExt.ModalDialogController introMushroomDialog01;
     public AnimatorEnterExit introMushroomIronFrogCard;
     public LoLExt.ModalDialogController introMushroomDialog02;
 
+    public LoLExt.ModalDialogController introBeetleDialog;
+
+    [Header("Cards")]
+    public CardData cardSpearman;
+
     [Header("Unit Templates")]
     public GameObject mushroomPrefab;
+    public GameObject insectPrefab;
 
     [Header("Signal")]
     public SignalUnit signalCycleSpawnerSpawned;
 
     private Unit mCycleUnitSpawned;
+
+    private M8.GenericParams mCardDescParms = new M8.GenericParams();
 
     void OnDestroy() {
         if(signalCycleSpawnerSpawned) signalCycleSpawnerSpawned.callback -= OnCycleSpawn;
@@ -53,8 +61,11 @@ public class TutorialLevel2 : MonoBehaviour {
         mCycleUnitSpawned = null;
 
         if(curCycleInd == 0) {
-            if(curWeatherInd == 1) {
+            if(curWeatherInd == 0) {
                 StartCoroutine(DoMushroom());
+            }
+            else if(curWeatherInd == 1) {
+                StartCoroutine(DoSpearman());
             }
         }
     }
@@ -84,7 +95,7 @@ public class TutorialLevel2 : MonoBehaviour {
             introClimateIllustration.gameObject.SetActive(false);
         }
 
-        if(introMicroClimateIllustration) {
+        /*if(introMicroClimateIllustration) {
             introMicroClimateIllustration.gameObject.SetActive(true);
             yield return introMicroClimateIllustration.PlayEnterWait();
         }
@@ -98,7 +109,7 @@ public class TutorialLevel2 : MonoBehaviour {
         if(introMicroClimateIllustration) {
             yield return introMicroClimateIllustration.PlayExitWait();
             introMicroClimateIllustration.gameObject.SetActive(false);
-        }
+        }*/
 
 
         GameController.instance.pause = false;
@@ -139,5 +150,41 @@ public class TutorialLevel2 : MonoBehaviour {
         }
 
         M8.SceneManager.instance.Resume();
+    }
+
+    IEnumerator DoSpearman() {
+        while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != insectPrefab.name)
+            yield return null;
+
+        //var moleUnit = mCycleUnitSpawned;
+
+        yield return new WaitForSeconds(1f); //wait a bit
+
+        mCycleUnitSpawned.ShowIndicator();
+
+        //show dialog
+        if(introBeetleDialog) {
+            M8.SceneManager.instance.Pause();
+
+            introBeetleDialog.Play();
+            while(introBeetleDialog.isPlaying)
+                yield return null;
+
+            M8.SceneManager.instance.Resume();
+        }
+
+        //show spearman card
+        GameController.instance.cardDeck.ShowCard(cardSpearman.name);
+
+        yield return new WaitForSeconds(0.3f); //wait for card animation
+
+        //show card modal
+        const string modalCardDesc = "cardDescription";
+        mCardDescParms[ModalCardDetail.parmCardRef] = cardSpearman;
+        M8.UIModal.Manager.instance.ModalOpen(modalCardDesc, mCardDescParms);
+
+        //while(M8.UIModal.Manager.instance.isBusy || M8.UIModal.Manager.instance.activeCount > 0)
+        //yield return null;
+        //
     }
 }

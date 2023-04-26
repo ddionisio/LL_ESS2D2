@@ -319,7 +319,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 3
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &37770261
@@ -338,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &37770262
 Transform:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 4
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &42493255
@@ -505,12 +505,6 @@ MonoBehaviour:
     - {fileID: 1642249714}
     - {fileID: 1908259917}
     - {fileID: 1480217347}
-  - cycleRoot: {fileID: 218642363}
-    weatherRoots:
-    - {fileID: 1031425859}
-    - {fileID: 1002155185}
-    - {fileID: 1807211035}
-    - {fileID: 1985872694}
   signalUnitSpawned: {fileID: 11400000, guid: cb8d25762f8b4594b9b707e2b4009f96, type: 2}
 --- !u!4 &127539743
 Transform:
@@ -2542,7 +2536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &496284205
 Transform:
   m_ObjectHideFlags: 0
@@ -2572,7 +2566,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 4
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &504784189
@@ -2916,6 +2910,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbd0ef88a8d3f2348b2a11daac1142cd, type: 3}
+--- !u!1 &614069861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 614069862}
+  - component: {fileID: 614069863}
+  m_Layer: 0
+  m_Name: weed (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &614069862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614069861}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.76, y: 0.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1908259918}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &614069863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614069861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  delay: 2
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1001 &686100031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4124,7 +4167,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 1
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1087165879
@@ -5042,8 +5085,8 @@ Transform:
   m_LocalPosition: {x: -12.53, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1908259918}
-  m_RootOrder: 2
+  m_Father: {fileID: 1480217348}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1366159959
 MonoBehaviour:
@@ -5060,7 +5103,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 3
+  delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &1369766243
@@ -5159,6 +5202,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 706902878}
+  - {fileID: 1366159958}
   - {fileID: 2090078184}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 4
@@ -5350,14 +5394,10 @@ MonoBehaviour:
   introWeatherDialog: {fileID: 1595955412}
   introWeedDialog: {fileID: 776492750}
   introMoleDialog: {fileID: 712622012}
-  introBeetleDialog: {fileID: 1666259187}
   cardGardener: {fileID: 11400000, guid: 5b2e45077c109664ba35c1fae3682503, type: 2}
   cardMallet: {fileID: 11400000, guid: 9cd46c0cfdfd2504dafeab7aa19ff68a, type: 2}
-  cardSpearman: {fileID: 11400000, guid: 44cc420c6075e134b8f9d3649a26237c, type: 2}
   weedPrefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
   molePrefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  insectPrefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148,
-    type: 3}
   signalCardDragBegin: {fileID: 11400000, guid: 1c993e9116ffa8f439bd690fdfcf827f,
     type: 2}
   signalCardDragEnd: {fileID: 11400000, guid: 4b812a9c183d06843b792d9574f2da95, type: 2}
@@ -5379,7 +5419,6 @@ Transform:
   - {fileID: 1595955413}
   - {fileID: 776492749}
   - {fileID: 712622011}
-  - {fileID: 1666259186}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5957,57 +5996,6 @@ RectTransform:
   m_AnchoredPosition: {x: -17.899994, y: -213.99998}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 1.0000001}
---- !u!1 &1666259185
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1666259186}
-  - component: {fileID: 1666259187}
-  m_Layer: 0
-  m_Name: introDialogBeetle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1666259186
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666259185}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1530132326}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1666259187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666259185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e3b70873fafbd43a2a2a5e3023435f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modal: dialogCutscene
-  portrait: {fileID: 0}
-  applyPortrait: 0
-  nameTextRef: 
-  dialogTextRefs:
-  - beetle_intro_01
-  - beetle_intro_02
-  - beetle_intro_03
 --- !u!1 &1676486172
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,7 +7043,7 @@ Transform:
   m_Children:
   - {fileID: 398215383}
   - {fileID: 496284205}
-  - {fileID: 1366159958}
+  - {fileID: 614069862}
   - {fileID: 1048748690}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 3
@@ -7895,7 +7883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2066312555
 Transform:
   m_ObjectHideFlags: 0
@@ -7931,7 +7919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2090078184
 Transform:
   m_ObjectHideFlags: 0
@@ -7944,7 +7932,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1480217348}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2090078185
 MonoBehaviour:
@@ -7961,7 +7949,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 1
+  delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &2096372880

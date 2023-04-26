@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -19,5 +20,5 @@ MonoBehaviour:
     startHidden: 0
     startCount: 3
   - card: {fileID: 11400000, guid: 44cc420c6075e134b8f9d3649a26237c, type: 2}
-    startHidden: 0
+    startHidden: 1
     startCount: 3
