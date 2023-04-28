@@ -189,14 +189,6 @@ MonoBehaviour:
     voiceDuration: 8
   - key: level1Summary03
     voiceDuration: 10
-  - key: level2Summary01
-    voiceDuration: 2
-  - key: level2Summary02
-    voiceDuration: 10
-  - key: level3Summary01
-    voiceDuration: 2
-  - key: level3Summary02
-    voiceDuration: 10
   - key: projectSuccess
     voiceDuration: 3
   - key: congrats

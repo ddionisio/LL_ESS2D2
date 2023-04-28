@@ -9,11 +9,13 @@ public class TutorialLevel3 : MonoBehaviour {
     [M8.TagSelector]
     public string dragGuideTag;
 
-    public Transform dragToWindbreakerPoint;
+    //public Transform dragToWindbreakerPoint;
 
     [Header("Intro")]
     public AnimatorEnterExit introClimateIllustration;
     public LoLExt.ModalDialogController introClimateDialog;
+    //public AnimatorEnterExit introMicroClimateIllustration;
+    //public LoLExt.ModalDialogController introMicroClimateDialog;
 
     [Header("Enemy Intro")]
     public AnimatorEnterExit introIronFrogCard;
@@ -23,17 +25,17 @@ public class TutorialLevel3 : MonoBehaviour {
     public LoLExt.ModalDialogController introHopperDialog02;
     public LoLExt.ModalDialogController introAntlerDialog01;
     public LoLExt.ModalDialogController introAntlerDialog02;
-    public LoLExt.ModalDialogController introWeatherHazzardDialog;
+    //public LoLExt.ModalDialogController introWeatherHazzardDialog;
 
     [Header("Cards")]
     public CardData cardCollector;
-    public CardData cardWindbreaker;
+    //public CardData cardWindbreaker;
 
     [Header("Unit Templates")]
     public GameObject collectorPrefab;
     public GameObject hopperPrefab;
     public GameObject antlerPrefab;
-    public GameObject windPrefab;    
+    //public GameObject windPrefab;    
 
     [Header("Signal")]
     public SignalCardWidget signalCardDragBegin;
@@ -42,8 +44,8 @@ public class TutorialLevel3 : MonoBehaviour {
     public SignalUnit signalCycleSpawnerSpawned;
     public M8.SignalEntity signalUnitSpawnerSpawned;
 
-    private CardDeckWidget mCardDeck;
-    private DragToGuideWidget mDragGuide;
+    //private CardDeckWidget mCardDeck;
+    //private DragToGuideWidget mDragGuide;
 
     private CardWidget mCardWidgetTarget;
     //private Unit mCardUnitSpawned;
@@ -83,11 +85,11 @@ public class TutorialLevel3 : MonoBehaviour {
     }
 
     void OnPrepareCycle() {
-        if(!mCardDeck)
-            mCardDeck = GameObject.FindGameObjectWithTag(cardDeckTag).GetComponent<CardDeckWidget>();
+        //if(!mCardDeck)
+            //mCardDeck = GameObject.FindGameObjectWithTag(cardDeckTag).GetComponent<CardDeckWidget>();
 
-        if(!mDragGuide)
-            mDragGuide = GameObject.FindGameObjectWithTag(dragGuideTag).GetComponent<DragToGuideWidget>();
+        //if(!mDragGuide)
+            //mDragGuide = GameObject.FindGameObjectWithTag(dragGuideTag).GetComponent<DragToGuideWidget>();
 
         //show intro
         if(GameController.instance.weatherCycle.curCycleIndex == 0)
@@ -121,7 +123,7 @@ public class TutorialLevel3 : MonoBehaviour {
 
             }
             else if(curWeatherInd == 1) {
-                StartCoroutine(DoWindbreaker());
+                //StartCoroutine(DoWindbreaker());
             }
         }
     }
@@ -157,6 +159,7 @@ public class TutorialLevel3 : MonoBehaviour {
 
         yield return new WaitForSeconds(0.5f);
 
+        //climate
         if(introClimateIllustration) {
             introClimateIllustration.gameObject.SetActive(true);
             yield return introClimateIllustration.PlayEnterWait();
@@ -172,6 +175,23 @@ public class TutorialLevel3 : MonoBehaviour {
             yield return introClimateIllustration.PlayExitWait();
             introClimateIllustration.gameObject.SetActive(false);
         }
+
+        //micro climate
+        /*if(introMicroClimateIllustration) {
+            introMicroClimateIllustration.gameObject.SetActive(true);
+            yield return introMicroClimateIllustration.PlayEnterWait();
+        }
+
+        if(introMicroClimateDialog) {
+            introMicroClimateDialog.Play();
+            while(introMicroClimateDialog.isPlaying)
+                yield return null;
+        }
+
+        if(introMicroClimateIllustration) {
+            yield return introMicroClimateIllustration.PlayExitWait();
+            introMicroClimateIllustration.gameObject.SetActive(false);
+        }*/
 
         GameController.instance.pause = false;
     }
@@ -269,7 +289,7 @@ public class TutorialLevel3 : MonoBehaviour {
         M8.SceneManager.instance.Resume();
     }
 
-    IEnumerator DoWindbreaker() {
+    /*IEnumerator DoWindbreaker() {
         do {
             yield return null;
         } while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != windPrefab.name || mCycleUnitSpawned.state == UnitStates.instance.spawning);
@@ -321,5 +341,5 @@ public class TutorialLevel3 : MonoBehaviour {
 
         M8.UIModal.Manager.instance.ModalCloseUpTo(modalDragInstruction, true);
         mDragGuide.Hide();
-    }
+    }*/
 }

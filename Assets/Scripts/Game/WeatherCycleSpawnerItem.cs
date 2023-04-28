@@ -20,6 +20,7 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
     [Header("Info")]
     public SpawnType type;
     public GameObject prefab;
+    public GameObject showOnSpawnGO;
     public float delay; //delay relative to the last spawn, or at the start
     public bool forceDespawnOnCycleEnd; //if true, will always despawn on end of cycle (use for weather spawn items)
 
@@ -41,6 +42,9 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
     public Unit.DespawnCycleType cycleEndType { get; set; }
 
     public Unit Spawn(M8.PoolController pool) {
+        if(showOnSpawnGO)
+            showOnSpawnGO.SetActive(true);
+
         var parms = new M8.GenericParams();
 
         if(forceDespawnOnCycleEnd)
@@ -102,6 +106,11 @@ public class WeatherCycleSpawnerItem : MonoBehaviour {
         }
 
         return pool.Spawn<Unit>(prefab.name, "", null, parms);
+    }
+
+    void Awake() {
+        if(showOnSpawnGO)
+            showOnSpawnGO.SetActive(false);
     }
 
     void OnDrawGizmos() {

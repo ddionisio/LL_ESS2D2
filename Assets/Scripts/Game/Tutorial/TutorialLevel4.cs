@@ -9,15 +9,22 @@ public class TutorialLevel4 : MonoBehaviour {
     [M8.TagSelector]
     public string dragGuideTag;
 
+    public Transform dragToWindbreakerPoint;
+
     [Header("Intro")]
     public AnimatorEnterExit introClimateIllustration;
     public LoLExt.ModalDialogController introClimateDialog;
 
+    [Header("Enemy Intro")]
+    public LoLExt.ModalDialogController introWeatherHazzardDialog;
+
     [Header("Cards")]
     public CardData cardSunfly;
+    public CardData cardWindbreaker;
 
     [Header("Unit Templates")]
     public GameObject frostbitePrefab;
+    public GameObject windPrefab;
 
     [Header("Signal")]
     public SignalCardWidget signalCardDragBegin;
@@ -89,10 +96,11 @@ public class TutorialLevel4 : MonoBehaviour {
                 StartCoroutine(DoSunfly());
             }
             else if(curWeatherInd == 1) {
-
+                GameController.instance.cardDeck.ShowCard(1);
+                GameController.instance.cardDeck.ShowCard(2);
             }
             else if(curWeatherInd == 2) {
-                GameController.instance.cardDeck.ShowCard(3);
+                StartCoroutine(DoWindbreaker());
             }
         }
     }
@@ -168,12 +176,62 @@ public class TutorialLevel4 : MonoBehaviour {
 
         M8.UIModal.Manager.instance.ModalCloseUpTo(modalDragInstruction, true);
         mDragGuide.Hide();
-
-        //show the other cards
-        GameController.instance.cardDeck.ShowCard(1);
-        GameController.instance.cardDeck.ShowCard(2);        
     }
-    
+
+    IEnumerator DoWindbreaker() {
+        do {
+            yield return null;
+        } while(!mCycleUnitSpawned || mCycleUnitSpawned.spawnType != windPrefab.name || mCycleUnitSpawned.state == UnitStates.instance.spawning);
+
+        M8.SceneManager.instance.Pause();
+
+        if(introWeatherHazzardDialog) {
+            introWeatherHazzardDialog.Play();
+            while(introWeatherHazzardDialog.isPlaying)
+                yield return null;
+        }
+
+        M8.SceneManager.instance.Resume();
+
+        //show windbreaker card
+        GameController.instance.cardDeck.ShowCard(cardWindbreaker.name);
+
+        yield return new WaitForSeconds(0.3f); //wait for card animation
+
+        //show card modal
+        const string modalCardDesc = "cardDescription";
+        mCardDescParms[ModalCardDetail.parmCardRef] = cardWindbreaker;
+        M8.UIModal.Manager.instance.ModalOpen(modalCardDesc, mCardDescParms);
+
+        while(M8.UIModal.Manager.instance.isBusy || M8.UIModal.Manager.instance.activeCount > 0)
+            yield return null;
+        //
+
+        //show drag display and wait for player to deploy
+        mCardWidgetTarget = mCardDeck.GetCardWidget(cardWindbreaker);
+
+        mIsWaitingCardTargetSpawn = true;
+
+        const string modalDragInstruction = "dragInstructions";
+        M8.UIModal.Manager.instance.ModalOpen(modalDragInstruction);
+
+        //set drag destination towards point
+        var gameCam = M8.Camera2D.main.unityCamera;
+
+        Vector2 destScreenPos = gameCam.WorldToScreenPoint(dragToWindbreakerPoint.position);
+        //
+
+        mDragGuide.Show(true, mCardWidgetTarget.transform.position, destScreenPos);
+        //
+
+        //wait for unit to be spawned
+        while(mIsWaitingCardTargetSpawn)
+            yield return null;
+
+        M8.UIModal.Manager.instance.ModalCloseUpTo(modalDragInstruction, true);
+        mDragGuide.Hide();
+    }
+
     void OnCardDragBegin(CardWidget cardWidget) {
 
     }
