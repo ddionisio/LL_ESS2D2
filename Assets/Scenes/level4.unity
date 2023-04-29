@@ -655,7 +655,7 @@ MonoBehaviour:
   type: 0
   prefab: {fileID: 1504075056688940, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 3}
   showOnSpawnGO: {fileID: 0}
-  delay: 2
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &169319996
@@ -1308,7 +1308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1480217348}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &529670083
 MonoBehaviour:
@@ -1329,6 +1329,56 @@ MonoBehaviour:
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
+--- !u!1 &536219847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536219848}
+  - component: {fileID: 536219849}
+  m_Layer: 0
+  m_Name: frostFly (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &536219848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536219847}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.61, y: 4.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1908259918}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &536219849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536219847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
+  type: 0
+  prefab: {fileID: 1504075056688940, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 3}
+  showOnSpawnGO: {fileID: 0}
+  delay: 3
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &601564636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,56 +1780,6 @@ MonoBehaviour:
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
---- !u!1 &859581058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 859581059}
-  - component: {fileID: 859581060}
-  m_Layer: 0
-  m_Name: mushroom (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &859581059
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859581058}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.26, y: 2.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1642249715}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &859581060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859581058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
-  type: 5
-  prefab: {fileID: 1333031605163652, guid: 86f36c4e182d8c74a833abe61d738f52, type: 3}
-  showOnSpawnGO: {fileID: 0}
-  delay: 2
-  forceDespawnOnCycleEnd: 1
-  dirAngle: 0
 --- !u!1 &860681910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,7 +2226,7 @@ MonoBehaviour:
   type: 0
   prefab: {fileID: 1504075056688940, guid: b3af77ce7631aec47bb92b4c4e11fa15, type: 3}
   showOnSpawnGO: {fileID: 0}
-  delay: 2
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1038475100
@@ -2537,6 +2537,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1251389384}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1258186036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258186037}
+  - component: {fileID: 1258186038}
+  m_Layer: 0
+  m_Name: frostbite (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1258186037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258186036}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.59, y: 2.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1642249715}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1258186038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258186036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
+  type: 2
+  prefab: {fileID: 1076710340090122, guid: cb5cd6dee79737841ba3011419ee53cc, type: 3}
+  showOnSpawnGO: {fileID: 0}
+  delay: 1
+  forceDespawnOnCycleEnd: 1
+  dirAngle: -90
 --- !u!1 &1270959387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,8 +3014,8 @@ Transform:
   m_Children:
   - {fileID: 1904471454}
   - {fileID: 962662363}
-  - {fileID: 1945052762}
   - {fileID: 529670082}
+  - {fileID: 1945052762}
   - {fileID: 1841716564}
   - {fileID: 802595242}
   m_Father: {fileID: 1720889832}
@@ -3550,7 +3600,7 @@ Transform:
   - {fileID: 140849405}
   - {fileID: 1332905667}
   - {fileID: 1037038508}
-  - {fileID: 859581059}
+  - {fileID: 1258186037}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4134,7 +4184,7 @@ Transform:
   - {fileID: 1038475101}
   - {fileID: 246262956}
   - {fileID: 1689111168}
-  - {fileID: 1959720194}
+  - {fileID: 536219848}
   - {fileID: 1606738785}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 3
@@ -4307,7 +4357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1480217348}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1945052763
 MonoBehaviour:
@@ -4328,56 +4378,6 @@ MonoBehaviour:
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
---- !u!1 &1959720193
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1959720194}
-  - component: {fileID: 1959720195}
-  m_Layer: 0
-  m_Name: mushroom (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1959720194
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959720193}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.26, y: 3.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1908259918}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1959720195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959720193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
-  type: 5
-  prefab: {fileID: 1333031605163652, guid: 86f36c4e182d8c74a833abe61d738f52, type: 3}
-  showOnSpawnGO: {fileID: 0}
-  delay: 1
-  forceDespawnOnCycleEnd: 1
-  dirAngle: 0
 --- !u!1 &1985872694
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,10 +17,12 @@ public class EndController : GameModeController<EndController> {
     public string musicPath;
 
     protected override IEnumerator Start() {
+        float _l = Time.time;
+
         animator.ResetTake(takePlay);
 
         if(!string.IsNullOrEmpty(musicPath) && LoLManager.instance.lastSoundBackgroundPath != musicPath)
-            LoLManager.instance.PlaySound(musicPath, true, true);
+            LoLManager.instance.PlaySound(musicPath, true, false);
 
         yield return base.Start();
 
@@ -34,8 +36,10 @@ public class EndController : GameModeController<EndController> {
         while(animator.isPlaying)
             yield return null;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
 
         LoLManager.instance.Complete();
+
+        Debug.Log((Time.time - _l).ToString());
     }
 }

@@ -563,6 +563,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -663,6 +664,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -745,55 +747,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175439920}
   m_CullTransparentMesh: 0
---- !u!1 &215163336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 215163337}
-  - component: {fileID: 215163338}
-  m_Layer: 0
-  m_Name: fly (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &215163337
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215163336}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.66, y: 2.81, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1480217348}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &215163338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215163336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
-  type: 0
-  prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
-  delay: 0.5
-  forceDespawnOnCycleEnd: 1
-  dirAngle: 90
 --- !u!1 &218642363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,55 +970,6 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: 0}
   m_SizeDelta: {x: 110, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &281739717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 281739718}
-  - component: {fileID: 281739719}
-  m_Layer: 0
-  m_Name: hopper (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &281739718
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281739717}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.62, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1642249715}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &281739719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281739717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6932e60ae8f7dd44a74f5bb81e87738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
-  type: 0
-  prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
-  delay: 3
-  forceDespawnOnCycleEnd: 1
-  dirAngle: -90
 --- !u!1 &282285059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1593,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
@@ -1738,6 +1643,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -1823,6 +1729,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -1921,6 +1828,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -1970,6 +1878,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
@@ -2137,6 +2046,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 5
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -2283,7 +2193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998768821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.69, y: 3.64, z: 0}
+  m_LocalPosition: {x: 16.58, y: 2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1908259918}
@@ -2304,9 +2214,10 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
-  delay: 1
+  showOnSpawnGO: {fileID: 0}
+  delay: 3
   forceDespawnOnCycleEnd: 1
-  dirAngle: 90
+  dirAngle: -90
 --- !u!1 &1002155185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,6 +2749,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -3122,6 +3034,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -3171,7 +3084,8 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
-  delay: 2
+  showOnSpawnGO: {fileID: 0}
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
 --- !u!1 &1331947213
@@ -3254,6 +3168,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
@@ -3303,6 +3218,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
@@ -3352,6 +3268,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
@@ -3575,7 +3492,6 @@ Transform:
   - {fileID: 1376228466}
   - {fileID: 1321419822}
   - {fileID: 2008548684}
-  - {fileID: 215163337}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3608,7 +3524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1642249715}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1545975772
 MonoBehaviour:
@@ -3625,6 +3541,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -3989,7 +3906,6 @@ Transform:
   m_Children:
   - {fileID: 1332905667}
   - {fileID: 1821185613}
-  - {fileID: 281739718}
   - {fileID: 1545975771}
   m_Father: {fileID: 1720889832}
   m_RootOrder: 2
@@ -4040,6 +3956,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
@@ -4175,6 +4092,7 @@ MonoBehaviour:
   editColor: {r: 0.35887754, g: 0.1568627, b: 0.85882354, a: 1}
   type: 0
   prefab: {fileID: 1874793753943524, guid: 1cb41bd74cff3ca45adf878342f85521, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 0
   dirAngle: -90
@@ -4257,6 +4175,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -4381,6 +4300,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.85563195, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1750560851219394, guid: 666ed39fcbc568d47ad053733f804101, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -4430,6 +4350,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 0
@@ -4594,6 +4515,7 @@ MonoBehaviour:
   editColor: {r: 0.35887754, g: 0.1568627, b: 0.85882354, a: 1}
   type: 0
   prefab: {fileID: 1874793753943524, guid: 1cb41bd74cff3ca45adf878342f85521, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 0
   dirAngle: 90
@@ -4897,7 +4819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardDeckTag: UICardDeck
   dragGuideTag: UIDragGuide
-  dragToWindbreakerPoint: {fileID: 505002358}
   introClimateIllustration: {fileID: 81834153}
   introClimateDialog: {fileID: 1733183054}
   introIronFrogCard: {fileID: 1547253816}
@@ -5076,7 +4997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008548683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.65, y: 4.56, z: 0}
+  m_LocalPosition: {x: -16.59, y: 4.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1480217348}
@@ -5097,9 +5018,10 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
-  delay: 3
+  showOnSpawnGO: {fileID: 0}
+  delay: 1
   forceDespawnOnCycleEnd: 1
-  dirAngle: -90
+  dirAngle: 90
 --- !u!1 &2025196731
 GameObject:
   m_ObjectHideFlags: 0
@@ -5268,6 +5190,7 @@ MonoBehaviour:
   editColor: {r: 0.8666667, g: 0.51436776, b: 0.21568626, a: 1}
   type: 0
   prefab: {fileID: 1333031605163652, guid: 03030b08229182249b30fde45089af4a, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 0

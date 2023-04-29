@@ -45,6 +45,9 @@ namespace LoLExt {
 
         IEnumerator DoPlay() {
             for(int i = 0; i < dialogTextRefs.Length; i++) {
+                while(M8.UIModal.Manager.instance.isBusy)
+                    yield return null;
+
                 string textRef = dialogTextRefs[i];
                 if(string.IsNullOrEmpty(textRef))
                     continue;
@@ -56,7 +59,7 @@ namespace LoLExt {
                 else
                     ModalDialog.Open(modal, nameTextRef, textRef, OnDialogNext);
 
-                while(!mIsNext)
+                while(!mIsNext && M8.UIModal.Manager.instance.ModalIsInStack(modal))
                     yield return null;
             }
 

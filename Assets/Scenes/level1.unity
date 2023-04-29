@@ -319,6 +319,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -368,6 +369,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -417,6 +419,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -466,6 +469,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -784,6 +788,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -833,6 +838,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -1287,6 +1293,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -1943,6 +1950,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -1992,6 +2000,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 0.5
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -2393,6 +2402,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -2517,6 +2527,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -2566,6 +2577,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -2956,6 +2968,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -3245,7 +3258,8 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
-  delay: 2
+  showOnSpawnGO: {fileID: 0}
+  delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &712622010
@@ -3780,6 +3794,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -3867,6 +3882,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -3956,6 +3972,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 0
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -4167,7 +4184,8 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 2
+  showOnSpawnGO: {fileID: 0}
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
 --- !u!1 &1087165879
@@ -4596,6 +4614,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -4758,6 +4777,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -4956,6 +4976,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -5005,6 +5026,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -5054,6 +5076,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -5103,7 +5126,8 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
-  delay: 4
+  showOnSpawnGO: {fileID: 0}
+  delay: 3
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
 --- !u!1 &1369766243
@@ -6042,6 +6066,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 1
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -6170,6 +6195,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 0.3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -6451,6 +6477,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -6936,6 +6963,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 0.3
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -7267,6 +7295,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.1568627, b: 0.74225193, a: 1}
   type: 0
   prefab: {fileID: 1244815506485882, guid: 528487207a51da845a5d3fda13a5d148, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 4
   forceDespawnOnCycleEnd: 1
   dirAngle: 90
@@ -7865,6 +7894,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -7949,6 +7979,7 @@ MonoBehaviour:
   editColor: {r: 0.37973282, g: 0.8584906, b: 0.1579299, a: 1}
   type: 2
   prefab: {fileID: 1881365206146918, guid: 8f84ecd6fdc63654e8072396ce2b6c33, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
@@ -7998,6 +8029,7 @@ MonoBehaviour:
   editColor: {r: 0.85882354, g: 0.3219032, b: 0.1568627, a: 1}
   type: 3
   prefab: {fileID: 1332949188636542, guid: 23c86b2b2c3578149bd150f2dad3631f, type: 3}
+  showOnSpawnGO: {fileID: 0}
   delay: 2
   forceDespawnOnCycleEnd: 1
   dirAngle: -90
